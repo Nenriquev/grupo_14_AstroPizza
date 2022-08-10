@@ -11,6 +11,6 @@ Nuestro proyecto integrador para Digital House basado en una ecommerce restauran
 ## Colaboradores: 
 
 * Nerio Enrique Villalobos
-* Ramiro D'gnone
+* Ramiro D'Agnone
 * Nayelhi Malpartida
 * Miguel Leiger
