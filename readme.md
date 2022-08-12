@@ -1,6 +1,6 @@
 # Proyecto integrador - Astro Pizza
 
-Nuestro proyecto integrador para Digital House basado en una ecommerce restaurante pizzeria llamda Astro Pizza. el objetivo de esta web es diseñar una plataforma en donde el usuario pueda tener una experiencia comoda y facil tanto funcionalmente como graficamente para satisfacer su necesidad, entregando un modelo moderno, basado en los mas grandes exponentes de ese mercado: 
+Nuestro proyecto integrador para Digital House basado en un ecommerce restaurante pizzeria llamado Astro Pizza. El objetivo de esta web es diseñar una plataforma en donde el usuario pueda tener una experiencia comoda y facil tanto funcionalmente como graficamente para satisfacer su necesidad, entregando un modelo moderno, basado en los mas grandes exponentes de ese mercado: 
 
 1.- https://www.kentucky.com.ar/ -> Diseño Web UX <br>
 2.- http://www.almacendepizzas.com/ -> Opcion 1 <br>
