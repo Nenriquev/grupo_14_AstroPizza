@@ -17,4 +17,4 @@ Nuestro proyecto integrador para Digital House basado en un ecommerce restaurant
 * Miguel Leiger
 
 
-### Astro Pizza, pizzas de otro planeta.
+#### Astro Pizza, pizzas de otro planeta.
