@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'Star jedi out';
+  src: url('../fonts/Starjout.ttf');
+}
+@font-face {
+  font-family: 'Star jedi';
+  src: url('../fonts/Starjedi.ttf');
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: url('../img/background3.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+video{
+  height: 1000px;
+  width: 707px; 
+  background-color: rgba(0, 0, 255, 0);
+  color: white;
+  clip-path: polygon(0 0, 120% 0, 29% 100%, 0% 100%);
+}
+
+.logo{
+  width: 300px;
+  height: 250px;
+}
+
+.container{
+    overflow: hidden;
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 33.15rem;
+    padding-top: 74px;
+    padding-bottom: 66px;
+    text-decoration: none;
+    height: 90%;
+    max-height: 200px;
+    min-height: 200px;
+    z-index: 1;
+}
+
+.menu{
+  display: flex;
+  justify-content: center;
+  margin-bottom: -60px;
+}
+
+.menu#bottom{
+height: 400px;
+}
+
+
+.product{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  -webkit-transition: all 0.6s 0s ease-in-out;
+  -moz-transition: all 0.6s 0s ease-in-out;
+  -o-transition: all 0.6s 0s ease-in-out;
+  transition: all 0.6s 0s ease-in-out;
+}
+
+.product#bottom-product{
+  align-self: flex-end;
+}
+
+
+.product:hover{
+  transform: scale(1.2)
+}
+
+.img_product{
+  width: 300px;
+}
+
+.sun{
+ width: 300px;
+ transform: scale(1.5);
+ padding-left: 30px;
+ padding-right: 80px;
+ transform-origin: top;
+}
+
+.product-name{
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Star jedi' ;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+}
+
+.id-bottom{
+  top:69%;
+  left: 52%
+}
+
+
+
+
+@media (max-width:768px) {
+
+  .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .container{
+    display: none;
+  }
+
+  .sun{
+    display: none;
+  }
+
+  .menu#bottom{
+    height: initial;
+  }
+
+  .product#bottom-product{
+    align-self: center;
+  }
+
+  .id-bottom{
+    top:initial;
+  }
+
+}
+
