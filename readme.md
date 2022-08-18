@@ -9,6 +9,10 @@ Nuestro proyecto integrador para Digital House basado en un ecommerce restaurant
 * Nayelhi Malpartida
 * Miguel Leiger
 
+## Tablero de Trabajo: 
+
+https://trello.com/b/voFv7QLU/sprints
+
 ## Referencias
 
 * https://www.kentucky.com.ar/ -> Diseño Web UX <br>
