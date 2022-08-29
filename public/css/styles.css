@@ -6,10 +6,15 @@
   font-family: 'Star jedi';
   src: url('../fonts/Starjedi.ttf');
 }
-
-*{
-  box-sizing: border-box;
+@font-face {
+  font-family: 'Console';
+  src: url('../fonts/Console.ttf');
 }
+
+html{
+  scroll-behavior: smooth;
+}
+
 
 body{
   background: url('../img/background3.jpg') no-repeat center center fixed; 
@@ -17,48 +22,190 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin:0;
+  overflow-x: hidden;
 }
 
-video{
-  height: 1000px;
-  width: 707px; 
-  background-color: rgba(0, 0, 255, 0);
-  color: white;
-  clip-path: polygon(0 0, 120% 0, 29% 100%, 0% 100%);
+.container-main{
+  background:
+  url(../img/background.png) no-repeat center;
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  }
+
+.top-navbar{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 118px;
+  align-content: space-between;
+  justify-content: space-between;
 }
 
 .logo{
-  width: 300px;
-  height: 250px;
+  position: relative;
+  bottom: 10%;
+  height: 218px;
 }
 
-.container{
-    overflow: hidden;
-    position: relative;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding: 33.15rem;
-    padding-top: 74px;
-    padding-bottom: 66px;
-    text-decoration: none;
-    height: 90%;
-    max-height: 200px;
-    min-height: 200px;
-    z-index: 1;
+li{
+  display: inline;
+}
+
+.nav{
+  font-family: 'Console';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+}
+
+.nav * {
+  box-sizing: border-box;
+  transition: all .35s ease;
+}
+
+.nav li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: .5em 1em;
+  padding: 0;
+}
+
+.nav a {
+  padding: .5em .8em;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+}
+
+.nav a::before,
+.nav a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.nav a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #5a1489;
+  border-right: 3px solid #4c1074;
+  transform: translate(-100%, 50%);
+}
+
+.nav a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #5a1489;
+  border-left: 3px solid #4c1074;
+  transform: translate(100%, -50%)
+}
+
+.nav a:hover:before,
+.nav a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: #000000;
+  -webkit-text-stroke: .1px rgb(255, 255, 255);
+}
+
+
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.container-page{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+}
+
+h1{
+  font-family: 'Star jedi';
+  font-size: 5vw;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+}
+
+.title{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  text-align: center;
+  z-index: 2;
+}
+
+.text{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
+  font-family: 'Console';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.707);
+ }
+
+.flex-dark{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  text-align: center;
+  z-index: 2;
+}
+
+
+
+
+
+/*MENU*/
+
+.menu-container{
+  margin: 0 auto;
+  width: 50%;
+  align-self: center;
+  
 }
 
 .menu{
   display: flex;
   justify-content: center;
   margin-bottom: -60px;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .menu#bottom{
-height: 400px;
+  height: 365px;
+  display: flex;
 }
 
 
@@ -73,9 +220,16 @@ height: 400px;
 }
 
 .product#bottom-product{
+  display: flex;
   align-self: flex-end;
+  justify-content: center;
+  width: 250px;
 }
 
+.product#left-product{
+  display: flex;
+  justify-content: center;
+}
 
 .product:hover{
   transform: scale(1.2)
@@ -85,34 +239,71 @@ height: 400px;
   width: 300px;
 }
 
+
 .sun{
- width: 300px;
- transform: scale(1.5);
+ width: 246px;
+ transform: scale(1.4);
  padding-left: 30px;
- padding-right: 80px;
- transform-origin: top;
+ padding-right: 58px;
+ transform-origin: center 75px;
+ z-index: -1;
 }
 
 .product-name{
   position: absolute;
   bottom: 4%;
-  left: 50%;
+  left: 51%;
   transform: translate(-50%, -50%);
-  font-family: 'Star jedi' ;
+  font-family: 'Star jedi';
   font-size: 30px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
 }
 
 .id-bottom{
-  top:69%;
-  left: 52%
+  transform: translate(-45%, -140%);
 }
 
 
+ /*MEDIA QUERIES */
 
+
+  /* MOBILE */
 
 @media (max-width:768px) {
+
+ .top-navbar{
+  width: 100%;
+  justify-content: flex-start;
+ }
+
+ .logo{
+  position: relative;
+  bottom: 10%;
+  height: 100%;
+  transform: scale(1.1);
+  transform-origin: center -108%;
+ }
+
+  .navbar{
+    display: none;
+  }
+
+  main{
+    display: flex;
+  }
+
+
+  .flex-dark{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    text-align: center;
+    z-index: 2;
+  }
 
   .menu{
     display: flex;
@@ -139,8 +330,76 @@ height: 400px;
   }
 
   .id-bottom{
-    top:initial;
+    transform: translate(-50%, -50%);
   }
 
+  .main-bottom{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    overflow: hidden;
+  }
+  
 }
+
+  /* TABLETS */
+
+@media (min-width:767px) and (max-width:1024px) {
+
+  .img_product{
+    width: 250px;
+  }
+  
+  .id-bottom{
+    top: 77%;
+    left: 55%;
+  }
+
+  .menu{
+    flex-direction: row;
+  }
+  }
+
+  /*DESKTOP*/
+
+  @media (min-width:1024px) {
+   
+    .container-page{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 8%;
+      margin: 0 auto;
+      width: 90%;
+      height: 70vh;
+      z-index: -1;
+    }
+
+    h1{
+      font-family: 'Star jedi';
+      font-size: 2vw;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+    }
+
+    .text{
+      font-size: 1.5vw;
+      text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+    }
+    
+  
+    .title{
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      bottom: 20%;
+      text-align: center;
+      z-index: 2;
+   }
+
+  }
+  
+  
 

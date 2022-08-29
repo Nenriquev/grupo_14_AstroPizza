@@ -1,0 +1,216 @@
+#astronaut-box{
+  width: 100%;
+  max-height: 80%;
+  left: -9%;
+  position: relative;
+  animation: anim-box 20s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+#pizza-box{
+  position: absolute;
+  width: 61%;
+  bottom: 1%;
+  left: 37%;
+  animation: anim-pizzabox 20s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+
+.asteroid > img{
+  position: absolute;
+  width: 15%;
+  bottom: 70%;
+  left: 70%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+.asteroid#a1{
+  position: absolute;
+  width: 12%;
+  bottom: 17%;
+  left: 8%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.asteroid#a2{
+  position: absolute;
+  width: 17%;
+  top: 10%;
+  left: 68%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+.asteroid#a3{
+  display: none;
+}
+
+
+@keyframes anim {
+  0% {
+    transform: translateY(0px);
+  }
+  10%{
+    transform: translateY(30px) rotate(10deg);
+  }
+  20%{
+    transform: translateY(60px) rotate(20deg);
+  }
+   30%{
+    transform: translateY(90px) rotate(30deg);
+  }
+   40%{
+    transform: translateY(120px) rotate(20deg);
+  }
+  50% {
+    transform: translateY(150px) rotate(30deg);
+  }
+  60%{
+    transform: translateY(120px) rotate(40deg);
+  }
+  70%{
+    transform: translateY(90px) rotate(10deg);
+  }
+  80%{
+    transform: translateY(60px) rotate(20deg);
+  }
+  90%{
+    transform: translateY(30px) rotate(10deg);
+  }
+   100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes asteroid {
+  0% {
+    transform: translateY(0px) rotate(-360deg);
+  }
+   50% {
+    transform: translateY(30px);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(360deg);
+  } 
+}
+
+@keyframes anim-box {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-10deg);
+  }
+   100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes anim-pizzabox {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px) rotate(15deg);
+  }
+   100% {
+    transform: translateY(0px);
+  }
+}
+
+/*DESKTOP*/
+
+@media (min-width:1024px) {
+
+#pizza-box{
+  position: absolute;
+  width: 33%;
+  top: 35%;
+  left: 46%;
+  animation: anim-pizzabox 20s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+#astronaut-box{
+  position: absolute;
+  left: 17%;
+  width: 45%;
+  top: 1%;
+  max-height: none;
+  animation: anim-box 20s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.asteroid#a1{
+  position: absolute;
+  width: 8%;
+  bottom: 17%;
+  left: 8%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.asteroid#a2{
+  position: absolute;
+  width: 11%;
+  top: 11%;
+  left: 68%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -2;
+}
+
+  
+}
+
+@media (max-width:500px) and (min-height:800px) {
+  .asteroid#a3{
+    display: inline;
+    position: absolute;
+    width: 18%;
+    top: 52%;
+    left: 25%;
+    animation: asteroid 35s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+}
+
+
+
+@media (min-width:769px) and (max-width:1023px){
+
+  #astronaut-box > img{
+    max-width: 80%;
+    position: relative;
+    top: 10%;
+    animation: anim-box 20s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  #pizza-box > img{
+    max-width: 41%;
+  }
+
+}

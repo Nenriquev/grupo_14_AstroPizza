@@ -4,63 +4,104 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/animation.css">
   <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  <link rel="stylesheet" type="text/css" href="./css/button.css">
+
+
   <title>Astro Pizza</title>
 </head> 
-<body>
-  <header>
-    <div>
-      <a href="/"><img class="logo" src="../img/Astro Pizza Logo.png" alt=""></a>
-    </div>
-    <!--
-    <div class="container">
-    <video autoplay muted loop>
-      <source src="../video/banner_video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
-  </div>
-  -->
-  </header>
 
-  <section class="menu">
+<body>
+  <div class="container-main">
+    <header>
+      <div class="top-navbar">
+        <div class="container-logo">
+          <a href="/"><img class="logo" src="../img/Astro Pizza Logo.png" alt=""></a>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul class="nav">
+              <li><a href="#">Quienes somos</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Soporte</a></li>
+              <li><a href="#">ingresa</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+        <div class="container-page">
+            <img id="astronaut-box" src="../img/Astronaut.png" alt="">
+            <img id="pizza-box" src="../img/Pizza_box.png" alt="">
+        </div>
+        <div class="title">
+            <h1>Pizzas de otro planeta 🛸</h1>
+          <div class="text">
+            <span>Aterrizamos en 30 minutos 🚀</span>
+          </div>
+          <div class="text">
+            <span>Pedilas ahora 👇 🍕</span>
+          </div>
+        </div>
+        <img class="asteroid" id="a1" src="../img/asteroid_1.png" alt="">
+        <img class="asteroid" id="a2" src="../img/asteroid_2.png" alt="">
+        <img class="asteroid" id="a3" src="../img/asteroid_2.png" alt="">
+    </main>
+
+
+   
+      <div class="flex-dark">
+        <a href="#menu" class="bttn-dark">Conocelas</a>
+      </div>
+
+  </div>
+
+
+
+
+<div class="menu-container" id="menu"> 
+  <section class="menu" id="top">
     <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Mercurio.png"/></a>
+      <a href="/product_detail"><img class='img_product' src="../img/products/Mercurio.webp" alt="Pizza Mercurio"/></a>
       <div class="product-name">mercurio</div>
     </div>
     <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Venus.png"/></a>
+      <a href="/product_detail"><img class='img_product' src="../img/products/Venus.png" alt="Pizza Venus"/></a>
       <div class="product-name">venus</div>
     </div>
   </section>
 
   <section class="menu">
     <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Marte.png"/></a>
+      <a href="/product_detail"><img class='img_product' src="../img/products/Marte.webp" alt="Pizza Marte"/></a>
       <div class="product-name">marte</div>
     </div>
     <div class="sun">
       <img class='sun' src="../img/products/sun.png"/>
     </div>
     <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Jupiter.png"/></a>
+      <a href="/product_detail"><img class='img_product' src="../img/products/Jupiter.webp" alt="Pizza Jupiter"/></a>
       <div class="product-name">jupiter</div>
     </div>
   </section>
  
   <section class="menu" id="bottom">
-    <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Saturno.png"/></a>
+    <div class="product" id="left-product">
+      <a href="/product_detail"><img class='img_product' id="left" src="../img/products/Saturno.webp" alt="Pizza Saturno"/></a>
       <div class="product-name id-bottom">saturno</div>
     </div>
     <div class="product" id="bottom-product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Neptuno.png"/></a>
+      <a href="/product_detail"><img class='img_product' src="../img/products/Neptuno.webp" alt="Pizza Neptuno"/></a>
       <div class="product-name">neptuno</div>
     </div>
-    <div class="product">
-      <a href="/product_detail"><img class='img_product' src="../img/products/Urano.png"/></a>
+    <div class="product" id="right-product">
+      <a href="/product_detail"><img class='img_product' src="../img/products/Urano.png" alt="Pizza Urano"/></img></a>
       <div class="product-name id-bottom">urano</div>
     </div>
   </section>
-
+</div>
 </body>
 </html>

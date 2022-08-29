@@ -17,3 +17,8 @@ app.get('/', (req, res) => {
 app.get('/product_detail', (req, res) => {
   res.sendFile(path.resolve('./views/product_detail.html'))
 })
+
+
+app.get('/index2', (req, res) => {
+  res.sendFile(path.resolve('./views/index2.html'))
+})
