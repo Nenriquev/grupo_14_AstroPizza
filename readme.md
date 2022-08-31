@@ -6,7 +6,6 @@ Nuestro proyecto integrador para Digital House basado en un ecommerce restaurant
 
 * Nerio Enrique Villalobos
 * Ramiro D'Agnone
-* Nayelhi Malpartida
 * Miguel Leiger
 
 ## Tablero de Trabajo: 
