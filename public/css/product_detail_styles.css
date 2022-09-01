@@ -6,14 +6,111 @@
     font-family: 'Star jedi out';
     src: url('../fonts/Starjout.ttf');
   }
+
   @font-face {
     font-family: 'Star jedi';
     src: url('../fonts/Starjedi.ttf');
   }
+
+  @font-face {
+    font-family: 'Console';
+    src: url('../fonts/Console.ttf');
+  }
+
+  /*Header*/
+
+  .top-navbar{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    height: 118px;
+    align-content: space-between;
+    justify-content: space-between;
+  }
   
-.product_detail_logo{
-    width: 12vw;
-    height: auto;
+  
+.logo{
+    position: relative;
+    bottom: 10%;
+    height: 218px;
+  }
+  
+  li{
+    display: inline;
+  }
+  
+  .nav{
+    font-family: 'Console';
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .nav * {
+    box-sizing: border-box;
+    transition: all .35s ease;
+  }
+  
+  .nav li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: .5em 1em;
+    padding: 0;
+  }
+  
+  .nav a {
+    padding: .5em .8em;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+  }
+  
+  .nav a::before,
+  .nav a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+  
+  .nav a::before {
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid #5a1489;
+    border-right: 3px solid #4c1074;
+    transform: translate(-100%, 50%);
+  }
+  
+  .nav a:after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #5a1489;
+    border-left: 3px solid #4c1074;
+    transform: translate(100%, -50%)
+  }
+  
+  .nav a:hover:before,
+  .nav a:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  
+  .nav a:hover {
+    color: #000000;
+    -webkit-text-stroke: .1px rgb(255, 255, 255);
+  }
+  
+  
+  .navbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
   }
   
   body{
@@ -24,11 +121,15 @@
     background-size: cover;
   }
   
-  .product_detail_center{
-    display: flex;
-    justify-content: center;
-  }
+/* Main */
+
+.product_detail_center{
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
   
+  /* Menu Extras */
 .cuadro_extras{
     display: flex;
     background-color: rgba(0, 0, 0, 0.7);
@@ -84,16 +185,15 @@
     text-align: center;
   }
   
+  /* Pizza */
   .product_detail_pizza{
-    margin-top: 20px;
+    margin-top: 70px;
     width: 50vw;
     height: auto;
-    transition: all 105000ms;
   }
 
-:hover .product_detail_pizza{
-    transform: rotate(780deg);
-  }
+
+/* Menu Bebidas */
 
   .cuadro_bebidas{
     display: flex;
@@ -136,32 +236,28 @@
     text-align: center;
   }
   
-  .product_detail_agregar_nave{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .product_detail_agregar{
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 340px;
-    border: 3px solid #4e21a4;
-    margin-top: -120px;
-  }
-  
-  .product_detail_agregar_nave :hover{
-    background-color: #1e0d40;
-    transform: scale(1.1); 
-  } 
-  
-  .product_detail_agregar h3{
-    font-family: 'Star jedi';
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
-  }
-  
+/* Boton agregar */
+
+.flex-dark{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 170%;
+  text-align: center;
+}
+
+.product_detail_precio{
+  color: #fff;
+  font-family: 'Console';
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+}
+
   @media (max-width:768px) {
     
     .product#bottom-product{
