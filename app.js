@@ -22,3 +22,7 @@ app.get('/product_detail', (req, res) => {
 app.get('/index2', (req, res) => {
   res.sendFile(path.resolve('./views/index2.html'))
 })
+
+app.get('/carrito', (req, res) => {
+  res.sendFile(path.resolve('./views/carrito.html'))
+})
