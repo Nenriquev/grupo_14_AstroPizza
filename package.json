@@ -2,7 +2,7 @@
   "name": "astropizza",
   "version": "1.0.0",
   "description": "Astro Pizza web proyect",
-  "main": "app.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "test": "test",
