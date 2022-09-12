@@ -1,7 +1,8 @@
 import express from 'express'
-import indexRouter from './routers/index.js'
 import path from 'path'
+import indexRouter from './routers/index.js'
 import productRouter from './routers/products.js'
+import cartRouter from './routers/cart.js'
 
 
 const app = express()
@@ -17,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('../public'))
 
 /* INDEX */
-app.use('/',indexRouter)
+app.use('/', indexRouter)
 
 
 /*PRODUCTS */
@@ -25,10 +26,7 @@ app.use('/',indexRouter)
 app.use('/', productRouter)
 
 
+/*CART*/
 
-
-app.get('/carrito', (req, res) => {
-  res.sendFile(path.resolve('./views/carrito.html'))
-})
-
+app.use('/', cartRouter)
 
