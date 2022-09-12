@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'Console';
+  src: url('../fonts/Console.ttf');
+}
+
+
+body{
+  background: url('../img/background3.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin:0;
+  overflow-x: hidden;
+  height: 100vh;
+  font-family: 'Console';
+}
+
+.body-main{
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+#astronaut-box,
+#pizza-box{
+display: none;
+}
+
+.bg-grey{
+  background-color: #353536;
+}
+
+.text-gray{
+  color: rgba(255, 255, 255, 0.668);
+}
+
+.accordion-button:not(.collapsed){
+  color: rgba(255, 255, 255, 0.668);
+  background-color: #5e1b88;
+}
+
+/*TABLETS*/
+
+@media (min-width: 642px) {
+
+  .container{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .container-main{
+    width: 50%;
+  }
+
+  #astronaut-box{
+    display: inherit;
+    position: absolute;
+    left: -5%;
+    width: 60%;
+    top: 36%;
+    max-height: none;
+    animation: anim-box 20s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+ 
+}
+
+/*DESKTOP*/
+
+@media (min-width:1024px) {
+
+  .container-main{
+    width: 100%;
+  }
+
+  .container{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+
+  #pizza-box{
+    display: inherit;
+    position: absolute;
+    width: 25%;
+    top: 49%;
+    left: 25%;
+    animation: anim-pizzabox 20s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  #astronaut-box{
+    display: inherit;
+    position: absolute;
+    left: 1%;
+    width: 39%;
+    top: 15%;
+    max-height: none;
+    animation: anim-box 20s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .asteroid#a1{
+    position: absolute;
+    width: 8%;
+    bottom: 17%;
+    left: 8%;
+    animation: asteroid 35s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  .asteroid#a2{
+    position: absolute;
+    width: 11%;
+    top: 11%;
+    left: 68%;
+    animation: asteroid 35s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: -2;
+  }
+}
+    
+
+@keyframes anim-box {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-10deg);
+  }
+   100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes anim-pizzabox {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px) rotate(15deg);
+  }
+   100% {
+    transform: translateY(0px);
+  }
+}
