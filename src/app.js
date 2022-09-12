@@ -25,3 +25,10 @@ app.use('/',indexRouter)
 app.use('/', productRouter)
 
 
+
+
+app.get('/carrito', (req, res) => {
+  res.sendFile(path.resolve('./views/carrito.html'))
+})
+
+
