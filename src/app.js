@@ -14,9 +14,3 @@ app.use(express.static('../public'))
 app.use('/',indexRouter)
 
 app.use('/tyc', indexRouter)
-
-app.get('/product_detail', (req, res) => {
-  res.sendFile(path.resolve('./views/product_detail.html'))
-})
-
-
