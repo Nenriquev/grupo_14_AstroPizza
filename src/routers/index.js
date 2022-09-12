@@ -6,6 +6,6 @@ const indexRouter = express.Router()
 indexRouter.get('/', indexController.index);
 indexRouter.get('/faqs', indexController.faqs);
 indexRouter.get('/product_detail', indexController.productDetail);
-
+indexRouter.get('/carrito', indexController.carrito);
 
 export default indexRouter;
