@@ -2,21 +2,17 @@ import path from 'path'
 
 const indexController = {
   index: (req, res) => {
-    res.sendFile(path.resolve('./views/index.html'))
+    res.render(path.resolve('./views/index.ejs'))
   },
 
   faqs: (req, res) => {
-    res.sendFile(path.resolve('./views/faqs.html'))
+
+    res.render(path.resolve('./views/faqs.ejs'))
   },
 
-  productDetail:  (req, res) => {
-    res.sendFile(path.resolve('./views/product_detail.html'))
-  },
-
-  carrito:  (req, res) => {
-    res.sendFile(path.resolve('./views/carrito.html'))
-  },
-  
+  support: (req, res) => {
+    res.render(path.resolve('./views/support.ejs'))
+  }
 }
 
 

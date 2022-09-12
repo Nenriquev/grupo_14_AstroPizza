@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../css/animation.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link rel="stylesheet" type="text/css" href="../css/button.css">
+
+  <title>Astro Pizza</title>
+</head> 
+
+<body>
+  <div class="container-main">
+    
+    <%- include('./partials/header') %> 
+
+    <main>
+        <div class="container-page">
+            <img id="astronaut-box" src="../img/Astronaut.png" alt="">
+            <img id="pizza-box" src="../img/Pizza_box.png" alt="">
+        </div>
+        <div class="title">
+            <h1>Pizzas de otro planeta 🛸</h1>
+          <div class="text">
+            <span>Aterrizamos en 30 minutos 🚀</span>
+          </div>
+          <div class="text">
+            <span>Pedilas ahora 👇 🍕</span>
+          </div>
+        </div>
+        <img class="asteroid" id="a1" src="../img/asteroid_1.png" alt="">
+        <img class="asteroid" id="a2" src="../img/asteroid_2.png" alt="">
+        <img class="asteroid" id="a3" src="../img/asteroid_2.png" alt="">
+    </main>
+      <div class="flex-dark">
+        <a href="#menu" class="bttn-dark">Conocelas</a>
+      </div>
+  </div>
+
+
+
+  <section class="menu-container" id="menu"> 
+    <section class="menu" id="top">
+      <div class="product">
+        <a href="/product"><img class='img_product' src="../img/products/Mercurio.webp" alt="Pizza Mercurio"/></a>
+        <div class="product-name">mercurio</div>
+      </div>
+      <div class="product">
+        <a href="/product"><img class='img_product' src="../img/products/Venus.png" alt="Pizza Venus"/></a>
+        <div class="product-name">venus</div>
+      </div>
+    </section>
+
+    <section class="menu">
+      <div class="product">
+        <a href="/product"><img class='img_product' src="../img/products/Marte.webp" alt="Pizza Marte"/></a>
+        <div class="product-name">marte</div>
+      </div>
+      <div class="sun">
+        <img class='sun' src="../img/products/sun.png"/>
+      </div>
+      <div class="product">
+        <a href="/product"><img class='img_product' src="../img/products/Jupiter.webp" alt="Pizza Jupiter"/></a>
+        <div class="product-name">jupiter</div>
+      </div>
+    </section>
+  
+    <section class="menu" id="bottom">
+      <div class="product" id="side">
+        <a href="/product"><img class='img_product' id="left" src="../img/products/Saturno.webp" alt="Pizza Saturno"/></a>
+        <div class="product-name id-bottom">saturno</div>
+      </div>
+      <div class="product" id="bottom-product">
+        <a href="/product"><img class='img_product' src="../img/products/Neptuno.webp" alt="Pizza Neptuno"/></a>
+        <div class="product-name">neptuno</div>
+      </div>
+      <div class="product" id="side">
+        <a href="/product"><img class='img_product' src="../img/products/Urano.png" alt="Pizza Urano"/></img></a>
+        <div class="product-name id-bottom">urano</div>
+      </div>
+    </section>
+  </section>
+  <%- include('./partials/footer') %> 
+</body>
+</html>

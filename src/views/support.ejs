@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link rel="stylesheet" type="text/css" href="../css/support.css">
+  <link rel="stylesheet" type="text/css" href="../css/button.css">
+  <title>Contacto</title>
+</head>
+<body>
+  <div class="main-container">
+
+    <%- include('./partials/header') %> 
+
+      <div class="form-container">
+        <div class="form-col">
+          <img src="../img/71.png">
+        </div>
+        <div class="form-col2">
+          <div class="form-in">
+              <form action="/">
+                <div class="field-group">
+                  <input type="text" class="fg-field" required>
+                  <label class="fg-label">Nombre y Apellido</label>
+                </div>
+              
+                <div class="field-group">
+                  <input type="email" class="fg-field" required>
+                  <label class="fg-label">Correo electronico</label>
+                </div>
+
+                <div class="select">
+                  <select>
+                    <option disabled selected>Motivo</option>
+                    <option>Producto incompleto</option>
+                    <option>Producto en mal estado</option>
+                    <option>Producto equivocado</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <textarea class="fg-field" required></textarea>
+                  <label class="fg-label">Comentario</label>
+                </div>
+
+              </form>
+              <div>
+                <a href="#menu" class="bttn-dark">Enviar</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <%- include('./partials/footer') %> 
+</body>
+</html>

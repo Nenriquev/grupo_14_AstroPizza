@@ -3,9 +3,8 @@ import indexController from "../controllers/indexController.js";
 
 const indexRouter = express.Router()
 
-indexRouter.get('/', indexController.index);
-indexRouter.get('/faqs', indexController.faqs);
-indexRouter.get('/product_detail', indexController.productDetail);
-indexRouter.get('/carrito', indexController.carrito);
+indexRouter.get('/', indexController.index)
+indexRouter.get('/faqs', indexController.faqs)
+indexRouter.get('/soporte', indexController.support)
 
 export default indexRouter;
