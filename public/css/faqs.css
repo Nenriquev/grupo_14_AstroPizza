@@ -5,7 +5,7 @@
 
 
 body{
-  background: url('../img/background3.jpg') no-repeat center center fixed; 
+  background: url('../img/background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,15 +14,15 @@ body{
   overflow-x: hidden;
   height: 100vh;
   font-family: 'Console';
+  display: flex;
+  flex-direction: column;
 }
 
 .body-main{
-  margin: 0;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 
@@ -37,6 +37,11 @@ display: none;
 
 .text-gray{
   color: rgba(255, 255, 255, 0.668);
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+.text-paragraph{
+  color: rgba(255, 255, 255, 0.511);
 }
 
 .accordion-button:not(.collapsed){
@@ -44,17 +49,37 @@ display: none;
   background-color: #5e1b88;
 }
 
+
+.accordion{
+  box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+}
+
+.footer-title{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+/*MOBILE*/
+@media (max-width: 642px) {
+  .top-navbar{
+    margin-bottom: 3%;
+  }
+}
+
+
 /*TABLETS*/
 
 @media (min-width: 642px) {
 
-  .container{
+  .container-mn{
     display: flex;
     width: 90%;
     margin: 0 auto;
   }
 
-  .container-main{
+  .display-container{
     width: 50%;
   }
 
@@ -63,26 +88,38 @@ display: none;
     position: absolute;
     left: -5%;
     width: 60%;
-    top: 36%;
+    top: 21%;
     max-height: none;
     animation: anim-box 20s linear infinite;
     animation-delay: 1s;
     overflow: hidden;
     z-index: -1;
   }
-
- 
 }
+ 
+
 
 /*DESKTOP*/
 
 @media (min-width:1024px) {
 
-  .container-main{
+  .display-container{
     width: 100%;
+    
   }
 
-  .container{
+  .body-main{
+    margin: 0;
+    position: relative;
+    top: 37%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    flex-grow: 0;
+  }
+  
+
+  .container-mn{
     display: flex;
     width: 90%;
     margin: 0 auto;
@@ -93,19 +130,19 @@ display: none;
     display: inherit;
     position: absolute;
     width: 25%;
-    top: 49%;
+    top: 37vh;
     left: 25%;
     animation: anim-pizzabox 20s linear infinite;
     animation-delay: 1s;
     overflow: hidden;
-    z-index: 2;
+    z-index: -1;
   }
   
   #astronaut-box{
     display: inherit;
     position: absolute;
     left: 1%;
-    width: 39%;
+    width: 35%;
     top: 15%;
     max-height: none;
     animation: anim-box 20s linear infinite;
@@ -135,6 +172,12 @@ display: none;
     overflow: hidden;
     z-index: -2;
   }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+  }
+
 }
     
 
