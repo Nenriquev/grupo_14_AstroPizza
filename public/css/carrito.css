@@ -59,9 +59,9 @@
     justify-content: center;
     border: solid violet 8px;
     width: 70%;
-    border-radius: 10%;
-    align-items: center;
-    position: absolute;
+    border-radius: 15px;
+    
+    
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -72,9 +72,18 @@
 }
 
 .pedido-items{
+    display: flex;
     color: aqua;
     font-family: "Console";
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    
+}
+
+.flex-dark{
+    bottom: 27%;
+}
+
+.items-1{
+    width: 33%;
 }
 
