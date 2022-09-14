@@ -1,4 +1,4 @@
-import path from 'path'
+const path = require('path')
 
 const indexController = {
   index: (req, res) => {
@@ -15,4 +15,4 @@ const indexController = {
 }
 
 
-export default indexController;
+module.exports = indexController;

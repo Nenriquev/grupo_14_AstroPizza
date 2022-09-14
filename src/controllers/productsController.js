@@ -1,11 +1,10 @@
-import path from 'path'
+const path = require('path')
 
 const productController = {
   products: (req, res) => {
-    res.sendFile(path.resolve('./views/product_detail.ejs'))
+    res.render(path.resolve('./views/product_detail.ejs'))
   },
 
 }
 
-
-export default productController;
+module.exports = productController;

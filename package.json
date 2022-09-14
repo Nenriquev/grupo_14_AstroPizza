@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Astro Pizza web proyect",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "test": "test",
-    "start": "start"
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
-import express from "express";
-import indexController from "../controllers/indexController.js";
+const express = require('express')
+const indexController = require("../controllers/indexController.js");
 
 const indexRouter = express.Router()
 
@@ -9,4 +9,4 @@ indexRouter.get('/soporte', indexController.support)
 
 
 
-export default indexRouter;
+module.exports = indexRouter;

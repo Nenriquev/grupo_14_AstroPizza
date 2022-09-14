@@ -13,10 +13,6 @@ body{
 }
 
 
-.form-container > img{
-  display: none;
-}
-
 footer{
   flex: 0;
 }
@@ -27,6 +23,39 @@ footer{
 }
 
 /* FORM */
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  z-index: 0;
+}
+
+.form-col > img{
+  display: none;
+}
+
+.form-col2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.form-in{
+  width: 90%;
+  margin-top: 80px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+}
 
 .field-group {
   position: relative;
@@ -39,10 +68,14 @@ footer{
   left: 4px;
   font-size: 14px;
   color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
+
 
 textarea{
   resize: none;
+  font-family: 'Arial';
+  width: 90%;
 }
 
 .field-group textarea:focus + .fg-label,
@@ -51,14 +84,20 @@ textarea{
   left: 4px;
   font-size: 14px;
   color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
 .field-group .fg-field {
-  border: 1px solid #999;
+  background-color: rgba(255, 255, 255, 0.433);
+  border: 1px solid rgb(0, 0, 0);
   padding: 10px;
   border-radius: 4px;
   font-size: 20px;
   outline: none;
+}
+
+.field-group .fg-field:focus {
+  box-shadow: 0px 0px 4px 5px #5e1b88;
 }
 
 .field-group .fg-label {
@@ -68,7 +107,7 @@ textarea{
   font-size: 15px;
   pointer-events: none;
   transition: 0.3s ease all;
-  color: #222;
+  color: rgb(255, 251, 251);
 }
 
 .center {
@@ -80,7 +119,7 @@ textarea{
   align-items: center;
 }
 
-select {
+select{
   font-family: 'Console';
   font-size: 15px;
   padding-left: 10px;
@@ -89,9 +128,13 @@ select {
   border: 0;
   box-shadow: none;
   flex: 1;
-  color: #000;
-  background-color: white;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.433);
   cursor: pointer;
+}
+
+select > option{
+  background-color: rgba(0, 0, 0, 0.432);
 }
 
 select::-ms-expand {
@@ -103,6 +146,7 @@ select::-ms-expand {
   display: flex;
   width: 265px;
   height: 45px;
+  margin: 20px 0 10px 0;
   border-radius: .25em;
   overflow: hidden;
 }
@@ -114,7 +158,7 @@ select::-ms-expand {
   top: 0;
   right: 0;
   padding: 1em;
-  background-color: #370889;
+  background-color: #5e1b88;
   transition: .25s all ease;
   pointer-events: none;
 }
@@ -123,11 +167,12 @@ select::-ms-expand {
   color: #ffffff;
 }
 
-
-
+input[type="file"] {
+  color:#5e1b88
+}
 
 /*DESKTOP*/
-@media (min-width: 1024px) {
+@media (min-width: 642px) {
 
   header{
     z-index: 1;
@@ -138,6 +183,7 @@ select::-ms-expand {
   }
 
   .form-container{
+    display: block;
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -157,6 +203,7 @@ select::-ms-expand {
     width: 50%;
     height: 100vh;
     float: right;
+    background-color: transparent;
   }
 
   .form-col > img{
@@ -164,16 +211,6 @@ select::-ms-expand {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .form-in{
-    background-color: rgb(37, 36, 36);
-    box-shadow: 0px 0px 29px 1px rgba(0,0,0,0.75);
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   footer{

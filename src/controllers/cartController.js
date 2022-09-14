@@ -1,4 +1,4 @@
-import path from 'path'
+const path = require('path')
 
 const cartController = {
   cart: (req, res) => {
@@ -7,5 +7,4 @@ const cartController = {
 
 }
 
-
-export default cartController;
+module.exports = cartController;
