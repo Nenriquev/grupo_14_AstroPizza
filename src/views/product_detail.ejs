@@ -12,47 +12,38 @@
 </head>
 <body>
 
-  <header>
-    <div class="top-navbar">
-      <div class="container-logo">
-        <a href="/"><img class="logo" src="../img/Astro Pizza Logo.png" alt=""></a>
-      </div>
-      <div class="navbar">
-        <nav>
-          <ul class="nav">
-            <li><a href="#">Quienes somos</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Soporte</a></li>
-            <li><a href="#">ingresa</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <%- include('./partials/header') %> 
 
   <section class="product_detail_center">
-      <div class="cuadro_extras">
-      <h3>Agrégale Extras</h3>
+    <div class="cuadro_extras">
+      <h3 class="cuadro_extras_titulo">Agrégale Extras</h3>
 
         <h4>Quesos $100</h4>
-      
+        <div class="cuadro_extras_quesos">
           <p>
             <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">MUZZARELLA
+              <input type="checkbox" name="queso">Muzzarella
             </label>
           </p>
           <p>
             <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">PROVOLONE
+              <input type="checkbox" name="queso">Provolone
             </label>
           </p>
           <p>
             <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">PARMESANO
+              <input type="checkbox" name="queso">Parmesano
             </label>
           </p>
+          <p>
+            <label class="product_detail_cuadro_extras">
+              <input type="checkbox" name="queso">Roquefort
+            </label>
+          </p>
+        </div>
         
           <h4>Vegetales $90</h4>
+        <div>
           <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="vegetales">Morron Rojo
@@ -78,9 +69,9 @@
               <input type="checkbox" name="vegetales">Aceitunas Negras
             </label>
           </p>
-
+        </div>
           <h4>Proteinas $120</h4>
-
+        <div>
           <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="proteinas">Bacon
@@ -91,23 +82,28 @@
               <input type="checkbox" name="proteinas">Jamón
             </label>
           </p>
+          <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="proteinas">Pastrami
             </label>
+          </p>
           <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="proteinas">Salchica Italiana
             </label>
+          </p>
           <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="proteinas">Salchica Alemana
             </label>
+          </p>
           <p>
             <label class="product_detail_cuadro_extras">
               <input type="checkbox" name="proteinas">Meatballs
             </label>
-        </p>
-      </div>
+          </p>
+        </div>
+    </div>
           
       <div>
             <img class='product_detail_pizza' src="../img/products/Urano.png"/>
@@ -118,7 +114,7 @@
 
           <h3>Acompañalo con tu bebida favorita</h3>
           <h4>Bebidas 350ml $250</h4>
-
+        <div>
           <label class="product_detail_cuadro_bebidas">Agua
             <select name="agua" id="agua">
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
@@ -142,10 +138,10 @@
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
             </select>
           </label>
+        </div>
 
           <h4>Cerveza 355ml $350</h4>
-
-
+        <div>
           <label class="product_detail_cuadro_bebidas">Amber Roja
             <select name="amber" id="amber">
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
@@ -175,14 +171,14 @@
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
             </select>
           </label>
-
+        </div>
       </div>
     </section>
 
     <div class="flex-dark">
-      <a href="#carrito" class="bttn-dark">Agregar a la nave</a>
+      <a href="/carrito" class="bttn-dark">Agregar a la nave</a>
       <p class="product_detail_precio">$420</p>
     </div>  
-    
+    <%- include('./partials/footer') %>
 </body>
 </html>

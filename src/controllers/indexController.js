@@ -2,15 +2,16 @@ const path = require('path')
 
 const indexController = {
   index: (req, res) => {
-    res.render(path.resolve('./views/index.ejs'))
+    res.render('index.ejs')
   },
 
   faqs: (req, res) => {
-    res.render(path.resolve('./views/faqs.ejs'))
+
+    res.render('faqs.ejs')
   },
 
   support: (req, res) => {
-    res.render(path.resolve('./views/support.ejs'))
+    res.render('support.ejs')
   }
 }
 
