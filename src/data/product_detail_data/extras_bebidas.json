@@ -1,0 +1,22 @@
+[
+    {
+        "showName": "Agua",
+        "name": "agua",
+        "id": "agua"
+    },
+    {
+        "showName": "Coca-Cola",
+        "name": "cocacola",
+        "id": "cocacola"
+    },
+    {
+        "showName": "Sprite",
+        "name": "sprite",
+        "id": "sprite"
+    },
+    {
+        "showName": "Fanta",
+        "name": "fanta",
+        "id": "fanta"
+    }
+]

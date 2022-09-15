@@ -8,6 +8,8 @@
   <link rel="stylesheet" type="text/css" href="./css/button.css">
   <link rel="stylesheet" type="text/css" href="./css/animation.css">
   <link rel="stylesheet" type="text/css" href="./css/product_detail_styles.css">
+  <link rel="stylesheet" type="text/css" href="./css/header.css">
+  <link rel="stylesheet" type="text/css" href="./css/footer.css">
   <title>Nombre del producto</title>
 </head>
 <body>
@@ -20,88 +22,35 @@
 
         <h4>Quesos $100</h4>
         <div class="cuadro_extras_quesos">
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">Muzzarella
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">Provolone
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">Parmesano
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="queso">Roquefort
-            </label>
-          </p>
+          <% dataQuesos.forEach(function(quesos) { %>
+            <p>
+              <label class="product_detail_cuadro_extras">
+                <input type="checkbox" name="<%= quesos.mame %> "><%= quesos.showName %> 
+              </label>
+            </p>
+          <% }); %>
         </div>
         
           <h4>Vegetales $90</h4>
         <div>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="vegetales">Morron Rojo
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="vegetales">Cebolla Blanca
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="vegetales">Champiñones
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="vegetales">Aceitunas Verdes
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="vegetales">Aceitunas Negras
-            </label>
-          </p>
+          <% dataVegetales.forEach(function(vegetales) { %>
+            <p>
+              <label class="product_detail_cuadro_extras">
+                <input type="checkbox" name="<%= vegetales.name %>"><%= vegetales.showName %>
+              </label>
+            </p>
+          <% }); %>
         </div>
+
           <h4>Proteinas $120</h4>
         <div>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Bacon
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Jamón
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Pastrami
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Salchica Italiana
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Salchica Alemana
-            </label>
-          </p>
-          <p>
-            <label class="product_detail_cuadro_extras">
-              <input type="checkbox" name="proteinas">Meatballs
-            </label>
-          </p>
+          <% dataProteinas.forEach(function(proteinas) { %>
+            <p>
+              <label class="product_detail_cuadro_extras">
+                <input type="checkbox" name="<%= proteinas.name %>"><%= proteinas.showName %>
+              </label>
+            </p>
+          <% }); %>
         </div>
     </div>
           
@@ -115,70 +64,37 @@
           <h3>Acompañalo con tu bebida favorita</h3>
           <h4>Bebidas 350ml $250</h4>
         <div>
-          <label class="product_detail_cuadro_bebidas">Agua
-            <select name="agua" id="agua">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
+          <% dataBebida.forEach(function(bebida) { %>
 
-          <label class="product_detail_cuadro_bebidas">Coca-Cola
-            <select name="cocacola" id="cocacola">
+            <label class="product_detail_cuadro_bebidas"><%= bebida.showName  %> 
+            <select name="<%= bebida.name  %>" id="<%= bebida.id  %>">
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
             </select>
           </label>
-
-          <label class="product_detail_cuadro_bebidas">Sprite
-            <select name="sprite" id="sprite">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
-
-          <label class="product_detail_cuadro_bebidas">Fanta
-            <select name="fanta" id="fanta">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
+          <% }); %>
         </div>
 
           <h4>Cerveza 355ml $350</h4>
         <div>
-          <label class="product_detail_cuadro_bebidas">Amber Roja
-            <select name="amber" id="amber">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
-
-          <label class="product_detail_cuadro_bebidas">Bohemian Rubia
-            <select name="bohemian" id="bohemian">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
-
-          <label class="product_detail_cuadro_bebidas">Weisse
-            <select name="bohemian" id="bohemian">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
-
-          <label class="product_detail_cuadro_bebidas">Corona
-            <select name="corona" id="corona">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
-
-          <label class="product_detail_cuadro_bebidas">Heineken
-            <select name="heineken" id="heineken">
-              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            </select>
-          </label>
+          <% dataCerveza.forEach(function(cerveza) { %>
+            <label class="product_detail_cuadro_bebidas"><%= cerveza.showName  %> 
+              <select name="<%= cerveza.name  %>" id="<%= cerveza.id  %>">
+                <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+              </select>
+            </label>
+          <% }); %>
         </div>
+
       </div>
     </section>
 
     <div class="flex-dark">
-      <a href="/carrito" class="bttn-dark">Agregar a la nave</a>
+      <a href="/cart" class="bttn-dark">Agregar a la nave</a>
       <p class="product_detail_precio">$420</p>
-    </div>  
+    </div>
+
+    <br><br>  
     <%- include('./partials/footer') %>
+    
 </body>
 </html>
