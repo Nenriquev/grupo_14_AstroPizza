@@ -1,22 +1,22 @@
 [
     {
-        "showName": "Agua",
-        "name": "agua",
-        "id": "agua"
+        "value": "Agua",
+        "name": "agua1",
+        "id": "agua1"
     },
     {
-        "showName": "Coca-Cola",
-        "name": "cocacola",
-        "id": "cocacola"
+        "value": "Coca-Cola",
+        "name": "bebida2",
+        "id": "bebida2"
     },
     {
-        "showName": "Sprite",
-        "name": "sprite",
-        "id": "sprite"
+        "value": "Sprite",
+        "name": "bebida3",
+        "id": "bebida3"
     },
     {
-        "showName": "Fanta",
-        "name": "fanta",
-        "id": "fanta"
+        "value": "Fanta",
+        "name": "bebida4",
+        "id": "bebida4"
     }
 ]

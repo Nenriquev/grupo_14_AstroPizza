@@ -1,22 +1,27 @@
 [
     {
-        "showName": "Morron Rojo",
-        "name": "vegetales"
+        "value": "Morron Rojo",
+        "name": "vegetal1",
+        "id": "vegetal1"
     },
     {
-        "showName": "Cebolla Blanca",
-        "name": "vegetales"
+        "value": "Cebolla Blanca",
+        "name": "vegetal2",
+        "id": "vegetal2"
     },
     {
-        "showName": "Champiñones",
-        "name": "vegetales"
+        "value": "Champiñones",
+        "name": "vegetal3",
+        "id": "vegetal3"
     },
     {
-        "showName": "Aceitunas Verdes",
-        "name": "vegetales"
+        "value": "Aceitunas Verdes",
+        "name": "vegetal4",
+        "id": "vegetal4"
     },
     {
-        "showName": "Aceitunas Negras",
-        "name": "vegetales"
+        "value": "Aceitunas Negras",
+        "name": "vegetal5",
+        "id": "vegetal5"
     }
 ]

@@ -1,26 +1,32 @@
 [
     {
-        "showName": "Bacon",
-        "name": "proteinas"
+        "value": "Bacon",
+        "name": "proteinas1",
+        "id": "proteinas1"
     },
     {
-        "showName": "Jamón",
-        "name": "proteinas"
+        "value": "Jamón",
+        "name": "proteinas2",
+        "id": "proteinas2"
     },
     {
-        "showName": "Pastrami",
-        "name": "proteinas"
+        "value": "Pastrami",
+        "name": "proteinas3",
+        "id": "proteinas3"
     },
     {
-        "showName": "Salchica Italiana",
-        "name": "proteinas"
+        "value": "Salchica Italiana",
+        "name": "proteinas4",
+        "id": "proteinas4"
     },
     {
-        "showName": "Salchica Alemana",
-        "name": "proteinas"
+        "value": "Salchica Alemana",
+        "name": "proteinas5",
+        "id": "proteinas5"
     },
     {
-        "showName": "Meatballs",
-        "name": "proteinas"
+        "value": "Meatballs",
+        "name": "proteinas6",
+        "id": "proteinas6"
     }
 ]

@@ -179,23 +179,35 @@ margin-top: 55px;
 /* Boton agregar */
 
 .flex-dark{
-display: flex;
-position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-justify-content: center;
+  display: flex;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+
+.bttn-dark{
+  color: rgba(255, 255, 255, 0.707);;
+  font-family: 'Console';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s ease all;
+  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
 }
 
 .product_detail_precio{
-color: #fff;
-font-family: 'Console';
-letter-spacing: 3px;
-text-transform: uppercase;
-text-align: center;
-font-weight: 600;
-text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+  color: #fff;
+  font-family: 'Console';
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
 }
   
 /* Mobile */
@@ -206,15 +218,18 @@ text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1
 header{
   display: none;
 }
+
+/* Main */
+
 .product_detail_center{
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
-/* Main */
 .main_pizza{
   display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .product_detail_pizza{
@@ -226,7 +241,6 @@ header{
 
 .cuadro_extras{
   display: flex;
-  justify-self: center;
   order: 2;
   width: 70vw;
 }
@@ -270,14 +284,11 @@ header{
 .cuadro_bebidas div label{
   width: 50%;
 }
+/* Boton Agregar */
 
 .flex-dark{
-  display: flex;
-  flex-direction: column;
-  align-self: flex-end;
-  margin-top: 15px;
-  order: 4;
-}
+  align-items: center;
+  }
 }
 
 /* TABLETS */

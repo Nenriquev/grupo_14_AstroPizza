@@ -18,25 +18,25 @@
 
   <section class="product_detail_center">
     <div class="cuadro_extras">
-      <h3 class="cuadro_extras_titulo">Agrégale Extras</h3>
+      <h3>Agrégale Extras</h3>
 
         <h4>Quesos $100</h4>
-        <div class="cuadro_extras_quesos">
+        <div>
           <% dataQuesos.forEach(function(quesos) { %>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= quesos.mame %> "><%= quesos.showName %> 
+                <input type="checkbox" name="<%= quesos.mame %> "><%= quesos.value %> 
               </label>
             </p>
           <% }); %>
         </div>
         
-          <h4>Vegetales $90</h4>
+        <h4>Vegetales $90</h4>
         <div>
           <% dataVegetales.forEach(function(vegetales) { %>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= vegetales.name %>"><%= vegetales.showName %>
+                <input type="checkbox" name="<%= vegetales.name %>"><%= vegetales.value %>
               </label>
             </p>
           <% }); %>
@@ -47,7 +47,7 @@
           <% dataProteinas.forEach(function(proteinas) { %>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= proteinas.name %>"><%= proteinas.showName %>
+                <input type="checkbox" name="<%= proteinas.name %>"><%= proteinas.value%>
               </label>
             </p>
           <% }); %>
@@ -66,7 +66,7 @@
         <div>
           <% dataBebida.forEach(function(bebida) { %>
 
-            <label class="product_detail_cuadro_bebidas"><%= bebida.showName  %> 
+            <label class="product_detail_cuadro_bebidas"><%= bebida.value  %> 
             <select name="<%= bebida.name  %>" id="<%= bebida.id  %>">
               <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
             </select>
@@ -77,7 +77,7 @@
           <h4>Cerveza 355ml $350</h4>
         <div>
           <% dataCerveza.forEach(function(cerveza) { %>
-            <label class="product_detail_cuadro_bebidas"><%= cerveza.showName  %> 
+            <label class="product_detail_cuadro_bebidas"><%= cerveza.value  %> 
               <select name="<%= cerveza.name  %>" id="<%= cerveza.id  %>">
                 <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
               </select>
@@ -88,12 +88,11 @@
       </div>
     </section>
 
-    <div class="flex-dark">
-      <a href="/cart" class="bttn-dark">Agregar a la nave</a>
+    <form class="flex-dark" action="/cart" method="POST">
+      <button class="bttn-dark">Agregar a la nave</button>
       <p class="product_detail_precio">$420</p>
-    </div>
+    </form>
 
-    <br><br>  
     <%- include('./partials/footer') %>
     
 </body>
