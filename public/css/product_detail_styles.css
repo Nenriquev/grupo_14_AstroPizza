@@ -25,68 +25,17 @@ body{
   background-size: cover;
 }
 
+.nav{
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Main */
 
 .product_detail_center{
-display: flex;
-justify-content: center;
-margin-top: 55px;
-}
-
-/* Menu Extras */
-.cuadro_extras{
   display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
-  flex-direction: column;
-  align-self: center;
-  width: 230px;
-  border: 2px solid #4e21a4;
-  padding: 10px;
-  margin: 9px;
-  order: -1;
-}
-
-.cuadro_extras h3{
-  align-self: flex-start;
-  font-family: 'Star jedi';
-  font-size: 22px;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
-  justify-self: center;
-  text-align: center;
-}
-
-.cuadro_extras h4{
-  color: #ffffff;
-  text-decoration: underline #4e21a4;
-  align-self: flex-start;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  justify-self: center;
-  text-align: justify;
-  margin: 10px;
-}
-
-.product_detail_cuadro_bebidas{
-  align-self: flex-start;
-  font-family: "Myriad Pro";
-  letter-spacing: 2px;
-  color: #FFFFFF;
-  font-size: 15px;
-  justify-self: center;
-  text-align: center;
-  padding: 6px;
-}
-
-.cuadro_extras .product_detail_cuadro_extras{
-  align-self: flex-start;
-  font-family: "Myriad Pro";
-  letter-spacing: 2px;
-  color: #FFFFFF;
-  font-size: 15px;
-  justify-self: center;
-  text-align: center;
+  justify-content: center;
+  margin-top: 55px;
 }
 
 /* Pizza */
@@ -129,6 +78,52 @@ margin-top: 55px;
     transform: translateY(0px) rotate(360deg);
   } 
 }
+/* Menu Extras */
+.cuadro_extras{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  flex-direction: column;
+  align-self: center;
+  width: 230px;
+  border: 2px solid #4e21a4;
+  padding: 10px;
+  margin: 9px;
+  order: -1;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 3px #4e21a4;
+}
+
+.cuadro_extras h3{
+  align-self: flex-start;
+  font-family: 'Star jedi';
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+  justify-self: center;
+  text-align: center;
+}
+
+.cuadro_extras h4{
+  color: #ffffff;
+  text-decoration: underline #4e21a4;
+  align-self: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  justify-self: center;
+  text-align: justify;
+  margin: 10px;
+}
+
+.cuadro_extras .product_detail_cuadro_extras{
+  align-self: flex-start;
+  font-family: "Myriad Pro";
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  font-size: 15px;
+  justify-self: center;
+  text-align: center;
+}
 
 /* Menu Bebidas */
 
@@ -141,6 +136,8 @@ margin-top: 55px;
   border: 2px solid #4e21a4;
   padding: 10px;
   margin: 9px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 3px #4e21a4;
 }
 
 .cuadro_bebidas .product_detail_cuadro_bebidas{
@@ -172,6 +169,18 @@ margin-top: 55px;
   justify-self: center;
   text-align: center;
 }
+
+.product_detail_cuadro_bebidas{
+  align-self: flex-start;
+  font-family: "Myriad Pro";
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  font-size: 15px;
+  justify-self: center;
+  text-align: center;
+  padding: 6px;
+}
+
 .cuadro_bebidas label{
   display: block;
 }
@@ -246,8 +255,7 @@ header{
 }
 
 .cuadro_extras h3{
-  text-align: center;
-  justify-content: center;
+  align-self: center;
 }
 
 .cuadro_extras div{
@@ -270,8 +278,7 @@ header{
 }
 
 .cuadro_bebidas h3{
-  text-align: center;
-  justify-content: center;
+  align-self: center;
 }
 
 .cuadro_bebidas div{
@@ -294,7 +301,9 @@ header{
 /* TABLETS */
 
 @media (min-width:767px) and (max-width:1024px) {
-
+  header{
+    display: none;
+  }
 }
 
 /*DESKTOP*/
