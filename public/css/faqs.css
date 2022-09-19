@@ -104,9 +104,13 @@ display: none;
 
 @media (min-width:1024px) {
 
+  .main-container{
+    height: 100vh;
+  }
+
+
   .display-container{
     width: 100%;
-    
   }
 
   .body-main{
@@ -175,8 +179,8 @@ display: none;
   }
 
   footer{
-    position: absolute;
-    bottom: 0;
+    
+    flex: 0;
   }
 
 }

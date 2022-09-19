@@ -7,6 +7,7 @@
   <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/animation.css">
   <link rel="stylesheet" type="text/css" href="../css/support.css">
   <link rel="stylesheet" type="text/css" href="../css/button.css">
   <title>Contacto</title>
@@ -53,17 +54,27 @@
                 </div>
                 
                 <div class="field-group">
-                  <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
+                  <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Seleccionar
+                  </label>
+                  <input id="file-upload" type="file"/>
                   <label class="fg-label">Adjuntar archivo:</label>
                 </div>
               </form>
               <div>
-                <a href="#menu" class="bttn-dark">Enviar</a>
+                <a href="#" class="bttn-dark">Enviar</a>
               </div>
           </div>
         </div>
       </div>
-
+      <img class="asteroid" id="a1" src="../img/asteroid_1.png" alt="">
+      <img class="asteroid" id="a2" src="../img/asteroid_2.png" alt="">
+      <img class="asteroid" id="a3" src="../img/asteroid_3.png" alt="">
+      <div id="comets">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
   </div>
 
   <%- include('./partials/footer') %> 

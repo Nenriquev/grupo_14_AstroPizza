@@ -167,8 +167,28 @@ select::-ms-expand {
   color: #ffffff;
 }
 
+.custom-file-upload {
+  display: inline-block;
+  background-color: #353536;
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+  border: 2px solid #101011;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover{
+  background-color: #370889;
+}
+
 input[type="file"] {
-  color:#5e1b88
+  display: none;
+}
+
+.asteroid#a1, .asteroid#a2{
+  display: none;
 }
 
 /*DESKTOP*/
@@ -217,4 +237,80 @@ input[type="file"] {
     flex: 0;
   }
 
+}
+
+@media (min-width: 1024px) {
+
+.form-in{
+  width: 400px;
+  margin-top: 80px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+}
+.asteroid#a1{
+  display: block;
+  position: absolute;
+  width: 8%;
+  bottom: 17%;
+  left: 35%;
+  animation: asteroid 60s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.asteroid#a2{
+  display: block;
+  position: absolute;
+  width: 11%;
+  top: 11%;
+  left: 53%;
+  animation: asteroid 60s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.asteroid#a3{
+  display: block;
+  position: absolute;
+  width: 5%;
+  top: 83%;
+  left: 87%;
+  animation: asteroid2 90s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -2;
+}
+}
+
+@keyframes asteroid {
+  0% {
+    transform: translateY(0px) rotate(-360deg);
+  }
+   50% {
+    transform: translateY(60px);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(360deg);
+  } 
+}
+
+@keyframes asteroid2 {
+  0% {
+    transform: translateY(0px) rotate(-360deg);
+  }
+   50% {
+    transform: translateY(100px);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(360deg);
+  } 
 }
