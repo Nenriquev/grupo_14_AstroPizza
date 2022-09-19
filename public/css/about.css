@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Console';
+  src: url('../fonts/Console.ttf');
+}
+
+
+body{
+  background: url('../img/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin:0;
+  overflow-x: hidden;
+  height: 100vh;
+  font-family: 'Console';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+@media (min-width: 1024px) {
+
+  .asteroid#a1{
+    position: absolute;
+    width: 12%;
+    bottom: 17%;
+    left: 8%;
+    animation: asteroid 35s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  .asteroid#a2{
+    position: absolute;
+    width: 17%;
+    top: 10%;
+    left: 68%;
+    animation: asteroid 35s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+}
+
+@keyframes asteroid {
+  0% {
+    transform: translateY(0px) rotate(-360deg);
+  }
+   50% {
+    transform: translateY(30px);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(360deg);
+  } 
+}

@@ -12,6 +12,10 @@ const indexController = {
 
   support: (req, res) => {
     res.render('support.ejs')
+  },
+
+  about: (req, res) => {
+    res.render('about.ejs')
   }
 }
 
