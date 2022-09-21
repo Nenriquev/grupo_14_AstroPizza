@@ -11,6 +11,27 @@
   src: url('../fonts/Console.ttf');
 }
 
+ /* Scrollbar CSS */
+ * {
+  scrollbar-width: auto;
+  scrollbar-color: #5a585a #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #04020291;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0000002d;
+  border-radius: 4px;
+
+}
+
 html{
   scroll-behavior: smooth;
 }

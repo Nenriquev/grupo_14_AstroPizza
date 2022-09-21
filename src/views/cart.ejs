@@ -8,15 +8,130 @@
     <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/button.css">
     <link rel="stylesheet" href="/css/cart.css">
     <title>Mi carrito</title>
 </head>
 <body>
-  <%- include('./partials/header') %> 
-    <main class="main-container">
+  <body>
+    <div class="main-container">
+      <%- include('./partials/header') %> 
+        <div class="cart-container">
+          <div class="cart-board">
+            <div class="resume">
 
+              <div class="products">
+                <div class="product-img">
+                  <img src="../img/products/Marte.webp">
+                </div>
+                  <div class="box">
+                      <div class="name-amount">
+                        <h4>Pizza Marte</h4>
+                          <div class="amount">
+                            <h4>$750</h4>
+                          </div>
+                      </div>
+                      <div class="description-box">
+                        <div class="description">
+                          <span>1 x Extra muzzarella</span>
+                          <span>1 x Extra tomate</span>
+                          <span>1 x Extra panceta</span>
+                          <span>1 x Extra provolone</span>
+                        </div>
+                        <div class="qty">
+                          <button class="min-plus">-</button>
+                            <input type="number" class="count" value="1">
+                          <button class="min-plus">+</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
 
-    </main>
-    <%- include('./partials/footer') %> 
+              <div class="products">
+                <div class="product-img">
+                  <img src="../img/products/Mercurio.webp">
+                </div>
+                  <div class="box">
+                      <div class="name-amount">
+                        <h4>Pizza Marte</h4>
+                        <div class="amount">
+                          <h4>$750</h4>
+                        </div>
+                      </div>
+                      <div class="description-box">
+                        <div class="description">
+                          <span>1 x Extra muzzarella</span>
+                        </div>
+                        <div class="qty">
+                          <button class="min-plus">-</button>
+                            <input type="number" class="count" value="1">
+                          <button class="min-plus">+</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="products">
+                <div class="product-img">
+                  <img src="../img/products/Jupiter.webp">
+                </div>
+                  <div class="box">
+                      <div class="name-amount">
+                        <h4>Pizza Jupiter</h4>
+                        <div class="amount">
+                          <h4>$1750</h4>
+                        </div>
+                      </div>
+                      <div class="description-box">
+                        <div class="description">
+                          <span>1 x Extra parmesano</span>
+                          <span>1 x Extra cebolla</span>
+                          <span>1 x Extra aceite de oliva</span>
+                        </div>
+                        <div class="qty">
+                          <button class="min-plus">-</button>
+                            <input type="number" class="count" value="1">
+                          <button class="min-plus">+</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+
+            <div class="resume-col">
+              <div class="check-box">
+                <div class="bill">
+                  <span>Subtotal:</span>
+                  <span>$5.000</span>
+                </div>
+                <div class="bill">
+                  <span>Delivery:</span>
+                  <span>$150</span>
+                </div>
+                <div class="bill">
+                  <span>Descuentos:</span>
+                  <span>$0</span>
+                </div>
+                <div class="bill">
+                  <span class="total">Total:</span>
+                  <span class="total">$5.150</span>
+                </div>
+              </div>
+
+              <div class="pay-button">
+                <a href="#" class="bttn-dark">Pagar</a>
+              </div>
+            </div>
+          </div>
+          
+          
+        <div id="comets">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+    </div>
+  </body>
 </body>
 </html>

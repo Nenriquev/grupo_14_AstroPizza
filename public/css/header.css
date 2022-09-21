@@ -14,7 +14,7 @@
 .logo{
   position: relative;
   bottom: 10%;
-  width: 48%;
+  width: 45%;
   z-index: 2;
   }
 
@@ -47,7 +47,7 @@ li{
   color: rgba(255, 255, 255, 0.8);
   position: relative;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 120%;
   text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
 }
 
@@ -96,11 +96,12 @@ li{
 @media (min-width: 1024px) {
   
   .container-logo{
-    width: 50%;
+    width: 30%;
   }
 
   .logo{
-    width: 30%;
+    bottom: 0;
+    width: 50%;
     }
 
   .navbar{
