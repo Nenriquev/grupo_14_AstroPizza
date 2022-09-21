@@ -2,10 +2,10 @@
   display: flex;
   width: 90%;
   margin: 0 auto;
-  height: 118px;
   align-content: space-between;
   justify-content: space-between;
 }
+
 
 .navbar{
   display: none;
@@ -94,6 +94,10 @@ li{
 /*DESKTOP*/
 
 @media (min-width: 1024px) {
+
+  .top-navbar{
+    height: 118px;
+  }
   
   .container-logo{
     width: 30%;

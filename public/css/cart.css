@@ -49,6 +49,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
     color: rgba(255, 255, 255, 0.703);
     height: 85vh;
     width: 100%;
@@ -106,6 +107,7 @@ body{
   .box{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 70%;
     font-size: 11px;
   }
@@ -131,6 +133,12 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .amount{
+    display: flex;
+    justify-content: center;
+    width: 26%;
   }
 
   h4{
@@ -265,6 +273,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .box{
+      justify-content: inherit;
       width: 80%;
       font-size: 13px;
     }
