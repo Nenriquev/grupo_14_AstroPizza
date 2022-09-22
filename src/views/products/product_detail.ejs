@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="./css/animation.css">
-  <link rel="stylesheet" type="text/css" href="./css/partials_styles/button.css">
-  <link rel="stylesheet" type="text/css" href="./css/products_styles/product_detail_styles.css">
-  <link rel="stylesheet" type="text/css" href="./css/header.css">
-  <link rel="stylesheet" type="text/css" href="./css/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/button.css">
+  <link rel="stylesheet" type="text/css" href="../css/animation.css">
+  <link rel="stylesheet" type="text/css" href="../css/products_styles/product_detail_styles.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
   <title>Nombre del producto</title>
 </head>
 <body>
 
-  <%- include('./partials/header') %> 
+  <%- include('../partials/header') %> 
 
   <section class="product_detail_center">
     <div class="cuadro_extras">
@@ -89,12 +89,11 @@
     </section>
     <br>
     <form class="flex-dark" action="/cart" method="POST">
-      <a href="/cart" class="bttn-dark">Agregar a la nave</a>
-      <!-- <button class="bttn-dark">Agregar a la nave</button> !-->
+      <button class="bttn-dark">Agregar a la nave</button>
       <p class="product_detail_precio">$420</p>
     </form>
     <br><br><br><br>
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
     
 </body>
 </html>

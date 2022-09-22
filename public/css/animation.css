@@ -57,13 +57,13 @@
 }
 
 #comets{
-  position:relative;
+  position:
+  relative;
   top: -80px;
   width: 84vw;
   text-align: left;
   height: 100%;
-  overflow:
-  hidden;
+  overflow: hidden;
   z-index: -1;
 }
 

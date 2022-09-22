@@ -28,7 +28,6 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   width: 100%;
   z-index: 0;
 }
@@ -187,7 +186,31 @@ input[type="file"] {
   display: none;
 }
 
-.asteroid#a1, .asteroid#a2{
+.asteroid#a3{
+  display: block;
+  position: absolute;
+  width: 14%;
+  top: 11%;
+  left: 68%;
+  animation: asteroid2 90s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.asteroid#a2{
+  display: block;
+  position: absolute;
+  width: 17%;
+  top: 64%;
+  left: 14%;
+  animation: asteroid2 90s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.asteroid#a1{
   display: none;
 }
 

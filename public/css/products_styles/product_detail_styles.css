@@ -4,21 +4,21 @@
 
 @font-face {
   font-family: 'Star jedi out';
-  src: url('../fonts/Starjout.ttf');
+  src: url('../../fonts/Starjout.ttf');
 }
 
 @font-face {
   font-family: 'Star jedi';
-  src: url('../fonts/Starjedi.ttf');
+  src: url('../../fonts/Starjedi.ttf');
 }
 
 @font-face {
   font-family: 'Console';
-  src: url('../fonts/Console.ttf');
+  src: url('../../fonts/Console.ttf');
 }
 
 body{
-  background: url('../img/background4.jpg') no-repeat center center fixed; 
+  background: url('../../img/background4.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -198,7 +198,7 @@ body{
 }
 
 .bttn-dark{
-  color: rgba(255, 255, 255, 0.707);;
+  color: rgba(255, 255, 255, 0.707);
   font-family: 'Console';
   text-transform: uppercase;
   text-align: center;
