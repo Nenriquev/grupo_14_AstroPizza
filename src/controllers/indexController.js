@@ -16,6 +16,10 @@ const indexController = {
 
   about: (req, res) => {
     res.render('about.ejs')
+  },
+
+  login: (req, res) => {
+    res.render('login.ejs')
   }
 }
 
