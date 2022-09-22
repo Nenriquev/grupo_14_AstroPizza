@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/support.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
+  <title>Contacto</title>
+</head>
+<body>
+  <div class="main-container">
+
+    <%- include('./partials/header') %> 
+
+      <div class="form-container">
+        <div class="form-col">
+          <img src="../img/71.png">
+        </div>
+        <div class="form-col2">
+          <div class="form-in">
+              <form action="/" method="post">
+                <div class="field-group">
+                  <input type="text" class="fg-field" required>
+                  <label class="fg-label">Nombre de Usuario</label>
+                </div>
+              
+                <div class="field-group">
+                  <input type="password" class="fg-field" required>
+                  <label class="fg-label">Password</label>
+                </div>
+
+                <div class="field-group">
+                  <a class="forgot" href="/">Olvidaste tu contrasena?</a>
+                </div>
+              </form>
+              <div>
+                <a href="#menu" class="bttn-dark">Enviar</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <%- include('./partials/footer') %> 
+</body>
+</html>

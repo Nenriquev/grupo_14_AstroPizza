@@ -39,13 +39,22 @@ const productController = {
     const dataBebida = findAllBebida();
     const dataCerveza = findAllCerveza();
 
-    res.render('product_detail.ejs', { dataQuesos: dataQuesos, 
+    res.render('./products/product_detail.ejs', { dataQuesos: dataQuesos, 
                                        dataVegetales: dataVegetales, 
                                        dataProteinas: dataProteinas,
                                        dataBebida: dataBebida,
                                        dataCerveza: dataCerveza})
   },
 
+  create: (req, res) => {
+    res.render('./products/product_create.ejs')
+  },
+
+  update: (req, res) => {
+    res.render('./products/product_update.ejs')
+  }
+
 }
+
 
 module.exports = productController;

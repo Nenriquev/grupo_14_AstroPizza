@@ -1,21 +1,24 @@
 .top-navbar{
   display: flex;
+  flex-direction: row;
   width: 90%;
+  height: 10%;
   margin: 0 auto;
   align-content: space-between;
   justify-content: space-between;
 }
 
+.container-logo{
+  width: 50%;
+}
 
 .navbar{
   display: none;
 }
 
 .logo{
-  position: relative;
-  bottom: 10%;
-  width: 45%;
-  z-index: 2;
+  object-fit: cover;
+  width: 80%;
   }
 
 
