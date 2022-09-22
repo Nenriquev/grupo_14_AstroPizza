@@ -23,6 +23,7 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px;
 }
 
 .nav{
@@ -79,12 +80,13 @@ body{
   } 
 }
 /* Menu Extras */
+
 .cuadro_extras{
   display: flex;
   background-color: rgba(0, 0, 0, 0.7);
   flex-direction: column;
   align-self: center;
-  width: 230px;
+  width: 240px;
   border: 2px solid #4e21a4;
   padding: 10px;
   margin: 9px;
@@ -98,7 +100,7 @@ body{
   font-family: 'Star jedi';
   font-size: 22px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+  text-shadow: 1px 1px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
   justify-self: center;
   text-align: center;
 }
@@ -117,12 +119,13 @@ body{
 
 .cuadro_extras .product_detail_cuadro_extras{
   align-self: flex-start;
-  font-family: "Myriad Pro";
+  font-family: "console";
   letter-spacing: 2px;
   color: #FFFFFF;
   font-size: 15px;
   justify-self: center;
   text-align: center;
+  display: block;
 }
 
 /* Menu Bebidas */
@@ -132,7 +135,7 @@ body{
   background-color: rgba(0, 0, 0, 0.7);
   flex-direction: column;
   align-self: center;
-  width: 230px;
+  width: 240px;
   border: 2px solid #4e21a4;
   padding: 10px;
   margin: 9px;
@@ -142,7 +145,7 @@ body{
 
 .cuadro_bebidas .product_detail_cuadro_bebidas{
   align-self: flex-start;
-  font-family: "Myriad Pro";
+  font-family: "console";
   letter-spacing: 2px;
   color: #FFFFFF;
   font-size: 15px;
@@ -165,7 +168,7 @@ body{
   font-family: 'Star jedi';
   font-size: 18px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+  text-shadow: 1px 1px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
   justify-self: center;
   text-align: center;
 }
