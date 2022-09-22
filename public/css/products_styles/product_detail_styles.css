@@ -33,13 +33,20 @@ body{
 
 /* Main */
 
+form{
+display: flex;
+}
+
 .product_detail_center{
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 55px;
 }
 
 /* Pizza */
+
 .product_detail_pizza{
   margin-top: 70px;
   width: 50vw;
@@ -47,27 +54,23 @@ body{
   animation-delay: 500ms;
 }
 
-.nombre_precio_pizza{
+.nombre_pizza{
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  font-family: 'Star jedi';
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
   margin-top: -50px;
 }
 
-.nombre_pizza{
-  font-family: 'Star jedi';
-  font-size: 30px;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, -2px -2px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
-}
-
 .precio_pizza{
-  color: #fff;
-  padding-top: 12px;
-  font-family: 'Console';
-  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
   letter-spacing: 2px;
-  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+  color: #FFFFFF;
+  font-family: "Console";
 }
 
 @keyframes product_detail_pizza_anim {
@@ -79,6 +82,7 @@ body{
     transform: translateY(0px) rotate(360deg);
   } 
 }
+
 /* Menu Extras */
 
 .cuadro_extras{
@@ -106,15 +110,12 @@ body{
 }
 
 .cuadro_extras h4{
-  color: #ffffff;
-  text-decoration: underline #4e21a4;
-  align-self: flex-start;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Star jedi';
+  color: #000;
+  text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgb(255 255 255 / 0%);
+  font-weight: normal;
   font-size: 22px;
-  letter-spacing: 2px;
-  justify-self: center;
-  text-align: justify;
-  margin: 10px;
+  text-align: center;
 }
 
 .cuadro_extras .product_detail_cuadro_extras{
@@ -123,8 +124,6 @@ body{
   letter-spacing: 2px;
   color: #FFFFFF;
   font-size: 15px;
-  justify-self: center;
-  text-align: center;
   display: block;
 }
 
@@ -144,23 +143,21 @@ body{
 }
 
 .cuadro_bebidas .product_detail_cuadro_bebidas{
-  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
   font-family: "console";
   letter-spacing: 2px;
   color: #FFFFFF;
   font-size: 15px;
-  justify-self: center;
-  text-align: center;
 }
 
 .cuadro_bebidas h4{
-  font-family: Arial, Helvetica, sans-serif;
-  color: #FFFFFF;
-  text-decoration: underline #4e21a4;
+  font-family: 'Star jedi';
+  color: #000;
+  text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgb(255 255 255 / 0%);
   font-size: 18px;
-  letter-spacing: 2px;
-  justify-self: center;
-  text-align: justify;
+  font-weight: normal;
+  text-align: center;
 }
 
 .cuadro_bebidas h3{
@@ -192,11 +189,6 @@ body{
 
 .flex-dark{
   display: flex;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
   justify-content: center;
 }
 
@@ -225,22 +217,11 @@ body{
 /* Mobile */
 @media (max-width:768px) {
 
-/* Header */
-
-header{
-  display: none;
-}
-
 /* Main */
 
-.product_detail_center{
+form{
   display: flex;
   flex-direction: column;
-  text-align: center;
-}
-
-.main_pizza{
-  display: flex;
   text-align: center;
 }
 
@@ -255,6 +236,12 @@ header{
   display: flex;
   order: 2;
   width: 70vw;
+  align-content: flex-start;
+}
+
+.cuadro_extras .product_detail_cuadro_extras{
+  margin-left: 20px;
+  text-align: left;
 }
 
 .cuadro_extras h3{
@@ -298,14 +285,108 @@ header{
 
 .flex-dark{
   align-items: center;
+  margin-top: 20px;
   }
 }
 
 /* TABLETS */
 
 @media (min-width:767px) and (max-width:1024px) {
-  header{
-    display: none;
+
+form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.product_detail_pizza{
+  width: 70vw;
+  order: 1;
+  margin: 0;
+  top: 100%;
+}
+
+.nombre_pizza{
+  font-size: 35px;
+}
+.precio_pizza{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.cuadro_extras{
+  display: flex;
+  order: 2;
+  width: 70vw;
+  align-content: flex-start;
+}
+
+.cuadro_extras .product_detail_cuadro_extras{
+  margin-left: 20px;
+  font-size: 22px;
+  text-align: left;
+}
+
+.cuadro_extras h3{
+  align-self: center;
+  font-size: 30px;
+}
+
+.cuadro_extras h4{
+  align-self: center;
+  font-size: 26px;
+}
+
+.cuadro_extras div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 15px 0 15px 0;
+}
+
+.cuadro_extras div p{
+  width: 50%;
+}
+
+/* Cuadro Bebidas */ 
+
+.cuadro_bebidas{
+  display: flex;
+  width: 70vw;
+  order: 3;
+}
+
+.cuadro_bebidas h3{
+  align-self: center;
+  font-size: 30px;
+}
+
+.cuadro_bebidas h4{
+  font-size: 26px;
+}
+
+.cuadro_bebidas .product_detail_cuadro_bebidas{
+  font-size: 22px;
+}
+
+.cuadro_bebidas div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 15px 0 15px 0;
+}
+.cuadro_bebidas div label{
+  width: 50%;
+}
+/* Boton Agregar */
+
+  .flex-dark{
+    align-items: center;
+    margin-top: 20px;
+  }
+  .flex-dark .bttn-dark{
+    font-size: 27px;
+    width: 355px;
   }
 }
 
@@ -313,5 +394,9 @@ header{
 
 @media (min-width:1024px) {
 
+  .flex-dark{
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
 }
