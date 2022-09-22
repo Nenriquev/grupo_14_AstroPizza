@@ -9,6 +9,12 @@
 * Hacer menos: Quedarse con dudas.
 * Dejar de hacer: Colgarse.
 
+## Sprint 3: 
+
+* Honrar los tiempos de entrega para llegar más holgados a los próximos sprints.
+* Mantener la dinámica del grupo, los horarios de reuniones y la predisposición para ayudar al otro.
+* Despejar las dudas con tiempo para evitar reprocesos o retrabajos sobre el código.
+
 
 
 
