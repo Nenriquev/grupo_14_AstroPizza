@@ -22,6 +22,10 @@ footer{
   flex-direction: column;
 }
 
+.forgot{
+  text-decoration: none;
+}
+
 /* FORM */
 
 .form-container{
