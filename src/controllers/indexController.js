@@ -18,9 +18,6 @@ const indexController = {
     res.render('about.ejs')
   },
 
-  login: (req, res) => {
-    res.render('login.ejs')
-  }
 }
 
 

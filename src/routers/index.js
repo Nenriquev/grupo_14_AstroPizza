@@ -7,7 +7,6 @@ indexRouter.get('/', indexController.index)
 indexRouter.get('/faqs', indexController.faqs)
 indexRouter.get('/soporte', indexController.support)
 indexRouter.get('/sobre-nosotros', indexController.about)
-indexRouter.get('/login', indexController.login)
 
 
 

@@ -3,9 +3,10 @@ const path = require('path');
 const indexRouter = require('./routers/index.js');
 const productRouter = require('./routers/products.js');
 const cartRouter = require('./routers/cart.js');
+const usersRouter = require('./routers/users.js');
 const methodOverride = require("method-override");
 
-const app = express()
+const app = express();
 
 
 app.listen(3000, () =>{
@@ -27,6 +28,10 @@ app.use('/', indexRouter)
 /*PRODUCTS */
 
 app.use('/product', productRouter)
+
+/* USERS */
+
+app.use('/users', usersRouter)
 
 
 /*CART*/
