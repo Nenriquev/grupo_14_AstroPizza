@@ -1,0 +1,58 @@
+body{
+  background: url('../img/backgrounds/background5.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin:0;
+  overflow-x: hidden;
+}
+
+.form-col2{
+  float: left;
+}
+
+
+
+@media (max-width:642px) {
+
+  body{
+    background: url('../img/backgrounds/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    overflow-x: hidden;
+  }
+
+  .form-container{
+    height: 74vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-in{
+    margin-top: 0;
+  }
+
+  
+  header{
+    height: 15vh;
+  }
+
+  footer{
+    margin-top: 0;
+  }
+}
+
+
+@media (min-width: 642px) and (max-width:1024px){
+
+body{
+  background: url('../img/backgrounds/background5.jpg') no-repeat 80% center fixed;
+  background-size: cover;
+}
+  
+  
+}

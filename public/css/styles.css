@@ -38,7 +38,7 @@ html{
 
 
 body{
-  background: url('../img/background3.jpg') no-repeat center center fixed;
+  background: url('../img/backgrounds/background3.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -48,7 +48,7 @@ body{
 }
 
 .container-main{
-  background: url(../img/background.png) no-repeat center;
+  background: url(../img//backgrounds/background_degradee.png) no-repeat center;
   background-size: cover;
   background-position: bottom;
   position: relative;

@@ -4,7 +4,7 @@
 }
 
 body{
-  background: url('../img/background.jpg') no-repeat center center fixed;
+  background: url('../img/backgrounds/background.jpg') no-repeat center center fixed;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -193,6 +193,12 @@ select::-ms-expand {
 
 input[type="file"] {
   display: none;
+}
+
+.register-u{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .asteroid#a3{
