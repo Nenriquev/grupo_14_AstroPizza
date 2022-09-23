@@ -6,9 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/products_styles/product_create.css">
+
     <title>Crear Producto</title>
   </head>
 <body>
+  <div class="main-container">
+    <%- include('../partials/header') %> 
+    <div class="form-container">
+      <div class="form-col">
+        <form action="/product/create" method="POST">
+
+          <div class="field-group">
+            <input class="fg-field" type="text" name="product_name">
+            <label class="fg-label">Nombre del Producto</label>
+          </div>
+
+          <div class="field-group">
+            <input class="fg-field" type="number" name="price">
+            <label class="fg-label">Precio</label>
+          </div>
+
+          <div class="field-group">
+            <textarea class="fg-field" name="description"></textarea>
+            <label class="fg-label">Descripcion</label>
+          </div>
+
+          <div class="select">
+            <select name="category">
+              <option disabled selected>Categoria</option>
+              <option value="pizzas">Pizzas</option>
+              <option value="quesos">Quesos</option>
+              <option value="vegetales">Vegetales</option>
+              <option value="carnes">Carnes</option>
+              <option value="aderezos">Aderezos</option>
+              <option value="bebidas">Bebidas</option>
+              <option value="postres">Postres</option>
+            </select>
+          </div>
+
+         
+          
+          <div class="img-input">
+            <label class="img-label">Imagen del Producto:</label>
+            <label for="file-upload" class="custom-file-upload">
+              <i class="fa fa-cloud-upload"></i> Seleccionar
+            </label>
+            <input id="file-upload" type="file"/>
+          </div>
+
+          <div class="submit-btn">
+            <button type="submit" class="bttn-dark">Cargar</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
   
 </body>
 </html>

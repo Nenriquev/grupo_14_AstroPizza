@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/products_styles/product_update.css">
+
+    <title>Editar Producto</title>
+  </head>
+<body>
+  <div class="main-container">
+    <%- include('../partials/header') %> 
+      <div class="container">
+
+          <div class="form-container">
+            <div class="form-row">
+              <div class="form-col">
+                  <form action="/">
+
+                    <div class="field-group">
+                      <input class="fg-field" type="text" name="product_name" value="Pizza Marte" required>
+                      <label class="fg-label">Nombre del Producto</label>
+                    </div>
+
+                    <div class="field-group">
+                      <input class="fg-field" type="number" name="price" value="800" required>
+                      <label class="fg-label">Precio</label>
+                    </div>
+
+                    <div>
+                    <label class="select-label">Categoria:</label>
+                      <div class="select">
+                        <select>
+                          <option disabled selected>Pizzas</option>
+                          <option>Pizzas</option>
+                          <option>Quesos</option>
+                          <option>Vegetales</option>
+                          <option>Carnes</option>
+                          <option>Aderezos</option>
+                          <option>Bebidas</option>
+                          <option>Postres</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <label class="select-label">Estado:</label>
+                    <div class="select">
+                      <select>
+                        <option disabled selected>Activo</option>
+                        <option>Activo</option>
+                        <option>Sin Stock</option>
+                        <option>Inactivo</option>
+                      </select>
+                    </div>
+                </form>
+              </div>
+
+              <div class="form-col">
+                  <div class="img-container">
+                    <img src="../../img/products/Marte.png">
+                  </div>
+
+                  <div class="img-input">
+                    <label class="img-label">Cambiar imagen:</label>
+                    <label for="file-upload" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Seleccionar
+                    </label>
+                    <input id="file-upload" type="file"/>
+                  </div>
+
+                  <div class="field-group">
+                    <textarea class="fg-field" name="description" required>Pizza con 200 grs de queso muzzarella y muuuuucho pepperoni</textarea>
+                    <label class="fg-label">Descripcion</label>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="submit-btn">
+              <a href="#" class="bttn-dark">Guardar Cambios</a>
+              <button class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
+            </div>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

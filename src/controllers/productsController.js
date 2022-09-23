@@ -50,8 +50,24 @@ const productController = {
     res.render('./products/product_create.ejs')
   },
 
-  update: (req, res) => {
-    res.render('./products/product_update.ejs')
+  store: (req, res) => {
+
+    const data = findAllBebida()
+
+    const newProduct = {
+        id: b + data.length + 1,
+        name: req.body.product_name,
+        description: req.body.description,
+        price: req.body.price,
+        category: req.body.category,
+      }
+
+      console.log(newProduct)
+      res.redirect("/product/create");
+  },
+
+  edit: (req, res) => {
+    res.render('./products/product_edit.ejs')
   }
 
 }

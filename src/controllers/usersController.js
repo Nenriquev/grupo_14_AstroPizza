@@ -1,10 +1,11 @@
 const usersController = {
 
     login: (req, res) => {
-        res.render('login.ejs')
+        res.render('users/login.ejs')
       },
+      
     register: (req, res) => {
-        res.render('register.ejs')
+        res.render('users/register.ejs')
     }
 }
 
