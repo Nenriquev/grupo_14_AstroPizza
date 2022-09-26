@@ -1,49 +1,31 @@
 const path = require('path');
 const fs = require("fs");
 
-function findAllQuesos(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/product_detail_data/extras_quesos.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-function findAllVegetales(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/product_detail_data/extras_vegetales.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-function findAllProteinas(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/product_detail_data/extras_proteinas.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-function findAllBebida(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/product_detail_data/extras_bebidas.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-function findAllCerveza(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/product_detail_data/extras_cervezas.json"))
+function findAllProducts(){
+  const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
   const data = JSON.parse(jsonData)
   return data
 }
 
 const productController = {
   products: (req, res) => {
-    const dataQuesos = findAllQuesos();
-    const dataVegetales = findAllVegetales();
-    const dataProteinas = findAllProteinas();
-    const dataBebida = findAllBebida();
-    const dataCerveza = findAllCerveza();
+    const data = findAllProducts();
 
-    res.render('./products/product_detail.ejs', { dataQuesos: dataQuesos, 
-                                       dataVegetales: dataVegetales, 
-                                       dataProteinas: dataProteinas,
-                                       dataBebida: dataBebida,
-                                       dataCerveza: dataCerveza})
+    let dataPizzas = (data[0]).pizzas
+    let dataQuesos = (data[1]).quesos
+    let dataProteinas = (data[2]).proteinas
+    let dataVegetales = (data[3]).vegetales
+    let dataCervezas = (data[4]).cervezas
+    let dataBebidas = (data[5]).bebidas
+
+    res.render('./products/product_detail.ejs', { dataPizzas: dataPizzas,
+                                                  dataQuesos: dataQuesos,
+                                                  dataProteinas: dataProteinas,
+                                                  dataVegetales: dataVegetales,
+                                                  dataCervezas: dataCervezas,
+                                                  dataBebidas: dataBebidas
+                                                })
+
   },
 
   create: (req, res) => {
@@ -52,7 +34,7 @@ const productController = {
 
   store: (req, res) => {
 
-    const data = findAllBebida()
+    const data = findAllProducts()
 
     const newProduct = {
         id: b + data.length + 1,
