@@ -68,9 +68,7 @@ const productController = {
 
   edit: (req, res) => {
     res.render('./products/product_edit.ejs')
-  }
-
+  },
 }
-
 
 module.exports = productController;
