@@ -7,6 +7,7 @@ const usersController = require('../controllers/usersController')
 routerUsers.get('/login', usersController.login);
 
 /* Register */
-routerUsers.get('/register', usersController.register)
+routerUsers.get('/register', usersController.register);
+routerUsers.post('/register', usersController.newUser);
 
 module.exports = routerUsers;
