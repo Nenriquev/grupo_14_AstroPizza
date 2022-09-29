@@ -11,8 +11,7 @@ const indexController = {
   index: (req, res) => {
     const data = findAllProducts();
 
-    dataPizza = data.filter(x => x.category == "pizza");
-
+    dataPizza = data.filter(x => x.category == "pizzas");
     res.render('index.ejs', {dataPizza: dataPizza})
   },
 
