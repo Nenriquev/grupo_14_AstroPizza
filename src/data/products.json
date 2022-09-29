@@ -1,208 +1,222 @@
 [   
-    {
-        "pizzas":
-            [
-                {
-                    "name": "mercurio",
-                    "image": ""
-                },
-                {
-                    "name": "venus",
-                    "image": ""
-                },
-                {
-                    "name": "jupiter",
-                    "image": ""
-                },
-                {
-                    "name": "urano",
-                    "image": ""
-                },
-                {
-                    "name": "neptuno",
-                    "image": ""
-                },
-                {
-                    "name": "saturno",
-                    "image": ""
-                },
-                {
-                    "name": "marte",
-                    "image": ""
-                }
-            ]
 
+    {   
+        "id": "p001",
+        "name": "Pizza Mercurio",
+        "value": "mercurio",
+        "description": "La pizza mas cercana al sol, con 200 grs de cremosa muzzarella",
+        "price": 1000,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Mercurio.webp"
     },
-
-    {   "quesos":
-            [
-                {
-                    "value": "Muzzarella",
-                    "name": "queso1",
-                    "id": "queso1",
-                    "image":""
-                },
-                {
-                    "value": "Provolone",
-                    "name": "queso2",
-                    "id": "queso2",
-                    "image":""
-                },
-                {
-                    "value": "Parmesano",
-                    "name": "queso3",
-                    "id": "queso3",
-                    "image":""
-                },
-                {
-                    "value": "Roquefort",
-                    "name": "queso3",
-                    "id": "queso3",
-                    "image":""
-                }
-            ]
+    {   
+        "id": "p002",
+        "name": "Pizza Venus",
+        "description": "La Pizza exotica romana, con 200grs de muzzarella, panceta crocante, Anana y un toque de ciantro",
+        "price": 1250,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Venus.png"
     },
-
-    {
-        "proteinas":
-            [
-                {
-                    "value": "Bacon",
-                    "name": "proteinas1",
-                    "id": "proteinas1",
-                    "image":""
-                },
-                {
-                    "value": "Jamon",
-                    "name": "proteinas2",
-                    "id": "proteinas2",
-                    "image":""
-                },
-                {
-                    "value": "Pastrami",
-                    "name": "proteinas3",
-                    "id": "proteinas3",
-                    "image":""
-                },
-                {
-                    "value": "Salchica Italiana",
-                    "name": "proteinas4",
-                    "id": "proteinas4",
-                    "image":""
-                },
-                {
-                    "value": "Salchica Alemana",
-                    "name": "proteinas5",
-                    "id": "proteinas5",
-                    "image":""
-                },
-                {
-                    "value": "Meatballs",
-                    "name": "proteinas6",
-                    "id": "proteinas6",
-                    "image":""
-                }
-            ]
+    {   
+        "id": "p003",
+        "name": "Pizza Marte",
+        "description": "La Pizza de arenas rojas. con 200 grs de muzzarella y ¡muuuuuucho pepperoni!",
+        "price": 1150,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Marte.webp"
     },
-
-    {
-        "vegetales":
-            [
-                {
-                    "value": "Morron Rojo",
-                    "name": "vegetal1",
-                    "id": "vegetal1",
-                    "image":""
-                },
-                {
-                    "value": "Cebolla Blanca",
-                    "name": "vegetal2",
-                    "id": "vegetal2",
-                    "image":""
-                },
-                {
-                    "value": "Champinones",
-                    "name": "vegetal3",
-                    "id": "vegetal3",
-                    "image":""
-                },
-                {
-                    "value": "Aceitunas Verdes",
-                    "name": "vegetal4",
-                    "id": "vegetal4",
-                    "image":""
-                },
-                {
-                    "value": "Aceitunas Negras",
-                    "name": "vegetal5",
-                    "id": "vegetal5",
-                    "image":""
-                }
-            ]
+    {   
+        "id": "p004",
+        "name": "Pizza Jupiter",
+        "description": "Pizza vegetariana interestelar con 200 grs de muzzarella, cebolla morada, morron verde, champinones y olivas negras",
+        "price": 1150,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Jupiter.webp"
     },
-
     {
-        "cervezas":
-            [
-                {
-                    "value": "Amber Roja",
-                    "name": "cerveza1",
-                    "id": "cerveza1",
-                    "image":""
-                },
-                {
-                    "value": "Bohemian Rubia",
-                    "name": "cerveza2",
-                    "id": "cerveza2",
-                    "image":""
-                },
-                {
-                    "value": "Weisse",
-                    "name": "cerveza3",
-                    "id": "cerveza3",
-                    "image":""
-                },
-                {
-                    "value": "Corona",
-                    "name": "cerveza4",
-                    "id": "cerveza4"
-                },
-                {
-                    "value": "Heineken",
-                    "name": "cerveza5",
-                    "id": "cerveza5",
-                    "image":""
-                }
-            ]
+        "id": "p005",
+        "name": "Pizza Saturno",
+        "description": "Una pizza con anillos y con 200 grs de muzzarella, panceta, jamon, champinones y choclo",
+        "price": 1250,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Saturno.webp"
     },
-
     {
-        "bebidas":
-            [
-                {
-                    "value": "Agua",
-                    "name": "agua1",
-                    "id": "agua1",
-                    "image":""
-                },
-                {
-                    "value": "Coca-Cola",
-                    "name": "bebida2",
-                    "id": "bebida2",
-                    "image":""
-                },
-                {
-                    "value": "Sprite",
-                    "name": "bebida3",
-                    "id": "bebida3",
-                    "image":""
-                },
-                {
-                    "value": "Fanta",
-                    "name": "bebida4",
-                    "id": "bebida4",
-                    "image":""
-                }
-            ]
+        "id": "p006",
+        "name": "Pizza Urano",
+        "description": "La septima pizza del sistema solar, con 200 grs de muzzarella, queso parmesano, queso provolone y queso azul",
+        "price": 1250,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Urano.png"
+    },
+    {
+        "id": "p007",
+        "name": "Pizza Neptuno",
+        "description": "Pizza de sentimientos fríos, con 200 grs de muzzarella, salchicha italiana y meatballs",
+        "price": 1250,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": "Neptuno.webp"
+    },
+    {
+        "id": "q008",
+        "name": "Queso muzzarella",
+        "description": "Extra de queso muzzarella",
+        "price": 150,
+        "category": "Quesos",
+        "status": "Activo",
+        "image": null
+    },
+    {
+        "id": "q009",
+        "name": "Queso provolone",
+        "description": "Extra de queso provolone",
+        "price": 150,
+        "category": "Quesos",
+        "status": "Activo",
+        "image": null
+    },
+    {
+        "id": "q010",
+        "name": "Parmesano",
+        "description": "Queso parmesano",
+        "price": 150,
+        "category": "quesos",
+        "image": null
+    },
+    {
+        "id": "q011",
+        "name": "Roquefort",
+        "description": "Queso roquefort",
+        "price": 150,
+        "category": "quesos",
+        "image": null
+    },
+    {
+        "id": "c012",
+        "name": "Panceta",
+        "description": "Panceta",
+        "price": 200,
+        "category": "carnes",
+        "image": null
+    },
+    {
+        "value": "Jamon",
+        "name": "proteinas2",
+        "id": "proteinas2",
+        "image":""
+    },
+    {
+        "value": "Pastrami",
+        "name": "proteinas3",
+        "id": "proteinas3",
+        "image":""
+    },
+    {
+        "value": "Salchica Italiana",
+        "name": "proteinas4",
+        "id": "proteinas4",
+        "image":""
+    },
+    {
+        "value": "Salchica Alemana",
+        "name": "proteinas5",
+        "id": "proteinas5",
+        "image":""
+    },
+    {
+        "value": "Meatballs",
+        "name": "proteinas6",
+        "id": "proteinas6",
+        "image":""
+    },
+    {
+        "value": "Morron Rojo",
+        "name": "vegetal1",
+        "id": "vegetal1",
+        "image":""
+    },
+    {
+        "value": "Cebolla Blanca",
+        "name": "vegetal2",
+        "id": "vegetal2",
+        "image":""
+    },
+    {
+        "value": "Champinones",
+        "name": "vegetal3",
+        "id": "vegetal3",
+        "image":""
+    },
+    {
+        "value": "Aceitunas Verdes",
+        "name": "vegetal4",
+        "id": "vegetal4",
+        "image":""
+    },
+    {
+        "value": "Aceitunas Negras",
+        "name": "vegetal5",
+        "id": "vegetal5",
+        "image":""
+    },
+    {
+        "value": "Amber Roja",
+        "name": "cerveza1",
+        "id": "cerveza1",
+        "image":""
+    },
+    {
+        "value": "Bohemian Rubia",
+        "name": "cerveza2",
+        "id": "cerveza2",
+        "image":""
+    },
+    {
+        "value": "Weisse",
+        "name": "cerveza3",
+        "id": "cerveza3",
+        "image":""
+    },
+    {
+        "value": "Corona",
+        "name": "cerveza4",
+        "id": "cerveza4"
+    },
+    {
+        "value": "Heineken",
+        "name": "cerveza5",
+        "id": "cerveza5",
+        "image":""
+    },
+    {
+        "value": "Agua",
+        "name": "agua1",
+        "id": "agua1",
+        "image":""
+    },
+    {
+        "value": "Coca-Cola",
+        "name": "bebida2",
+        "id": "bebida2",
+        "image":""
+    },
+    {
+        "value": "Sprite",
+        "name": "bebida3",
+        "id": "bebida3",
+        "image":""
+    },
+    {
+        "value": "Fanta",
+        "name": "bebida4",
+        "id": "bebida4",
+        "image":""
     }
 ]

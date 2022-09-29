@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
-    <link rel="stylesheet" type="text/css" href="../css/products_styles/product_update.css">
+    <link rel="stylesheet" type="text/css" href="../../css/partials_styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../../css/partials_styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../../css/products_styles/product_update.css">
 
     <title>Editar Producto</title>
   </head>
@@ -23,12 +23,12 @@
                   <form action="/">
 
                     <div class="field-group">
-                      <input class="fg-field" type="text" name="product_name" value="Pizza Marte" required>
+                      <input class="fg-field" type="text" name="product_name" value="<%=product.name%>" required>
                       <label class="fg-label">Nombre del Producto</label>
                     </div>
 
                     <div class="field-group">
-                      <input class="fg-field" type="number" name="price" value="800" required>
+                      <input class="fg-field" type="number" name="price" value="<%=product.price%>" required>
                       <label class="fg-label">Precio</label>
                     </div>
 
@@ -36,14 +36,13 @@
                     <label class="select-label">Categoria:</label>
                       <div class="select">
                         <select>
-                          <option disabled selected>Pizzas</option>
-                          <option>Pizzas</option>
-                          <option>Quesos</option>
-                          <option>Vegetales</option>
-                          <option>Carnes</option>
-                          <option>Aderezos</option>
-                          <option>Bebidas</option>
-                          <option>Postres</option>
+                          <% category.forEach(element => { %>
+                            <% if(element == product.category){ %>
+                              <option selected disabled> <%= product.category %> </option>
+                            <% } else{ %>  
+                              <option> <%= element %> </option>
+                           <% } %>
+                          <% }) %>
                         </select>
                       </div>
                     </div>
@@ -51,10 +50,13 @@
                     <label class="select-label">Estado:</label>
                     <div class="select">
                       <select>
-                        <option disabled selected>Activo</option>
-                        <option>Activo</option>
-                        <option>Sin Stock</option>
-                        <option>Inactivo</option>
+                        <% status.forEach(element => { %>
+                          <% if(element == product.status){ %>
+                            <option selected disabled> <%= product.status %> </option>
+                          <% } else{ %>  
+                            <option> <%= element %> </option>
+                         <% } %>
+                        <% }) %>
                       </select>
                     </div>
                 </form>
@@ -62,7 +64,8 @@
 
               <div class="form-col">
                   <div class="img-container">
-                    <img src="../../img/products/Marte.png">
+                    
+                    <img src="../../img/pizzas/<%= product.image ? product.image : "Pizza_box.png"%>">
                   </div>
 
                   <div class="img-input">
@@ -74,7 +77,7 @@
                   </div>
 
                   <div class="field-group">
-                    <textarea class="fg-field" name="description" required>Pizza con 200 grs de queso muzzarella y muuuuucho pepperoni</textarea>
+                    <textarea class="fg-field" name="description" required><%=product.description%> </textarea>
                     <label class="fg-label">Descripcion</label>
                   </div>
 

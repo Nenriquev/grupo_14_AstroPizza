@@ -43,13 +43,16 @@ const productController = {
         price: req.body.price,
         category: req.body.category,
       }
-
-      console.log(newProduct)
       res.redirect("/product/create");
   },
 
   edit: (req, res) => {
-    res.render('./products/product_edit.ejs')
+    const status = ['Activo', 'Sin stock', 'Inactivo']
+    const category = ['Pizzas', 'Quesos', 'Vegetales', 'Carnes', 'Bebidas', 'Cervezas']
+    const data = findAllProducts()
+    const product = data.find(element => element.id === req.params.id)
+    res.render('./products/product_edit', {product: product, status: status, category: category})
+    console.log(product)
   },
 }
 
