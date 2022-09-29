@@ -48,48 +48,49 @@
   </div>
 
 
-
+<form action="/product" method="post">
   <section class="menu-container" id="menu"> 
     <section class="menu" id="top">
       <div class="product">
-        <a href="/product"><img class='img_product' src="../img/products/Mercurio.webp" alt="Pizza Mercurio"/></a>
-        <div class="product-name">mercurio</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[0].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[0].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[0].name %></div>
       </div>
       <div class="product">
-        <a href="/product"><img class='img_product' src="../img/products/Venus.png" alt="Pizza Venus"/></a>
-        <div class="product-name">venus</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[1].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[1].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[1].name %></div>
       </div>
     </section>
 
     <section class="menu">
       <div class="product">
-        <a href="/product"><img class='img_product' src="../img/products/Marte.webp" alt="Pizza Marte"/></a>
-        <div class="product-name">marte</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[2].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[2].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[2].name %></div>
       </div>
       <div class="sun">
         <img class='sun' src="../img/products/sun.png"/>
       </div>
       <div class="product">
-        <a href="/product"><img class='img_product' src="../img/products/Jupiter.webp" alt="Pizza Jupiter"/></a>
-        <div class="product-name">jupiter</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[3].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[3].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[3].name %></div>
       </div>
     </section>
   
     <section class="menu" id="bottom">
       <div class="product" id="side">
-        <a href="/product"><img class='img_product' id="left" src="../img/products/Saturno.webp" alt="Pizza Saturno"/></a>
-        <div class="product-name id-bottom">saturno</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[4].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[4].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[4].name %></div>
       </div>
       <div class="product" id="bottom-product">
-        <a href="/product"><img class='img_product' src="../img/products/Neptuno.webp" alt="Pizza Neptuno"/></a>
-        <div class="product-name">neptuno</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[5].name %>"class="menu_button"><img class='img_product' src="<%= dataPizza[5].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[5].name %></div>
       </div>
       <div class="product" id="side">
-        <a href="/product"><img class='img_product' src="../img/products/Urano.png" alt="Pizza Urano"/></img></a>
-        <div class="product-name id-bottom">urano</div>
+        <button type="submit" name="pizza" value="<%= dataPizza[6].name %>" class="menu_button"><img class='img_product' src="<%= dataPizza[6].image %>" alt="Pizza Mercurio"/></button>
+        <div class="product-name"><%= dataPizza[6].name %></div>
       </div>
     </section>
   </section>
+</form>
   <%- include('./partials/footer') %> 
 </body>
 </html>

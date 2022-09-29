@@ -3,7 +3,8 @@ const productsController = require("../controllers/productsController.js");
 
 const productRouter = express.Router()
 
-productRouter.get('/', productsController.products)
+/*Cart*/
+productRouter.post('/cart', productsController.cart)
 
 /*Create*/
 productRouter.get('/create', productsController.create)

@@ -1,208 +1,214 @@
 [   
-    {
-        "pizzas":
-            [
-                {
-                    "name": "mercurio",
-                    "image": ""
-                },
-                {
-                    "name": "venus",
-                    "image": ""
-                },
-                {
-                    "name": "jupiter",
-                    "image": ""
-                },
-                {
-                    "name": "urano",
-                    "image": ""
-                },
-                {
-                    "name": "neptuno",
-                    "image": ""
-                },
-                {
-                    "name": "saturno",
-                    "image": ""
-                },
-                {
-                    "name": "marte",
-                    "image": ""
-                }
-            ]
-
+    {   
+        "category":"pizza",
+        "name": "mercurio",
+        "image": "../img/products/Mercurio.webp",
+        "price": 750
     },
-
-    {   "quesos":
-            [
-                {
-                    "value": "Muzzarella",
-                    "name": "queso1",
-                    "id": "queso1",
-                    "image":""
-                },
-                {
-                    "value": "Provolone",
-                    "name": "queso2",
-                    "id": "queso2",
-                    "image":""
-                },
-                {
-                    "value": "Parmesano",
-                    "name": "queso3",
-                    "id": "queso3",
-                    "image":""
-                },
-                {
-                    "value": "Roquefort",
-                    "name": "queso3",
-                    "id": "queso3",
-                    "image":""
-                }
-            ]
+    {
+        "category":"pizza",
+        "name": "venus",
+        "image": "../img/products/Venus.png",
+        "price": 750
+    },
+    {
+        "category":"pizza",
+        "name": "jupiter",
+        "image": "../img/products/Jupiter.webp",
+        "price": 750
+    },
+    {
+        "category":"pizza",
+        "name": "urano",
+        "image": "../img/products/Urano.png",
+        "price": 750
+    },
+    {
+        "category":"pizza",
+        "name": "neptuno",
+        "image": "../img/products/Neptuno.webp",
+        "price": 750
+    },
+    {
+        "category":"pizza",
+        "name": "saturno",
+        "image": "../img/products/Saturno.webp",
+        "price": 750
+    },
+    {
+        "category":"pizza",
+        "name": "marte",
+        "image": "../img/products/Marte.webp",
+        "price": 750
     },
 
     {
-        "proteinas":
-            [
-                {
-                    "value": "Bacon",
-                    "name": "proteinas1",
-                    "id": "proteinas1",
-                    "image":""
-                },
-                {
-                    "value": "Jamon",
-                    "name": "proteinas2",
-                    "id": "proteinas2",
-                    "image":""
-                },
-                {
-                    "value": "Pastrami",
-                    "name": "proteinas3",
-                    "id": "proteinas3",
-                    "image":""
-                },
-                {
-                    "value": "Salchica Italiana",
-                    "name": "proteinas4",
-                    "id": "proteinas4",
-                    "image":""
-                },
-                {
-                    "value": "Salchica Alemana",
-                    "name": "proteinas5",
-                    "id": "proteinas5",
-                    "image":""
-                },
-                {
-                    "value": "Meatballs",
-                    "name": "proteinas6",
-                    "id": "proteinas6",
-                    "image":""
-                }
-            ]
+        "category":"quesos",
+        "value": "Muzzarella",
+        "name": "queso1",
+        "id": "queso1",
+        "image":""
+    },
+    {
+        "category":"quesos",
+        "value": "Provolone",
+        "name": "queso2",
+        "id": "queso2",
+        "image":""
+    },
+    {
+        "category":"quesos",
+        "value": "Parmesano",
+        "name": "queso3",
+        "id": "queso3",
+        "image":""
+    },
+    {
+        "category":"quesos",
+        "value": "Roquefort",
+        "name": "queso3",
+        "id": "queso3",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Bacon",
+        "name": "proteinas1",
+        "id": "proteinas1",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Jamon",
+        "name": "proteinas2",
+        "id": "proteinas2",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Pastrami",
+        "name": "proteinas3",
+        "id": "proteinas3",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Salchica Italiana",
+        "name": "proteinas4",
+        "id": "proteinas4",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Salchica Alemana",
+        "name": "proteinas5",
+        "id": "proteinas5",
+        "image":""
+    },
+    {
+        "category":"proteinas",
+        "value": "Meatballs",
+        "name": "proteinas6",
+        "id": "proteinas6",
+        "image":""
+    },
+    {
+        "category":"vegetales",
+        "value": "Morron Rojo",
+        "name": "vegetal1",
+        "id": "vegetal1",
+        "image":""
+    },
+    {
+        "category":"vegetales",
+        "value": "Cebolla Blanca",
+        "name": "vegetal2",
+        "id": "vegetal2",
+        "image":""
+    },
+    {
+        "category":"vegetales",
+        "value": "Champinones",
+        "name": "vegetal3",
+        "id": "vegetal3",
+        "image":""
+    },
+    {
+        "category":"vegetales",
+        "value": "Aceitunas Verdes",
+        "name": "vegetal4",
+        "id": "vegetal4",
+        "image":""
+    },
+    {
+        "category":"vegetales",
+        "value": "Aceitunas Negras",
+        "name": "vegetal5",
+        "id": "vegetal5",
+        "image":""
     },
 
     {
-        "vegetales":
-            [
-                {
-                    "value": "Morron Rojo",
-                    "name": "vegetal1",
-                    "id": "vegetal1",
-                    "image":""
-                },
-                {
-                    "value": "Cebolla Blanca",
-                    "name": "vegetal2",
-                    "id": "vegetal2",
-                    "image":""
-                },
-                {
-                    "value": "Champinones",
-                    "name": "vegetal3",
-                    "id": "vegetal3",
-                    "image":""
-                },
-                {
-                    "value": "Aceitunas Verdes",
-                    "name": "vegetal4",
-                    "id": "vegetal4",
-                    "image":""
-                },
-                {
-                    "value": "Aceitunas Negras",
-                    "name": "vegetal5",
-                    "id": "vegetal5",
-                    "image":""
-                }
-            ]
+        "category":"cervezas",
+        "value": "Amber Roja",
+        "name": "cerveza1",
+        "id": "cerveza1",
+        "image":""
+    },
+    {
+        "category":"cervezas",
+        "value": "Bohemian Rubia",
+        "name": "cerveza2",
+        "id": "cerveza2",
+        "image":""
+    },
+    {
+        "category":"cervezas",
+        "value": "Weisse",
+        "name": "cerveza3",
+        "id": "cerveza3",
+        "image":""
+    },
+    {
+        "category":"cervezas",
+        "value": "Corona",
+        "name": "cerveza4",
+        "id": "cerveza4"
+    },
+    {
+        "category":"cervezas",
+        "value": "Heineken",
+        "name": "cerveza5",
+        "id": "cerveza5",
+        "image":""
     },
 
     {
-        "cervezas":
-            [
-                {
-                    "value": "Amber Roja",
-                    "name": "cerveza1",
-                    "id": "cerveza1",
-                    "image":""
-                },
-                {
-                    "value": "Bohemian Rubia",
-                    "name": "cerveza2",
-                    "id": "cerveza2",
-                    "image":""
-                },
-                {
-                    "value": "Weisse",
-                    "name": "cerveza3",
-                    "id": "cerveza3",
-                    "image":""
-                },
-                {
-                    "value": "Corona",
-                    "name": "cerveza4",
-                    "id": "cerveza4"
-                },
-                {
-                    "value": "Heineken",
-                    "name": "cerveza5",
-                    "id": "cerveza5",
-                    "image":""
-                }
-            ]
+        "category":"bebidas",
+        "value": "Agua",
+        "name": "bebida1",
+        "id": "bebida1",
+        "image":""
     },
-
     {
-        "bebidas":
-            [
-                {
-                    "value": "Agua",
-                    "name": "agua1",
-                    "id": "agua1",
-                    "image":""
-                },
-                {
-                    "value": "Coca-Cola",
-                    "name": "bebida2",
-                    "id": "bebida2",
-                    "image":""
-                },
-                {
-                    "value": "Sprite",
-                    "name": "bebida3",
-                    "id": "bebida3",
-                    "image":""
-                },
-                {
-                    "value": "Fanta",
-                    "name": "bebida4",
-                    "id": "bebida4",
-                    "image":""
-                }
-            ]
+        "category":"bebidas",
+        "value": "Coca-Cola",
+        "name": "bebida2",
+        "id": "bebida2",
+        "image":""
+    },
+    {
+        "category":"bebidas",
+        "value": "Sprite",
+        "name": "bebida3",
+        "id": "bebida3",
+        "image":""
+    },
+    {
+        "category":"bebidas",
+        "value": "Fanta",
+        "name": "bebida4",
+        "id": "bebida4",
+        "image":""
     }
 ]
