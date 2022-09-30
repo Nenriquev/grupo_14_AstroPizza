@@ -17,7 +17,7 @@
     <%- include('../partials/header') %> 
     <div class="form-container">
       <div class="form-col">
-        <form action="/product/create" method="POST">
+        <form action="/product/create" method="POST" enctype="multipart/form-data">
 
           <div class="field-group">
             <input class="fg-field" type="text" name="product_name" required>
@@ -37,13 +37,13 @@
           <div class="select">
             <select name="category">
               <option disabled selected>Categoria</option>
-              <option value="pizzas">Pizzas</option>
-              <option value="quesos">Quesos</option>
-              <option value="vegetales">Vegetales</option>
-              <option value="carnes">Carnes</option>
-              <option value="aderezos">Aderezos</option>
-              <option value="bebidas">Bebidas</option>
-              <option value="postres">Postres</option>
+              <option value="Pizzas">Pizzas</option>
+              <option value="Quesos">Quesos</option>
+              <option value="Vegetales">Vegetales</option>
+              <option value="Carnes">Carnes</option>
+              <option value="Aderezos">Aderezos</option>
+              <option value="Bebidas">Bebidas</option>
+              <option value="Postres">Postres</option>
             </select>
           </div>
 
@@ -54,7 +54,7 @@
             <label for="file-upload" class="custom-file-upload">
               <i class="fa fa-cloud-upload"></i> Seleccionar
             </label>
-            <input id="file-upload" type="file"/>
+            <input id="file-upload" name="image" type="file"/>
           </div>
 
           <div class="submit-btn">

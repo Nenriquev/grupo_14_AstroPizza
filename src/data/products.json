@@ -1,16 +1,15 @@
-[   
-
-    {   
+[
+    {
         "id": "p001",
         "name": "Pizza Mercurio",
         "value": "mercurio",
-        "description": "La pizza mas cercana al sol, con 200 grs de cremosa muzzarella",
-        "price": 1000,
+        "price": 1100,
+        "description": "La pizza mas cercana al sol. con 200 grs de cremosa muzzarella.  ",
         "category": "Pizzas",
         "status": "Activo",
         "image": "Mercurio.webp"
     },
-    {   
+    {
         "id": "p002",
         "name": "Pizza Venus",
         "description": "La Pizza exotica romana, con 200grs de muzzarella, panceta crocante, Anana y un toque de ciantro",
@@ -19,7 +18,7 @@
         "status": "Activo",
         "image": "Venus.png"
     },
-    {   
+    {
         "id": "p003",
         "name": "Pizza Marte",
         "description": "La Pizza de arenas rojas. con 200 grs de muzzarella y ¡muuuuuucho pepperoni!",
@@ -28,7 +27,7 @@
         "status": "Activo",
         "image": "Marte.webp"
     },
-    {   
+    {
         "id": "p004",
         "name": "Pizza Jupiter",
         "description": "Pizza vegetariana interestelar con 200 grs de muzzarella, cebolla morada, morron verde, champinones y olivas negras",
@@ -110,79 +109,79 @@
         "value": "Jamon",
         "name": "proteinas2",
         "id": "proteinas2",
-        "image":""
+        "image": ""
     },
     {
         "value": "Pastrami",
         "name": "proteinas3",
         "id": "proteinas3",
-        "image":""
+        "image": ""
     },
     {
         "value": "Salchica Italiana",
         "name": "proteinas4",
         "id": "proteinas4",
-        "image":""
+        "image": ""
     },
     {
         "value": "Salchica Alemana",
         "name": "proteinas5",
         "id": "proteinas5",
-        "image":""
+        "image": ""
     },
     {
         "value": "Meatballs",
         "name": "proteinas6",
         "id": "proteinas6",
-        "image":""
+        "image": ""
     },
     {
         "value": "Morron Rojo",
         "name": "vegetal1",
         "id": "vegetal1",
-        "image":""
+        "image": ""
     },
     {
         "value": "Cebolla Blanca",
         "name": "vegetal2",
         "id": "vegetal2",
-        "image":""
+        "image": ""
     },
     {
         "value": "Champinones",
         "name": "vegetal3",
         "id": "vegetal3",
-        "image":""
+        "image": ""
     },
     {
         "value": "Aceitunas Verdes",
         "name": "vegetal4",
         "id": "vegetal4",
-        "image":""
+        "image": ""
     },
     {
         "value": "Aceitunas Negras",
         "name": "vegetal5",
         "id": "vegetal5",
-        "image":""
+        "image": ""
     },
     {
         "value": "Amber Roja",
         "name": "cerveza1",
         "id": "cerveza1",
-        "image":""
+        "image": ""
     },
     {
         "value": "Bohemian Rubia",
         "name": "cerveza2",
         "id": "cerveza2",
-        "image":""
+        "image": ""
     },
     {
         "value": "Weisse",
         "name": "cerveza3",
         "id": "cerveza3",
-        "image":""
+        "image": ""
     },
     {
         "value": "Corona",
@@ -193,30 +192,30 @@
         "value": "Heineken",
         "name": "cerveza5",
         "id": "cerveza5",
-        "image":""
+        "image": ""
     },
     {
         "value": "Agua",
         "name": "agua1",
         "id": "agua1",
-        "image":""
+        "image": ""
     },
     {
         "value": "Coca-Cola",
         "name": "bebida2",
         "id": "bebida2",
-        "image":""
+        "image": ""
     },
     {
         "value": "Sprite",
         "name": "bebida3",
         "id": "bebida3",
-        "image":""
+        "image": ""
     },
     {
         "value": "Fanta",
         "name": "bebida4",
         "id": "bebida4",
-        "image":""
+        "image": ""
     }
 ]

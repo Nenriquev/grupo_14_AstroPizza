@@ -23,33 +23,33 @@
         </div>
         <div class="form-col2">
           <div class="form-in">
-              <form action="/">
+              <form action="/soporte" method="post">
                 <div class="field-group">
-                  <input type="text" class="fg-field" required>
+                  <input type="text" class="fg-field" name="names" required>
                   <label class="fg-label">Nombre y Apellido</label>
                 </div>
               
                 <div class="field-group">
-                  <input type="email" class="fg-field" required>
+                  <input type="email" class="fg-field" name="email" required>
                   <label class="fg-label">Correo electronico</label>
                 </div>
 
                 <div class="field-group">
-                  <input type="tel" class="fg-field" required>
+                  <input type="tel" class="fg-field" name="telephone" required>
                   <label class="fg-label">Telefono</label>
                 </div>
 
                 <div class="select">
-                  <select>
+                  <select name="topic">
                     <option disabled selected>Motivo</option>
-                    <option>Producto incompleto</option>
-                    <option>Producto en mal estado</option>
-                    <option>Producto equivocado</option>
+                    <option value="Producto incompleto">Producto incompleto</option>
+                    <option value="Producto en mal estado">Producto en mal estado</option>
+                    <option value="Producto equivocado">Producto equivocado</option>
                   </select>
                 </div>
 
                 <div class="field-group">
-                  <textarea class="fg-field" required></textarea>
+                  <textarea class="fg-field" name="comments" required></textarea>
                   <label class="fg-label">Comentario</label>
                 </div>
                 
@@ -57,13 +57,14 @@
                   <label for="file-upload" class="custom-file-upload">
                     <i class="fa fa-cloud-upload"></i> Seleccionar
                   </label>
-                  <input id="file-upload" type="file"/>
+                  <input id="file-upload" name="report_img" type="file"/>
                   <label class="fg-label">Adjuntar archivo:</label>
                 </div>
+                <div>
+                  <button class="bttn-dark">Enviar</a>
+                </div>
               </form>
-              <div>
-                <a href="#" class="bttn-dark">Enviar</a>
-              </div>
+              
           </div>
         </div>
       </div>

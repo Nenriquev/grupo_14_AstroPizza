@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "name": "Enrique",
+        "email": "nenriquev1@gmail.com",
+        "tel": "611435385",
+        "topic": "Producto en mal estado",
+        "comentarios": "Mi producto llego en mal estado.",
+        "status": "En revision",
+        "image": ""
+    },
+    {
+        "id": "2",
+        "name": "asas",
+        "email": "saas@gmail.com",
+        "tel": "assa",
+        "topic": "Producto equivocado",
+        "comentarios": "Me trajeron otra cosa chantas",
+        "status": "En revision",
+        "image": ""
+    }
+]

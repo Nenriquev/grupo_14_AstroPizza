@@ -20,7 +20,7 @@
           <div class="form-container">
             <div class="form-row">
               <div class="form-col">
-                  <form action="/">
+                  <form action="/product/edit/<%=product.id%>?_method=PUT" method="post">
 
                     <div class="field-group">
                       <input class="fg-field" type="text" name="product_name" value="<%=product.name%>" required>
@@ -35,12 +35,12 @@
                     <div>
                     <label class="select-label">Categoria:</label>
                       <div class="select">
-                        <select>
+                        <select name="category">
                           <% category.forEach(element => { %>
                             <% if(element == product.category){ %>
-                              <option selected disabled> <%= product.category %> </option>
+                              <option selected value="<%= product.category %>"> <%= product.category %> </option>
                             <% } else{ %>  
-                              <option> <%= element %> </option>
+                              <option value="<%= element %>"> <%= element %> </option>
                            <% } %>
                           <% }) %>
                         </select>
@@ -49,17 +49,17 @@
 
                     <label class="select-label">Estado:</label>
                     <div class="select">
-                      <select>
+                      <select name="status">
                         <% status.forEach(element => { %>
                           <% if(element == product.status){ %>
-                            <option selected disabled> <%= product.status %> </option>
+                            <option selected value="<%= product.status %>"> <%= product.status %> </option>
                           <% } else{ %>  
-                            <option> <%= element %> </option>
+                            <option value="<%= element %>"> <%= element %> </option>
                          <% } %>
                         <% }) %>
                       </select>
                     </div>
-                </form>
+                
               </div>
 
               <div class="form-col">
@@ -85,9 +85,12 @@
             </div>
 
             <div class="submit-btn">
-              <a href="#" class="bttn-dark">Guardar Cambios</a>
-              <button class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
+                <button type="submit" class="bttn-dark">Guardar Cambios</button>
             </div>
+          </form>
+          <form action="/product/edit/<%=product.id%>?_method=DELETE" method="post">
+            <button type="submit" class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
+          </form>
         </div>
           
       </div>
