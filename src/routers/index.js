@@ -1,6 +1,7 @@
 const express = require('express')
 const multer = require('multer')
 const indexController = require("../controllers/indexController.js");
+const productController = require('../controllers/productsController.js');
 
 const indexRouter = express.Router()
 
@@ -24,7 +25,8 @@ indexRouter.get('/soporte', indexController.support)
 indexRouter.post('/soporte', indexController.reportSubmit)
 indexRouter.get('/sobre-nosotros', indexController.about)
 
-
+/* Ir a Product Detail */
+indexRouter.post('/product', productController.product)
 
 module.exports = indexRouter;
 

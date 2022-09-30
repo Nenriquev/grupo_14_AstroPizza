@@ -26,24 +26,27 @@
                     <form action="/users/register" method="post">
                         
                         <div class="field-group">
-                            <input type="text" class="fg-field" required>
-                            <label class="fg-label">Nombre y apellido</label>
+                            <input type="text" name="first_name" class="fg-field" required>
+                            <label class="fg-label">Nombre</label>
                         </div>
 
+                        <div class="field-group">
+                            <input type="text" name="last_name" class="fg-field" required>
+                            <label class="fg-label">Apellido</label>
+                        </div>
 
                         <div class="field-group">
-                            <input type="emaill" class="fg-field" required>
+                            <input type="email" name="email" class="fg-field" required>
                             <label class="fg-label">Email</label>
                         </div>
 
-
                         <div class="field-group">
-                            <input type="text" class="fg-field" required>
+                            <input type="text" name="user_name" class="fg-field" required>
                             <label class="fg-label">Nombre de Usuario</label>
                         </div>
                         
                         <div class="field-group">
-                            <input type="password" class="fg-field" required>
+                            <input type="password" name="password" class="fg-field" required>
                             <label class="fg-label">Contrasena</label>
                         </div>
 
@@ -57,10 +60,10 @@
                                 <a class="forgot" href="/users/login">Ya estas registrado?</a>
                             </div>
                         </div>
+                        <div>
+                          <button type="submit" class="bttn-dark">Registrarme</button>
+                        </div>
                     </form>
-                    <div>
-                      <a href="#menu" class="bttn-dark">Registrarme</a>
-                    </div>
                 </div>
               </div>
             </div>

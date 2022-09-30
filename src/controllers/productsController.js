@@ -14,26 +14,30 @@ const writeData = (data) =>{
 
 
 const productController = {
-  products: (req, res) => {
+  product: (req, res) => {
     const data = findAllProducts();
 
-    let dataPizzas = (data[0]).pizzas
-    let dataQuesos = (data[1]).quesos
-    let dataProteinas = (data[2]).proteinas
-    let dataVegetales = (data[3]).vegetales
-    let dataCervezas = (data[4]).cervezas
-    let dataBebidas = (data[5]).bebidas
+    dataPizza = data.filter(x => x.category == "pizzas");
+    const pizzaEncontrada = JSON.parse(JSON.stringify(req.body)); // req.body = [Object: null prototype] { title: 'product' }
+  
+    indicePizza = dataPizza.findIndex(x => x.name == pizzaEncontrada.pizza);
+    pizzaElegida = dataPizza[indicePizza];
 
-    res.render('./products/product_detail.ejs', { dataPizzas: dataPizzas,
+    dataQuesos = data.filter(x => x.category == "quesos");
+    dataVegetales = data.filter(x => x.category == "vegetales");
+    dataProteinas = data.filter(x => x.category == "carnes");
+    dataBebidas = data.filter(x => x.category == "bebidas");
+    dataCervezas = data.filter(x => x.category == "cervezas");
+
+    res.render('./products/product_detail.ejs', {
                                                   dataQuesos: dataQuesos,
-                                                  dataProteinas: dataProteinas,
                                                   dataVegetales: dataVegetales,
+                                                  dataProteinas: dataProteinas,
+                                                  dataBebidas: dataBebidas,
                                                   dataCervezas: dataCervezas,
-                                                  dataBebidas: dataBebidas
+                                                  pizzaElegida: pizzaElegida
                                                 })
-
-  },
-      //CREAR//
+},
 
   create: (req, res) => {
     res.render('./products/product_create.ejs')
@@ -55,7 +59,7 @@ const productController = {
       data.push(newProduct)
       writeData(data)
       res.redirect("/product/create");
-  },
+    },
 
       //EDITAR//
 

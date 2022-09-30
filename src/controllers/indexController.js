@@ -12,10 +12,19 @@ const writeData = (data) =>{
   fs.writeFileSync(path.join(__dirname, '../data/reports.json'), dataString)
 }
 
+function findAllProducts(){
+  const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
+  const data = JSON.parse(jsonData)
+  return data
+}
+
 
 const indexController = {
   index: (req, res) => {
-    res.render('index.ejs')
+    const data = findAllProducts();
+
+    dataPizza = data.filter(x => x.category == "pizzas");
+    res.render('index.ejs', {dataPizza: dataPizza})
   },
 
   faqs: (req, res) => {

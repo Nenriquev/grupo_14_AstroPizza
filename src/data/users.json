@@ -1,0 +1,74 @@
+[
+     {
+          "id": 1,
+          "first_name": "Davidde",
+          "last_name": "Tattoo",
+          "email": "dtattoo0@smugmug.com",
+          "user_name": "dtattoo0",
+          "password": "zQMwhvXgscNw"
+     },
+     {
+          "id": 2,
+          "first_name": "Albina",
+          "last_name": "Neame",
+          "email": "aneame1@google.com",
+          "user_name": "aneame1",
+          "password": "8f3Zmh"
+     },
+     {
+          "id": 3,
+          "first_name": "Major",
+          "last_name": "Rablan",
+          "email": "mrablan2@typepad.com",
+          "user_name": "mrablan2",
+          "password": "jfYwvxEJmU"
+     },
+     {
+          "id": 4,
+          "first_name": "Gordie",
+          "last_name": "Harfleet",
+          "email": "gharfleet3@reddit.com",
+          "user_name": "gharfleet3",
+          "password": "jDM4ru"
+     },
+     {
+          "id": 5,
+          "first_name": "Allayne",
+          "last_name": "Capenor",
+          "email": "acapenor4@statcounter.com",
+          "user_name": "acapenor4",
+          "password": "eufDld2"
+     },
+     {
+          "id": 6,
+          "first_name": "Matias",
+          "last_name": "Rene",
+          "email": "matirene1@hotmail.com",
+          "user_name": "matirene",
+          "password": "sadsadsa"
+     },
+     {
+          "id": 7,
+          "first_name": "lucas",
+          "last_name": "fernandez",
+          "email": "lucas@hotmail.com",
+          "user_name": "lucasfer",
+          "password": "sadsadsad"
+     },
+     {
+          "id": 8,
+          "first_name": "sdasdsad",
+          "last_name": "sdsadsad",
+          "email": "dsads@sdsad.com",
+          "user_name": "sdsads",
+          "password": "sadsadsa"
+     },
+     {
+          "id": 9,
+          "first_name": "Matias",
+          "last_name": "Rene",
+          "email": "matirene1@hotmail.com",
+          "user_name": "matirene",
+          "password": "dsadsad"
+     }
+]
