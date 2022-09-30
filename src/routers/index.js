@@ -25,8 +25,6 @@ indexRouter.get('/soporte', indexController.support)
 indexRouter.post('/soporte', indexController.reportSubmit)
 indexRouter.get('/sobre-nosotros', indexController.about)
 
-/* Ir a Product Detail */
-indexRouter.post('/product', productController.product)
 
 module.exports = indexRouter;
 

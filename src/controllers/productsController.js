@@ -17,25 +17,21 @@ const productController = {
   product: (req, res) => {
     const data = findAllProducts();
 
-    dataPizza = data.filter(x => x.category == "pizzas");
-    const pizzaEncontrada = JSON.parse(JSON.stringify(req.body)); // req.body = [Object: null prototype] { title: 'product' }
-  
-    indicePizza = dataPizza.findIndex(x => x.name == pizzaEncontrada.pizza);
-    pizzaElegida = dataPizza[indicePizza];
-
-    dataQuesos = data.filter(x => x.category == "quesos");
-    dataVegetales = data.filter(x => x.category == "vegetales");
-    dataProteinas = data.filter(x => x.category == "carnes");
-    dataBebidas = data.filter(x => x.category == "bebidas");
-    dataCervezas = data.filter(x => x.category == "cervezas");
+    const pizzaData = data.find(element => element.value === req.params.value)
+    
+    const dataQuesos = data.filter(x => x.category == "quesos");
+    const dataVegetales = data.filter(x => x.category == "vegetales");
+    const dataProteinas = data.filter(x => x.category == "carnes");
+    const dataBebidas = data.filter(x => x.category == "bebidas");
+    const dataCervezas = data.filter(x => x.category == "cervezas");
 
     res.render('./products/product_detail.ejs', {
+                                                  pizzaData: pizzaData,
                                                   dataQuesos: dataQuesos,
                                                   dataVegetales: dataVegetales,
                                                   dataProteinas: dataProteinas,
                                                   dataBebidas: dataBebidas,
                                                   dataCervezas: dataCervezas,
-                                                  pizzaElegida: pizzaElegida
                                                 })
 },
 
