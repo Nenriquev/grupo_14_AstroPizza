@@ -18,3 +18,15 @@ WIP:
 - Funcionalidad a productCreate y productEdit.
 - Ajuste de diseño para todas los tamaños.
 - Actualización del tablero en Trello.
+
+**3/10**
+
+DONE: 
+- Funcionalidad a productCreate y productEdit.
+- Ajuste de diseño para todas los tamaños.
+- Actualización del tablero en Trello.
+
+WIP:
+- Correción de la vista del carrito.
+
+Revisión del Sprint 5.
