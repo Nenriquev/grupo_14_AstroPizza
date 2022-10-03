@@ -107,8 +107,10 @@ li{
   }
 
   .logo{
+    position: relative;
     bottom: 0;
     width: 50%;
+    z-index: 99999;
     }
 
   .navbar{

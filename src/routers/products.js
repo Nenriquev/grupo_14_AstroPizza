@@ -19,7 +19,7 @@ const multerDiskStorage = multer.diskStorage({
 const uploadFile = multer({storage: multerDiskStorage})
 
 /*Products*/
-productRouter.get('/:value', productsController.product)
+productRouter.get('/detail/:value', productsController.product)
 
 /*Create*/
 productRouter.get('/create', productsController.create)
