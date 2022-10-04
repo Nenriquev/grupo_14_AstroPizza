@@ -7,19 +7,6 @@ function findAllProducts(){
   return data
 }
 
-function dataBebidasPedidas(){
-  data = findAllProducts();
-  let dataBebidas = data.filter(x => x.category == "bebidas");
-  dataBebidas.forEach(function(bebidas) {
-    if(extrasPedidos[bebidas.name] != 0){
-      let cantidad = { cantidad: extrasPedidos[bebidas.name]};
-      Object.assign(bebidas, cantidad);
-    }
-  });
-  dataBebidas = dataBebidas.filter(x => x.cantidad > 0);
-  return dataBebidas
-}
-
 function dataQuesosPedidos(){
   data = findAllProducts();
   let dataQuesos = data.filter(x => x.category == "quesos");
@@ -59,20 +46,47 @@ function dataVegetalesPedidos(){
   return dataVegetales
 }
 
+function dataBebidasPedidas(){
+  data = findAllProducts();
+  let dataBebidas = data.filter(x => x.category == "bebidas" ||x.category == "cervezas");
+  dataBebidas.forEach(function(bebidas) {
+    if(extrasPedidos[bebidas.name] != 0){
+      let cantidad = { cantidad: extrasPedidos[bebidas.name]};
+      Object.assign(bebidas, cantidad);
+    }
+  });
+  dataBebidas = dataBebidas.filter(x => x.cantidad > 0);
+  return dataBebidas
+}
+
+function dataPizzaElegida(){
+  data = findAllProducts();
+  let dataPizza = data.filter(x => x.category == "Pizzas");
+  let found
+  dataPizza.forEach(function(pizzas) {
+    found = dataPizza.find(element => element.value == pizzaPedida);
+  });
+  return found;
+}
 const cartController = {
   
   cart: (req, res) => {
     
     extrasPedidos = req.body;
-    dataBebidas = dataBebidasPedidas();
+    pizzaPedida = req.session.pizza
+
+    pizzaElegida = dataPizzaElegida();
     dataQuesos = dataQuesosPedidos();
     dataCarnes = dataCarnesPedidas();
     dataVegetales = dataVegetalesPedidos();
-    
-    res.render('cart.ejs', {dataBebidas: dataBebidas, 
+    dataBebidas = dataBebidasPedidas();
+
+    res.render('cart.ejs', {pizzaElegida: pizzaElegida,
                             dataQuesos: dataQuesos, 
                             dataCarnes: dataCarnes,
-                            dataVegetales: dataVegetales});
+                            dataVegetales: dataVegetales,
+                            dataBebidas: dataBebidas
+                            });
   }
 
 }

@@ -23,38 +23,39 @@
               
               <div class="products">
                 <div class="product-img">
-                  <img src="../img/pizzas/Marte.webp">
+                  <img src="../img/pizzas/<%= pizzaElegida.image %> ">
                 </div>
                   <div class="box">
                       <div class="name-amount">
-                        <h4>Pizza Marte</h4>
+                        <h4><%= pizzaElegida.name %> </h4>
                           <div class="amount">
-                            <i class="fas fa-dollar-sign"></i><h4> 750</h4>
+                            <i class="fas fa-dollar-sign"></i><h4><%= pizzaElegida.price %></h4>
                           </div>
                       </div>
                       <div class="description-box">
                         <div class="description">
-
+                          <%if(dataQuesos.length > 0 || dataCarnes.length > 0 || dataVegetales.length > 0){ %>
                           <%if(dataQuesos.length > 0){%>
                           <h2>Quesos</h2>
                           <% dataQuesos.forEach(function(quesos) { %>
-                          <span><%= quesos.name %> </span>
+                          <span><%= quesos.value %> </span>
                           <% }); }%>
 
                           <%if(dataCarnes.length > 0){%>
-                            <h2>Carnes</h2>
+                            <h2>Proteinas</h2>
                             <% dataCarnes.forEach(function(carnes) { %>
-                              <span><%= carnes.name %></span>
+                              <span><%= carnes.value %></span>
                           <% }); }%>
 
                           <%if(dataVegetales.length > 0){%>
                           <h2>Vegetales</h2>
                           <% dataVegetales.forEach(function(vegetales) { %>
-                            <span><%= vegetales.name %></span>
+                            <span><%= vegetales.value %></span>
                           <% }); }%>
-
+                          <% } else{ %>
+                            <h2>No hay Extras</h2>
+                          <%} %>
                           
-
                         </div>
                         <div class="qty">
                           <button class="min-plus">-</button>
@@ -70,8 +71,15 @@
                     <%if(dataBebidas.length > 0){%>
                       <h4>Bebidas</h4>
                       <% dataBebidas.forEach(function(bebidas) { %>
-                      <span><%= bebidas.name %> <%= bebidas.cantidad %> </span>
+                      
+                      <div class="qty">
+                        <span><%= bebidas.value %> </span>
+                        <button class="min-plus">-</button>
+                        <input type="number" class="count" value="<%= bebidas.cantidad %>">
+                        <button class="min-plus">+</button>
+                      </div>
                     <% }); }%>
+                    
                   </div>
                 </div>
               </div>
