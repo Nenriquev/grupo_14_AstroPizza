@@ -24,25 +24,29 @@ app.use(express.json());
 
 
 /* INDEX */
-app.use('/', indexRouter)
+app.use('/', indexRouter);
 
 
 /*PRODUCTS */
 
-app.use('/product', productRouter)
+app.use('/product', productRouter);
 
 /* USERS */
 
-app.use('/users', usersRouter)
+app.use('/users', usersRouter);
 
 
 /*CART*/
 
-app.use('/cart', cartRouter)
+app.use('/cart', cartRouter);
 
-/* ERRORS */
+/* ERRORS PAGE*/
 app.use(function(req, res){
   res.status(404).send('ERROR 404');
 });
 
 
+app.use(function(error, req, res, next) {
+  res.status(500).send('ERROR 500');
+  console.log(error)
+});

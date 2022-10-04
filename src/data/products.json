@@ -70,7 +70,17 @@
         "image": "Neptuno.webp"
     },
     {
-        "id": "q008",
+        "id": "p008",
+        "name": "Arma tu pizza",
+        "value": "arma-tu-pizza",
+        "description": "Arma tu propia pizza, sos dueño del universo pizza, creala como quieras",
+        "price": 1100,
+        "category": "Pizzas",
+        "status": "Activo",
+        "image": ""
+    },
+    {
+        "id": "q009",
         "name": "Muzzarella",
         "value": "Muzzarella",
         "description": "Extra de queso muzzarella",
@@ -80,7 +90,7 @@
         "image": null
     },
     {
-        "id": "q009",
+        "id": "q010",
         "name": "Provolone",
         "value": "Provolone",
         "description": "Extra de queso provolone",
@@ -90,7 +100,7 @@
         "image": null
     },
     {
-        "id": "q010",
+        "id": "q011",
         "name": "Parmesano",
         "value": "Parmesano",
         "description": "Queso parmesano",
@@ -99,7 +109,7 @@
         "image": null
     },
     {
-        "id": "q011",
+        "id": "q012",
         "name": "Roquefort",
         "value": "Roquefort",
         "description": "Queso roquefort",
@@ -108,7 +118,7 @@
         "image": null
     },
     {
-        "id": "c012",
+        "id": "c013",
         "value": "Panceta",
         "description": "Panceta",
         "price": 200,
@@ -117,133 +127,133 @@
         "image": null
     },
     {
-        "id": "c013",
+        "id": "c014",
         "value": "Jamon",
         "category": "carnes",
         "name": "Jamon",
         "image": ""
     },
     {
-        "id": "c014",
+        "id": "c015",
         "value": "Pastrami",
         "category": "carnes",
         "name": "Pastrami",
         "image": ""
     },
     {
-        "id": "c015",
+        "id": "c016",
         "value": "Salchica Italiana",
         "category": "carnes",
         "name": "SalchicaItaliana",
         "image": ""
     },
     {
-        "id": "c016",
+        "id": "c017",
         "value": "Salchica Alemana",
         "category": "carnes",
         "name": "SalchicaAlemana",
         "image": ""
     },
     {
-        "id": "c017",
+        "id": "c018",
         "value": "Meatballs",
         "category": "carnes",
         "name": "Meatballs",
         "image": ""
     },
     {
-        "id": "v018",
+        "id": "v019",
         "value": "Morron Rojo",
         "category": "vegetales",
         "name": "MorronRojo",
         "image": ""
     },
     {
-        "id": "v017",
+        "id": "v020",
         "value": "Cebolla Blanca",
         "category": "vegetales",
         "name": "CebollaBlanca",
         "image": ""
     },
     {
-        "id": "v018",
+        "id": "v021",
         "value": "Champinones",
         "category": "vegetales",
         "name": "Champinones",
         "image": ""
     },
     {
-        "id": "v019",
+        "id": "v022",
         "value": "Aceitunas Verdes",
         "category": "vegetales",
         "name": "AceitunasVerdes",
         "image": ""
     },
     {
-        "id": "v020",
+        "id": "v023",
         "value": "Aceitunas Negras",
         "category": "vegetales",
         "name": "AceitunasNegras",
         "image": ""
     },
     {
-        "id": "c021",
+        "id": "c024",
         "value": "Amber Roja",
         "category": "cervezas",
         "name": "AmberRoja",
         "image": ""
     },
     {
-        "id": "c022",
+        "id": "c025",
         "value": "Bohemian Rubia",
         "category": "cervezas",
         "name": "BohemianRubia",
         "image": ""
     },
     {
-        "id": "c023",
+        "id": "c026",
         "value": "Weisse",
         "category": "cervezas",
         "name": "Weisse",
         "image": ""
     },
     {
-        "id": "c024",
+        "id": "c027",
         "value": "Corona",
         "category": "cervezas",
         "name": "Corona",
         "image": ""
     },
     {
-        "id": "c025",
+        "id": "c028",
         "value": "Heineken",
         "category": "cervezas",
         "name": "Heineken",
         "image": ""
     },
     {
-        "id": "b026",
+        "id": "b029",
         "value": "Agua",
         "category": "bebidas",
         "name": "Agua",
         "image": ""
     },
     {
-        "id": "b027",
+        "id": "b030",
         "value": "Coca-Cola",
         "category": "bebidas",
         "name": "CocaCola",
         "image": ""
     },
     {
-        "id": "b028",
+        "id": "b031",
         "value": "Sprite",
         "category": "bebidas",
         "name": "Sprite",
         "image": ""
     },
     {
-        "id": "b029",
+        "id": "b032",
         "value": "Fanta",
         "category": "bebidas",
         "name": "Fanta",
