@@ -13,7 +13,7 @@
         "id": "p002",
         "name": "Pizza venus",
         "value": "venus",
-        "description": "La Pizza exotica romana, con 200grs de muzzarella, panceta crocante, Anana y un toque de ciantro",
+        "description": "La pizza exotica romana, con 200grs de muzzarella, panceta crocante, Anana y un toque de ciantro ",
         "price": 1250,
         "category": "Pizzas",
         "status": "Activo",
@@ -121,134 +121,132 @@
         "value": "Jamon",
         "category": "carnes",
         "name": "Jamon",
-        "image":""
+        "image": ""
     },
     {
         "id": "c014",
         "value": "Pastrami",
         "category": "carnes",
         "name": "Pastrami",
-        "image":""
+        "image": ""
     },
     {
         "id": "c015",
         "value": "Salchica Italiana",
         "category": "carnes",
         "name": "SalchicaItaliana",
-        "image":""
+        "image": ""
     },
     {
         "id": "c016",
         "value": "Salchica Alemana",
         "category": "carnes",
         "name": "SalchicaAlemana",
-        "image":""
+        "image": ""
     },
     {
         "id": "c017",
         "value": "Meatballs",
         "category": "carnes",
         "name": "Meatballs",
-        "image":""
+        "image": ""
     },
     {
         "id": "v018",
         "value": "Morron Rojo",
         "category": "vegetales",
         "name": "MorronRojo",
-        "image":""
+        "image": ""
     },
     {
-        
         "id": "v017",
         "value": "Cebolla Blanca",
         "category": "vegetales",
         "name": "CebollaBlanca",
-        "image":""
+        "image": ""
     },
     {
-        
         "id": "v018",
         "value": "Champinones",
         "category": "vegetales",
         "name": "Champinones",
-        "image":""
+        "image": ""
     },
     {
         "id": "v019",
         "value": "Aceitunas Verdes",
         "category": "vegetales",
         "name": "AceitunasVerdes",
-        "image":""
+        "image": ""
     },
     {
         "id": "v020",
         "value": "Aceitunas Negras",
         "category": "vegetales",
         "name": "AceitunasNegras",
-        "image":""
+        "image": ""
     },
     {
         "id": "c021",
         "value": "Amber Roja",
         "category": "cervezas",
         "name": "AmberRoja",
-        "image":""
+        "image": ""
     },
     {
         "id": "c022",
         "value": "Bohemian Rubia",
         "category": "cervezas",
         "name": "BohemianRubia",
-        "image":""
+        "image": ""
     },
     {
         "id": "c023",
         "value": "Weisse",
         "category": "cervezas",
         "name": "Weisse",
-        "image":""
+        "image": ""
     },
     {
         "id": "c024",
         "value": "Corona",
         "category": "cervezas",
         "name": "Corona",
-        "image":""
+        "image": ""
     },
     {
         "id": "c025",
         "value": "Heineken",
         "category": "cervezas",
         "name": "Heineken",
-        "image":""
+        "image": ""
     },
     {
         "id": "b026",
         "value": "Agua",
         "category": "bebidas",
         "name": "Agua",
-        "image":""
+        "image": ""
     },
     {
         "id": "b027",
         "value": "Coca-Cola",
         "category": "bebidas",
         "name": "CocaCola",
-        "image":""
+        "image": ""
     },
     {
         "id": "b028",
         "value": "Sprite",
         "category": "bebidas",
         "name": "Sprite",
-        "image":""
+        "image": ""
     },
     {
         "id": "b029",
         "value": "Fanta",
         "category": "bebidas",
         "name": "Fanta",
-        "image":""
+        "image": ""
     }
 ]
