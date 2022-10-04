@@ -20,23 +20,42 @@
           <div class="cart-board">
             <div class="resume">
 
+              
               <div class="products">
                 <div class="product-img">
-                  <img src="../img/pizzas/Marte.webp">
+                  <img src="../img/pizzas/<%= pizzaElegida.image %> ">
                 </div>
                   <div class="box">
                       <div class="name-amount">
-                        <h4>Pizza Marte</h4>
+                        <h4><%= pizzaElegida.name %> </h4>
                           <div class="amount">
-                            <i class="fas fa-dollar-sign"></i><h4> 750</h4>
+                            <i class="fas fa-dollar-sign"></i><h4><%= pizzaElegida.price %></h4>
                           </div>
                       </div>
                       <div class="description-box">
                         <div class="description">
-                          <span>1 x Extra muzzarella</span>
-                          <span>1 x Extra tomate</span>
-                          <span>1 x Extra panceta</span>
-                          <span>1 x Extra provolone</span>
+                          <%if(dataQuesos.length > 0 || dataCarnes.length > 0 || dataVegetales.length > 0){ %>
+                          <%if(dataQuesos.length > 0){%>
+                          <h2>Quesos</h2>
+                          <% dataQuesos.forEach(function(quesos) { %>
+                          <span><%= quesos.value %> </span>
+                          <% }); }%>
+
+                          <%if(dataCarnes.length > 0){%>
+                            <h2>Proteinas</h2>
+                            <% dataCarnes.forEach(function(carnes) { %>
+                              <span><%= carnes.value %></span>
+                          <% }); }%>
+
+                          <%if(dataVegetales.length > 0){%>
+                          <h2>Vegetales</h2>
+                          <% dataVegetales.forEach(function(vegetales) { %>
+                            <span><%= vegetales.value %></span>
+                          <% }); }%>
+                          <% } else{ %>
+                            <h2>No hay Extras</h2>
+                          <%} %>
+                          
                         </div>
                         <div class="qty">
                           <button class="min-plus">-</button>
@@ -46,57 +65,24 @@
                       </div>
                   </div>
               </div>
-
               <div class="products">
-                <div class="product-img">
-                  <img src="../img/pizzas/Mercurio.webp">
-                </div>
-                  <div class="box">
-                      <div class="name-amount">
-                        <h4>Pizza Mercurio</h4>
-                        <div class="amount">
-                          <i class="fas fa-dollar-sign"></i><h4>750</h4>
-                        </div>
+                <div class="description-box">
+                  <div class="description">
+                    <%if(dataBebidas.length > 0){%>
+                      <h4>Bebidas</h4>
+                      <% dataBebidas.forEach(function(bebidas) { %>
+                      
+                      <div class="qty">
+                        <span><%= bebidas.value %> </span>
+                        <button class="min-plus">-</button>
+                        <input type="number" class="count" value="<%= bebidas.cantidad %>">
+                        <button class="min-plus">+</button>
                       </div>
-                      <div class="description-box">
-                        <div class="description">
-                          <span>1 x Extra muzzarella</span>
-                        </div>
-                        <div class="qty">
-                          <button class="min-plus">-</button>
-                            <input type="number" class="count" value="1">
-                          <button class="min-plus">+</button>
-                        </div>
-                      </div>
+                    <% }); }%>
+                    
                   </div>
-              </div>
-
-              <div class="products">
-                <div class="product-img">
-                  <img src="../img/pizzas/Jupiter.webp">
                 </div>
-                  <div class="box">
-                      <div class="name-amount">
-                        <h4>Pizza jupiter</h4>
-                        <div class="amount">
-                          <i class="fas fa-dollar-sign"></i><h4>1750</h4>
-                        </div>
-                      </div>
-                      <div class="description-box">
-                        <div class="description">
-                          <span>1 x Extra parmesano</span>
-                          <span>1 x Extra cebolla</span>
-                          <span>1 x Extra aceite de oliva</span>
-                        </div>
-                        <div class="qty">
-                          <button class="min-plus">-</button>
-                            <input type="number" class="count" value="1">
-                          <button class="min-plus">+</button>
-                        </div>
-                      </div>
-                  </div>
               </div>
-
             </div>
 
             <div class="resume-col">

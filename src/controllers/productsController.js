@@ -17,14 +17,15 @@ const productController = {
   product: (req, res) => {
     const data = findAllProducts();
 
-    const pizzaData = data.find(element => element.value === req.params.value)
-    
+    const pizzaData = data.find(element => element.value === req.params.value);
+
     const dataQuesos = data.filter(x => x.category == "quesos");
     const dataVegetales = data.filter(x => x.category == "vegetales");
     const dataProteinas = data.filter(x => x.category == "carnes");
     const dataBebidas = data.filter(x => x.category == "bebidas");
     const dataCervezas = data.filter(x => x.category == "cervezas");
 
+    req.session.pizza = req.params.value
     res.render('./products/product_detail.ejs', {
                                                   pizzaData: pizzaData,
                                                   dataQuesos: dataQuesos,
