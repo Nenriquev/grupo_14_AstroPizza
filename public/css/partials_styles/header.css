@@ -99,7 +99,7 @@ li{
 @media (min-width: 1024px) {
 
   .top-navbar{
-    height: 118px;
+    height: 20vh;
   }
   
   .container-logo{
@@ -116,7 +116,7 @@ li{
   .navbar{
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
   }
 
   

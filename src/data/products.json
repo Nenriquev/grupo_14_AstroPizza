@@ -51,7 +51,7 @@
     },
     {
         "id": "p006",
-        "name": "Pizza Urano",
+        "name": "Pizza urano",
         "value": "urano",
         "description": "La septima pizza del sistema solar, con 200 grs de muzzarella, queso parmesano, queso provolone y queso azul",
         "price": 1250,
@@ -85,7 +85,7 @@
         "value": "Muzzarella",
         "description": "Extra de queso muzzarella",
         "price": 150,
-        "category": "quesos",
+        "category": "Pizzas",
         "status": "Activo",
         "image": null
     },
@@ -142,16 +142,16 @@
     },
     {
         "id": "c016",
-        "value": "Salchica Italiana",
+        "value": "Salchicha Italiana",
         "category": "carnes",
-        "name": "SalchicaItaliana",
+        "name": "SalchichaItaliana",
         "image": ""
     },
     {
         "id": "c017",
-        "value": "Salchica Alemana",
+        "value": "Salchicha Alemana",
         "category": "carnes",
-        "name": "SalchicaAlemana",
+        "name": "SalchichaAlemana",
         "image": ""
     },
     {
@@ -241,9 +241,12 @@
     {
         "id": "b030",
         "value": "Coca-Cola",
-        "category": "bebidas",
-        "name": "CocaCola",
-        "image": ""
+        "category": "Bebidas",
+        "name": "Coca-Cola",
+        "image": null,
+        "description": "Coca cola original lata 330ml",
+        "price": 300,
+        "status": "Activo"
     },
     {
         "id": "b031",

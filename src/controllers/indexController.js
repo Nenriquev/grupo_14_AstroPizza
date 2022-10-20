@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-
+const {validationResult} = require('express-validator');
 
 function findAllProducts(){
   const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
@@ -37,7 +37,15 @@ const indexController = {
   },
 
   reportSubmit: (req, res) => {
+    const validationErrors = validationResult(req)
     const data = readReports()
+
+    console.log(validationErrors)
+    
+    if(!validationErrors.isEmpty()){
+      return res.render('support.ejs', {errors: validationErrors.mapped(), old: req.body})
+     }
+
     const newReport = {
         id: String(data.length + 1),
         name: req.body.names,

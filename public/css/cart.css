@@ -78,14 +78,13 @@ body{
     border-radius: 10px;
     background-color: rgb(37, 36, 36);
     border: 3px solid #5e1b88;
-    
   }
 
   .resume-col{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 30%;
+    /* height: 30%; */
     border-radius: 10px;
     background-color: rgb(37, 36, 36);
     border: 3px solid #5e1b88;
@@ -179,6 +178,12 @@ body{
     font-weight: normal;
   }
 
+  h5{
+    font-size: 14px;
+    margin-block-start: 5px;
+    margin-block-end: 2px;
+  }
+
   .description-box{
     display: flex;
     flex-direction: row;
@@ -212,7 +217,7 @@ body{
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
 
-  -webkit-appearance: none;
+  appearance: none;
 
 }
 
@@ -295,8 +300,9 @@ input[type=number]::-webkit-outer-spin-button {
 
     .product-img{
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       width: 20%;
+      flex-direction: column;
     }
 
     .product-img > img{
@@ -312,6 +318,7 @@ input[type=number]::-webkit-outer-spin-button {
     .description{
       width: 85%;
     }
+
 
     .qty{
       flex-direction: row;

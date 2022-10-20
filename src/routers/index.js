@@ -1,7 +1,7 @@
 const express = require('express')
 const multer = require('multer')
 const indexController = require("../controllers/indexController.js");
-const productController = require('../controllers/productsController.js');
+const supportValidation = require('../validations/supportValidation.js');
 
 const indexRouter = express.Router()
 
@@ -17,12 +17,22 @@ const multerDiskStorage = multer.diskStorage({
   }
 })
 
-const uploadFile = multer({storage: multerDiskStorage})
+const uploadFile = multer({
+  storage: multerDiskStorage,
+  fileFilter: (req, file, callback) => {
+    const extensions = ['.jpg', '.png', '.webp', '.jpeg'];
+    const fileExtension = path.extname(file.originalname);
+    const imgValidation = extensions.includes(fileExtension);
+    if(!imgValidation){
+      req.file = file
+    }
+    callback(null, imgValidation)
+  }})
 
 indexRouter.get('/', indexController.index)
 indexRouter.get('/faqs', indexController.faqs)
 indexRouter.get('/soporte', indexController.support)
-indexRouter.post('/soporte', indexController.reportSubmit)
+indexRouter.post('/soporte', uploadFile.single('report_imag'),supportValidation.createReport, indexController.reportSubmit)
 indexRouter.get('/sobre-nosotros', indexController.about)
 
 

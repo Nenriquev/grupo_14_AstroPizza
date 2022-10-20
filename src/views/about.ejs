@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
   <link rel="stylesheet" type="text/css" href="../css/animation.css">
   <link rel="stylesheet" type="text/css" href="../css/about.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <title>Sobre Nosotros</title>
 </head>
 <body>
@@ -22,11 +24,57 @@
   <div class="main-container">
     
 
-      
+    <div class="container-row">
+      <div class="col-text" data-aos="fade-right">
+        <h2>quienes somos</h2>
+        <p>
+          Somos la primera pizzeria 🍕 con un estilo Neo-Napoleitano de Buenos Aires 📍, combinando el mejor sabor New Yorkino, con el toque artesanal de una autentica pizza Napoleitana tradicional, ademas de que te damos el poder a VOS! de armar la pizza con los ingredientes que quieras!. Tu pizza, tus reglas 💥!.
+        </p>
+      </div>
+      <div class="col" data-aos="fade-left">
+        <img id="pizza-box" src="../img/gifs/astronaut2.gif" alt="">
+      </div>
+    </div>
 
+    <div class="container-row">
+      <div class="col" data-aos="fade-right">
+        <img id="pizza-box" src="../img/gifs/giphy.gif" alt="pizza">
+      </div>
+      <div class="col-text2" data-aos="fade-left">
+        <h2>Nuestros productos</h2>
+        <p>
+          🍕 Nuestros productos son elaborados por nosotros mismos, con los mejores productos del mercado, utilizamos la mejor tecnica de fermentacion al frio para nuestras masas y los productos mas frescos para la elaboracion de nuestra salsa de tomate 🍅 100% casera, ademas de complementarlos con ingredientes 🧅 cuidadosamente escogidos para ofrecer la mejor calidad y el mejor sabor. Pizzas 100% a la piedra. 
+        </p>
+      </div>
+    </div>
+
+    <div class="container-row">
+      <div class="col-text" data-aos="fade-right">
+        <h2>Nuestro equipo</h2>
+        <p>
+          Nuestro equipo esta formado por jovenes profesionales que buscan formarse en el mundo de la gastronomia, contamos con un equipo de capacitacion encargado de repartir conocimiento y tecnicas para la constante formacion a los jovenes empleados que quieran aprender y hacer crecer su vida laboral y sumarse a nuestro team. 💪
+        </p>
+      </div>
+      <div class="col" data-aos="fade-left">
+        <img id="astronaut-box" src="../img/gifs/astronaut.gif" alt="Astronaut">
+      </div>
+    </div>
+
+    <div class="container-row">
+      <div class="col" data-aos="fade-right">
+        <img id="pizza-box" src="../img/gifs/cat.gif" alt="">
+      </div>
+      <div class="col-text2" data-aos="fade-left">
+        <h2>Te animas a probarlas ?</h2>
+        <a href="/#menu"><p class="ref-menu">🍕 Hace click aqui 🍕</p></a>
+      </div>
+    </div>
   </div>
 
 
   <%- include('./partials/footer') %> 
 </body>
+<script>
+  AOS.init();
+</script>
 </html>

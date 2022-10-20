@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require("fs");
+const {validationResult} = require('express-validator');
+
 
 function findAllProducts(){
   const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
@@ -42,7 +44,15 @@ const productController = {
 
       
   store: (req, res) => {
+    const validationErrors = validationResult(req)
     const data = findAllProducts()
+    console.log(validationErrors)
+    console.log(req.file)
+    
+    if(!validationErrors.isEmpty()){
+     return res.render('./products/product_create.ejs', {errors: validationErrors.mapped(), old: req.body})
+    }
+
     const newProduct = {
         id: String(data.length + 1),
         name: req.body.product_name,
@@ -50,9 +60,9 @@ const productController = {
         price: Number(req.body.price),
         category: req.body.category,
         status: '',
-        image: req.file.filename
+        image: req?.file?.filename
       }
-
+      
       data.push(newProduct)
       writeData(data)
       res.redirect("/product/create");
@@ -61,22 +71,29 @@ const productController = {
       //EDITAR//
 
   edit: (req, res) => {
+    const errors = validationResult(req)
     const data = findAllProducts()
     const status = ['Activo', 'Sin stock', 'Inactivo']
     const category = ['Pizzas', 'Quesos', 'Vegetales', 'Carnes', 'Bebidas', 'Cervezas', 'Aderezos', 'Postres']
     const product = data.find(element => element.id === req.params.id)
-    res.render('./products/product_edit', {product: product, status: status, category: category})
+    return res.render('./products/product_edit', {product: product, status: status, category: category, validationErrors: errors.mapped()})
   },
      
   update: (req, res) => {
+      const errors = validationResult(req)
       const data = findAllProducts();
       const product = data.find(element => element.id === req.params.id);
+
+      if(!errors.isEmpty()){
+       return productController.edit(req, res)
+      }
 
       product.name = req.body.product_name;
       product.description = req.body.description;
       product.price = Number(req.body.price);
       product.category = req.body.category;
       product.status = req.body.status;
+      product.image = req.file?.filename ? req.file.filename : null
       
       writeData(data)
       res.redirect('/')

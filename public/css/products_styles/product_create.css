@@ -56,7 +56,11 @@ form{
   margin: 20px 0 11px 0;
 }
 
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
 
 .field-group .fg-field {
   background-color: rgba(255, 255, 255, 0.433);
@@ -194,11 +198,14 @@ input[type="file"] {
   margin: 13px auto;
 }
 
+.errors{
+  color: red;
+}
 
 
 @media (min-width: 1024px) {
   .form-container{
-    height: 86vh;
+    height: 80vh;
     width: 100%;
     z-index: 0;
   }

@@ -236,7 +236,7 @@ background-color: #fff;
 
 #pizza-box{
   position: absolute;
-  width: 33%;
+  width: 35%;
   top: 35%;
   left: 46%;
   animation: anim-pizzabox 20s linear infinite;

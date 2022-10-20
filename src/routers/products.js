@@ -2,6 +2,7 @@ const express = require('express')
 const multer = require('multer')
 const path = require('path')
 const productsController = require("../controllers/productsController.js");
+const productValidation = require('../validations/productValidation.js');
 const productRouter = express.Router()
 
 /*Multer*/
@@ -16,18 +17,31 @@ const multerDiskStorage = multer.diskStorage({
   }
 })
 
-const uploadFile = multer({storage: multerDiskStorage})
+const uploadFile = multer({
+  storage: multerDiskStorage,
+  fileFilter: (req, file, callback) => {
+    const extensions = ['.jpg', '.png', '.webp', '.jpeg'];
+    const fileExtension = path.extname(file.originalname);
+    const imgValidation = extensions.includes(fileExtension);
+    if(!imgValidation){
+      req.file = file
+    }
+    callback(null, imgValidation)
+    
+  }})
+    
 
 /*Products*/
 productRouter.get('/detail/:value', productsController.product)
+productRouter.post('/detail/:value', productsController.product)
 
 /*Create*/
 productRouter.get('/create', productsController.create)
-productRouter.post('/create', uploadFile.single('image'), productsController.store)
+productRouter.post('/create', uploadFile.single('image'), productValidation.createProduct, productsController.store)
 
 /*Update*/
 productRouter.get('/edit/:id', productsController.edit)
-productRouter.put('/edit/:id', productsController.update)
+productRouter.put('/edit/:id', uploadFile.single('image'), productValidation.updateProduct, productsController.update)
 productRouter.delete('/edit/:id', productsController.delete)
 
 module.exports = productRouter;

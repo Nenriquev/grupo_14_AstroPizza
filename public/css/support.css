@@ -32,6 +32,9 @@ footer{
 }
 
 /* FORM */
+form{
+margin-top: 10px;
+}
 
 .form-container{
   display: flex;
@@ -54,7 +57,6 @@ footer{
 
 .form-in{
   width: 90%;
-  margin-top: 80px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -227,6 +229,13 @@ input[type="file"] {
 
 .asteroid#a1{
   display: none;
+}
+
+.errors{
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: small;
 }
 
 

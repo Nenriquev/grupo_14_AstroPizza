@@ -7,6 +7,7 @@ function findAllProducts(){
   return data
 }
 
+
 function dataQuesosPedidos(){
   data = findAllProducts();
   let dataQuesos = data.filter(x => x.category == "quesos");
@@ -46,9 +47,23 @@ function dataVegetalesPedidos(){
   return dataVegetales
 }
 
+function dataPostresPedidos(){
+  data = findAllProducts();
+  let dataPostres = data.filter(element => element.category == "Postres");
+  dataPostres.forEach(function(postres) {
+    if(extrasPedidos[postres.name] != 0){
+      let cantidad = {cantidad: extrasPedidos[postres.name]}
+      Object.assign(postres, cantidad);
+    }
+  });
+  dataPostres = dataPostres.filter(x => x.cantidad > 0);
+  return dataPostres
+}
+
+
 function dataBebidasPedidas(){
   data = findAllProducts();
-  let dataBebidas = data.filter(x => x.category == "bebidas" ||x.category == "cervezas");
+  let dataBebidas = data.filter(x => x.category == "bebidas" || x.category == "cervezas");
   dataBebidas.forEach(function(bebidas) {
     if(extrasPedidos[bebidas.name] != 0){
       let cantidad = { cantidad: extrasPedidos[bebidas.name]};
@@ -59,6 +74,7 @@ function dataBebidasPedidas(){
   return dataBebidas
 }
 
+
 function dataPizzaElegida(){
   data = findAllProducts();
   let dataPizza = data.filter(x => x.category == "Pizzas");
@@ -68,24 +84,31 @@ function dataPizzaElegida(){
   });
   return found;
 }
+
+
+
+
 const cartController = {
   
   cart: (req, res) => {
     
+    
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza
-
     pizzaElegida = dataPizzaElegida();
     dataQuesos = dataQuesosPedidos();
     dataCarnes = dataCarnesPedidas();
     dataVegetales = dataVegetalesPedidos();
     dataBebidas = dataBebidasPedidas();
+    dataPostres = dataPostresPedidos()
+
 
     res.render('cart.ejs', {pizzaElegida: pizzaElegida,
                             dataQuesos: dataQuesos, 
                             dataCarnes: dataCarnes,
                             dataVegetales: dataVegetales,
-                            dataBebidas: dataBebidas
+                            dataBebidas: dataBebidas,
+                            dataPostres: dataPostres,
                             });
   }
 

@@ -19,9 +19,112 @@ body{
   justify-content: space-between;
 }
 
+h2{
+    text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgba(255,255,255,0);
+    color: #000;
+    font-size: 30px;
+    font-weight: normal;
+    font-family: 'Star jedi';
+}
 
+a{
+  text-decoration: none;
+}
+
+p{
+  line-height: 25px;
+}
+
+.ref-menu{
+  font-size: x-large;
+}
+
+.ref-menu:hover{
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
 
 @media (min-width: 1024px) {
+
+  .top-navbar{
+    height: 20vh;
+  }
+  
+  .navbar{
+    align-items: center;
+  }
+
+  .main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .container-row{
+    display: flex;
+    margin: 200px auto;
+    width: 80%;
+    flex-direction: row;
+  }
+
+  .col-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    animation: container 20s linear infinite;
+    border-radius: 5px;
+    background-color: rgb(37, 36, 36);
+    border: 3px solid #5e1b88;
+    box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+  }
+
+  p{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.703);
+  }
+
+  .col-text2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    animation: container2 20s linear infinite;
+    border-radius: 5px;
+    background-color: rgb(37, 36, 36);
+    border: 3px solid #5e1b88;
+    box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+  }
+
+  .col{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+  }
+
+
+  #comets{
+    position: fixed;
+  }
+
+  #astronaut-box {
+    position: absolute;
+    left: 0%;
+    width: 90%;
+    top: -52%;
+    max-height: none;
+    animation: anim-box 20s linear infinite;
+    animation-delay: 1s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+  #pizza-box{
+    width: 80%;
+    top: -17%;
+    left: 8%;
+  }
 
   .asteroid#a1{
     position: absolute;
@@ -45,6 +148,32 @@ body{
     z-index: 2;
   }
   
+}
+
+@keyframes container {
+  0% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+   50% {
+    transform: translateY(10px) rotate(0deg);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(-3deg);
+  } 
+}
+
+@keyframes container2 {
+  0% {
+    transform: translateY(0px) rotate(3deg);
+  }
+   50% {
+    transform: translateY(10px) rotate(0deg);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(3deg);
+  } 
 }
 
 @keyframes asteroid {

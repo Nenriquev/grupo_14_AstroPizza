@@ -23,14 +23,20 @@
                   <form action="/product/edit/<%=product.id%>?_method=PUT" method="post">
 
                     <div class="field-group">
-                      <input class="fg-field" type="text" name="product_name" value="<%=product.name%>" required>
+                      <input class="fg-field" type="text" name="product_name" value="<%=product.name%>">
                       <label class="fg-label">Nombre del Producto</label>
                     </div>
+                    <% if (locals.validationErrors) { %>
+                      <span class="errors"><%= validationErrors?.product_name?.msg %> </span>
+                    <% } %>
 
                     <div class="field-group">
-                      <input class="fg-field" type="number" name="price" value="<%=product.price%>" required>
+                      <input class="fg-field" type="number" name="price" value="<%=product.price%>">
                       <label class="fg-label">Precio</label>
                     </div>
+                    <% if (locals.validationErrors) { %>
+                      <span class="errors"><%= validationErrors?.price?.msg %> </span>
+                    <% } %>
 
                     <div>
                     <label class="select-label">Categoria:</label>
@@ -73,11 +79,11 @@
                     <label for="file-upload" class="custom-file-upload">
                       <i class="fa fa-cloud-upload"></i> Seleccionar
                     </label>
-                    <input id="file-upload" type="file"/>
+                    <input id="file-upload" name='image' type="file" />
                   </div>
 
                   <div class="field-group">
-                    <textarea class="fg-field" name="description" required><%=product.description%> </textarea>
+                    <textarea class="fg-field" name="description" required><%=product.description%></textarea>
                     <label class="fg-label">Descripcion</label>
                   </div>
 
