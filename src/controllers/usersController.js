@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const { validationResult } = require('express-validator');
 
 function findAllUsers() {
     const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
@@ -21,22 +22,32 @@ const usersController = {
         res.render('users/register.ejs')
     },
     newUser: (req, res) => {
-        const data = findAllUsers();
+        const errors = validationResult(req);
 
-        const newUser = {
-            id: data.length + 1,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            user_name: req.body.user_name,
-            password: req.body.password
+        if(!errors.isEmpty()){
+
+            res.render('users/register', {errors: errors.array()})
+
+        } else {
+
+            const data = findAllUsers();
+
+            const newUser = {
+                id: data.length + 1,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                telefono: req.body.telefono,
+                password: req.body.password,
+                image: req.file.filename
+            }
+    
+            data.push(newUser);
+    
+            writeFile(data);
+    
+            res.redirect('/users/login')
         }
-
-        data.push(newUser);
-
-        writeFile(data);
-
-        res.redirect('/users/login')
     }
 }
 

@@ -70,5 +70,23 @@
           "email": "matirene1@hotmail.com",
           "user_name": "matirene",
           "password": "dsadsad"
+     },
+     {
+          "id": 10,
+          "first_name": "sadsadsa",
+          "last_name": "dsadsad",
+          "email": "dsads@sdsad.com",
+          "telefono": "32432432",
+          "password": "dsadsadas",
+          "image": "profile-img-1666289099913.jfif"
+     },
+     {
+          "id": 11,
+          "first_name": "sdfdsfds",
+          "last_name": "dsfsdfsfd",
+          "email": "matias@hotmail.com",
+          "telefono": "2343432",
+          "password": "adasdsad",
+          "image": "profile-img-1666289169161.png"
      }
 ]
