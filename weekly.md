@@ -29,4 +29,15 @@ DONE:
 WIP:
 - Correción de la vista del carrito.
 
+**17/10**
+
 Revisión del Sprint 5.
+
+DONE:
+- Funcionalidad Carrito.
+- Funcionalidad Login y Registro.
+- Errores en Product Edit.
+
+WIP:
+- Agregar Multer al Registro.
+- Seguir con el Sprint 5.
