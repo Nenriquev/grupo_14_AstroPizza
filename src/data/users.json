@@ -88,5 +88,23 @@
           "telefono": "2343432",
           "password": "adasdsad",
           "image": "profile-img-1666289169161.png"
+     },
+     {
+          "id": 12,
+          "first_name": "Miguel Leiger",
+          "last_name": "Leiger",
+          "email": "migue.lostilos@gmail.com",
+          "telefono": "690970173",
+          "password": "$2b$10$M4L6kVSC/xYGBZ1EtcmkWO.R.rzOiGhsv6Hqd1YsFrUKWzwmSlZUy",
+          "image": "profile-img-1666301375358.png"
+     },
+     {
+          "id": 13,
+          "first_name": "julio",
+          "last_name": "merlino",
+          "email": "juan@gmail.com",
+          "telefono": "123123123",
+          "password": "$2b$10$uOQDIqM/IGzd4nPVMYOvkuOV3U3z5RG399sh/Xom0CTzhtXi5If1y",
+          "image": "profile-img-1666304810147.png"
      }
 ]

@@ -20,12 +20,10 @@ module.exports = {
 
         body('password')
             .notEmpty().withMessage('El campo contrasenia esta incompleto').bail()
-            .isNumeric().withMessage('Valores invalidos').bail()
             .isLength({min: 6, max:20}).withMessage('La contraseña debe tener minimo 6 caracteres'),
 
         body('password-repeat')
             .notEmpty().withMessage('El campo repetir contrasenia esta incompleto').bail()
-            .isNumeric().withMessage('Valores invalidos').bail()
             .isLength({min: 6, max:20}).withMessage('La contraseña debe tener minimo 6 caracteres'),
 
         body('profile-img')
@@ -35,5 +33,14 @@ module.exports = {
                 return extensions.includes(fileExtension)
             }).withMessage('Imagen con extencion invalida')
 
+    ],
+    loginValidation: [
+        
+        body("email")
+        .notEmpty()
+        .withMessage("Campo email incompleto"),
+        body("password")
+        .notEmpty()
+        .withMessage("campo contraseña incompleto")
     ]
 }
