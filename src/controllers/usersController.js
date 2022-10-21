@@ -36,19 +36,21 @@ const usersController = {
 
         if(!userFound){
             return res.render("users/login", {errorLogin: "Credenciales invalidas!"});
+        } else {
+            
+            req.session.usuarioLogueado = {
+                id : userFound.id,
+                name: userFound.first_name,
+                email: userFound.email
+            };
+    
+            if(req.body.recordame){
+                res.cookie("recordame", userFound.id)
+            }
+            res.redirect("/")
         }
         
 
-        req.session.usuarioLogueado = {
-            id : userFound.id,
-            name: userFound.name,
-            email: userFound.email
-        };
-
-        if(req.body.remember){
-            res.cookie("recordame", userFound.id)
-        }
-        res.render("users/admin")
         }
 
             
@@ -85,8 +87,10 @@ const usersController = {
             res.redirect('/users/login')
         }
     },
-    admin: (req, res) => {
-        res.render('users/admin')
+    logout: (req, res)=>{
+        req.session.destroy()
+        res.clearCookie("recordame");
+        res.redirect("/")
     }
 }
 
