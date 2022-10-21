@@ -7,6 +7,9 @@ const usersRouter = require('./routers/users.js');
 const methodOverride = require("method-override");
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
+const localsMiddleware = require('./middlewares/localsMiddle');
+const recordameMiddleware = require('./middlewares/recordameMiddle');
+
 
 const app = express();
 
@@ -25,7 +28,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(session({secret: "Secreto", resave: true, saveUninitialized: true}));
 app.use(cookieParser());
-
+app.use(recordameMiddleware)
+app.use(localsMiddleware);
 
 
 /* INDEX */

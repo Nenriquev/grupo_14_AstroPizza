@@ -6,14 +6,24 @@
     <div class="navbar">
       <nav>
         <ul class="nav">
+
           <li><a class="link" href="/sobre-nosotros">Quienes somos</a></li>
           <li><a class="link" href="/soporte">Soporte</a></li>
-          <li><a class="link" href="/users/login">ingresa</a></li>
+
+          <% if(!locals.usuario){ %>
+
+            <li><a class="link" href="/users/login">ingresa</a></li>
+
+          <% } else { %>
+
+            <form action="/users/logout" method="post">
+              <button  type="submit">Cerrar sesion</button>
+            </form>
+
+          <% } %>
+          
         </ul>
       </nav>
-      <form action="/users/logout" method="post">
-        <button  type="submit">Cerrar sesion</button>
-      </form>
     </div>
   </div>
 </header>
