@@ -23,38 +23,58 @@
 
             <div class="form-col2">
                 <div class="form-in">
-                    <form action="/users/register" method="post">
+                    <form action="/users/register" method="post" enctype="multipart/form-data">
+
+                        <% if(locals.errors){ %>
+
+                            <ul>
+                                <% errors.forEach(function(error) { %>
+                                    
+                                    <li> <%= error.msg %>  </li>
+    
+                                <% }) %>
+                            </ul>
+                            
+                        <% } %> 
                         
                         <div class="field-group">
-                            <input type="text" name="first_name" class="fg-field" required>
+                            <input type="text" name="first_name" class="fg-field" >
                             <label class="fg-label">Nombre</label>
                         </div>
 
                         <div class="field-group">
-                            <input type="text" name="last_name" class="fg-field" required>
+                            <input type="text" name="last_name" class="fg-field" >
                             <label class="fg-label">Apellido</label>
                         </div>
 
                         <div class="field-group">
-                            <input type="email" name="email" class="fg-field" required>
-                            <label class="fg-label">Email</label>
-                        </div>
+                            <input type="text" name="telefono" class="fg-field" >
+                            <label class="fg-label">Telefono</label>
+                        </div>  
 
                         <div class="field-group">
-                            <input type="text" name="user_name" class="fg-field" required>
-                            <label class="fg-label">Nombre de Usuario</label>
+                            <input type="email" name="email" class="fg-field" >
+                            <label class="fg-label">Email</label>
                         </div>
                         
                         <div class="field-group">
-                            <input type="password" name="password" class="fg-field" required>
+                            <input type="password" name="password" class="fg-field" >
                             <label class="fg-label">Contrasena</label>
                         </div>
-
+                        
                         <div class="field-group">
-                            <input type="password" class="fg-field" required>
+                            <input type="password" name="password-repeat" class="fg-field" >
                             <label class="fg-label">Repetir contrasena</label>
                         </div>
-
+                        <br>
+                        <div class="field-group">
+                            <label for="file-upload" class="custom-file-upload">
+                              <i class="fa fa-cloud-upload"></i> Seleccionar
+                            </label>
+                            <input id="file-upload" name="profile-img" type="file"/>
+                            <label class="fg-label">Foto de perfil</label>
+                          </div>
+                        
                         <div class="register-u">
                             <div class="field-group">
                                 <a class="forgot" href="/users/login">Ya estas registrado?</a>
@@ -63,6 +83,7 @@
                         <div>
                           <button type="submit" class="bttn-dark">Registrarme</button>
                         </div>
+
                     </form>
                 </div>
               </div>

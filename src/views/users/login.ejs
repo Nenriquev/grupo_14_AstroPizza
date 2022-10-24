@@ -25,15 +25,31 @@
         </div>
         <div class="form-col2">
           <div data-aos="zoom-in" class="form-in">
-              <form action="/" method="post">
+              <form action="/users/login" method="post">
+                <% if(locals.errors){ %>
+
+                  <ul>
+                      <% errors.forEach(function(error) { %>
+                          
+                          <li> <%= error.msg %>  </li>
+
+                      <% }) %>
+                  </ul>
+                  
+              <% } %> 
                 <div class="field-group">
-                  <input type="text" class="fg-field" required>
-                  <label class="fg-label">Nombre de Usuario</label>
+                  <input type="text" name="email" class="fg-field">
+                  <label class="fg-label">Email</label>
                 </div>
               
                 <div class="field-group">
-                  <input type="password" class="fg-field" required>
+                  <input type="password" name="password" class="fg-field">
                   <label class="fg-label">Contrasena</label>
+                </div>
+
+                <div>
+                  <input type="checkbox" id="recordame" name="recordame">
+                  <label for="recordame">Recordame</label>
                 </div>
 
                 <div class="register-u">
@@ -44,11 +60,16 @@
                     <a class="forgot" href="/">Olvidaste tu contrasena?</a>
                   </div>
                 </div>
+
+                <% if(locals.errorLogin){ %> 
+                  <p><%= errorLogin %></p>
+                  <% } %> 
+
+                <div>
+                  <button type="submit" class="bttn-dark">Ingresar</button>
+                </div>
               </form>
 
-              <div>
-                <a href="#menu" class="bttn-dark">Enviar</a>
-              </div>
           </div>
         </div>
       </div>
