@@ -16,6 +16,11 @@ const writeData = (data) =>{
 
 
 const productController = {
+  list: (req, res) => {
+    const data = findAllProducts()
+    res.render('./products/product_list.ejs', {pizzas: data})
+  },
+
   product: (req, res) => {
     const data = findAllProducts();
 
@@ -46,8 +51,6 @@ const productController = {
   store: (req, res) => {
     const validationErrors = validationResult(req)
     const data = findAllProducts()
-    console.log(validationErrors)
-    console.log(req.file)
     
     if(!validationErrors.isEmpty()){
      return res.render('./products/product_create.ejs', {errors: validationErrors.mapped(), old: req.body})
@@ -83,11 +86,11 @@ const productController = {
       const errors = validationResult(req)
       const data = findAllProducts();
       const product = data.find(element => element.id === req.params.id);
-
+     
       if(!errors.isEmpty()){
        return productController.edit(req, res)
       }
-
+      
       product.name = req.body.product_name;
       product.description = req.body.description;
       product.price = Number(req.body.price);

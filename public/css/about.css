@@ -25,6 +25,59 @@ h2{
     font-size: 30px;
     font-weight: normal;
     font-family: 'Star jedi';
+    text-align: center;
+}
+
+.col-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+}
+
+.col-text2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-row{
+  display: flex;
+  margin: 50px auto;
+  width: 90%;
+ justify-content: center;
+}
+
+#astronaut-box {
+  display: none;
+}
+
+#pizza-box{
+  display: none;
+}
+
+#comets{
+  display: none;
+}
+
+.cat-gif{
+  display: none;
 }
 
 a{
@@ -32,6 +85,8 @@ a{
 }
 
 p{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.703);
   line-height: 25px;
 }
 
@@ -41,6 +96,25 @@ p{
 
 .ref-menu:hover{
   text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+@media (min-width: 680px) and (max-width: 1024px) {
+
+  .col#bottom{
+    width: 20%;
+  }
+
+  .col-text2#bottom{
+    width: 80%;
+  }
+
+  .cat-gif{
+    display: block;
+    position: relative;
+    top: 17%;
+    left: -26%;
+    width: 124%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -78,12 +152,7 @@ p{
     border: 3px solid #5e1b88;
     box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
   }
-
-  p{
-    text-align: center;
-    color: rgba(255, 255, 255, 0.703);
-  }
-
+  
   .col-text2{
     display: flex;
     justify-content: center;
@@ -97,6 +166,7 @@ p{
     box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
   }
 
+
   .col{
     display: flex;
     justify-content: center;
@@ -105,10 +175,12 @@ p{
 
 
   #comets{
+    display: block;
     position: fixed;
   }
 
   #astronaut-box {
+    display: block;
     position: absolute;
     left: 0%;
     width: 90%;
@@ -120,32 +192,19 @@ p{
     z-index: -1;
 }
 
+  .cat-gif{
+    display: block;
+    width: 70%;
+    top: -17%;
+    left: 8%;
+}
+
+
   #pizza-box{
+    display: block;
     width: 80%;
     top: -17%;
     left: 8%;
-  }
-
-  .asteroid#a1{
-    position: absolute;
-    width: 12%;
-    bottom: 17%;
-    left: 8%;
-    animation: asteroid 35s linear infinite;
-    animation-delay: 1s;
-    overflow: hidden;
-    z-index: 2;
-  }
-  
-  .asteroid#a2{
-    position: absolute;
-    width: 17%;
-    top: 10%;
-    left: 68%;
-    animation: asteroid 35s linear infinite;
-    animation-delay: 1s;
-    overflow: hidden;
-    z-index: 2;
   }
   
 }

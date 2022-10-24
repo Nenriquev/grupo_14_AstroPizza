@@ -20,7 +20,7 @@
           <div class="form-container">
             <div class="form-row">
               <div class="form-col">
-                  <form action="/product/edit/<%=product.id%>?_method=PUT" method="post">
+                  <form action="/product/edit/<%=product.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 
                     <div class="field-group">
                       <input class="fg-field" type="text" name="product_name" value="<%=product.name%>">

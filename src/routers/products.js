@@ -20,9 +20,10 @@ const multerDiskStorage = multer.diskStorage({
 const uploadFile = multer({
   storage: multerDiskStorage,
   fileFilter: (req, file, callback) => {
-    const extensions = ['.jpg', '.png', '.webp', '.jpeg'];
+    const extensions = ['.jpg', '.png', '.webp', '.jpeg', '.gif'];
     const fileExtension = path.extname(file.originalname);
     const imgValidation = extensions.includes(fileExtension);
+    
     if(!imgValidation){
       req.file = file
     }
@@ -30,8 +31,10 @@ const uploadFile = multer({
     
   }})
     
-
 /*Products*/
+productRouter.get('/', productsController.list)
+
+/*Products Detail*/
 productRouter.get('/detail/:value', productsController.product)
 productRouter.post('/detail/:value', productsController.product)
 
