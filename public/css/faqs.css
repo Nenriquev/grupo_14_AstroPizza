@@ -13,10 +13,11 @@ body{
   margin:0;
   overflow-x: hidden;
   height: 100vh;
-  font-family: 'Console';
+  font-family: 'Console'; 
   display: flex;
   flex-direction: column;
 }
+
 
 .main-container{
   display: flex;
@@ -37,17 +38,19 @@ body{
 display: none;
 }
 
-.bg-grey{
-  background-color: #353536;
-}
-
-.text-gray{
-  color: rgba(255, 255, 255, 0.668);
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
 
 .text-paragraph{
   color: rgba(255, 255, 255, 0.511);
+}
+
+.accordion-button{
+  color: rgba(255, 255, 255, 0.703);
+  background-color: rgb(50, 49, 49);
+}
+
+.accordion-item{
+  color: rgba(255, 255, 255, 0.703);
+  background-color: rgb(43, 42, 42);
 }
 
 .accordion-button:not(.collapsed){
@@ -58,6 +61,19 @@ display: none;
 
 .accordion{
   box-shadow: 0px 11px 20px 7px rgba(0,0,0,0.75);
+  border-radius: 20%;
+  --bs-accordion-btn-focus-border-color: #ef0000;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25 rgb(70 6 6);
+}
+
+.ref{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.703);
+}
+
+.ref:hover{
+  color: rgba(255, 255, 255, 0.703);;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
 
@@ -95,7 +111,7 @@ display: none;
     position: absolute;
     left: -5%;
     width: 60%;
-    top: 21%;
+    top: 34%;
     max-height: none;
     animation: anim-box 20s linear infinite;
     animation-delay: 1s;
@@ -120,13 +136,7 @@ display: none;
   }
 
   .body-main{
-    margin: 0;
-    position: relative;
-    top: 37%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    flex-grow: 0;
+    height: auto;
   }
   
 
@@ -135,14 +145,20 @@ display: none;
     width: 90%;
     margin: 0 auto;
   }
+
+  .top{
+    position: absolute;
+    width: 50%;
+    height: 30%;
+  }
   
 
   #pizza-box{
     display: inherit;
     position: absolute;
-    width: 25%;
-    top: 37vh;
-    left: 25%;
+    width: 40%;
+    top: 130%;
+    left: 52%;
     animation: anim-pizzabox 20s linear infinite;
     animation-delay: 1s;
     overflow: hidden;
@@ -152,9 +168,9 @@ display: none;
   #astronaut-box{
     display: inherit;
     position: absolute;
-    left: 1%;
-    width: 35%;
-    top: 15%;
+    left: 10%;
+    width: 60%;
+    top: 70%;
     max-height: none;
     animation: anim-box 20s linear infinite;
     animation-delay: 1s;
@@ -162,27 +178,6 @@ display: none;
     z-index: -1;
   }
   
-  .asteroid#a1{
-    position: absolute;
-    width: 8%;
-    bottom: 17%;
-    left: 8%;
-    animation: asteroid 35s linear infinite;
-    animation-delay: 1s;
-    overflow: hidden;
-    z-index: 2;
-  }
-  
-  .asteroid#a2{
-    position: absolute;
-    width: 11%;
-    top: 11%;
-    left: 68%;
-    animation: asteroid 35s linear infinite;
-    animation-delay: 1s;
-    overflow: hidden;
-    z-index: -2;
-  }
 
   footer{
     

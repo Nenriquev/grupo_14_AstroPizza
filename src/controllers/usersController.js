@@ -24,7 +24,7 @@ const usersController = {
 
         if(!errors.isEmpty()){
 
-            res.render('users/login', {errors: errors.array()}) 
+            res.render('users/login', {errorLogin: "Usuario y/o contrasena incorrectos"}) 
 
         } else { 
 
@@ -35,7 +35,7 @@ const usersController = {
         })
 
         if(!userFound){
-            return res.render("users/login", {errorLogin: "Credenciales invalidas!"});
+            return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
         } else {
             
             req.session.usuarioLogueado = {
@@ -64,7 +64,7 @@ const usersController = {
 
         if(!errors.isEmpty()){
 
-            res.render('users/register', {errors: errors.array()})
+            res.render('users/register', {errors: errors.mapped()})
 
         } else {
 

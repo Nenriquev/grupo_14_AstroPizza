@@ -11,7 +11,7 @@ function findAllUsers() {
 function recordame (req, res, next){
     if(req.cookies.recordame && !req.session.usuarioLogueado){
 
-        const users = findAll();
+        const users = findAllUsers();
 
         const userFound =  users.find(function(user){
             return user.id == req.cookies.recordame

@@ -8,8 +8,14 @@ body{
   overflow-x: hidden;
 }
 
-.form-col2{
-  float: left;
+
+
+.form-container{
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
 }
 
 
@@ -27,10 +33,12 @@ body{
   }
 
   .form-container{
-    height: 74vh;
+    display: flex;
+    height: 90vh;
     align-items: center;
     justify-content: center;
   }
+
 
   .form-in{
     margin-top: 0;
@@ -40,11 +48,13 @@ body{
   header{
     height: 15vh;
   }
-
-  footer{
-    margin-top: 0;
+}
+@media (max-height: 800px) {
+  .form-container{
+    height: 100vh;
   }
 }
+
 
 
 @media (min-width: 642px) and (max-width:1024px){

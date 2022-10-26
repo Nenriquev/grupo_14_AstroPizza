@@ -18,7 +18,7 @@
 
 .logo{
   object-fit: cover;
-  width: 80%;
+  width: 250px;
   }
 
 
@@ -27,6 +27,7 @@ li{
 }
 
 .nav{
+  display: flex;
   font-family: 'Console';
   text-transform: uppercase;
   text-align: center;
@@ -39,7 +40,7 @@ li{
 }
 
 .nav li {
-  display: inline-block;
+  display: block;
   list-style: outside none none;
   margin: .5em 1em;
   padding: 0;
@@ -93,6 +94,13 @@ li{
   -webkit-text-stroke: .1px rgb(255, 255, 255);
 }
 
+@media (max-width: 648px) {
+  .logo{
+    width: 160px;
+    }
+}
+
+
 
 /*DESKTOP*/
 
@@ -109,7 +117,7 @@ li{
   .logo{
     position: relative;
     bottom: 0;
-    width: 50%;
+    width: 250px;
     z-index: 99999;
     }
 

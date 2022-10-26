@@ -20,6 +20,9 @@ footer{
 .main-container{
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  
 }
 
 .forgot{
@@ -49,8 +52,8 @@ footer{
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 50px;
   z-index: 0;
-  height: 80vh;
 }
 
 .form-col > img{
@@ -266,7 +269,7 @@ footer{
   }
 
   .main-container{
-    height: 100vh;
+    height: 101vh;
   }
 
   .form-container{
@@ -306,11 +309,6 @@ footer{
 
 }
 
-@media (max-height: 800px) {
-  .form-container{
-    height: 100vh;
-  }
-}
 
 /*DESKTOP*/
 

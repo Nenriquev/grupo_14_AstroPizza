@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
@@ -22,50 +24,58 @@
            
 
             <div class="form-col2">
-                <div class="form-in">
-                    <form action="/users/register" method="post" enctype="multipart/form-data">
-
-                        <% if(locals.errors){ %>
-
-                            <ul>
-                                <% errors.forEach(function(error) { %>
-                                    
-                                    <li> <%= error.msg %>  </li>
-    
-                                <% }) %>
-                            </ul>
-                            
-                        <% } %> 
+                <div data-aos="zoom-in" class="form-in">
+                    <form class='form-register' action="/users/register" method="post" enctype="multipart/form-data">
                         
                         <div class="field-group">
-                            <input type="text" name="first_name" class="fg-field" >
-                            <label class="fg-label">Nombre</label>
+                            <input type="text" name="names" class="fg-field" >
+                            <label class="fg-label">Nombre y apellido</label>
                         </div>
 
-                        <div class="field-group">
-                            <input type="text" name="last_name" class="fg-field" >
-                            <label class="fg-label">Apellido</label>
+                        <% if (locals.errors) { %>
+                            <div class="errors">
+                              <span><%= errors?.names?.msg %> </span>
+                            </div>
+                          <% } %>
+
+                          <div class="field-group">
+                            <input type="email" name="email" class="fg-field" >
+                            <label class="fg-label">Email</label>
                         </div>
+                        
+                        <% if (locals.errors) { %>
+                            <div class="errors">
+                              <span><%= errors?.email?.msg %> </span>
+                            </div>
+                          <% } %>
 
                         <div class="field-group">
                             <input type="text" name="telefono" class="fg-field" >
                             <label class="fg-label">Telefono</label>
                         </div>  
-
-                        <div class="field-group">
-                            <input type="email" name="email" class="fg-field" >
-                            <label class="fg-label">Email</label>
-                        </div>
                         
                         <div class="field-group">
                             <input type="password" name="password" class="fg-field" >
                             <label class="fg-label">Contrasena</label>
                         </div>
+
+                        <% if (locals.errors) { %>
+                            <div class="errors">
+                              <span><%= errors?.password?.msg %> </span>
+                            </div>
+                          <% } %>
                         
                         <div class="field-group">
-                            <input type="password" name="password-repeat" class="fg-field" >
+                            <input type="password" name="passwordRepeat" class="fg-field" >
                             <label class="fg-label">Repetir contrasena</label>
                         </div>
+
+                        <% if (locals.errors) { %>
+                            <div class="errors">
+                              <span><%= errors?.passwordRepeat?.msg %> </span>
+                            </div>
+                          <% } %>
+
                         <br>
                         <div class="field-group">
                             <label for="file-upload" class="custom-file-upload">
@@ -94,4 +104,7 @@
 
     <%- include('../partials/footer') %> 
 </body>
+<script>
+    AOS.init();
+  </script>
 </html>

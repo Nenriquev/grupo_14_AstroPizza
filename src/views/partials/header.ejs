@@ -12,12 +12,12 @@
 
           <% if(!locals.usuario){ %>
 
-            <li><a class="link" href="/users/login">ingresa</a></li>
+            <li><a class="link" href="/users/login">Ingresa</a></li>
 
           <% } else { %>
 
-            <form action="/users/logout" method="post">
-              <button  type="submit">Cerrar sesion</button>
+            <form id='logout' action="/users/logout" method="post">
+              <li><a class="link" href="#" onclick="document.getElementById('logout').submit()">Cerrar Sesion</a></li>
             </form>
 
           <% } %>

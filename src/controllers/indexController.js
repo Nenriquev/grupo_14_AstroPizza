@@ -39,8 +39,6 @@ const indexController = {
   reportSubmit: (req, res) => {
     const validationErrors = validationResult(req)
     const data = readReports()
-
-    console.log(validationErrors)
     
     if(!validationErrors.isEmpty()){
       return res.render('support.ejs', {errors: validationErrors.mapped(), old: req.body})

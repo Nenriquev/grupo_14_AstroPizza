@@ -106,5 +106,14 @@
           "telefono": "123123123",
           "password": "$2b$10$uOQDIqM/IGzd4nPVMYOvkuOV3U3z5RG399sh/Xom0CTzhtXi5If1y",
           "image": "profile-img-1666304810147.png"
+     },
+     {
+          "id": 14,
+          "first_name": "Nerio",
+          "last_name": "Villalobos",
+          "email": "nerio@astropizza.com",
+          "telefono": "6435385",
+          "password": "$2b$10$fM.gG5E/3My6FXQ/DY5p8uoUS5tF189HBSWa052BicljUvBn4Wk8S",
+          "image": "profile-img-1666627900296.png"
      }
 ]

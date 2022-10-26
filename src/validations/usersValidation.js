@@ -4,27 +4,28 @@ const path = require('path');
 module.exports = {
     registerValidation: [
 
-        body('first_name')
-            .notEmpty().withMessage('El campo nombre esta incompleto'),
-
-        body('last_name')
-            .notEmpty().withMessage('El campo apellido esta incompleto'),
-
-        body('telefono')
-            .notEmpty().withMessage('El campo telefono esta incompleto').bail()
-            .isNumeric().withMessage('Valores invalidos'),
+        body('names')
+            .notEmpty().withMessage('El campo nombre esta incompleto')
+            .isLength({min: 6}).withMessage('El nombre debe tener minimo 6 caracteres'),
 
         body('email')
             .notEmpty().withMessage('El campo email esta incompleto').bail()
             .isEmail().withMessage('El email es invalido'),
 
-        body('password')
-            .notEmpty().withMessage('El campo contrasenia esta incompleto').bail()
-            .isLength({min: 6, max:20}).withMessage('La contraseña debe tener minimo 6 caracteres'),
+        body('telefono')
+            .optional(),
 
-        body('password-repeat')
-            .notEmpty().withMessage('El campo repetir contrasenia esta incompleto').bail()
-            .isLength({min: 6, max:20}).withMessage('La contraseña debe tener minimo 6 caracteres'),
+
+        body('password')
+            .notEmpty().withMessage('El campo contrasena esta incompleto').bail()
+            .isLength({min: 6, max:20}).withMessage('La contrasena debe tener minimo 6 caracteres'),
+
+        body('passwordRepeat')
+            .notEmpty().withMessage('El campo repetir contrasena esta incompleto').bail()
+            .custom((passwordRepeat , {req}) =>{
+                const password = req.body.password
+                return password === passwordRepeat
+            }).withMessage('Las contrasenas no coinciden'),
 
         body('profile-img')
             .custom((value, {req}) => {
