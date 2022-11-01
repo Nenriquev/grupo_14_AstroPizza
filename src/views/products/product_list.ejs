@@ -5,8 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="../css/products_styles/product_list.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../css/products_styles/product_list.css">
   <title>Lista de Productos</title>
 </head>
 <body>
@@ -15,14 +17,33 @@
     <div class="menu-container">
       <div class="side-bar">
         <div class="bar">
-         
+            <button class="bttn-dark">🍕 Pizzas</button>  
+            <button class="bttn-dark">🥤 Gaseosas</button> 
+            <button class="bttn-dark">🍺 Cervezas</button> 
+            <button class="bttn-dark">🍦 Postres</button> 
         </div>
-        
       </div>
+
+    
+    
       <div class="menu">
-       
+        <div class="product-container">
+          <% pizzas.forEach(element => { %>
+            <div class="card">
+              <div class="img-product">
+                <img src="../img/pizzas/<%= element.image %>">
+              </div>
+              <div class="description-box">
+                <span><%= element.description %> </span>
+              </div>
+            </div>
+          <% }) %>
+            
+        </div>
       </div>
+
     </div>
+    <%- include('../partials/footer') %> 
   </div>
 </body>
 

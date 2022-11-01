@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
   <link rel="stylesheet" type="text/css" href="../css/animation.css">
   <link rel="stylesheet" type="text/css" href="../css/support.css">
-  <title>Contacto</title>
+  <title>Contacto - Astro Pizza</title>
 </head>
 <body>
   <div class="main-container">
@@ -22,7 +25,7 @@
           <img src="../img/71.png">
         </div>
         <div class="form-col2">
-          <div class="form-in">
+          <div data-aos="zoom-in" class="form-in">
               <form class='form' action="/soporte" method="POST">
                 <div class="field-group">
                   <input type="text" class="fg-field" name="names" value="<%= locals.old?.names ? old.names : null %>">
@@ -109,4 +112,9 @@
 
   <%- include('./partials/footer') %> 
 </body>
+
+<script>
+  AOS.init();
+</script>
+
 </html>

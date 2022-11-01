@@ -16,6 +16,7 @@ const writeData = (data) =>{
 
 
 const productController = {
+  
   list: (req, res) => {
     const data = findAllProducts()
     res.render('./products/product_list.ejs', {pizzas: data})

@@ -41,3 +41,13 @@ DONE:
 WIP:
 - Agregar Multer al Registro.
 - Seguir con el Sprint 5.
+
+**31/10**
+
+DONE: 
+- Multer Login Y registro
+- Animaciones y CSS extras
+
+WIP:
+- Vista de perfil de usuario
+- Vista de listado de productos

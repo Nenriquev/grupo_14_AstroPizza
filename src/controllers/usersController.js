@@ -45,7 +45,7 @@ const usersController = {
             };
     
             if(req.body.recordame){
-                res.cookie("recordame", userFound.id)
+                res.cookie("recordame", userFound.id, { maxAge: 2 * 60 * 60 * 1000, httpOnly: true })
             }
             res.redirect("/")
         }
