@@ -73,11 +73,11 @@
         "id": "p008",
         "name": "Arma tu pizza",
         "value": "arma-tu-pizza",
-        "description": "Arma tu propia pizza, sos dueño del universo pizza, creala como quieras",
+        "description": "Arma tu propia pizza, sos dueno del universo pizza, creala como quieras",
         "price": 1100,
         "category": "Pizzas",
         "status": "Activo",
-        "image": "Arma-tu-pizza.gif"
+        "image": null
     },
     {
         "id": "q009",
@@ -85,7 +85,7 @@
         "value": "Muzzarella",
         "description": "Extra de queso muzzarella",
         "price": 150,
-        "category": "Pizzas",
+        "category": "Quesos",
         "status": "Activo",
         "image": null
     },
@@ -95,7 +95,7 @@
         "value": "Provolone",
         "description": "Extra de queso provolone",
         "price": 150,
-        "category": "quesos",
+        "category": "Quesos",
         "status": "Activo",
         "image": null
     },
@@ -105,7 +105,7 @@
         "value": "Parmesano",
         "description": "Queso parmesano",
         "price": 150,
-        "category": "quesos",
+        "category": "Quesos",
         "image": null
     },
     {

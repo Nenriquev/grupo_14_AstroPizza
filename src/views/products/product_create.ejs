@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
@@ -16,7 +18,7 @@
   <div class="main-container">
     <%- include('../partials/header') %> 
     <div class="form-container">
-      <div class="form-col">
+      <div data-aos="zoom-in" class="form-col">
         <form action="/product/create" method="POST" enctype="multipart/form-data">
 
           <div class="field-group">
@@ -55,11 +57,11 @@
               <option value="Postres">Postres</option>
             </select>
           </div>
+
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.category?.msg %> </span>
           <% } %>
 
-         
           
           <div class="img-input">
             <label class="img-label">Imagen del Producto:</label>
@@ -84,4 +86,7 @@
   </div>
   
 </body>
+<script>
+  AOS.init();
+</script>
 </html>
