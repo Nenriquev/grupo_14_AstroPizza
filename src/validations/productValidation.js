@@ -20,6 +20,7 @@ const productValidation = {
         .notEmpty().withMessage('Debe elegir una categoria'),
     
     body('image')
+        .if((value, {req}) => req.file).bail()
         .custom((value, {req}) => {
           const extensions = ['.jpg', '.webp', '.png', '.jpeg']
           const fileExtension = path.extname(req.file.originalname)

@@ -127,5 +127,23 @@ li{
     align-items: center;
   }
 
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+
+  }
+
+
+  .dropdown:hover .dropdown-content{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link#dropdown{
+    font-size: small;
+  }
+
   
 }

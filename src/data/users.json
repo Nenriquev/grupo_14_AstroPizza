@@ -115,5 +115,19 @@
           "telefono": "6435385",
           "password": "$2b$10$fM.gG5E/3My6FXQ/DY5p8uoUS5tF189HBSWa052BicljUvBn4Wk8S",
           "image": "profile-img-1666627900296.png"
+     },
+     {
+          "id": 15,
+          "email": "velovola@hotmail.com",
+          "telefono": "",
+          "password": "$2b$10$ZdmVYxLlLxBzhJuvcJEaP.CSpcuWEMWgaJMsDh4PJaSh8nOQF62Qy"
+     },
+     {
+          "id": 16,
+          "names": "nerio enrique",
+          "email": "neriox_x@hotmail.com",
+          "telefono": "",
+          "password": "$2b$10$lMWuP1EY870vOHo08booz.LsqwWbIPC2f56q/rH1DZtFkKrUEEX9i",
+          "image": null
      }
 ]

@@ -4,7 +4,7 @@
         "name": "Pizza Mercurio",
         "value": "mercurio",
         "price": 1100,
-        "description": "La pizza mas cercana al sol. con 200 grs de cremosa muzzarella.  ",
+        "description": "La pizza mas cercana al sol. con 200 grs de cremosa muzzarella",
         "category": "Pizzas",
         "status": "Activo",
         "image": "Mercurio.webp"

@@ -19,9 +19,21 @@ const multerDiskStorage = multer.diskStorage({
       const imageName = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
       callback(null, imageName)
     }
-});
+})
 
-const uploadFile = multer({ storage : multerDiskStorage });
+const uploadFile = multer({
+  storage: multerDiskStorage,
+  fileFilter: (req, file, callback) => {
+    const extensions = ['.jpg', '.png', '.webp', '.jpeg', '.gif'];
+    const fileExtension = path.extname(file.originalname);
+    const imgValidation = extensions.includes(fileExtension);
+    
+    if(!imgValidation){
+      req.file = file
+    }
+    callback(null, imgValidation)
+    
+  }})
 
 /* Login */
 routerUsers.get('/login', authMiddleware.userLogged ,usersController.login);
@@ -30,6 +42,9 @@ routerUsers.post("/logout", usersController.logout);
 
 /* Register */
 routerUsers.get('/register', authMiddleware.userLogged, usersController.register);
-routerUsers.post('/register', uploadFile.single('profile-img'), registerValidation, usersController.newUser);
+routerUsers.post('/register', uploadFile.single('profileImg'), registerValidation, usersController.newUser);
 
+/*PROFILE*/
+routerUsers.get('/profile', usersController.profile)
+routerUsers.put('/profile', uploadFile.single('profileImg'), usersController.updateProfile);
 module.exports = routerUsers;

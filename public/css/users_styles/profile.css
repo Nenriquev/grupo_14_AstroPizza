@@ -1,0 +1,248 @@
+@font-face {
+  font-family: 'Console';
+  src: url('../../fonts/Console.ttf');
+}
+
+body{
+  background: url('../../img/backgrounds/background.jpg') no-repeat center center fixed;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  font-family: 'Console';
+}
+
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.profile-card{
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  border-radius: 10px;
+  height: auto;
+  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+}
+
+.profilepic {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  left: 50%;
+  top: -58px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #111;
+  border: 3px solid #5e1b88;
+  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+}
+
+.profilepic:hover .profilepic__content {
+  opacity: 1
+}
+
+.profilepic:hover .profilepic__image {
+  opacity: .5;
+}
+
+.profilepic__image {
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+}
+
+.profilepic__content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.profilepic__icon {
+  color: white;
+  padding-bottom: 8px;
+}
+
+.fas {
+  font-size: 20px;
+}
+
+.profilepic__text {
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 50%;
+  text-align: center;
+}
+
+.content-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-col{
+  margin-bottom: 15px;
+}
+
+.field-group {
+  position: relative;
+  margin: 20px 0 10px 0;
+}
+
+.field-group input:focus + .fg-label,
+.field-group input:not(:focus):valid + .fg-label {
+  top: -18px;
+  left: 4px;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+
+textarea{
+  resize: none;
+  font-family: 'Arial';
+  width: 90%;
+}
+
+.field-group textarea:focus + .fg-label,
+.field-group textarea:not(:focus):valid + .fg-label {
+  top: -18px;
+  left: 4px;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+.field-group .fg-field {
+  background-color: rgba(255, 255, 255, 0.433);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  outline: none;
+}
+
+.field-group .fg-field:focus {
+  box-shadow: 0px 0px 4px 5px #5e1b88;
+}
+
+.field-group .fg-label {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  font-size: 15px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  color: rgb(255, 251, 251);
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.668);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+.btn-submit{
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+}
+
+
+/*TABLET*/
+
+@media (min-width:648px) and (max-width: 1024px) {
+
+  .form-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  
+}
+
+
+/*DESKTOP*/
+
+@media (min-width:1024px) {
+
+  .container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  
+
+  .profile-card{
+    width: 40rem;
+    background-color: rgb(37, 36, 36);
+    border: 3px solid #5e1b88;
+    border-radius: 10px;
+    height: auto;
+    box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+  }
+
+
+  .form-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+ 
+  
+}
+

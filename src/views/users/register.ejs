@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
     <link rel="stylesheet" type="text/css" href="../css/support.css">
     <link rel="stylesheet" type="text/css" href="../css/animation.css">
-    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/users_styles/register.css">
     <title>Registro - Astro Pizza</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
                     <form class='form-register' action="/users/register" method="post" enctype="multipart/form-data">
                         
                         <div class="field-group">
-                            <input type="text" name="names" class="fg-field" >
+                            <input type="text" name="names" class="fg-field" value="<%= locals.old?.names ? old.names : null %>" >
                             <label class="fg-label">Nombre y apellido</label>
                         </div>
 
@@ -40,7 +40,7 @@
                           <% } %>
 
                           <div class="field-group">
-                            <input type="email" name="email" class="fg-field" >
+                            <input type="email" name="email" class="fg-field" value="<%= locals.old?.email ? old.email : null %>" >
                             <label class="fg-label">Email</label>
                         </div>
                         
@@ -51,7 +51,7 @@
                           <% } %>
 
                         <div class="field-group">
-                            <input type="text" name="telefono" class="fg-field" >
+                            <input type="text" name="telefono" class="fg-field" value="<%= locals.old?.telefono ? old.telefono : null %>">
                             <label class="fg-label">Telefono</label>
                         </div>  
                         
@@ -82,9 +82,15 @@
                             <label for="file-upload" class="custom-file-upload">
                               <i class="fa fa-cloud-upload"></i> Seleccionar
                             </label>
-                            <input id="file-upload" name="profile-img" type="file"/>
+                            <input id="file-upload" name="profileImg" type="file"/>
                             <label class="fg-label">Foto de perfil</label>
                           </div>
+
+                          <% if (locals.errors) { %>
+                            <div class="errors">
+                              <span><%= errors?.profileImg?.msg %> </span>
+                            </div>
+                          <% } %>
                         
                         <div class="register-u">
                             <div class="field-group">

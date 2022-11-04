@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../css/users_styles/profile.css">
+  <title>Mi Perfil - Astro Pizza</title>
+</head>
+<body>
+  <div class="main-container">
+
+    <%- include('../partials/header') %> 
+
+      <div class="container">
+        <form class='form' action="/users/profile?_method=PUT" method="post" enctype="multipart/form-data">
+
+          <div data-aos="zoom-in" class="profile-card">
+              <div class="profilepic">
+                <img class="profilepic__image" src="../img/Pizza_box.png" width="150" height="150" alt="Profibild" />
+                <div class="profilepic__content">
+                  <label class="content-img" for="img-profile">
+                    <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
+                    <span class="profilepic__text">Cambiar imagen</span>
+                    <input id="img-profile" type="file" name='profileImg' style="display: none;">
+                </label>
+                </div>
+            </div>
+
+            <div class="form-container">
+              <div class="form-col">
+
+                <div class="title">
+                  <span><i class="fa fa-user"></i> Datos personales</span>
+                </div>
+
+                <div class="field-group">
+                  <input class="fg-field" type="text" name="names" value="">
+                  <label class="fg-label">Nombres</label>
+                </div>
+  
+                <div class="field-group">
+                  <input class="fg-field" type="email" name="email" value="">
+                  <label class="fg-label">Email</label>
+                </div>
+  
+                <div class="field-group">
+                  <input class="fg-field" type="tel" name="telephone" value="">
+                  <label class="fg-label">Telefono</label>
+                </div>
+
+              </div>
+
+              <div class="form-col">
+                
+                <div class="title">
+                  <span><i class="fa fa-key"></i> Contrasena</span>
+                </div>
+
+                <div class="field-group">
+                  <input class="fg-field" type="password" name="password" value="">
+                  <label class="fg-label">Contrasena</label>
+                </div>
+  
+                <div class="field-group">
+                  <input class="fg-field" type="password" name="newPassword" value="">
+                  <label class="fg-label">Nueva contrasena</label>
+                </div>
+  
+                <div class="field-group">
+                  <input class="fg-field" type="password" name="repeatNewPassword" value="">
+                  <label class="fg-label">Repetir contrasena</label>
+                </div>
+  
+              </div>
+              
+
+              
+            </div>
+
+            <div class="btn-submit">
+              <button type="submit" class="bttn-dark">Guardar Cambios</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+      
+      <%- include('../partials/footer') %> 
+  </div>
+</body>
+<script>
+  AOS.init();
+</script>
+</html>

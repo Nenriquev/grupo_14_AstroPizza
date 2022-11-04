@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Console';
-  src: url('../fonts/Console.ttf');
+  src: url('../../fonts/Console.ttf');
 }
 
 body{
-  background: url('../img/backgrounds/background.jpg') no-repeat center center fixed;
+  background: url('../../img/backgrounds/background.jpg') no-repeat center center fixed;
   margin: 0;
   display: flex;
   flex-direction: column;

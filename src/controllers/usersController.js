@@ -61,10 +61,10 @@ const usersController = {
     },
     newUser: (req, res) => {
         const errors = validationResult(req);
-
+        console.log(errors)
         if(!errors.isEmpty()){
 
-            res.render('users/register', {errors: errors.mapped()})
+            res.render('users/register', {errors: errors.mapped(), old: req.body})
 
         } else {
 
@@ -72,12 +72,11 @@ const usersController = {
 
             const newUser = {
                 id: data.length + 1,
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
+                names: req.body.names,
                 email: req.body.email,
                 telefono: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                image: req.file.filename
+                image: req?.file?.filename ? req.file.file : null
             }
     
             data.push(newUser);
@@ -91,6 +90,15 @@ const usersController = {
         req.session.destroy()
         res.clearCookie("recordame");
         res.redirect("/")
+    },
+
+    profile: (req, res) => {
+        res.render('users/profile')
+    },
+
+    updateProfile: (req, res) =>{
+        console.log(req.body)
+        res.redirect('/users/profile')
     }
 }
 

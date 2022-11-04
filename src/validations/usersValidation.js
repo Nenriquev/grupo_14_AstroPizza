@@ -1,5 +1,12 @@
 const {body} = require('express-validator');
 const path = require('path');
+const fs = require('fs');
+
+function findAllUsers() {
+    const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
+    const data = JSON.parse(dataJson);
+    return data
+}
 
 module.exports = {
     registerValidation: [
@@ -10,8 +17,13 @@ module.exports = {
 
         body('email')
             .notEmpty().withMessage('El campo email esta incompleto').bail()
-            .isEmail().withMessage('El email es invalido'),
-
+            .isEmail().withMessage('El email es invalido').bail()
+            .custom((value, {req}) => {
+                const users = findAllUsers()
+                const matchEmail = users.find(user => user.email == req.body.email)
+                return !matchEmail
+            }).withMessage('El email esta en uso'),
+        
         body('telefono')
             .optional(),
 
@@ -27,7 +39,8 @@ module.exports = {
                 return password === passwordRepeat
             }).withMessage('Las contrasenas no coinciden'),
 
-        body('profile-img')
+        body('profileImg')
+            .if((value, {req}) => req.file).bail()
             .custom((value, {req}) => {
                 const extensions = ['.jpg', '.webp', '.png', '.jpeg']
                 const fileExtension = path.extname(req.file.originalname)

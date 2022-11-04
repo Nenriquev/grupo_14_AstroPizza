@@ -14,11 +14,6 @@ const recordameMiddleware = require('./middlewares/recordameMiddle');
 const app = express();
 
 
-app.listen(3000, () =>{
-  console.log("Servidor corriendo en el puerto 3000")
-})
-
-
 /* CONFIGURACÍON */
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
@@ -59,3 +54,9 @@ app.use(function(error, req, res, next) {
   res.status(500).send('ERROR 500');
   console.log(error)
 });
+
+
+/* SERVER */
+app.listen(3000, () =>{
+  console.log("Servidor corriendo en el puerto 3000")
+})

@@ -64,7 +64,7 @@ const productController = {
         price: Number(req.body.price),
         category: req.body.category,
         status: '',
-        image: req?.file?.filename
+        image: req?.file?.filename ? req.file.filename : null      
       }
       
       data.push(newProduct)

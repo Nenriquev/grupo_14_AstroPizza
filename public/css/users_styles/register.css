@@ -1,5 +1,5 @@
 body{
-  background: url('../img/backgrounds/background5.jpg') no-repeat center center fixed;
+  background: url('../../img/backgrounds/background5.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -23,7 +23,7 @@ body{
 @media (max-width:642px) {
 
   body{
-    background: url('../img/backgrounds/background.jpg') no-repeat center center fixed;
+    background: url('../../img/backgrounds/background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -61,7 +61,7 @@ body{
 @media (min-width: 642px) and (max-width:1024px){
 
 body{
-  background: url('../img/backgrounds/background5.jpg') no-repeat 80% center fixed;
+  background: url('../../img/backgrounds/background5.jpg') no-repeat 80% center fixed;
   background-size: cover;
 }
   
