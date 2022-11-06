@@ -100,6 +100,7 @@ const productController = {
       product.image = req.file?.filename ? req.file.filename : null
       
       writeData(data)
+      
       res.redirect('/')
       
     },

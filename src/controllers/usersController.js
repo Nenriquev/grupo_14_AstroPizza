@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+
 function findAllUsers() {
     const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
     const data = JSON.parse(dataJson);
@@ -93,13 +94,44 @@ const usersController = {
     },
 
     profile: (req, res) => {
-        res.render('users/profile')
+
+        const errors = validationResult(req);
+        
+        const data = findAllUsers();
+
+        const user = data.find(function(users){
+            return users.id == req.session.usuarioLogueado.id
+        })
+
+        
+        res.render('users/profile', {user: user, errors: errors.mapped()})
     },
 
     updateProfile: (req, res) =>{
-        console.log(req.body)
-        res.redirect('/users/profile')
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()){
+
+           return usersController.profile(req, res)
+        }
+
+        const data = findAllUsers();
+
+        const user = data.find(function(users){
+            return users.id == req.session.usuarioLogueado.id
+        })
+
+        user.names = req.body.names
+        user.email = req.body.email
+        user.telefono = req.body.telephone
+        user.password = bcrypt.hashSync(req.body.newPassword)
+
+        writeFile(data)
+            
+        res.redirect('/')
+        
     }
+
 }
 
 module.exports = usersController;

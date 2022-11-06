@@ -24,7 +24,7 @@
 
           <div data-aos="zoom-in" class="profile-card">
               <div class="profilepic">
-                <img class="profilepic__image" src="../img/Pizza_box.png" width="150" height="150" alt="Profibild" />
+                <img class="profilepic__image" src="../img/profile/<%= user.image %>" width="150" height="150" alt="Profibild" />
                 <div class="profilepic__content">
                   <label class="content-img" for="img-profile">
                     <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
@@ -34,6 +34,13 @@
                 </div>
             </div>
 
+            
+            <% if (locals.errors) { %>
+              <div class="errors">
+                <span><%= errors?.profileImg?.msg %> </span>
+              </div>
+            <% } %>
+
             <div class="form-container">
               <div class="form-col">
 
@@ -42,17 +49,31 @@
                 </div>
 
                 <div class="field-group">
-                  <input class="fg-field" type="text" name="names" value="">
+                  <input class="fg-field" type="text" name="names" value="<%= user.names %>">
                   <label class="fg-label">Nombres</label>
                 </div>
+
+
+
+                <% if (locals.errors) { %>
+                  <div class="errors">
+                    <span><%= errors?.names?.msg %> </span>
+                  </div>
+                <% } %>
   
                 <div class="field-group">
-                  <input class="fg-field" type="email" name="email" value="">
+                  <input class="fg-field" type="email" name="email" value="<%= user.email %>">
                   <label class="fg-label">Email</label>
                 </div>
+
+                <% if (locals.errors) { %>
+                  <div class="errors">
+                    <span><%= errors?.email?.msg %> </span>
+                  </div>
+                <% } %>
   
                 <div class="field-group">
-                  <input class="fg-field" type="tel" name="telephone" value="">
+                  <input class="fg-field" type="tel" name="telephone" value="<%= user.telefono %>">
                   <label class="fg-label">Telefono</label>
                 </div>
 
@@ -68,16 +89,34 @@
                   <input class="fg-field" type="password" name="password" value="">
                   <label class="fg-label">Contrasena</label>
                 </div>
+
+                <% if (locals.errors) { %>
+                  <div class="errors">
+                    <span><%= errors?.password?.msg %> </span>
+                  </div>
+                <% } %>
   
                 <div class="field-group">
                   <input class="fg-field" type="password" name="newPassword" value="">
                   <label class="fg-label">Nueva contrasena</label>
                 </div>
+
+                <% if (locals.errors) { %>
+                  <div class="errors">
+                    <span><%= errors?.newPassword?.msg %> </span>
+                  </div>
+                <% } %>
   
                 <div class="field-group">
                   <input class="fg-field" type="password" name="repeatNewPassword" value="">
                   <label class="fg-label">Repetir contrasena</label>
                 </div>
+
+                <% if (locals.errors) { %>
+                  <div class="errors">
+                    <span><%= errors?.repeatNewPassword?.msg %> </span>
+                  </div>
+                <% } %>
   
               </div>
               
