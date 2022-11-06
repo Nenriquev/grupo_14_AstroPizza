@@ -1,12 +1,14 @@
 const express = require('express');
+const session = require('express-session');
 const multer = require('multer')
 const path = require('path');
 const routerUsers = express.Router();
 const usersController = require('../controllers/usersController')
-const authMiddleware = require('../middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware');
+const localsMiddleware = require('../middlewares/localsMiddle');
 
 /*Validations*/
-const { registerValidation, loginValidation  } = require('../validations/usersValidation');
+const { registerValidation, loginValidation, profileUpdateValidation } = require('../validations/usersValidation');
 
 
 /*Multer*/
@@ -46,5 +48,7 @@ routerUsers.post('/register', uploadFile.single('profileImg'), registerValidatio
 
 /*PROFILE*/
 routerUsers.get('/profile', usersController.profile)
-routerUsers.put('/profile', uploadFile.single('profileImg'), usersController.updateProfile);
+routerUsers.put('/profile', uploadFile.single('profileImg'), profileUpdateValidation, usersController.updateProfile);
+
+
 module.exports = routerUsers;

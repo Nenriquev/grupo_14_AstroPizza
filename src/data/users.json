@@ -100,8 +100,7 @@
      },
      {
           "id": 13,
-          "first_name": "julio",
-          "last_name": "merlino",
+          "names": "julio merlino",
           "email": "juan@gmail.com",
           "telefono": "123123123",
           "password": "$2b$10$uOQDIqM/IGzd4nPVMYOvkuOV3U3z5RG399sh/Xom0CTzhtXi5If1y",
@@ -129,5 +128,12 @@
           "telefono": "",
           "password": "$2b$10$lMWuP1EY870vOHo08booz.LsqwWbIPC2f56q/rH1DZtFkKrUEEX9i",
           "image": null
+     },
+     {
+          "id": 17,
+          "names": "matias rene",
+          "email": "matiass@hotmail.com",
+          "telefono": "324324324",
+          "password": "$2b$10$GJvLVVGVl4m8wGc6eRIXGusj02i9i/PuQMvfhPWXxrsWESVq.zKVW"
      }
 ]
