@@ -45,7 +45,11 @@ module.exports = {
                 const extensions = ['.jpg', '.webp', '.png', '.jpeg']
                 const fileExtension = path.extname(req.file.originalname)
                 return extensions.includes(fileExtension)
-            }).withMessage('Imagen con extencion invalida')
+            }).withMessage('Imagen con extencion invalida'),
+        
+        body('tyc')
+            .notEmpty().withMessage('Debe aceptar los terminos y condiciones')
+            
 
     ],
     loginValidation: [

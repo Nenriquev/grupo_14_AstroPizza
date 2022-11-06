@@ -41,8 +41,7 @@ const productValidation = {
     
     body('category')
         .notEmpty().withMessage('Debe elegir una categoria'),
-    
-    
+
   ]
 }
 
