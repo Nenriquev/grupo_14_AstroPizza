@@ -108,32 +108,18 @@
      },
      {
           "id": 14,
-          "first_name": "Nerio",
-          "last_name": "Villalobos",
+          "names": "nerio enrique",
           "email": "nerio@astropizza.com",
-          "telefono": "6435385",
-          "password": "$2b$10$fM.gG5E/3My6FXQ/DY5p8uoUS5tF189HBSWa052BicljUvBn4Wk8S",
-          "image": "profile-img-1666627900296.png"
+          "telefono": "8522",
+          "password": "$2a$12$wNH3tF5IUHcZrn.vJOCEsum7601j3Wx9DLqmLCoiQW4j3XhRgy0UO",
+          "image": "null"
      },
      {
           "id": 15,
-          "email": "velovola@hotmail.com",
-          "telefono": "",
-          "password": "$2b$10$ZdmVYxLlLxBzhJuvcJEaP.CSpcuWEMWgaJMsDh4PJaSh8nOQF62Qy"
-     },
-     {
-          "id": 16,
-          "names": "nerio enrique",
-          "email": "neriox_x@hotmail.com",
-          "telefono": "",
-          "password": "$2b$10$lMWuP1EY870vOHo08booz.LsqwWbIPC2f56q/rH1DZtFkKrUEEX9i",
-          "image": null
-     },
-     {
-          "id": 17,
-          "names": "matias rene",
-          "email": "matiass@hotmail.com",
-          "telefono": "324324324",
-          "password": "$2b$10$GJvLVVGVl4m8wGc6eRIXGusj02i9i/PuQMvfhPWXxrsWESVq.zKVW"
+          "names": "Prueba prueba",
+          "email": "sas@gmail.com",
+          "telefono": "648",
+          "password": "$2b$10$cHR6La929yOGwmVTCvs37OSuCBZehWh.NvkqfcTO6ux7uyNHV.GIK",
+          "image": "default_profile.png"
      }
 ]

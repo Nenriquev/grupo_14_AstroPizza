@@ -37,12 +37,15 @@ const usersController = {
 
         if(!userFound){
             return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
-        } else {
+        } 
+        
+        else {
             
             req.session.usuarioLogueado = {
                 id : userFound.id,
-                name: userFound.first_name,
-                email: userFound.email
+                name: userFound.names,
+                email: userFound.email,
+                avatar: userFound.image
             };
     
             if(req.body.recordame){
@@ -50,12 +53,7 @@ const usersController = {
             }
             res.redirect("/")
         }
-        
-
-        }
-
-            
-        
+        }  
     },
     register: (req, res) => {
         res.render('users/register.ejs')
@@ -77,7 +75,7 @@ const usersController = {
                 email: req.body.email,
                 telefono: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                image: req?.file?.filename ? req.file.file : null
+                image: req?.file?.filename ? req.file.file : 'default_profile.png'
             }
     
             data.push(newUser);
@@ -94,29 +92,23 @@ const usersController = {
     },
 
     profile: (req, res) => {
-
         const errors = validationResult(req);
-        
         const data = findAllUsers();
-
         const user = data.find(function(users){
             return users.id == req.session.usuarioLogueado.id
         })
 
-        
-        res.render('users/profile', {user: user, errors: errors.mapped()})
+        res.render('users/profile.ejs', {user: user, errors: errors.mapped()})
     },
 
     updateProfile: (req, res) =>{
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-
            return usersController.profile(req, res)
         }
 
         const data = findAllUsers();
-
         const user = data.find(function(users){
             return users.id == req.session.usuarioLogueado.id
         })
@@ -124,7 +116,10 @@ const usersController = {
         user.names = req.body.names
         user.email = req.body.email
         user.telefono = req.body.telephone
-        user.password = bcrypt.hashSync(req.body.newPassword)
+        user.password = req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, 10) : user.password
+        user.image = req.file?.filename ? req.file.filename : user.image
+
+        
 
         writeFile(data)
             

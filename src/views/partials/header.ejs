@@ -16,7 +16,7 @@
                 <a class="link">Perfil <i class="fa fa-caret-down"></i></a>
               </li>
               <div class="dropdown-content">
-                <a class='link' id="dropdown" href="/users/profile"><i class="fas fa-user"></i> Mi perfil</a>
+                <a class='link' id="dropdown" href="/users/profile/<%=locals.usuario.id%>"><i class="fas fa-user"></i> Mi perfil</a>
                 <form id='logout' action="/users/logout" method="post">
                   <a class="link" id="dropdown" href="#" onclick="document.getElementById('logout').submit()"><i class="fas fa-power-off"></i> Cerrar Sesion</a>
                 </form>

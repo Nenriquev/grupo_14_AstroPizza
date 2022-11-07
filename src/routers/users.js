@@ -47,8 +47,8 @@ routerUsers.get('/register', authMiddleware.userLogged, usersController.register
 routerUsers.post('/register', uploadFile.single('profileImg'), registerValidation, usersController.newUser);
 
 /*PROFILE*/
-routerUsers.get('/profile', usersController.profile)
-routerUsers.put('/profile', uploadFile.single('profileImg'), profileUpdateValidation, usersController.updateProfile);
+routerUsers.get('/profile/:id', usersController.profile)
+routerUsers.put('/profile/:id', uploadFile.single('profileImg'), profileUpdateValidation, usersController.updateProfile);
 
 
 module.exports = routerUsers;

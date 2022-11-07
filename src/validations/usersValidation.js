@@ -51,7 +51,6 @@ module.exports = {
         body('tyc')
             .notEmpty().withMessage('Debe aceptar los terminos y condiciones')
             
-
     ],
     loginValidation: [
         
@@ -63,7 +62,6 @@ module.exports = {
         .withMessage("campo contraseña incompleto")
     ],
     profileUpdateValidation: [
-
         
         body('names')
             .notEmpty().withMessage('El campo nombre esta incompleto')
@@ -77,22 +75,18 @@ module.exports = {
             .optional(),
 
         body('password')
-            .notEmpty().withMessage('El campo contrasena esta incompleto').bail()
-            .isLength({min: 6, max:20}).withMessage('La contrasena debe tener minimo 6 caracteres').bail()
-            .custom(function (password, {req}) {
+            .if((value, {req}) => value).bail()
+            .custom((password, {req}) => {
                 const data = findAllUsers();
-
-                const userMatch = data.find(user => user.email == req.body.email)
-
-                return bcrypt.compareSync(password, userMatch.password)
-            }).withMessage('La contraseña es incorrecta'),
+                const userMatch = data.find(user => user.id == req.session.usuarioLogueado.id)
+                 return bcrypt.compareSync(password, userMatch.password)
+            }).withMessage('La contrasena es incorrecta'),
 
         body('newPassword')
-            .notEmpty().withMessage('El campo nueva contrasena esta incompleto').bail()
+            .if((value, {req}) => value).bail()
             .isLength({min: 6, max:20}).withMessage('La nueva contrasena debe tener minimo 6 caracteres'),
 
         body('repeatNewPassword')
-            .notEmpty().withMessage('El campo repetir contrasena esta incompleto').bail()
             .custom((passwordNewRepeat , {req}) =>{
                 const password = req.body.newPassword
                 return password === passwordNewRepeat
