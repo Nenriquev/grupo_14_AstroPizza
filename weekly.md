@@ -51,3 +51,13 @@ DONE:
 WIP:
 - Vista de perfil de usuario
 - Vista de listado de productos
+
+**07/11**
+
+DONE:
+- Delegacion de Tareas del Sprint 6
+- Revisión de progreso hasta la fecha
+
+WIP:
+- Empezar el Sprint 6
+- Creación del esqueleto de la base de datos
