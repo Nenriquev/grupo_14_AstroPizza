@@ -61,3 +61,9 @@ DONE:
 WIP:
 - Empezar el Sprint 6
 - Creación del esqueleto de la base de datos
+
+**14/11**
+
+Done:
+- Creación de la base de datos de productos y usuarios
+- Creación de tablas intermedias
