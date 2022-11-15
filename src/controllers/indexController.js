@@ -1,6 +1,10 @@
 const path = require('path')
 const fs = require('fs')
 const {validationResult} = require('express-validator');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+
+const Products = db.Product
 
 function findAllProducts(){
   const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
@@ -21,10 +25,12 @@ const writeData = (data) =>{
 
 const indexController = {
   index: (req, res) => {
-    const data = findAllProducts();
-
-    const dataPizza = data.filter(element => element.category === "Pizzas");
-    res.render('index.ejs', {dataPizza: dataPizza})
+    Products.findAll(
+      {
+        where: { category_id: 1 }
+      }).then((pizzas) => 
+    res.render('index.ejs', {pizza: pizzas})
+    )
   },
 
   faqs: (req, res) => {

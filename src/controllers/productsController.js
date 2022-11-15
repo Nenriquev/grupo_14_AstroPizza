@@ -1,7 +1,12 @@
 const path = require('path');
 const fs = require("fs");
 const {validationResult} = require('express-validator');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 
+const Products = db.Product
+const Categories = db.Category
+const Status = db.Status
 
 function findAllProducts(){
   const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
@@ -25,14 +30,19 @@ const writeData = (data) =>{
 const productController = {
   
   list: (req, res) => {
-    const data = findAllProducts()
+    const products = Products.findAll()
     const userData = findAllUsers();
     const user = userData.find(function(users){
         if(req.session.userLoggedIn){
         return users.id == req.session.userLoggedIn.id
         }
     })
-    res.render('./products/product_list.ejs', {pizzas: data, user: user})
+
+    Promise.all([products, user])
+            .then(([products, user]) => {
+              res.render('./products/product_list.ejs', {products: products, user: user})
+            });
+    
   },
 
   product: (req, res) => {
@@ -64,57 +74,63 @@ const productController = {
       
   store: (req, res) => {
     const validationErrors = validationResult(req)
-    const data = findAllProducts()
     
     if(!validationErrors.isEmpty()){
      return res.render('./products/product_create.ejs', {errors: validationErrors.mapped(), old: req.body})
     }
 
-    const newProduct = {
-        id: String(data.length + 1),
-        name: req.body.product_name,
-        description: req.body.description,
-        price: Number(req.body.price),
-        category: req.body.category,
-        status: '',
-        image: req?.file?.filename ? req.file.filename : null      
-      }
-      
-      data.push(newProduct)
-      writeData(data)
+    Products.create({
+      name: req.body.product_name,
+      description: req.body.description,
+      price: req.body.price,
+      category_id: req.body.category,
+      status_id: 1,
+      image: req?.file?.filename ? req.file.filename : null  
+    }).then(()=>{
       res.redirect("/product");
+    })
     },
 
       //EDITAR//
 
   edit: (req, res) => {
     const errors = validationResult(req)
-    const data = findAllProducts()
-    const status = ['Activo', 'Sin stock', 'Inactivo']
-    const category = ['Pizzas', 'Quesos', 'Vegetales', 'Carnes', 'Bebidas', 'Cervezas', 'Aderezos', 'Postres']
-    const product = data.find(element => element.id === req.params.id)
-    return res.render('./products/product_edit', {product: product, status: status, category: category, validationErrors: errors.mapped()})
+    const products = Products.findByPk(req.params.id)
+    const status = Status.findAll()
+    const category = Categories.findAll()
+
+    Promise.all([products, status, category])
+    .then(([products, status, category]) => {
+      res.render('./products/product_edit', {product: products, status: status, category: category, validationErrors: errors.mapped()})
+    });
+
   },
      
   update: (req, res) => {
-      const errors = validationResult(req)
-      const data = findAllProducts();
-      const product = data.find(element => element.id === req.params.id);
-     
-      if(!errors.isEmpty()){
-       return productController.edit(req, res)
+      const errors = validationResult(req);
+      const product = Products.findByPk(req.params.id).then((element) => {
+        return element;
+      });
+
+      if (!errors.isEmpty()) {
+        return productController.edit(req, res);
       }
-      
-      product.name = req.body.product_name;
-      product.description = req.body.description;
-      product.price = Number(req.body.price);
-      product.category = req.body.category;
-      product.status = req.body.status;
-      product.image = req.file?.filename ? req.file.filename : null
-      
-      writeData(data)
-      
-      res.redirect('/product')
+
+      Products.update(
+        {
+          name: req.body.product_name,
+          description: req.body.description,
+          price: req.body.price,
+          category_id: req.body.category,
+          status_id: req.body.status,
+          image: req.file?.filename ? req.file.filename : product.image,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      ).then(() => {
+        res.redirect("/product");
+      });
       
     },
 

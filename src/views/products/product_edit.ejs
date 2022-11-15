@@ -16,7 +16,7 @@
   <div class="main-container">
     <%- include('../partials/header') %> 
       <div class="container">
-
+        
           <div class="form-container">
             <div class="form-row">
               <div class="form-col">
@@ -43,11 +43,7 @@
                       <div class="select">
                         <select name="category">
                           <% category.forEach(element => { %>
-                            <% if(element == product.category){ %>
-                              <option selected value="<%= product.category %>"> <%= product.category %> </option>
-                            <% } else{ %>  
-                              <option value="<%= element %>"> <%= element %> </option>
-                           <% } %>
+                            <option <%= product.category_id == element.id ? 'selected' : null %> value="<%= element.id %>"> <%= element.category %> </option>
                           <% }) %>
                         </select>
                       </div>
@@ -57,11 +53,7 @@
                     <div class="select">
                       <select name="status">
                         <% status.forEach(element => { %>
-                          <% if(element == product.status){ %>
-                            <option selected value="<%= product.status %>"> <%= product.status %> </option>
-                          <% } else{ %>  
-                            <option value="<%= element %>"> <%= element %> </option>
-                         <% } %>
+                          <option <%= product.status_id == element.id ? 'selected' : null %> value="<%= element.id %>"> <%= element.status_name %> </option>
                         <% }) %>
                       </select>
                     </div>
@@ -70,7 +62,6 @@
 
               <div class="form-col">
                   <div class="img-container">
-                    
                     <img src="../../img/pizzas/<%= product.image ? product.image : "Pizza_box.png"%>">
                   </div>
 
