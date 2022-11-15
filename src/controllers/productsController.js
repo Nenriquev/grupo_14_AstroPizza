@@ -9,6 +9,13 @@ function findAllProducts(){
   return data
 }
 
+function findAllUsers() {
+  const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
+  const data = JSON.parse(dataJson);
+  return data
+}
+
+
 const writeData = (data) =>{
   const dataString = JSON.stringify(data, null, 4)
   fs.writeFileSync(path.join(__dirname, '../data/products.json'), dataString)
@@ -19,7 +26,13 @@ const productController = {
   
   list: (req, res) => {
     const data = findAllProducts()
-    res.render('./products/product_list.ejs', {pizzas: data})
+    const userData = findAllUsers();
+    const user = userData.find(function(users){
+        if(req.session.userLoggedIn){
+        return users.id == req.session.userLoggedIn.id
+        }
+    })
+    res.render('./products/product_list.ejs', {pizzas: data, user: user})
   },
 
   product: (req, res) => {
@@ -69,7 +82,7 @@ const productController = {
       
       data.push(newProduct)
       writeData(data)
-      res.redirect("/product/create");
+      res.redirect("/product");
     },
 
       //EDITAR//
@@ -101,7 +114,7 @@ const productController = {
       
       writeData(data)
       
-      res.redirect('/')
+      res.redirect('/product')
       
     },
 
@@ -110,7 +123,7 @@ const productController = {
       const product = data.filter(element => element.id !== req.params.id);
 
       writeData(product)
-      res.redirect('/')
+      res.redirect('/product')
       
     },
 }

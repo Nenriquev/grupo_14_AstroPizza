@@ -101,8 +101,26 @@ body{
 }
 
 .description-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  width: 90%;
+  height: 20%;
+  margin: 0 auto;
+}
+
+.actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-content: center;
   width: 90%;
   margin: 0 auto;
+}
+
+.fa-pen{
+  color: rgb(0, 136, 255)
 }
 
 /* TABLETS */

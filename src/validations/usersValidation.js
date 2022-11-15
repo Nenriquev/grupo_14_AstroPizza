@@ -75,15 +75,15 @@ module.exports = {
             .optional(),
 
         body('password')
-            .if((value, {req}) => value).bail()
+            .if((value, {req}) => req.body.password || req.body.newPassword || req.body.repeatNewPassword).bail()
             .custom((password, {req}) => {
                 const data = findAllUsers();
-                const userMatch = data.find(user => user.id == req.session.usuarioLogueado.id)
+                const userMatch = data.find(user => user.id == req.session.userLoggedIn.id)
                  return bcrypt.compareSync(password, userMatch.password)
             }).withMessage('La contrasena es incorrecta'),
 
         body('newPassword')
-            .if((value, {req}) => value).bail()
+            .if((value, {req}) => req.body.password || req.body.newPassword || req.body.repeatNewPassword).bail()
             .isLength({min: 6, max:20}).withMessage('La nueva contrasena debe tener minimo 6 caracteres'),
 
         body('repeatNewPassword')

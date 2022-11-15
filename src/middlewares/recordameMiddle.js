@@ -9,7 +9,7 @@ function findAllUsers() {
 
 
 function recordame (req, res, next){
-    if(req.cookies.recordame && !req.session.usuarioLogueado){
+    if(req.cookies.recordame && !req.session.userLoggedIn){
         
         const users = findAllUsers();
 
@@ -17,10 +17,11 @@ function recordame (req, res, next){
             return user.id == req.cookies.recordame
         })
 
-        req.session.usuarioLogueado = {
+        req.session.userLoggedIn = {
             id: userFound.id,
-            name: userFound.first_name,
-            email: userFound.email
+            name: userFound.names,
+            email: userFound.email,
+            role: userFound.role
         };
         
     }

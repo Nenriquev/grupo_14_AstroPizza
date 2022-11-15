@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   width: 90%;
-  height: 10%;
   margin: 0 auto;
   align-content: space-between;
   justify-content: space-between;
@@ -26,8 +25,13 @@ li{
   display: inline;
 }
 
+ul{
+  padding-inline-start: 0px;
+}
+
 .nav{
   display: flex;
+  flex-direction: column;
   font-family: 'Console';
   text-transform: uppercase;
   text-align: center;
@@ -94,6 +98,168 @@ li{
   -webkit-text-stroke: .1px rgb(255, 255, 255);
 }
 
+
+.btn {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 40px;
+}
+
+
+.spanBurger {
+  display: block;
+  width: 80%;
+  box-shadow: 0 0 11px 4px #5e1b88;
+  border-radius: 3px;
+  height: 5px;
+  background: #fff;
+  transition: all .3s;
+  position: relative;
+}
+
+span + span {
+  margin-top: 7px;
+}
+
+.active span:nth-child(1) {
+  animation: ease .7s top forwards;
+}
+
+.not-active span:nth-child(1) {
+  animation: ease .7s top-2 forwards;
+}
+
+.active span:nth-child(2) {
+  animation: ease .7s scaled forwards;
+}
+
+.not-active span:nth-child(2) {
+  animation: ease .7s scaled-2 forwards;
+}
+
+.active span:nth-child(3) {
+  animation: ease .7s bottom forwards;
+}
+
+.not-active span:nth-child(3) {
+  animation: ease .7s bottom-2 forwards;
+}
+
+.dropdown {
+  display: none;
+}
+
+.sidebar {
+  height: 50%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 9; 
+  top: 15%;
+  right: 0;
+  background-color: rgb(37, 36, 36);
+  border-radius: 10px;
+  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+  box-shadow: 0 0 0 5px #5e1b88 inset;
+  overflow-x: hidden; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 22px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 17px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-2 {
+  0% {
+    top: 22px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 22px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: 22px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 9px;
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes bottom-2 {
+  0% {
+    bottom: 22px;
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: 22px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 @media (max-width: 648px) {
   .logo{
     width: 160px;
@@ -105,6 +271,11 @@ li{
 /*DESKTOP*/
 
 @media (min-width: 1024px) {
+
+  .nav{
+    display: flex;
+    flex-direction: row;
+  }
 
   .top-navbar{
     height: 20vh;
@@ -127,6 +298,14 @@ li{
     align-items: center;
   }
 
+  .dropdown {
+    display: block;
+  }
+  
+  .burgerMenu{
+    display: none;
+  }
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -134,7 +313,6 @@ li{
     z-index: 1;
 
   }
-
 
   .dropdown:hover .dropdown-content{
     display: flex;

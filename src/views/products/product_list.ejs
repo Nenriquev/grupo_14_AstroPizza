@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
@@ -36,9 +37,14 @@
               <div class="description-box">
                 <span><%= element.description %> </span>
               </div>
+              <% if (user?.role == 'admin') { %>
+                <div class="actions">
+                  <a href="/product/edit/<%= element.id %>"><i class="fas fa-pen"></i></a>
+                </div>
+              <% } %> 
             </div>
           <% }) %>
-            
+
         </div>
       </div>
 

@@ -111,8 +111,9 @@
           "names": "nerio enrique",
           "email": "nerio@astropizza.com",
           "telefono": "8522",
-          "password": "$2a$12$wNH3tF5IUHcZrn.vJOCEsum7601j3Wx9DLqmLCoiQW4j3XhRgy0UO",
-          "image": "null"
+          "password": "$2b$10$iMwpK0d70M1liNrEz9jTIejzNQXYRJKCoRT4Rxv2oSLVytT5YOuIO",
+          "image": "null",
+          "role": "admin"
      },
      {
           "id": 15,
@@ -120,6 +121,14 @@
           "email": "sas@gmail.com",
           "telefono": "648",
           "password": "$2b$10$cHR6La929yOGwmVTCvs37OSuCBZehWh.NvkqfcTO6ux7uyNHV.GIK",
+          "image": "default_profile.png"
+     },
+     {
+          "id": 16,
+          "names": "Noadmin",
+          "email": "noadmin@gmail.com",
+          "telefono": "585204",
+          "password": "$2b$10$D1Q/EJI7AIBpGhdw6E/sK.NzzVSRf8v36YO7ufiVE.5T0berE4pOq",
           "image": "default_profile.png"
      }
 ]

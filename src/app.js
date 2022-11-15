@@ -46,7 +46,7 @@ app.use('/cart', cartRouter);
 
 /* ERRORS PAGE*/
 app.use(function(req, res){
-  res.status(404).send('ERROR 404');
+  res.status(404).render('404');
 });
 
 

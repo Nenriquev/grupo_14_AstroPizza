@@ -122,16 +122,20 @@
         "value": "Panceta",
         "description": "Panceta",
         "price": 200,
-        "category": "carnes",
+        "category": "Carnes",
         "name": "Panceta",
-        "image": null
+        "image": null,
+        "status": "Activo"
     },
     {
         "id": "c014",
         "value": "Jamon",
-        "category": "carnes",
+        "category": "Carnes",
         "name": "Jamon",
-        "image": ""
+        "image": null,
+        "description": "Jamon",
+        "price": 150,
+        "status": "Activo"
     },
     {
         "id": "c015",
@@ -258,8 +262,20 @@
     {
         "id": "b032",
         "value": "Fanta",
-        "category": "bebidas",
+        "category": "Bebidas",
         "name": "Fanta",
-        "image": ""
+        "image": null,
+        "description": "Fanta",
+        "price": 300,
+        "status": "Activo"
+    },
+    {
+        "id": "33",
+        "name": "Franui",
+        "description": "Chocolate ",
+        "price": 500,
+        "category": "Postres",
+        "status": "",
+        "image": null
     }
 ]
