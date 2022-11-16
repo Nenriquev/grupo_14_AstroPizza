@@ -30,7 +30,7 @@ const writeData = (data) =>{
 const productController = {
   
   list: (req, res) => {
-    const products = Products.findAll()
+    const products = Products.findAll({include:['category']})
     const userData = findAllUsers();
     const user = userData.find(function(users){
         if(req.session.userLoggedIn){
@@ -85,7 +85,7 @@ const productController = {
       price: req.body.price,
       category_id: req.body.category,
       status_id: 1,
-      image: req?.file?.filename ? req.file.filename : null  
+      image: req?.file?.filename ? req.file.filename : 'placeholder.png' 
     }).then(()=>{
       res.redirect("/product");
     })

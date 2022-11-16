@@ -18,24 +18,28 @@
     <div class="menu-container">
       <div class="side-bar">
         <div class="bar">
-            <button class="bttn-dark">🍕 Pizzas</button>  
-            <button class="bttn-dark">🥤 Gaseosas</button> 
-            <button class="bttn-dark">🍺 Cervezas</button> 
-            <button class="bttn-dark">🍦 Postres</button> 
+            <button id='pizzas' class="bttn-dark">🍕 Pizzas</button>  
+            <button id='bebidas' class="bttn-dark">🥤 Gaseosas</button> 
+            <button id='cervezas' class="bttn-dark">🍺 Cervezas</button> 
+            <button id='postres' class="bttn-dark">🍦 Postres</button> 
+            <button id='quesos' class="bttn-dark">🧀 Quesos</button> 
+            <button id='vegetales' class="bttn-dark">🧅 Vegetales</button> 
+            <button id='carnes' class="bttn-dark">🍖 Carnes</button> 
+
         </div>
       </div>
 
-    
+   
     
       <div class="menu">
-        <div class="product-container">
-          <% products.forEach(element => { %>
-            <div class="card">
+        <ul class="product-container">
+          <% products.filter(element => { %>
+            <li id=<%= element.category.category %> class="card">
               <div class="product_name">
-                <span>Pizza <%= element.name %></span>
+                <span> <%= element.category_id == 1 ? `Pizza ${element.name}` : element.name %> </span>
               </div>
               <div class="img-product">
-                <img src="../img/pizzas/<%= element.image %>">
+                <a href="/product/detail/<%= element.name %>"><img src="../img/pizzas/<%= element.image %>"></a>
               </div>
               <div class="description-box">
                 <span><%= element.description %></span>
@@ -45,15 +49,15 @@
                   <a href="/product/edit/<%= element.id %>"><i class="fas fa-pen"></i></a>
                 </div>
               <% } %> 
-            </div>
+            </li>
           <% }) %>
 
-        </div>
+        </ul>
       </div>
 
     </div>
     <%- include('../partials/footer') %> 
   </div>
 </body>
-
+<script src="../js/product_list.js"></script>
 </html>
