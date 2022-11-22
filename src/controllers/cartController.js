@@ -102,7 +102,7 @@ const cartController = {
     dataBebidas = dataBebidasPedidas();
     dataPostres = dataPostresPedidos()
 
-
+    
     res.render('cart.ejs', {pizzaElegida: pizzaElegida,
                             dataQuesos: dataQuesos, 
                             dataCarnes: dataCarnes,
