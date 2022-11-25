@@ -179,7 +179,7 @@ display: flex;
   color: #FFFFFF;
   font-size: 15px;
   justify-self: center;
-  text-align: center;
+  text-align: left;
   padding: 6px;
   text-transform: capitalize;
 }

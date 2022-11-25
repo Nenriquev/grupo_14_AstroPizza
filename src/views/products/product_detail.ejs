@@ -22,7 +22,7 @@
     <div class="cuadro_extras">
       <h3>Agrégale Extras</h3>
 
-      <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>100</h4>
+      <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
 
           <% products.filter(element => { %>
@@ -36,7 +36,7 @@
 
         </div>
         
-      <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>90</h4>
+      <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
           <% products.filter(element => { %>
             <% if(element.category_id == 3){%>
@@ -48,7 +48,7 @@
           <% }}); %>
         </div>
 
-      <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>120</h4>
+      <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
         <div>
           <% products.filter(element => { %>
             <% if(element.category_id == 4){%>
@@ -73,20 +73,20 @@
     <div class="cuadro_bebidas">
 
       <h3>Acompañalo con tu bebida favorita</h3>
-      <h4>Bebidas 350ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
+      <h4>Bebidas 350ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>300</h4>
         <div>
 
           <% products.filter(element => { %>
             <% if(element.category_id == 5){%>
-            <p>
-              <label class="product_detail_cuadro_bebidas"><%= element.name %>
-                <input class="contarBebidas" type="number"  value="0" min="0" max="10" name="<%= element.name %> %>">
-              </label>
-            </p>
+              <p>
+                <label class="product_detail_cuadro_bebidas"><%= element.name %>
+                  <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= element.name %>">
+                </label>
+              </p>
           <% }}); %>
 
         </div>
-      <h4>Cerveza 355ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>350</h4>
+      <h4>Cerveza 355ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>450</h4>
         <div>
           <% products.filter(element => { %>
             <% if(element.category_id == 6){%>

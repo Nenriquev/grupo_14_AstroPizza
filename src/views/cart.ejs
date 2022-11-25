@@ -33,33 +33,45 @@
                       </div>
                       <div class="description-box">
                         <div class="description">
-                          <%if(dataQuesos.length > 0 || dataCarnes.length > 0 || dataVegetales.length > 0){ %>
-                          <%if(dataQuesos.length > 0){%>
+                          <%if(quesosPedidos.length > 0 || carnesPedidas.length > 0 || vegetalesPedidos.length > 0){ %>
+                          <%if(quesosPedidos.length > 0){%>
+
                             <h5>Quesos</h5>
-                          <% dataQuesos.forEach(function(quesos) { %>
-                          <span><%= quesos.cantidad %> x <%= quesos.value %> </span>
+                          <% quesosPedidos.forEach(function(quesos) { %>
+                          <span>* <%= quesos.name %> $<%= quesos.price %> </span>
                           <% }); }%>
 
-                          <%if(dataCarnes.length > 0){%>
-                            <h5>Carnes</h5>
-                            <% dataCarnes.forEach(function(carnes) { %>
-                              <span><%= carnes.cantidad %> x <%= carnes.value %></span>
-                          <% }); }%>
-
-                          <%if(dataVegetales.length > 0){%>
+                          <%if(vegetalesPedidos.length > 0){%>
                             <h5>Vegetales</h5>
-                          <% dataVegetales.forEach(function(vegetales) { %>
-                            <span><%= vegetales.cantidad %> x <%= vegetales.value %></span>
+                          <% vegetalesPedidos.forEach(function(vegetales) { %>
+                            <span>* <%= vegetales.name %> $<%= vegetales.price %></span>
                           <% }); }%>
+
+                          <%if(carnesPedidas.length > 0){%>
+                            <h5>Carnes</h5>
+                            <%carnesPedidas.forEach(function(carnes) { %>
+                              <span>* <%= carnes.name %> $<%= carnes.price %></span>
+                          <% }); }%>
+
                           <% } else{ %>
                             <h5>Sin extras</h5>
                           <%} %>
                         </div>
                         <div class="description">
-                          <%if(dataBebidas.length > 0){%>
+                          <%if(bebidasPedidas.length > 0 || bebidasAlcoholicasPedidas.length > 0){%>
                             <h5>Bebidas</h5>
-                            <% dataBebidas.forEach(function(bebidas) { %>
-                              <span><%= bebidas.cantidad %> x <%= bebidas.value %> </span>
+                            <% bebidasPedidas.forEach(function(bebidas) { %>
+                              <span>* <%= bebidas.cantidad %> x <%= bebidas.name %> $<%= bebidas.price %> c/u</span>
+                          <% });%>
+                          <% bebidasAlcoholicasPedidas.forEach(function(alcohol) { %>
+                            <span>* <%= alcohol.cantidad %> x <%= alcohol.name %> $<%= alcohol.price %> c/u</span>
+                        <% }); }%>
+                        </div>
+                        <div class="description">
+                          <%if(postresPedidos.length > 0){%>
+                            <h5>Postres</h5>
+                            <% postresPedidos.forEach(function(postres) { %>
+                              <span>* <%= postres.cantidad %> x <%= postres.name %> $<%= postres.price %> c/u</span>
                           <% }); }%>
                         </div>
                         <div class="qty">
@@ -82,11 +94,11 @@
               <div class="check-box">
                 <div class="bill">
                   <span>Subtotal:</span>
-                  <span>$5.000</span>
+                  <span><%= precioSumado %> </span>
                 </div>
                 <div class="bill">
                   <span>Delivery:</span>
-                  <span>$150</span>
+                  <span>$0</span>
                 </div>
                 <div class="bill">
                   <span>Descuentos:</span>
@@ -94,7 +106,7 @@
                 </div>
                 <div class="bill">
                   <span class="total">Total:</span>
-                  <span class="total">$5.150</span>
+                  <span class="total"><%= precioSumado %></span>
                 </div>
               </div>
 

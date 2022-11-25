@@ -181,6 +181,8 @@ body{
     font-size: 14px;
     margin-block-start: 5px;
     margin-block-end: 2px;
+    text-decoration: underline;
+    margin-bottom: 5px;
   }
 
   .description-box{
@@ -192,9 +194,12 @@ body{
     display: flex;
     flex-direction: column;
     width: 80%;
-
+    text-transform: capitalize;
   }
 
+  .description span{
+    margin-left: 7px;
+  }
   .qty{
     display: flex;
     flex-direction: column;
