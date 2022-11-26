@@ -25,11 +25,11 @@
       <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
 
-          <% products.filter(element => { %>
-            <% if(element.category_id == 2){%>
+          <% products.filter(quesos => { %>
+            <% if(quesos.category_id == 2 && quesos.status_id == 1){%>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= element.name %>"><%= element.name %>
+                <input type="checkbox" name="<%= quesos.name %>"><%= quesos.name %>
               </label>
             </p>
           <% }}); %>
@@ -38,11 +38,11 @@
         
       <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
-          <% products.filter(element => { %>
-            <% if(element.category_id == 3){%>
+          <% products.filter(vegetales => { %>
+            <% if(vegetales.category_id == 3 && vegetales.status_id == 1){%>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= element.name %>"><%= element.name %>
+                <input type="checkbox" name="<%= vegetales.name %>"><%= vegetales.name %>
               </label>
             </p>
           <% }}); %>
@@ -50,11 +50,11 @@
 
       <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
         <div>
-          <% products.filter(element => { %>
-            <% if(element.category_id == 4){%>
+          <% products.filter(proteinas => { %>
+            <% if(proteinas.category_id == 4 && proteinas.status_id == 1){%>
             <p>
               <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= element.name %>"><%= element.name %>
+                <input type="checkbox" name="<%= proteinas.name %>"><%= proteinas.name %>
               </label>
             </p>
           <% }}); %>
@@ -62,11 +62,11 @@
     </div>
           
       <div>
-        <% products.filter(element => { %>
-          <% if(element.name == pizzaData){%>
-            <img class='product_detail_pizza' src="../../img/pizzas/<%= element.image %>"/>
-            <span class="nombre_pizza"><%= element.name %></span>
-            <span class="precio_pizza"><i class="fas fa-dollar-sign" aria-hidden="true"></i><%= element.price %></span>
+        <% products.filter(pizza => { %>
+          <% if(pizza.name == pizzaData){%>
+            <img class='product_detail_pizza' src="../../img/pizzas/<%= pizza.image %>"/>
+            <span class="nombre_pizza"><%= pizza.name %></span>
+            <span class="precio_pizza"><i class="fas fa-dollar-sign" aria-hidden="true"></i><%= pizza.price %></span>
         <% }}); %>
       </div>
 
@@ -76,11 +76,11 @@
       <h4>Bebidas 350ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>300</h4>
         <div>
 
-          <% products.filter(element => { %>
-            <% if(element.category_id == 5){%>
+          <% products.filter(bebidas => { %>
+            <% if(bebidas.category_id == 5 && bebidas.status_id == 1){%>
               <p>
-                <label class="product_detail_cuadro_bebidas"><%= element.name %>
-                  <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= element.name %>">
+                <label class="product_detail_cuadro_bebidas"><%= bebidas.name %>
+                  <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= bebidas.name %>">
                 </label>
               </p>
           <% }}); %>
@@ -88,11 +88,11 @@
         </div>
       <h4>Cerveza 355ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>450</h4>
         <div>
-          <% products.filter(element => { %>
-            <% if(element.category_id == 6){%>
+          <% products.filter(alcohol => { %>
+            <% if(alcohol.category_id == 6 && alcohol.status_id == 1){%>
             <p>
-              <label class="product_detail_cuadro_bebidas"><%= element.name %>
-                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= element.name %>">
+              <label class="product_detail_cuadro_bebidas"><%= alcohol.name %>
+                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= alcohol.name %>">
               </label>
             </p>
           <% }}); %>
