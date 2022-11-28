@@ -45,25 +45,35 @@ WIP:
 **31/10**
 
 DONE: 
-- Multer Login Y registro
-- Animaciones y CSS extras
+- Multer Login Y registro.
+- Animaciones y CSS extras.
 
 WIP:
-- Vista de perfil de usuario
-- Vista de listado de productos
+- Vista de perfil de usuario.
+- Vista de listado de productos.
 
 **07/11**
 
 DONE:
-- Delegacion de Tareas del Sprint 6
-- Revisión de progreso hasta la fecha
+- Delegacion de Tareas del Sprint 6.
+- Revisión de progreso hasta la fecha.
 
 WIP:
-- Empezar el Sprint 6
-- Creación del esqueleto de la base de datos
+- Empezar el Sprint 6.
+- Creación del esqueleto de la base de datos.
 
 **14/11**
 
 Done:
-- Creación de la base de datos de productos y usuarios
-- Creación de tablas intermedias
+- Creación de la base de datos de productos y usuarios.
+- Creación de tablas intermedias.
+
+**28/11**
+
+DONE: 
+- Carrito conectado con la base de datos.
+
+WIP: 
+- Conectar base de datos de los usuarios.
+- Corregir error sobre listado de productos.
+- Agregar funcionalidad de añadir más productos al carrito.
