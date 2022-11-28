@@ -135,11 +135,11 @@ const productController = {
     },
 
     delete: (req, res) => {
-      const data = findAllProducts();
-      const product = data.filter(element => element.id !== req.params.id);
-
-      writeData(product)
-      res.redirect('/product')
+      Products.destroy({
+        where: {id:req.params.id}
+      }).then(() => {
+        res.redirect('/product')
+      })
       
     },
 }

@@ -84,30 +84,6 @@ footer{
   margin: 20px 0 10px 0;
 }
 
-.field-group input:focus + .fg-label,
-.field-group input:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
-
-
-textarea{
-  resize: none;
-  font-family: 'Arial';
-  width: 90%;
-}
-
-.field-group textarea:focus + .fg-label,
-.field-group textarea:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
 
 .field-group .fg-field {
   background-color: rgba(255, 255, 255, 0.433);
@@ -130,6 +106,18 @@ textarea{
   pointer-events: none;
   transition: 0.3s ease all;
   color: rgb(255, 251, 251);
+  text-shadow: none;
+}
+
+.fg-label-valid{
+  position: absolute;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  top: -18px;
+  left: 4px;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
 .center {

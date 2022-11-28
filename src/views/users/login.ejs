@@ -30,12 +30,12 @@
             <form class="form" action="/users/login" method="post">
               <div class="field-group">
                 <input type="text" name="email" class="fg-field" />
-                <label class="fg-label">Email</label>
+                <label id='email' class="fg-label">Email</label>
               </div>
 
               <div class="field-group">
                 <input type="password" name="password" class="fg-field" />
-                <label class="fg-label">Contrasena</label>
+                <label id='password' class="fg-label">Contrasena</label>
               </div>
 
               <div>
@@ -88,4 +88,5 @@
   <script>
     AOS.init();
   </script>
+  <script src="../js/login.js"></script>
 </html>

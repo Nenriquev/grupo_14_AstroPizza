@@ -30,7 +30,7 @@
                         
                         <div class="field-group">
                             <input type="text" name="names" class="fg-field" value="<%= locals.old?.names ? old.names : null %>" >
-                            <label class="fg-label">Nombre y apellido</label>
+                            <label id="names" class="fg-label">Nombre y apellido</label>
                         </div>
 
                         <% if (locals.errors) { %>
@@ -41,7 +41,7 @@
 
                           <div class="field-group">
                             <input type="email" name="email" class="fg-field" value="<%= locals.old?.email ? old.email : null %>" >
-                            <label class="fg-label">Email</label>
+                            <label id="email" class="fg-label">Email</label>
                         </div>
                         
                         <% if (locals.errors) { %>
@@ -52,12 +52,12 @@
 
                         <div class="field-group">
                             <input type="text" name="telefono" class="fg-field" value="<%= locals.old?.telefono ? old.telefono : null %>">
-                            <label class="fg-label">Telefono</label>
+                            <label id="telefono" class="fg-label">Telefono</label>
                         </div>  
                         
                         <div class="field-group">
                             <input type="password" name="password" class="fg-field" >
-                            <label class="fg-label">Contrasena</label>
+                            <label id="password" class="fg-label">Contrasena</label>
                         </div>
 
                         <% if (locals.errors) { %>
@@ -68,7 +68,7 @@
                         
                         <div class="field-group">
                             <input type="password" name="passwordRepeat" class="fg-field" >
-                            <label class="fg-label">Repetir contrasena</label>
+                            <label id="passwordRepeat" class="fg-label">Repetir contrasena</label>
                         </div>
 
                         <% if (locals.errors) { %>
@@ -78,13 +78,16 @@
                           <% } %>
 
                         <br>
-                        <div class="field-group">
-                            <label for="file-upload" class="custom-file-upload">
-                              <i class="fa fa-cloud-upload"></i> Seleccionar
-                            </label>
-                            <input id="file-upload" name="profileImg" type="file"/>
-                            <label class="fg-label">Foto de perfil</label>
-                          </div>
+
+                        <div class="img-container">
+                          <label class="img-label">Foto de perfil: </label>
+                          <div class="field-group">
+                              <label for="file-upload" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> Seleccionar
+                              </label>
+                              <input id="file-upload" name="profileImg" type="file"/>
+                            </div>
+                        </div>
 
                           <% if (locals.errors) { %>
                             <div class="errors">
@@ -135,4 +138,5 @@
 <script>
     AOS.init();
   </script>
+  <script src="../js/login.js"></script>
 </html>

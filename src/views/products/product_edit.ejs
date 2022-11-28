@@ -86,7 +86,16 @@
             </div>
           </form>
           <form class='form-delete' action="/product/edit/<%=product.id%>?_method=DELETE" method="post">
-            <button type="submit" class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
+            <div id="ventanaModal" class="modal">
+              <div class="contenido-modal">
+                  <span class="cerrar">&times;</span>
+                  <h2 class="title-modal">Estas seguro que quieres borrar el producto "<%= product.name %>"?</h2>
+                  <div class="btn-modal">
+                    <button type="submit" class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
+                  </div>
+              </div>
+            </div>
+            <button type="button" id="abrirModal" class="delete-btn"><i class="fas fa-trash"></i>BORRAR</button>
           </form>
         </div>
           
@@ -95,4 +104,5 @@
   </div>
   
 </body>
+<script src="../../js/modal.js"></script>
 </html>

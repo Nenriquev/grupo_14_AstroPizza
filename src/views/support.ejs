@@ -29,7 +29,7 @@
               <form class='form' action="/soporte" method="POST">
                 <div class="field-group">
                   <input type="text" class="fg-field" name="names" value="<%= locals.old?.names ? old.names : null %>">
-                  <label class="fg-label">Nombre y Apellido</label>
+                  <label id="names" class="fg-label">Nombre y Apellido</label>
                 </div>
                 <% if (locals.errors) { %>
                   <div class="errors">
@@ -39,7 +39,7 @@
               
                 <div class="field-group">
                   <input type="email" class="fg-field" name="email" value="<%= locals.old?.email ? old.email : null %>">
-                  <label class="fg-label">Correo electronico</label>
+                  <label id="email" class="fg-label">Correo electronico</label>
                 </div>
 
                 <% if (locals.errors) { %>
@@ -50,7 +50,7 @@
 
                 <div class="field-group">
                   <input type="tel" class="fg-field" name="telephone">
-                  <label class="fg-label">Telefono</label>
+                  <label id="telephone" class="fg-label">Telefono</label>
                 </div>
 
 
@@ -71,7 +71,7 @@
 
                 <div class="field-group">
                   <textarea class="fg-field" name="comments"><%= locals.old?.comments ? old.comments : null %></textarea>
-                  <label class="fg-label">Comentario</label>
+                  <label id='comments' class="fg-label">Comentario</label>
                 </div>
 
                 <% if (locals.errors) { %>
@@ -80,13 +80,16 @@
                   </div>
                 <% } %>
                 
-                <div class="field-group">
-                  <label for="file-upload" class="custom-file-upload">
-                    <i class="fa fa-cloud-upload"></i> Seleccionar
-                  </label>
-                  <input id="file-upload" name="report_img" type="file"/>
-                  <label class="fg-label">Adjuntar archivo:</label>
+                <div class="img-container">
+                  <label class="img-label">Adjuntar archivo:</label>
+                  <div class="field-group">
+                    <label for="file-upload" class="custom-file-upload">
+                      <i class="fa fa-cloud-upload"></i> Seleccionar
+                    </label>
+                    <input id="file-upload" name="report_img" type="file"/>
+                  </div>
                 </div>
+
                 <% if (locals.errors) { %>
                   <div class="errors">
                     <span><%= errors?.report_img?.msg %> </span>
@@ -116,5 +119,6 @@
 <script>
   AOS.init();
 </script>
+<script src="../js/forms.js"></script>
 
 </html>

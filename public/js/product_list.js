@@ -22,11 +22,6 @@ for(let buttons of filterButtons){
     
   })}
 
-
-  body.addEventListener('change', (e) => {
-   console.log('cambio',e)
-  })
-
   
   
 
