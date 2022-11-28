@@ -72,6 +72,10 @@ h2{
   display: none;
 }
 
+#hiddenCol{
+  display: none;
+}
+
 #comets{
   display: none;
 }
@@ -173,6 +177,9 @@ p{
     width: 30%;
   }
 
+  #hiddenCol{
+    display: block;
+  }
 
   #comets{
     display: block;

@@ -21,38 +21,37 @@ const usersController = {
       },
 
     loginProcess: (req , res) => {
+
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
-
             res.render('users/login', {errorLogin: "Usuario y/o contrasena incorrectos"}) 
+        } 
 
-        } else { 
-
+        else { 
         const data = findAllUsers();
-
         const userFound = data.find(function(user){
             return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
         })
 
-        if(!userFound){
-            return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
-        } 
+            if(!userFound){
+                return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
+            } 
         
-        else {
-            
-            req.session.usuarioLogueado = {
-                id : userFound.id,
-                name: userFound.names,
-                email: userFound.email,
-                avatar: userFound.image
-            };
-    
-            if(req.body.recordame){
-                res.cookie("recordame", userFound.id, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true })
+            else {
+                req.session.userLoggedIn = {
+                    id : userFound.id,
+                    name: userFound.names,
+                    email: userFound.email,
+                    avatar: userFound.image,
+                    role: userFound.role
+                };
+        
+                if(req.body.recordame){
+                    res.cookie("recordame", userFound.id, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true })
+                }
+                res.redirect("/")
             }
-            res.redirect("/")
-        }
         }  
     },
     register: (req, res) => {
@@ -60,7 +59,6 @@ const usersController = {
     },
     newUser: (req, res) => {
         const errors = validationResult(req);
-        console.log(errors)
         if(!errors.isEmpty()){
 
             res.render('users/register', {errors: errors.mapped(), old: req.body})
@@ -95,7 +93,7 @@ const usersController = {
         const errors = validationResult(req);
         const data = findAllUsers();
         const user = data.find(function(users){
-            return users.id == req.session.usuarioLogueado.id
+            return users.id == req.session.userLoggedIn.id
         })
 
         res.render('users/profile.ejs', {user: user, errors: errors.mapped()})
@@ -110,7 +108,7 @@ const usersController = {
 
         const data = findAllUsers();
         const user = data.find(function(users){
-            return users.id == req.session.usuarioLogueado.id
+            return users.id == req.session.userLoggedIn.id
         })
 
         user.names = req.body.names

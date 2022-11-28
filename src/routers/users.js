@@ -5,7 +5,7 @@ const path = require('path');
 const routerUsers = express.Router();
 const usersController = require('../controllers/usersController')
 const authMiddleware = require('../middlewares/authMiddleware');
-const localsMiddleware = require('../middlewares/localsMiddle');
+
 
 /*Validations*/
 const { registerValidation, loginValidation, profileUpdateValidation } = require('../validations/usersValidation');
@@ -47,7 +47,7 @@ routerUsers.get('/register', authMiddleware.userLogged, usersController.register
 routerUsers.post('/register', uploadFile.single('profileImg'), registerValidation, usersController.newUser);
 
 /*PROFILE*/
-routerUsers.get('/profile/:id', usersController.profile)
+routerUsers.get('/profile/:id', authMiddleware.isLoggedOut, usersController.profile)
 routerUsers.put('/profile/:id', uploadFile.single('profileImg'), profileUpdateValidation, usersController.updateProfile);
 
 

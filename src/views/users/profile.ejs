@@ -23,6 +23,7 @@
         <form class='form' action="/users/profile/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 
           <div data-aos="zoom-in" class="profile-card">
+
               <div class="profilepic">
                 <img class="profilepic__image" src="../../img/profile/<%= user.image %>" width="150" height="150" alt="Profibild" />
                 <div class="profilepic__content">
@@ -41,10 +42,20 @@
               </div>
             <% } %>
 
+            <div class="titles">
+              <div class="title">
+                <span><i class="fa fa-user"></i> Datos personales</span>
+              </div>
+              <div class="title">
+                <span><i class="fa fa-user"></i> <%=user?.role == 'admin' ? 'Panel de control' : 'Contrasena' %></span>
+              </div>
+            </div>
+
             <div class="form-container">
+
               <div class="form-col">
 
-                <div class="title">
+                <div class="title title-mb">
                   <span><i class="fa fa-user"></i> Datos personales</span>
                 </div>
 
@@ -52,8 +63,6 @@
                   <input class="fg-field" type="text" name="names" value="<%= user.names %>">
                   <label class="fg-label">Nombres</label>
                 </div>
-
-
 
                 <% if (locals.errors) { %>
                   <div class="errors">
@@ -78,57 +87,68 @@
                 </div>
 
               </div>
-
+              
               <div class="form-col">
+
+               
+
+                <% if (user?.role == 'admin') { %>
                 
-                <div class="title">
-                  <span><i class="fa fa-key"></i> Contrasena </span>
-                </div>
-
-                <div class="field-group">
-                  <input class="fg-field" type="password" name="password" value="">
-                  <label class="fg-label">Contrasena actual</label>
-                </div>
-
-                <% if (locals.errors) { %>
-                  <div class="errors">
-                    <span><%= errors?.password?.msg %> </span>
+                  <div class="title title-mb">
+                    <span><i class="fa fa-user"></i> <%=user?.role == 'admin' ? 'Panel de control' : 'Contrasena' %></span>
                   </div>
-                <% } %>
-  
-                <div class="field-group">
-                  <input class="fg-field" type="password" name="newPassword" value="">
-                  <label class="fg-label">Nueva contrasena</label>
-                </div>
-
-                <% if (locals.errors) { %>
-                  <div class="errors">
-                    <span><%= errors?.newPassword?.msg %> </span>
+                  
+                  <div class="admin_links">
+                    <span><a class='a-links' href="/product/create"> 💾 Crear producto</a></span>
+                    <span></i> <a  class='a-links' href="/product">🍕 Lista de productos</a></span>
                   </div>
-                <% } %>
+                  
+            
+                <% } else { %>
   
-                <div class="field-group">
-                  <input class="fg-field" type="password" name="repeatNewPassword" value="">
-                  <label class="fg-label">Repetir contrasena</label>
-                </div>
-
-                <% if (locals.errors) { %>
-                  <div class="errors">
-                    <span><%= errors?.repeatNewPassword?.msg %> </span>
+                  <div class="field-group">
+                    <input class="fg-field" type="password" name="password" value="">
+                    <label class="fg-label">Contrasena actual</label>
                   </div>
-                <% } %>
   
-              </div>
-              
+                  <% if (locals.errors) { %>
+                    <div class="errors">
+                      <span><%= errors?.password?.msg %> </span>
+                    </div>
+                  <% } %>
+    
+                  <div class="field-group">
+                    <input class="fg-field" type="password" name="newPassword" value="">
+                    <label class="fg-label">Nueva contrasena</label>
+                  </div>
+  
+                  <% if (locals.errors) { %>
+                    <div class="errors">
+                      <span><%= errors?.newPassword?.msg %> </span>
+                    </div>
+                  <% } %>
+                  
+    
+                  <div class="field-group">
+                    <input class="fg-field" type="password" name="repeatNewPassword" value="">
+                    <label class="fg-label">Repetir contrasena</label>
+                  </div>
+  
+                  <% if (locals.errors) { %>
+                    <div class="errors">
+                      <span><%= errors?.repeatNewPassword?.msg %> </span>
+                    </div>
+                  <% } %>
 
-              
+                  <% } %>
+              </div>        
+           
             </div>
-
             <div class="btn-submit">
               <button type="submit" class="bttn-dark">Guardar Cambios</button>
             </div>
 
-          </div>
+        </div>
 
         </form>
 

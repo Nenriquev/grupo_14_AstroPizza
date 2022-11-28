@@ -1,8 +1,8 @@
 function localsMiddleware (req, res, next){
-    res.locals.usuario = null
+    res.locals.user = null
 
-    if(req.session.usuarioLogueado){
-        res.locals.usuario = req.session.usuarioLogueado;
+    if(req.session.userLoggedIn){
+        res.locals.user = req.session.userLoggedIn;
     }
 
     next()

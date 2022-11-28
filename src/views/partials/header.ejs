@@ -8,7 +8,7 @@
         <ul class="nav">
           <li><a class="link" href="/sobre-nosotros">Quienes somos</a></li>
           <li><a class="link" href="/soporte">Soporte</a></li>
-          <% if(!locals.usuario){ %>
+          <% if(!locals.user){ %>
             <li><a class="link" href="/users/login">Ingresa</a></li>
           <% } else { %>
             <div class="dropdown">
@@ -16,7 +16,7 @@
                 <a class="link">Perfil <i class="fa fa-caret-down"></i></a>
               </li>
               <div class="dropdown-content">
-                <a class='link' id="dropdown" href="/users/profile/<%=locals.usuario.id%>"><i class="fas fa-user"></i> Mi perfil</a>
+                <a class='link' id="dropdown" href="/users/profile/<%=locals.user.id%>"><i class="fas fa-user"></i> Mi perfil</a>
                 <form id='logout' action="/users/logout" method="post">
                   <a class="link" id="dropdown" href="#" onclick="document.getElementById('logout').submit()"><i class="fas fa-power-off"></i> Cerrar Sesion</a>
                 </form>
@@ -28,5 +28,48 @@
         </ul>
       </nav>
     </div>
+    
+      <div id="mySidebar" class="sidebar">
+        <nav>
+          <ul class="nav">
+            <li><a class="link" href="/sobre-nosotros">Quienes somos</a></li>
+            <li><a class="link" href="/soporte">Soporte</a></li>
+            <% if(!locals.user){ %>
+              <li><a class="link" href="/users/login">Ingresa</a></li>
+            <% } else { %>
+              <div class="dropdown">
+                <li>
+                  <a class="link">Perfil <i class="fa fa-caret-down"></i></a>
+                </li>
+                <div class="dropdown-content">
+                  <a class='link' id="dropdown" href="/users/profile/<%=locals.user.id%>"><i class="fas fa-user"></i> Mi perfil</a>
+                  <form id='logout' action="/users/logout" method="post">
+                    <a class="link" id="dropdown" href="#" onclick="document.getElementById('logout').submit()"><i class="fas fa-power-off"></i> Cerrar Sesion</a>
+                  </form>
+                </div>
+              </div>
+              
+            <div class="links-mb">
+              <li><a class="link" href="/users/profile/<%=locals.user.id%>"><i class="fas fa-user"></i> Mi perfil</a></li>
+              <form id='logout' action="/users/logout" method="post">
+                <a class="link" id="dropdown" href="#" onclick="document.getElementById('logout').submit()"><i class="fas fa-power-off"></i> Cerrar Sesion</a>
+              </form>
+            </div>
+  
+            <% } %>
+            
+          </ul>
+        </nav>
+      </div>
+  
+        <div id='bgmenu' class="burgerMenu">
+          <div class="btn not-active">
+            <span class="spanBurger"></span>
+            <span class="spanBurger"></span>
+            <span class="spanBurger"></span>
+          </div>
+      </div>
+
+      <script src="/js/burger.js"></script>
   </div>
 </header>
