@@ -3,16 +3,11 @@ const fs = require('fs');
 const { validationResult } = require('express-validator');
 const bcrypt = require("bcrypt");
 
-function findAllUsers() {
-    const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
-    const data = JSON.parse(dataJson);
-    return data
-}
+const db = require('../database/models');
+const Product = require('../database/models/Product');
+const User = db.User;
+const Op =  db.Sequelize.Op;
 
-function writeFile(data) {
-    const dataStringify = JSON.stringify(data, null, 5);
-    fs.writeFileSync(path.join(__dirname, '../data/users.json'), dataStringify);
-}
 
 const usersController = {
 
@@ -29,30 +24,42 @@ const usersController = {
         } 
 
         else { 
-        const data = findAllUsers();
-        const userFound = data.find(function(user){
-            return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
-        })
 
-            if(!userFound){
-                return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
-            } 
-        
-            else {
-                req.session.userLoggedIn = {
-                    id : userFound.id,
-                    name: userFound.names,
-                    email: userFound.email,
-                    avatar: userFound.image,
-                    role: userFound.role
-                };
-        
-                if(req.body.recordame){
-                    res.cookie("recordame", userFound.id, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true })
+            User.findAll()
+            .then((data) => {
+
+                const userFound = data.find(function(user){
+                    return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
+                })
+
+                if(!userFound){
+                    return res.render("users/login", {errorLogin: "Usuario y/o contrasena incorrectos"});
+                } 
+            
+                else {
+                    req.session.userLoggedIn = {
+                        id : userFound.id,
+                        name: userFound.names,
+                        email: userFound.email,
+                        avatar: userFound.image,
+                        role: userFound.role
+                    };
+            
+                    if(req.body.recordame){
+                        res.cookie("recordame", userFound.id, { maxAge: 24 * 60 * 60 * 1000, httpOnly: true })
+                    }
+                    res.redirect("/")
                 }
-                res.redirect("/")
-            }
-        }  
+    
+                
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+            
+    
+
     },
     register: (req, res) => {
         res.render('users/register.ejs')
@@ -65,22 +72,19 @@ const usersController = {
 
         } else {
 
-            const data = findAllUsers();
+            User.create({
 
-            const newUser = {
-                id: data.length + 1,
                 names: req.body.names,
                 email: req.body.email,
-                telefono: req.body.telefono,
+                telephone: req.body.telefono,
                 password: bcrypt.hashSync(req.body.password, 10),
-                image: req?.file?.filename ? req.file.file : 'default_profile.png'
-            }
-    
-            data.push(newUser);
-    
-            writeFile(data);
-    
-            res.redirect('/users/login')
+                profile_img: req?.file?.filename ? req.file.filename : 'default_profile.png'
+
+            })
+            .then((user)=>{
+                res.redirect('/users/login')
+            })
+
         }
     },
     logout: (req, res)=>{
@@ -91,12 +95,13 @@ const usersController = {
 
     profile: (req, res) => {
         const errors = validationResult(req);
-        const data = findAllUsers();
-        const user = data.find(function(users){
-            return users.id == req.session.userLoggedIn.id
+
+        User.findByPk(req.session.userLoggedIn.id)
+        .then((user) => {
+
+            res.render('users/profile.ejs', {user: user, errors: errors.mapped()})
         })
 
-        res.render('users/profile.ejs', {user: user, errors: errors.mapped()})
     },
 
     updateProfile: (req, res) =>{
@@ -106,20 +111,21 @@ const usersController = {
            return usersController.profile(req, res)
         }
 
-        const data = findAllUsers();
-        const user = data.find(function(users){
-            return users.id == req.session.userLoggedIn.id
+        User.findByPk(req.session.userLoggedIn.id)
+        .then((user) => {
+
+            User.update({
+                names: req.body.names,
+                email: req.body.email,
+                telephone: req.body.telephone,
+                password: req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, 10) : user.password,
+                profile_img: req.file?.filename ? req.file.filename : user.profile_img
+            }, {
+                where: {
+                    id: req.session.userLoggedIn.id
+                }
+            })
         })
-
-        user.names = req.body.names
-        user.email = req.body.email
-        user.telefono = req.body.telephone
-        user.password = req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, 10) : user.password
-        user.image = req.file?.filename ? req.file.filename : user.image
-
-        
-
-        writeFile(data)
             
         res.redirect('/')
         
