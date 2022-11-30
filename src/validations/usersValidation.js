@@ -2,6 +2,8 @@ const {body} = require('express-validator');
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require("bcrypt")
+const db = require('../database/models');
+
 
 function findAllUsers() {
     const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
@@ -20,9 +22,13 @@ module.exports = {
             .notEmpty().withMessage('El campo email esta incompleto').bail()
             .isEmail().withMessage('El email es invalido').bail()
             .custom((value, {req}) => {
-                const users = findAllUsers()
-                const matchEmail = users.find(user => user.email == req.body.email)
-                return !matchEmail
+                const matchEmail = db.User.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                })
+
+                return matchEmail
             }).withMessage('El email esta en uso'),
         
         body('telefono')
@@ -77,9 +83,18 @@ module.exports = {
         body('password')
             .if((value, {req}) => req.body.password || req.body.newPassword || req.body.repeatNewPassword).bail()
             .custom((password, {req}) => {
-                const data = findAllUsers();
-                const userMatch = data.find(user => user.id == req.session.userLoggedIn.id)
-                 return bcrypt.compareSync(password, userMatch.password)
+
+                db.User.findByOne({
+                    where: {
+                        email: req.session.userLoggedIn.email
+                    }
+                })
+                .then((user) => {
+                    console.log(user)
+                    return bcrypt.compareSync(req.body.password, user.password)
+                })
+
+                
             }).withMessage('La contrasena es incorrecta'),
 
         body('newPassword')
