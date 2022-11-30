@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require("fs");
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
 const sequelize = db.sequelize;
@@ -8,29 +7,13 @@ const Products = db.Product
 const Categories = db.Category
 const Status = db.Status
 
-function findAllUsers() {
-  const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
-  const data = JSON.parse(dataJson);
-  return data
-}
-
-
-const writeData = (data) =>{
-  const dataString = JSON.stringify(data, null, 4)
-  fs.writeFileSync(path.join(__dirname, '../data/products.json'), dataString)
-}
 
 
 const productController = {
   
   list: (req, res) => {
     const products = Products.findAll({include:['category']})
-    const userData = findAllUsers();
-    const user = userData.find(function(users){
-        if(req.session.userLoggedIn){
-        return users.id == req.session.userLoggedIn.id
-        }
-    })
+    const user = req.session.userLoggedIn
 
     Promise.all([products, user])
             .then(([products, user]) => {
@@ -52,7 +35,6 @@ const productController = {
 
   addToCart:(req, res) =>{
     req.session.cart = req.body
-    console.log(req.session);
     res.redirect('/cart')
   },
 

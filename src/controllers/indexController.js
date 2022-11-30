@@ -1,27 +1,10 @@
 const path = require('path')
-const fs = require('fs')
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
 const Products = db.Product
 
-function findAllProducts(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-const readReports = () =>{
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/reports.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
-const writeData = (data) =>{
-  const dataString = JSON.stringify(data, null, 4)
-  fs.writeFileSync(path.join(__dirname, '../data/reports.json'), dataString)
-}
 
 const indexController = {
   index: (req, res) => {

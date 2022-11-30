@@ -18,7 +18,8 @@
 
     isAdmin: (req, res, next)=> {
 
-      if(!req.session.userLoggedIn || req.session.userLoggedIn.role_id != '2'){
+
+      if(!req.session.userLoggedIn || req.session.userLoggedIn.role != 2){
         return res.redirect('/')
       }
 

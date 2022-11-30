@@ -41,8 +41,8 @@ const usersController = {
                         id : userFound.id,
                         name: userFound.names,
                         email: userFound.email,
-                        avatar: userFound.image,
-                        role: userFound.role
+                        avatar: userFound.profile_img,
+                        role: userFound.role_id
                     };
             
                     if(req.body.recordame){

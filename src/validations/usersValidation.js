@@ -1,15 +1,10 @@
 const {body} = require('express-validator');
 const path = require('path');
-const fs = require('fs');
 const bcrypt = require("bcrypt")
 const db = require('../database/models');
 
 
-function findAllUsers() {
-    const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
-    const data = JSON.parse(dataJson);
-    return data
-}
+const Users = db.User
 
 module.exports = {
     registerValidation: [
@@ -21,14 +16,13 @@ module.exports = {
         body('email')
             .notEmpty().withMessage('El campo email esta incompleto').bail()
             .isEmail().withMessage('El email es invalido').bail()
-            .custom((value, {req}) => {
-                const matchEmail = db.User.findOne({
-                    where: {
-                        email: req.body.email
-                    }
+            .custom(async (value, {req}) => {
+               const userMatch = await Users.findOne({where: 
+                    {email: req.body.email}
                 })
-
-                return matchEmail
+                if(userMatch){
+                    resolve(true)
+                }
             }).withMessage('El email esta en uso'),
         
         body('telefono')
@@ -82,19 +76,14 @@ module.exports = {
 
         body('password')
             .if((value, {req}) => req.body.password || req.body.newPassword || req.body.repeatNewPassword).bail()
-            .custom((password, {req}) => {
-
-                db.User.findByOne({
-                    where: {
-                        email: req.session.userLoggedIn.email
+            .custom(async(password, {req}) => {
+                const userMatch = await Users.findOne({ where: {
+                        id: req.session.userLoggedIn.id
                     }
-                })
-                .then((user) => {
-                    console.log(user)
-                    return bcrypt.compareSync(req.body.password, user.password)
-                })
-
-                
+                })  
+                    if(!bcrypt.compareSync(password, userMatch.password)){
+                        return resolve(true)
+                    }
             }).withMessage('La contrasena es incorrecta'),
 
         body('newPassword')

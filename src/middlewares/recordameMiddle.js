@@ -14,10 +14,9 @@ function recordame (req, res, next){
                  id: userFound.id,
                  name: userFound.names,
                  email: userFound.email,
-                 role_id: userFound.role_id
+                 avatar: userFound.profile_img,
+                 role: userFound.role_id
              };
-
-            console.log(req.session)
          })
 
         

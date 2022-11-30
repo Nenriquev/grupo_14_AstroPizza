@@ -47,7 +47,7 @@
                 <span><i class="fa fa-user"></i> Datos personales</span>
               </div>
               <div class="title">
-                <span><i class="fa fa-user"></i> <%=user?.role == 'admin' ? 'Panel de control' : 'Contrasena' %></span>
+                <span><i class="fa fa-user"></i> <%=user?.role_id == 2  ? 'Panel de control' : 'Contrasena' %></span>
               </div>
             </div>
 
@@ -90,12 +90,12 @@
               
               <div class="form-col">
 
-               
 
-                <% if (user?.role == 'admin') { %>
+
+                <% if (user?.role_id == 2) { %>
                 
                   <div class="title title-mb">
-                    <span><i class="fa fa-user"></i> <%=user?.role == 'admin' ? 'Panel de control' : 'Contrasena' %></span>
+                    <span><i class="fa fa-user"></i> <%=user?.role_id == 2 ? 'Panel de control' : 'Contrasena' %></span>
                   </div>
                   
                   <div class="admin_links">

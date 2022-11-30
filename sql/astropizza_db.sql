@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2022 a las 20:43:23
+-- Tiempo de generación: 30-11-2022 a las 16:01:03
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `astropizza_db`
+--
 CREATE DATABASE IF NOT EXISTS `astropizza_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `astropizza_db`;
 
@@ -111,7 +112,8 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`, `category
 (41, 'patagonia 24/7', 450, 'Cerveza patagonia IPA 473cc', 'patagonia-ipa.png', 6, 1),
 (42, 'corona extra', 450, 'Cerveza corona extra 330cc', 'corona-extra.png', 6, 1),
 (43, 'franui chocoleche', 700, 'Frambuesas congeladas cubiertas en chocolate con leche.', 'franui-chocoleche.png', 7, 1),
-(44, 'franui amargo', 700, 'Frambuesas congeladas cubiertas en chocolate amargo', 'franui-amargo.png', 7, 1);
+(44, 'franui amargo', 700, 'Frambuesas congeladas cubiertas en chocolate amargo', 'franui-amargo.png', 7, 1),
+(49, 'albahaca', 150, 'Extra de albahaca', 'albahaca.png', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -159,8 +161,20 @@ CREATE TABLE `users` (
   `telephone` bigint(20) DEFAULT NULL,
   `password` text NOT NULL,
   `profile_img` text DEFAULT NULL,
-  `role_id` int(11) NOT NULL DEFAULT 1
+  `role_id` int(11) NOT NULL DEFAULT 1,
+  `createdAt` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `names`, `email`, `telephone`, `password`, `profile_img`, `role_id`, `createdAt`) VALUES
+(1, 'Nerio Enrique', 'nerio@astropizza.com', 611435385, '$2b$10$4.QGSyCHR8gbMsgq.pURCumao6XHclrJflusYu63vhfHzSWzCgFBy', 'default_profile.png', 2, '2022-11-30'),
+(2, 'Matias Rene', 'matiasrene@astropizza.com', 0, '$2b$10$UudqLBjLd75PDC5UU0rPx.2iMfrl6oovFny3.3i.mEFwuJIWW2ZuW', 'default_profile.png', 2, '2022-11-30'),
+(3, 'Ramiro', 'ramiro@astropizza.com', 0, '$2b$10$X3zp/QVnvaf/nq6gRITJYusKdYPtsQ/ofxWkkhs8n9Q402SoCg5tG', 'default_profile.png', 2, '2022-11-30'),
+(4, 'Miguel', 'miguel@astropizza.com', 0, '$2b$10$NuxngeLejoMHfglYEjgY2OHSjqp5LvxmiV9Y4l7My3Ygzk6m2xnwO', 'default_profile.png', 2, '2022-11-30'),
+(5, 'common user', 'user@astropizza.com', 0, '$2b$10$.twmDidG2HTGg1NA3lMCxeTFpINVjb2DZsldtbAfT/G9PQMFCFS1K', 'default_profile.png', 1, '2022-11-30');
 
 -- --------------------------------------------------------
 
@@ -242,7 +256,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `shop`
@@ -260,7 +274,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `user_role`
