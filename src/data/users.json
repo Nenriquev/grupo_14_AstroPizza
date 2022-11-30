@@ -112,7 +112,7 @@
           "email": "nerio@astropizza.com",
           "telefono": "8522",
           "password": "$2b$10$iMwpK0d70M1liNrEz9jTIejzNQXYRJKCoRT4Rxv2oSLVytT5YOuIO",
-          "image": "null",
+          "image": "profileImg-1669637223632.png",
           "role": "admin"
      },
      {
@@ -129,6 +129,14 @@
           "email": "noadmin@gmail.com",
           "telefono": "585204",
           "password": "$2b$10$D1Q/EJI7AIBpGhdw6E/sK.NzzVSRf8v36YO7ufiVE.5T0berE4pOq",
+          "image": "default_profile.png"
+     },
+     {
+          "id": 17,
+          "names": "nerio enrique",
+          "email": "neriox_x@hotmail.com",
+          "telefono": "6435385",
+          "password": "$2b$10$68lHoEIdlq5NeW4oPrSijezYqHIMa44ZjFjyaj374vQ8YLLQ/oEXK",
           "image": "default_profile.png"
      }
 ]

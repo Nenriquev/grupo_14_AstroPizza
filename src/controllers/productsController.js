@@ -8,12 +8,6 @@ const Products = db.Product
 const Categories = db.Category
 const Status = db.Status
 
-function findAllProducts(){
-  const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"))
-  const data = JSON.parse(jsonData)
-  return data
-}
-
 function findAllUsers() {
   const dataJson = fs.readFileSync(path.join(__dirname, '../data/users.json'));
   const data = JSON.parse(dataJson);
@@ -46,26 +40,21 @@ const productController = {
   },
 
   product: (req, res) => {
-    const data = findAllProducts();
+    
+    Products.findAll({include:['category']})
+      .then(function(products){
+        const pizzaData = req.params.value;
+        req.session.pizza = req.params.value;
+        res.render("./products/product_detail.ejs", {pizzaData: pizzaData, products: products})
+      })
+    
+  },
 
-    const pizzaData = data.find(element => element.value === req.params.value);
-
-    const dataQuesos = data.filter(x => x.category == "quesos");
-    const dataVegetales = data.filter(x => x.category == "vegetales");
-    const dataProteinas = data.filter(x => x.category == "carnes");
-    const dataBebidas = data.filter(x => x.category == "bebidas");
-    const dataCervezas = data.filter(x => x.category == "cervezas");
-
-    req.session.pizza = req.params.value
-    res.render('./products/product_detail.ejs', {
-                                                  pizzaData: pizzaData,
-                                                  dataQuesos: dataQuesos,
-                                                  dataVegetales: dataVegetales,
-                                                  dataProteinas: dataProteinas,
-                                                  dataBebidas: dataBebidas,
-                                                  dataCervezas: dataCervezas,
-                                                })
-},
+  addToCart:(req, res) =>{
+    req.session.cart = req.body
+    console.log(req.session);
+    res.redirect('/cart')
+  },
 
   create: (req, res) => {
     res.render('./products/product_create.ejs')

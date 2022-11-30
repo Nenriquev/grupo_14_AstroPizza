@@ -17,7 +17,6 @@
 
   <title>Astro Pizza</title>
 
-
 <body>
   <div class="container-main">
     
@@ -76,7 +75,7 @@
 
       <div data-aos="zoom-in" data-aos-delay="600">
         <div class="product">
-          <a href="/product/detail/"<%= pizza[2].name %>><img class='img_product' src="../img/pizzas/<%= pizza[2].image %>" alt="Pizza Marte"/></a>
+          <a href="/product/detail/<%= pizza[2].name %>"><img class='img_product' src="../img/pizzas/<%= pizza[2].image %>" alt="Pizza Marte"/></a>
           <div class="product-name"><%= pizza[2].name %></div>
         </div>
       </div>
@@ -123,7 +122,7 @@
     <div class="create-pizza">
       <span class="title-pizza" data-aos="zoom-in">🍕tenes imaginacion de astronauta?</span>
       <div class="img-pizza" data-aos="zoom-out-up" data-aos-delay="400">
-        <a href="/product/detail/arma-tu-pizza"><img class='img_product' src="../img/pizzas/arma-tu-pizza.gif" alt="arma-tu-pizza"></a>
+        <a href="/product/detail/<%= pizza[7].name %>"><img class='img_product' src="../img/pizzas/arma-tu-pizza.gif" alt="arma-tu-pizza"></a>
       </div>
     </div>
 

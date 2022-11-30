@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/header.css">
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/button.css">
-  <title><%= pizzaData.name %> </title>
+  <title>Pizza <%= pizzaData %></title>
 </head>
 <body>
 
@@ -22,72 +22,113 @@
     <div class="cuadro_extras">
       <h3>Agrégale Extras</h3>
 
-      <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>100</h4>
+      <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
 
-          <% dataQuesos.forEach(function(quesos) { %>
-            <p>
-              <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= quesos.name %>"><%= quesos.value %>
-              </label>
-            </p>
-          <% }); %>
+          <% products.filter(quesos => { %>
+            <% if(quesos.category_id == 2 && quesos.status_id == 1){%>
+              
+                <div class="check-list">
+                  <label class="label-cbx">
+                    <input type="checkbox" name="<%= quesos.name %>" class="invisible"/>
+                    <div class="checkbox">
+                      <svg width="15px" height="15px" viewBox="0 0 20 20">
+                        <path
+                          d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"
+                        ></path>
+                        <polyline points="4 11 8 15 16 6"></polyline>
+                      </svg>
+                    </div>
+                  </label>
+                  <span class="product_detail_cuadro_extras"><%= quesos.name %></span>
+              </div>
+            
+          <% }}); %>
 
         </div>
         
-      <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>90</h4>
+      <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
         <div>
-         <% dataVegetales.forEach(function(vegetales) { %>
-            <p>
-              <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= vegetales.name %>"><%= vegetales.value %>
-              </label>
-            </p>
-          <% }); %>
+          <% products.filter(vegetales => { %>
+            <% if(vegetales.category_id == 3 && vegetales.status_id == 1){%>
+
+              <div class="check-list">
+                <label class="label-cbx">
+                  <input type="checkbox" name="<%= vegetales.name %>" class="invisible"/>
+                  <div class="checkbox">
+                    <svg width="15px" height="15px" viewBox="0 0 20 20">
+                      <path
+                        d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"
+                      ></path>
+                      <polyline points="4 11 8 15 16 6"></polyline>
+                    </svg>
+                  </div>
+                </label>
+                <span class="product_detail_cuadro_extras"><%= vegetales.name %></span>
+            </div>
+          
+          <% }}); %>
         </div>
 
-      <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>120</h4>
+      <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
         <div>
-          <% dataProteinas.forEach(function(proteinas) { %>
-            <p>
-              <label class="product_detail_cuadro_extras">
-                <input type="checkbox" name="<%= proteinas.name %>"><%= proteinas.value %>
-              </label>
-            </p>
-          <% }); %>
+          <% products.filter(proteinas => { %>
+            <% if(proteinas.category_id == 4 && proteinas.status_id == 1){%>
+
+              <div class="check-list">
+                <label class="label-cbx">
+                  <input type="checkbox" name="<%= proteinas.name %>" class="invisible"/>
+                  <div class="checkbox">
+                    <svg width="15px" height="15px" viewBox="0 0 20 20">
+                      <path
+                        d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"
+                      ></path>
+                      <polyline points="4 11 8 15 16 6"></polyline>
+                    </svg>
+                  </div>
+                </label>
+                <span class="product_detail_cuadro_extras"><%= proteinas.name %></span>
+            </div>
+          
+          <% }}); %>
         </div>
     </div>
           
       <div>
-        <img class='product_detail_pizza' src="../../img/pizzas/<%= pizzaData.image %>"/>
-        <span class="nombre_pizza"><%= pizzaData.name %></span>
-        <span class="precio_pizza"><i class="fas fa-dollar-sign" aria-hidden="true"></i><%= pizzaData.price %></span>
+        <% products.filter(pizza => { %>
+          <% if(pizza.name == pizzaData){%>
+            <img class='product_detail_pizza' src="../../img/pizzas/<%= pizza.image %>"/>
+            <span class="nombre_pizza"><%= pizza.name %></span>
+            <span class="precio_pizza"><i class="fas fa-dollar-sign" aria-hidden="true"></i><%= pizza.price %></span>
+        <% }}); %>
       </div>
 
     <div class="cuadro_bebidas">
 
       <h3>Acompañalo con tu bebida favorita</h3>
-      <h4>Bebidas 350ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
+      <h4>Bebidas 350ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>300</h4>
         <div>
 
-          <% dataBebidas.forEach(function(bebidas) { %>
-            <p>
-              <label class="product_detail_cuadro_bebidas"><%= bebidas.value %>
-                <input class="contarBebidas" type="number"  value="0" min="0" max="10" name="<%= bebidas.name %>">
-              </label>
-            </p>
-          <% }); %>
+          <% products.filter(bebidas => { %>
+            <% if(bebidas.category_id == 5 && bebidas.status_id == 1){%>
+              <p>
+                <label class="product_detail_cuadro_bebidas"><%= bebidas.name %>
+                  <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= bebidas.name %>">
+                </label>
+              </p>
+          <% }}); %>
 
         </div>
-      <h4>Cerveza 355ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>350</h4>
+      <h4>Cerveza 355ml <i class="fas fa-dollar-sign" aria-hidden="true"></i>450</h4>
         <div>
-          <% dataCervezas.forEach(function(cervezas) { %>
+          <% products.filter(alcohol => { %>
+            <% if(alcohol.category_id == 6 && alcohol.status_id == 1){%>
             <p>
-              <label class="product_detail_cuadro_bebidas"><%= cervezas.value %>
-                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= cervezas.name %>">
+              <label class="product_detail_cuadro_bebidas"><%= alcohol.name %>
+                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= alcohol.name %>">
               </label>
             </p>
-          <% }); %>
+          <% }}); %>
           
         </div>
     </div>

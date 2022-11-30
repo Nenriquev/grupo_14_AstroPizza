@@ -101,6 +101,10 @@ textarea{
   box-shadow: 0px 0px 4px 5px #5e1b88;
 }
 
+.fg-field-invalid{
+  box-shadow: 0px 0px 4px 5px #ce0e0e;
+}
+
 .field-group .fg-label {
   position: absolute;
   top: 16px;

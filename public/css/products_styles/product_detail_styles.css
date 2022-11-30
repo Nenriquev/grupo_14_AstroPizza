@@ -1,7 +1,3 @@
-*  {
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: 'Star jedi out';
   src: url('../../fonts/Starjout.ttf');
@@ -125,6 +121,13 @@ display: flex;
   color: #FFFFFF;
   font-size: 15px;
   display: block;
+  text-transform: capitalize;
+}
+
+.check-list{
+  display: flex;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
 /* Menu Bebidas */
@@ -149,6 +152,7 @@ display: flex;
   letter-spacing: 2px;
   color: #FFFFFF;
   font-size: 15px;
+  text-transform: capitalize;
 }
 
 .cuadro_bebidas h4{
@@ -177,8 +181,9 @@ display: flex;
   color: #FFFFFF;
   font-size: 15px;
   justify-self: center;
-  text-align: center;
+  text-align: left;
   padding: 6px;
+  text-transform: capitalize;
 }
 
 .cuadro_bebidas label{
@@ -222,176 +227,153 @@ display: flex;
 /* Mobile */
 @media (max-width:768px) {
 
-/* Main */
+  /* Main */
 
-form{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.product_detail_pizza{
-  width: 70vw;
-  order: 1;
-  margin: 0;
-  top: 100%;
-}
-
-.cuadro_extras{
-  display: flex;
-  order: 2;
-  width: 70vw;
-  align-content: flex-start;
-}
-
-.cuadro_extras .product_detail_cuadro_extras{
-  margin-left: 20px;
-  text-align: left;
-}
-
-.cuadro_extras h3{
-  align-self: center;
-}
-
-.cuadro_extras div{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 15px 0 15px 0;
-}
-
-.cuadro_extras div p{
-  width: 50%;
-}
-
-/* Cuadro Bebidas */ 
-
-.cuadro_bebidas{
-  display: flex;
-  width: 70vw;
-  order: 3;
-}
-
-.cuadro_bebidas h3{
-  align-self: center;
-}
-
-.cuadro_bebidas div{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 15px 0 15px 0;
-}
-
-.cuadro_bebidas div label{
-  width: 50%;
-}
-
-.contarBebidas{ 
-    -moz-appearance: textfield;
-    appearance: textfield;
-    margin: 0; 
-}
-
-}
-
-/* Boton Agregar */
-
-.flex-dark{
-  align-items: center;
-  margin-top: 20px;
+  form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
+  .product_detail_pizza{
+    width: 70vw;
+    order: 1;
+    margin: 0;
+    top: 100%;
+  }
+
+  .cuadro_extras{
+    display: flex;
+    order: 2;
+    width: 70vw;
+    align-content: flex-start;
+  }
+
+  .cuadro_extras .product_detail_cuadro_extras{
+    margin-left: 20px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .cuadro_extras h3{
+    align-self: center;
+  }
+
+  .cuadro_extras div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 15px 0 15px 0;
+  }
+
+  .cuadro_extras div p{
+    width: 50%;
+  }
+
+  /* Cuadro Bebidas */ 
+
+  .cuadro_bebidas{
+    display: flex;
+    width: 70vw;
+    order: 3;
+  }
+
+  .cuadro_bebidas h3{
+    align-self: center;
+    font-size: 30px;
+  }
+
+  .cuadro_bebidas h4{
+    font-size: 26px;
+  }
+
+  .cuadro_bebidas .product_detail_cuadro_bebidas{
+    font-size: 20px;
+  }
+
+}
 
 /* TABLETS */
 
 @media (min-width:767px) and (max-width:1024px) {
 
-form{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
+  form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
-.product_detail_pizza{
-  width: 70vw;
-  order: 1;
-  margin: 0;
-  top: 100%;
-}
+  .product_detail_pizza{
+    width: 70vw;
+    order: 1;
+    margin: 0;
+    top: 100%;
+  }
 
-.nombre_pizza{
-  font-size: 35px;
-}
-.precio_pizza{
-  font-size: 30px;
-  margin-bottom: 10px;
-}
+  .nombre_pizza{
+    font-size: 35px;
+  }
 
-.cuadro_extras{
-  display: flex;
-  order: 2;
-  width: 70vw;
-  align-content: flex-start;
-}
+  .precio_pizza{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 
-.cuadro_extras .product_detail_cuadro_extras{
-  margin-left: 20px;
-  font-size: 22px;
-  text-align: left;
-}
+  .cuadro_extras{
+    display: flex;
+    order: 2;
+    width: 70vw;
+    align-content: flex-start;
+  }
 
-.cuadro_extras h3{
-  align-self: center;
-  font-size: 30px;
-}
+  .cuadro_extras .product_detail_cuadro_extras{
+    margin-left: 20px;
+    font-size: 22px;
+    text-align: left;
+  }
 
-.cuadro_extras h4{
-  align-self: center;
-  font-size: 26px;
-}
+  .cuadro_extras h3{
+    align-self: center;
+    font-size: 30px;
+  }
 
-.cuadro_extras div{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 15px 0 15px 0;
-}
+  .cuadro_extras h4{
+    align-self: center;
+    font-size: 26px;
+  }
 
-.cuadro_extras div p{
-  width: 50%;
-}
+  .cuadro_extras div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 15px 0 15px 0;
+  }
 
-/* Cuadro Bebidas */ 
+  .cuadro_extras div p{
+    width: 50%;
+  }
 
-.cuadro_bebidas{
-  display: flex;
-  width: 70vw;
-  order: 3;
-}
+  /* Cuadro Bebidas */ 
 
-.cuadro_bebidas h3{
-  align-self: center;
-  font-size: 30px;
-}
+  .cuadro_bebidas{
+    display: flex;
+    width: 70vw;
+    order: 3;
+  }
 
-.cuadro_bebidas h4{
-  font-size: 26px;
-}
+  .cuadro_bebidas h3{
+    align-self: center;
+    font-size: 30px;
+  }
 
-.cuadro_bebidas .product_detail_cuadro_bebidas{
-  font-size: 22px;
-}
+  .cuadro_bebidas h4{
+    font-size: 26px;
+  }
 
-.cuadro_bebidas div{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 15px 0 15px 0;
-}
-.cuadro_bebidas div label{
-  width: 50%;
-}
+  .cuadro_bebidas .product_detail_cuadro_bebidas{
+    font-size: 22px;
+  }
+
 /* Boton Agregar */
 
   .flex-dark{

@@ -37,7 +37,7 @@ productRouter.get('/', productsController.list)
 
 /*Products Detail*/
 productRouter.get('/detail/:value', productsController.product)
-productRouter.post('/detail/:value', productsController.product)
+productRouter.post('/detail/:value', productsController.addToCart)
 
 /*Create*/
 productRouter.get('/create', authMiddleware.isAdmin, productsController.create)

@@ -6,7 +6,7 @@ const supportValidation = {
   createReport: [
     body('names')
         .notEmpty().withMessage('Nombre requerido')
-        .isLength({min: 1}).withMessage('El campo debe tener minimo 1 caracter'),
+        .isLength({min: 3}).withMessage('El campo debe tener minimo 1 caracter'),
 
     body('email')
         .notEmpty().withMessage('Email requerido').bail()
