@@ -27,25 +27,12 @@ const indexController = {
 
   reportSubmit: (req, res) => {
     const validationErrors = validationResult(req)
-    const data = readReports()
-    
+  
     if(!validationErrors.isEmpty()){
       return res.render('support.ejs', {errors: validationErrors.mapped(), old: req.body})
      }
 
-    const newReport = {
-        id: String(data.length + 1),
-        name: req.body.names,
-        email: req.body.email,
-        tel: req.body.telephone,
-        topic: req.body.topic,        
-        comentarios: req.body.comments,
-        status: 'En revision',
-        image: "",
-      }
-
-      data.push(newReport)
-      writeData(data)
+    
       res.redirect("/");
   },
 

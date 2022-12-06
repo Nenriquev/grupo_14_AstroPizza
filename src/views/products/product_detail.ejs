@@ -18,12 +18,12 @@
   <%- include('../partials/header') %> 
 
 <section class="product_detail_center">
-  <form action="/cart" method="POST">
+  <form action="/product/detail/<%= pizzaData %>" method="post">
     <div class="cuadro_extras">
       <h3>Agrégale Extras</h3>
 
       <h4>quesos <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
-        <div>
+        <div class="column_extras">
 
           <% products.filter(quesos => { %>
             <% if(quesos.category_id == 2 && quesos.status_id == 1){%>
@@ -48,7 +48,7 @@
         </div>
         
       <h4>vegetales <i class="fas fa-dollar-sign" aria-hidden="true"></i>150</h4>
-        <div>
+        <div class="column_extras">
           <% products.filter(vegetales => { %>
             <% if(vegetales.category_id == 3 && vegetales.status_id == 1){%>
 
@@ -71,7 +71,7 @@
         </div>
 
       <h4>Proteinas <i class="fas fa-dollar-sign" aria-hidden="true"></i>250</h4>
-        <div>
+        <div class="column_extras">
           <% products.filter(proteinas => { %>
             <% if(proteinas.category_id == 4 && proteinas.status_id == 1){%>
 
@@ -142,4 +142,5 @@
 
 <%- include('../partials/footer') %>
 </body>
+
 </html>

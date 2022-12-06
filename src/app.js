@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(session({name: 'Session', secret: "Secreto", resave: true, saveUninitialized: true}));
+app.use(session({name: 'Cart', secret: "Secreto", resave: true, saveUninitialized: true}));
 app.use(cookieParser());
 app.use(recordameMiddleware)
 app.use(localsMiddleware);
@@ -54,6 +55,7 @@ app.use(function(error, req, res, next) {
   res.status(500).send('ERROR 500');
   console.log(error)
 });
+
 
 
 /* SERVER */

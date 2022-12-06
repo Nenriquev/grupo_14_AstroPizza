@@ -19,72 +19,105 @@
         <div class="cart-container">
           <div class="cart-board">
             <div class="resume">
+              <% if (locals.cart && locals.cart.length > 0) { %>
+               
+                <% locals.cart.forEach((element, index) => { %>
+                    
+                  <div class="products">
+                    
+                    <div class="product-img">
+                      <img src="../img/pizzas/<%= element?.pizza?.image %>">
+                    </div>
+                      <div class="box">
+                          <div class="name-amount">
+                            <h4><%= element?.pizza?.name %></h4>
+                              <div class="amount">
+                                <i class="fas fa-dollar-sign"></i><h4><%= element?.pizza?.price %></h4>
+                              </div>
+                          </div>
+                          <div class="description-box">
+                            <div class="extras-box">
+                              <div class="description">
+                              
+                                  <% if (element?.extras?.quesos?.length > 0) { %>
+                                    <h5 class="extra-title">Quesos $200</h5>
+                                      <% element?.extras?.quesos.forEach(queso => { %>
+                                        <span>1 x Extra <%= queso.name %></span>
+                                      <% }) %>
+                                  <% } %>
 
-              <div class="products">
-                <div class="product-img">
-                  <img src="../img/pizzas/<%= pizzaElegida.image %> ">
-                </div>
-                  <div class="box">
-                      <div class="name-amount">
-                        <h4><%= pizzaElegida.name %> </h4>
-                          <div class="amount">
-                            <i class="fas fa-dollar-sign"></i><h4><%= pizzaElegida.price %></h4>
+                                  <% if (element?.extras?.vegetales?.length > 0) { %>
+                                    <h5 class="extra-title">Vegetales $150</h5>
+                                      <% element.extras.vegetales.forEach(vegetal => { %>
+                                        <span>1 x Extra <%= vegetal.name %></span>
+                                      <% }) %>
+                                  <% } %>
+
+                                  <% if (element?.extras?.proteinas?.length > 0) { %>
+                                    <h5 class="extra-title">Carnes $250</h5>
+                                      <% element?.extras?.proteinas?.forEach(proteina => { %>
+                                        <span>1 x Extra <%= proteina.name %></span>
+                                      <% }) %>
+                                  <% } %>
+                                
+                                  <% if (element?.extras?.quesos?.length == 0 && element?.extras?.vegetales?.length == 0 && element?.extras?.proteinas?.length == 0) { %>
+                                  <h5 class="extra-title">Sin extras</h5>
+                                  <% } %>
+                                  
+    
+                              </div>
+                              <div class="description">
+          
+                                <% if (element?.bebidas?.gaseosas?.length > 0) { %>
+                                  <h5 class="extra-title">Gaseosas</h5>
+                                    <% element.bebidas.gaseosas.forEach(gaseosa => { %>
+                                      <span><%= gaseosa.name %></span>
+                                    <% }) %>
+                                <% } %>
+
+                                <% if (element?.bebidas?.cervezas?.length > 0) { %>
+                                  <h5 class="extra-title">Cervezas</h5>
+                                    <% element.bebidas.cervezas?.forEach(cerveza => { %>
+                                      <span><%= cerveza.name %></span>
+                                    <% }) %>
+                                <% } %>
+                                
+                                <% if (element?.postres?.length > 0) { %>
+                                  <h5>Postres</h5>
+                                    <% element?.postres?.forEach(postre => { %>
+                                      <span><%= postre.name %></span>
+                                    <% }) %>
+                                <% } %>
+                              </div>
+                            </div>
+                        
+                            <div class="div-qty">
+                              <div class="qty">
+                                <button class="min-plus" id="sub" onclick="totalPay()">-</button>
+                                  <input type="number" class="count" id="count" value="1" readonly>
+                                <button class="min-plus" id="sum" onclick="totalPay()">+</button>
+                              </div>
+                              <div class="div-trash">
+                                <form action="/cart/<%= index %>?_method=DELETE" method="post">
+                                  <button type="submit" id="<%= index %>" class="btn-trash"><i class="fas fa-trash"></i></button>
+                                </form>
+                              </div>
+                            </div>
+                      
+                            
+    
                           </div>
                       </div>
-                      <div class="description-box">
-                        <div class="description">
-                          <%if(quesosPedidos.length > 0 || carnesPedidas.length > 0 || vegetalesPedidos.length > 0){ %>
-                          <%if(quesosPedidos.length > 0){%>
-
-                            <h5>Quesos $150</h5>
-                          <% quesosPedidos.forEach(function(quesos) { %>
-                          <span class="extras">Extra <%= quesos.name %></span>
-                          <% }); }%>
-
-                          <%if(vegetalesPedidos.length > 0){%>
-                            <h5>Vegetales</h5>
-                          <% vegetalesPedidos.forEach(function(vegetales) { %>
-                            <span>Extra <%= vegetales.name %> $<%= vegetales.price %></span>
-                          <% }); }%>
-
-                          <%if(carnesPedidas.length > 0){%>
-                            <h5>Carnes</h5>
-                            <%carnesPedidas.forEach(function(carnes) { %>
-                              <span>Extra <%= carnes.name %></span>
-                          <% }); }%>
-
-                          <% } else{ %>
-                            <h5>Sin extras</h5>
-                          <%} %>
-                        </div>
-                        <div class="description">
-                          <%if(bebidasPedidas.length > 0 || bebidasAlcoholicasPedidas.length > 0){%>
-                            <h5>Bebidas</h5>
-                            <% bebidasPedidas.forEach(function(bebidas) { %>
-                              <span><%= bebidas.cantidad %> x <%= bebidas.name %> $<%= bebidas.price %> c/u</span>
-                          <% });%>
-                          <% bebidasAlcoholicasPedidas.forEach(function(alcohol) { %>
-                            <span><%= alcohol.cantidad %> x <%= alcohol.name %> $<%= alcohol.price %> c/u</span>
-                        <% }); }%>
-                        </div>
-                        <div class="description">
-                          <%if(postresPedidos.length > 0){%>
-                            <h5>Postres</h5>
-                            <% postresPedidos.forEach(function(postres) { %>
-                              <span><%= postres.cantidad %> x <%= postres.name %> $<%= postres.price %> c/u</span>
-                          <% }); }%>
-                        </div>
-                        <div class="qty">
-                          <button class="min-plus" id="sub" onclick="totalPay('<%= precioSumado %>', id)">-</button>
-                            <input type="number" class="count" id="count" value="1" readonly>
-                          <button class="min-plus" id="sum" onclick="totalPay('<%= precioSumado %>', id)">+</button>
-                        </div>
-                        
-
-                      </div>
                   </div>
-              </div>
-              
+                  
+                  <% }) %>
+
+                  <% } else { %>
+
+                   <h1>El carrito esta vacio</h1>
+
+              <% } %>
+    
             </div>
 
             <div class="resume-col">
@@ -94,7 +127,7 @@
               <div class="check-box">
                 <div class="bill">
                   <span>Subtotal:</span>
-                  <span>$<%= precioSumado %> </span>
+                  <span>$ </span>
                 </div>
                 <div class="bill">
                   <span>Delivery:</span>
@@ -106,7 +139,7 @@
                 </div>
                 <div class="bill">
                   <span class="total">Total:</span>
-                  <span class="total" id="total" value="<%= precioSumado %>">$<%= precioSumado %></span>
+                  <span class="total" id="total" value=""></span>
                 </div>
               </div>
 

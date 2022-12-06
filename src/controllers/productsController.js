@@ -33,11 +33,6 @@ const productController = {
     
   },
 
-  addToCart:(req, res) =>{
-    req.session.cart = req.body
-    res.redirect('/cart')
-  },
-
   create: (req, res) => {
     res.render('./products/product_create.ejs')
   },

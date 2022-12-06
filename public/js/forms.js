@@ -64,4 +64,3 @@ textarea.addEventListener('blur', (e) => {
     element.classList.add('fg-label-valid')
 })
 
-

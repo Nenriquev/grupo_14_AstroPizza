@@ -97,6 +97,12 @@ textarea{
   outline: none;
 }
 
+.fg-field#pass{
+  padding-right: 35px;
+  width: 218px;
+}
+
+
 .field-group .fg-field:focus {
   box-shadow: 0px 0px 4px 5px #5e1b88;
 }
@@ -127,6 +133,19 @@ textarea{
   text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
+
+.eye{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  background-color: rgb(131, 130, 130);
+}
+
+.fa-eye{
+  color: rgb(255, 251, 251);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+  cursor: pointer;
+}
 
 .center {
   display: flex;

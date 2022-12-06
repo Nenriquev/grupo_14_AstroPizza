@@ -242,6 +242,10 @@ display: flex;
     top: 100%;
   }
 
+  .product_detail_center{
+    margin-top: 0px;
+  }
+
   .cuadro_extras{
     display: flex;
     order: 2;
@@ -249,8 +253,15 @@ display: flex;
     align-content: flex-start;
   }
 
+  .column_extras{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
   .cuadro_extras .product_detail_cuadro_extras{
-    margin-left: 20px;
+    margin-left: 10px;
     font-size: 15px;
     text-align: left;
   }
@@ -262,8 +273,6 @@ display: flex;
   .cuadro_extras div{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    margin: 15px 0 15px 0;
   }
 
   .cuadro_extras div p{
