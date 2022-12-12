@@ -77,3 +77,14 @@ WIP:
 - Conectar base de datos de los usuarios.
 - Corregir error sobre listado de productos.
 - Agregar funcionalidad de añadir más productos al carrito.
+
+**12/12**
+
+DONE: 
+- Conectar base de datos de los usuarios.
+- Permisos extras a Administradores.
+- Funcionalidad de añadir más productos al carrito.
+
+WIP:
+- Suma de precios en el carrito.
+- Validaciones en el Front.
