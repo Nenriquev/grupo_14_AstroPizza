@@ -11,7 +11,7 @@ module.exports = {
 
         body('names')
             .notEmpty().withMessage('El campo nombre esta incompleto')
-            .isLength({min: 6}).withMessage('El nombre debe tener minimo 6 caracteres'),
+            .isLength({min: 2}).withMessage('El nombre debe tener minimo 2 caracteres'),
 
         body('email')
             .notEmpty().withMessage('El campo email esta incompleto').bail()
