@@ -19,10 +19,12 @@
     <%- include('../partials/header') %> 
     <div class="form-container">
       <div data-aos="zoom-in" class="form-col">
-        <form action="/product/create" method="POST" enctype="multipart/form-data">
+        <form class="form-create" action="/product/create" method="POST" enctype="multipart/form-data">
+
+          <ul class="errores-v"></ul>
 
           <div class="field-group">
-            <input class="fg-field" type="text" name="product_name" value="<%= locals.old?.product_name ? old.product_name : null %>">
+            <input id="names-product" class="fg-field" type="text" name="product_name" value="<%= locals.old?.product_name ? old.product_name : null %>">
             <label class="fg-label">Nombre del Producto</label>
           </div>
           <% if (locals.errors) { %>
@@ -30,7 +32,7 @@
           <% } %>
 
           <div class="field-group">
-            <input class="fg-field" type="number" name="price" value="<%= locals.old?.price ? old.price : null %>">
+            <input id="price-product" class="fg-field" type="number" name="price" value="<%= locals.old?.price ? old.price : null %>">
             <label class="fg-label">Precio</label>
           </div>
           <% if (locals.errors) { %>
@@ -38,7 +40,7 @@
           <% } %>
 
           <div class="field-group">
-            <textarea class="fg-field" name="description"><%= locals.old?.description ? old.description : null %></textarea>
+            <textarea  id="description-product" class="fg-field" name="description"><%= locals.old?.description ? old.description : null %></textarea>
             <label class="fg-label">Descripcion</label>
           </div>
           <% if (locals.errors) { %>
@@ -46,7 +48,8 @@
           <% } %>
 
           <div class="select">
-            <select name="category">
+            
+            <select id="category-product" name="category">
               <option selected disabled>Categoria</option>
               <option value = '1'>Pizzas</option>
               <option value = '2'>Quesos</option>
@@ -90,4 +93,5 @@
 <script>
   AOS.init();
 </script>
+<script src="../js/productCreateValidationFront.js"></script>
 </html>
