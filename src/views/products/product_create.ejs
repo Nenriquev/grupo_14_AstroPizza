@@ -20,13 +20,11 @@
     <div class="form-container">
       <div data-aos="zoom-in" class="form-col">
         <form class="form-create" action="/product/create" method="POST" enctype="multipart/form-data">
-          
+
           <ul class="errores-v"></ul>
 
           <div class="field-group">
             <input id="names-product" class="fg-field" type="text" name="product_name" value="<%= locals.old?.product_name ? old.product_name : null %>">
-            <i class="fa-solid fa-circle-check check-names hidden"></i>
-            <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-names hidden"></i>
             <label class="fg-label">Nombre del Producto</label>
           </div>
           <% if (locals.errors) { %>
@@ -35,8 +33,6 @@
 
           <div class="field-group">
             <input id="price-product" class="fg-field" type="number" name="price" value="<%= locals.old?.price ? old.price : null %>">
-            <i class="fa-solid fa-circle-check check-price hidden"></i>
-            <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-price hidden"></i>
             <label class="fg-label">Precio</label>
           </div>
           <% if (locals.errors) { %>
@@ -45,8 +41,6 @@
 
           <div class="field-group">
             <textarea  id="description-product" class="fg-field" name="description"><%= locals.old?.description ? old.description : null %></textarea>
-            <i class="fa-solid fa-circle-check check-text hidden"></i>
-            <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-text hidden"></i>
             <label class="fg-label">Descripcion</label>
           </div>
           <% if (locals.errors) { %>
@@ -79,8 +73,6 @@
               <i class="fa fa-cloud-upload"></i> Seleccionar
             </label>
             <input id="file-upload" name="image" type="file"/>
-            <i class="fa-solid fa-circle-check check-img hidden"></i>
-            <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-img hidden"></i>
           </div>
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.image?.msg %> </span>
