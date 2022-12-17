@@ -131,7 +131,20 @@
           <% }}); %>
           
         </div>
+        <h4>Postres 
+        <i class="fas fa-dollar-sign" aria-hidden="true"></i>700</h4>
+        <div>
+          <% products.filter(postre => { %>
+            <% if(postre.category_id == 7 && postre.status_id == 1){%>
+            <p>
+              <label class="product_detail_cuadro_bebidas"><%= postre.name %>
+                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= postre.name %>">
+              </label>
+            </p>
+          <% }}); %>
+        </div>
     </div>
+    
 
 </section>
     <div class="flex-dark">

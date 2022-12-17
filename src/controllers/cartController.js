@@ -73,6 +73,15 @@ async function dataBebidasPedidas() {
   return dataBebidasPedidas;
 }
 
+async function cantidadBebidas() {
+  let cantidadBebidasPedidas = []
+  let bebidasPedidas = await dataBebidasPedidas()
+  bebidasPedidas.forEach(element => {
+    cantidadBebidasPedidas.push(element.cantidad)
+  });
+  return cantidadBebidasPedidas
+}
+
 async function dataBebidasAlcoholicasPedidas() {
   let dataBebidasPedidas;
   const que = await Products.findAll({ where: { category_id: "6" } }).then(
@@ -87,6 +96,15 @@ async function dataBebidasAlcoholicasPedidas() {
     }
   );
   return dataBebidasPedidas;
+}
+
+async function cantidadAlcohol() {
+  let cantidadAlcoholPedidas = []
+  let alcoholPedidas = await dataBebidasAlcoholicasPedidas()
+  alcoholPedidas.forEach(element => {
+    cantidadAlcoholPedidas.push(element.cantidad)
+  });
+  return cantidadAlcoholPedidas
 }
 
 async function dataPostresPedidos() {
@@ -104,20 +122,18 @@ async function dataPostresPedidos() {
   );
   return dataPostresPedidas;
 }
+async function cantidadPostres() {
+  let cantidadPostresPedidos = []
+  let postresPedidos = await dataPostresPedidos()
+  postresPedidos.forEach(element => {
+    cantidadPostresPedidos.push(element.cantidad)
+  });
+  return cantidadPostresPedidos
+}
+async function precioTotal() {
+  let precio = 0
 
-function precioTotal(element) {
-  let total = element[0]?.price;
-  for (let i = 1; i < element.length; i++) {
-    for (let j = 0; j < element[i].length; j++) {
-      if (i == 4 || i == 5 || i == 6) {
-        precioCantidad = element[i][j].price * element[i][j].cantidad;
-        total = total + precioCantidad;
-      } else {
-        total = total + element[i][j].price;
-      }
-    }
-  }
-  return total;
+  return precio
 }
 
 const cartController = {
@@ -138,10 +154,20 @@ const cartController = {
           proteinas: await dataCarnesPedidas(),
         },
         bebidas: {
-          gaseosas: await dataBebidasPedidas(),
-          cervezas: await dataBebidasAlcoholicasPedidas(),
+          gaseosas: {
+            bebidasPedidas: await dataBebidasPedidas(),
+            cantidadBebidasPedidas: await cantidadBebidas()
+          },
+          cervezas: {
+            alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
+            cantidadAlcoholPedidas: await cantidadAlcohol()
+          }
         },
-        postres: await dataPostresPedidos(),
+        postres: {
+          postresPedidos: await dataPostresPedidos(),
+          cantidadPostresPedidos: await cantidadPostres()
+        },
+        precio: await precioTotal()
       });
     } else {
       req.session.cart = [
@@ -153,10 +179,20 @@ const cartController = {
             proteinas: await dataCarnesPedidas(),
           },
           bebidas: {
-            gaseosas: await dataBebidasPedidas(),
-            cervezas: await dataBebidasAlcoholicasPedidas(),
+            gaseosas: {
+              bebidasPedidas: await dataBebidasPedidas(),
+              cantidadBebidasPedidas: await cantidadBebidas()
+            },
+            cervezas: {
+              alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
+              cantidadAlcoholPedidas: await cantidadAlcohol()
+            }
           },
-          postres: await dataPostresPedidos(),
+          postres: {
+            postresPedidos: await dataPostresPedidos(),
+            cantidadPostresPedidos: await cantidadPostres()
+          },
+          precio: await precioTotal()
         },
       ];
     }
@@ -164,10 +200,10 @@ const cartController = {
   },
 
   removeItem: (req, res) => {
-    
+
     delete req.session.cart[req.params.index]
     const remove = req.session.cart.filter((element) => {
-    return element != null
+      return element != null
     })
 
     req.session.cart = remove

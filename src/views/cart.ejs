@@ -20,11 +20,8 @@
           <div class="cart-board">
             <div class="resume">
               <% if (locals.cart && locals.cart.length > 0) { %>
-               
                 <% locals.cart.forEach((element, index) => { %>
-                    
                   <div class="products">
-                    
                     <div class="product-img">
                       <img src="../img/pizzas/<%= element?.pizza?.image %>">
                     </div>
@@ -63,29 +60,30 @@
                                   <% if (element?.extras?.quesos?.length == 0 && element?.extras?.vegetales?.length == 0 && element?.extras?.proteinas?.length == 0) { %>
                                   <h5 class="extra-title">Sin extras</h5>
                                   <% } %>
-                                  
     
                               </div>
                               <div class="description">
-          
-                                <% if (element?.bebidas?.gaseosas?.length > 0) { %>
+                                <% if (element?.bebidas?.gaseosas?.bebidasPedidas.length > 0) { %>
                                   <h5 class="extra-title">Gaseosas</h5>
-                                    <% element.bebidas.gaseosas.forEach(gaseosa => { %>
+                                    <% element.bebidas.gaseosas.bebidasPedidas.forEach((gaseosa, i) => { %>
                                       <span><%= gaseosa.name %></span>
+                                      <span><%= "x "+element.bebidas.gaseosas.cantidadBebidasPedidas[i] %></span>
                                     <% }) %>
                                 <% } %>
 
-                                <% if (element?.bebidas?.cervezas?.length > 0) { %>
+                                <% if (element?.bebidas?.cervezas?.alcoholPedidas.length > 0) { %>
                                   <h5 class="extra-title">Cervezas</h5>
-                                    <% element.bebidas.cervezas?.forEach(cerveza => { %>
+                                    <% element.bebidas.cervezas?.alcoholPedidas.forEach((cerveza, i) => { %>
                                       <span><%= cerveza.name %></span>
+                                      <span><%= "x "+element.bebidas.cervezas.cantidadAlcoholPedidas[i] %></span>
                                     <% }) %>
                                 <% } %>
                                 
-                                <% if (element?.postres?.length > 0) { %>
+                                <% if (element?.postres?.postresPedidos.length > 0) { %>
                                   <h5>Postres</h5>
-                                    <% element?.postres?.forEach(postre => { %>
+                                    <% element?.postres?.postresPedidos.forEach((postre, i) => { %>
                                       <span><%= postre.name %></span>
+                                      <span><%= "x "+element.postres.cantidadPostresPedidos[i] %></span>
                                     <% }) %>
                                 <% } %>
                               </div>
@@ -114,7 +112,7 @@
 
                   <% } else { %>
 
-                   <h1>El carrito esta vacio</h1>
+                   <h1 class="vacio">El carrito esta vacio</h1>
 
               <% } %>
     
