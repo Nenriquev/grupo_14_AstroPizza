@@ -60,8 +60,9 @@
                   <span><i class="fa fa-user"></i> Datos personales</span>
                 </div>
 
+
                 <div class="field-group">
-                  <input class="fg-field" type="text" name="names" value="<%= user.names %>">
+                  <input class="fg-field" type="text" name="names" id="name-v" value="<%= user.names %>">
                   <label class="fg-label">Nombres</label>
                 </div>
 
@@ -72,7 +73,7 @@
                 <% } %>
   
                 <div class="field-group">
-                  <input class="fg-field" type="email" name="email" value="<%= user.email %>">
+                  <input class="fg-field" type="email" name="email" id="email-v" value="<%= user.email %>">
                   <label class="fg-label">Email</label>
                 </div>
 
@@ -83,11 +84,15 @@
                 <% } %>
   
                 <div class="field-group">
-                  <input class="fg-field" type="tel" name="telephone" value="<%= user.telephone %>">
+                  <input class="fg-field" type="tel" name="telephone" id="telephone-v" value="<%= user.telephone %>">
                   <label class="fg-label">Telefono</label>
                 </div>
 
+                <ul class="errores-v"></ul>
+
+
               </div>
+
               
               <div class="form-col">
 
@@ -151,6 +156,7 @@
 
         </div>
 
+
         </form>
 
       </div>
@@ -161,4 +167,5 @@
 <script>
   AOS.init();
 </script>
+<script src="../../../js/profileValidation.js"></script>
 </html>

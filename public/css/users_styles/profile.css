@@ -183,6 +183,20 @@ textarea{
   margin: 15px auto;
 }
 
+/* Front Validation */
+.errores-v{
+  color: white;
+  width: 80%;
+}
+
+.errores-v li{
+  display: list-item;
+  font-size: small;
+}
+
+
+
+
 .errors{
   display: flex;
   justify-content: center;

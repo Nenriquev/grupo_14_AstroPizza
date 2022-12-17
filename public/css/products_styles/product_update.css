@@ -28,6 +28,45 @@ body{
   align-items: center;
 }
 
+/* Front Validation*/
+.errores-v{
+  color: white;
+  width: 80%;
+}
+
+.errores-v li{
+  display: list-item;
+  font-size: small;
+}
+
+/* Check Validation Front*/
+.check-name,
+.check-price,
+.check-description{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(13, 255, 82);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+.hidden{
+  display: none;
+}
+
+/* Alert Circle Validation Front*/
+.alert-circle-name, 
+.alert-circle-price,
+.alert-circle-description{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(255, 13, 13);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+
+
 .form-container{
   display: flex;
   flex-direction: column;

@@ -27,9 +27,16 @@
             <div class="form-col2">
                 <div data-aos="zoom-in" class="form-in">
                     <form class='form-register' action="/users/register" method="post" enctype="multipart/form-data">
+
+                        
+                        <ul class="errores-v"></ul>
                         
                         <div class="field-group">
-                            <input type="text" name="names" class="fg-field" value="<%= locals.old?.names ? old.names : null %>" >
+                            <input type="text" name="names" id="names-v" class="fg-field" value="<%= locals.old?.names ? old.names : null %>" >
+                            <div>
+                              <i class="fa-solid fa-circle-check check-names hidden"></i>
+                              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-names hidden"></i>
+                            </div>
                             <label id="names" class="fg-label">Nombre y apellido</label>
                         </div>
 
@@ -40,7 +47,9 @@
                           <% } %>
 
                           <div class="field-group">
-                            <input type="email" name="email" class="fg-field" value="<%= locals.old?.email ? old.email : null %>" >
+                            <input type="email" name="email" id="email-v" class="fg-field" value="<%= locals.old?.email ? old.email : null %>" >
+                              <i class="fa-solid fa-circle-check check-email hidden"></i>
+                              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-email hidden"></i>
                             <label id="email" class="fg-label">Email</label>
                         </div>
                         
@@ -51,13 +60,21 @@
                           <% } %>
 
                         <div class="field-group">
-                            <input type="text" name="telefono" class="fg-field" value="<%= locals.old?.telefono ? old.telefono : null %>">
+                            <input type="text" name="telefono" id="telefono-v" class="fg-field" value="<%= locals.old?.telefono ? old.telefono : null %>">
+                            <div>
+                              <i class="fa-solid fa-circle-check check-tfno hidden"></i>
+                              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-tfno hidden"></i>
+                            </div>
                             <label id="telefono" class="fg-label">Telefono</label>
                         </div>  
                         
                         <div class="field-group">
-                            <input type="password" name="password" class="fg-field" id="pass">
+                            <input type="password" name="password" id="password-v" class="fg-field" id="pass">
                             <div class="eye"><i class="fas fa-eye" id="ePass"></i></div>
+                            <div>
+                              <i class="fa-solid fa-circle-check check-pass hidden"></i>
+                              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-pass hidden"></i>
+                            </div>
                             <label id="password" class="fg-label">Contrasena</label>
                         </div>
 
@@ -68,8 +85,12 @@
                           <% } %>
                         
                         <div class="field-group">
-                            <input type="password" name="passwordRepeat" class="fg-field" id="rPass">
+                            <input type="password" name="passwordRepeat" id="passwordRepeat-v" class="fg-field" id="rPass">
                             <div class="eye"><i class="fas fa-eye" id="rePass"></i></div>
+                            <div>
+                              <i class="fa-solid fa-circle-check check-passr hidden"></i>
+                              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-passr hidden"></i>
+                            </div>
                             <label id="passwordRepeat" class="fg-label">Repetir contrasena</label>
                         </div>
 
@@ -141,4 +162,5 @@
     AOS.init();
   </script>
   <script src="../js/login.js"></script>
+  <script src="../js/registerFrontValidation.js"></script>
 </html>

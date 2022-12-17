@@ -203,6 +203,71 @@ input[type="file"] {
 }
 
 
+/*.fg-field-invalid{
+  box-shadow: 0px 0px 2px 3px #ce0e0e;
+}
+
+.fg-field-valid{
+  box-shadow: 0px 0px 2px 3px #20ed09;
+
+}*/
+
+.errores-v{
+  color: white;
+  width: 80%;
+}
+
+.errores-v li{
+  display: list-item;
+  font-size: small;
+}
+
+
+/* Check Validation Front*/
+/*.check-names,
+.check-price,
+.check-img,
+.check-text{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(13, 255, 82);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+
+/*.check-text {
+  position: absolute;
+  top: 14px;
+  right: 45px;
+  color: rgb(13, 255, 82);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}*/
+
+/*.hidden{
+  display: none;
+}
+
+/* Alert Circle Validation Front*/
+/*.alert-circle-names, 
+.alert-circle-price,
+.alert-circle-img{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(255, 13, 13);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+.alert-circle-text {
+  position: absolute;
+  top: 14px;
+  right: 45px;
+  color: rgb(255, 13, 13);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}*/
+
+
 @media (min-width: 1024px) {
   .form-container{
     height: 80vh;

@@ -108,7 +108,22 @@ textarea{
 }
 
 .fg-field-invalid{
-  box-shadow: 0px 0px 4px 5px #ce0e0e;
+  box-shadow: 0px 0px 2px 3px #ce0e0e;
+}
+
+.fg-field-valid{
+  box-shadow: 0px 0px 2px 3px #20ed09;
+
+}
+
+.errores-v{
+  color: white;
+  width: 80%;
+}
+
+.errores-v li{
+  display: list-item;
+  font-size: small;
 }
 
 .field-group .fg-label {
@@ -146,6 +161,54 @@ textarea{
   text-shadow: 0px 0px 0, 1px 2px 6px #000000;
   cursor: pointer;
 }
+
+
+
+/* Check Validation Front*/
+.check-names,
+.check-email,
+.check-tfno{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(13, 255, 82);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+.check-passr,
+.check-pass {
+  position: absolute;
+  top: 14px;
+  right: 45px;
+  color: rgb(13, 255, 82);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+.hidden{
+  display: none;
+}
+
+/* Alert Circle Validation Front*/
+.alert-circle-names, 
+.alert-circle-email,
+.alert-circle-tfno{
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  color: rgb(255, 13, 13);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+.alert-circle-pass,
+.alert-circle-passr {
+  position: absolute;
+  top: 14px;
+  right: 45px;
+  color: rgb(255, 13, 13);
+  text-shadow: 0px 0px 0, 1px 2px 6px #000000;
+}
+
+
 
 .center {
   display: flex;

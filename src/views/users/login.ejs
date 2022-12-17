@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/65050c03d1.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/users_styles/login.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css"/>
-    <title>Ingresá - Astro Pizza</title>
-  </head>
-  <body>
-    <div class="main-container">
-      <%- include('../partials/header') %>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/65050c03d1.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="../img/favico.ico" type="image/x-icon" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css" />
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css" />
+  <link rel="stylesheet" type="text/css" href="../css/users_styles/login.css" />
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css" />
+  <title>Ingresá - Astro Pizza</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <%- include('../partials/header') %>
 
       <div class="form-container">
         <div class="form-col">
@@ -28,30 +27,32 @@
         <div class="form-col2">
           <div data-aos="zoom-in" class="form-in">
             <form class="form" action="/users/login" method="post">
+
+              <ul class="errores-v"></ul>
+
               <div class="field-group">
-                <input type="text" name="email" class="fg-field" />
+                <input type="text" name="email" id="email-v" class="fg-field" />
+                <i class="fa-solid fa-circle-check check-email hidden"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-email hidden"></i>
                 <label id='email' class="fg-label">Email</label>
               </div>
 
               <div class="field-group">
-                <input type="password" name="password" class="fg-field" />
+                <input type="password" name="password" id="password-v" class="fg-field" />
+                <i class="fa-solid fa-circle-check check-pass hidden"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-pass hidden"></i>
                 <label id='password' class="fg-label">Contrasena</label>
               </div>
 
               <div>
                 <div class="cntr">
                   <label for="cbx" class="label-cbx">
-                    <input
-                      id="cbx"
-                      type="checkbox"
-                      name="recordame"
-                      class="invisible"
-                    />
+                    <input id="cbx" type="checkbox" name="recordame" class="invisible" />
                     <div class="checkbox">
                       <svg width="15px" height="15px" viewBox="0 0 20 20">
                         <path
-                          d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"
-                        ></path>
+                          d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z">
+                        </path>
                         <polyline points="4 11 8 15 16 6"></polyline>
                       </svg>
                     </div>
@@ -61,32 +62,34 @@
               </div>
 
               <% if(locals.errorLogin){ %>
-              <span class="errors" style="margin-top: 20px" ;
-                ><%= errorLogin %></span
-              >
-              <% } %>
+                <span class="errors" style="margin-top: 20px" ;>
+                  <%= errorLogin %>
+                </span>
+                <% } %>
 
-              <div class="register-u">
-                <div class="field-group">
-                  <a class="forgot" href="/users/register">Registrate!</a>
-                </div>
-                <div class="field-group">
-                  <a class="forgot" href="/">Olvidaste tu contrasena?</a>
-                </div>
-              </div>
+                  <div class="register-u">
+                    <div class="field-group">
+                      <a class="forgot" href="/users/register">Registrate!</a>
+                    </div>
+                    <div class="field-group">
+                      <a class="forgot" href="/">Olvidaste tu contrasena?</a>
+                    </div>
+                  </div>
 
-              <div>
-                <button type="submit" class="bttn-dark">Ingresar</button>
-              </div>
+                  <div>
+                    <button type="submit" class="bttn-dark">Ingresar</button>
+                  </div>
             </form>
           </div>
         </div>
       </div>
       <%- include('../partials/footer') %>
-    </div>
-  </body>
-  <script>
-    AOS.init();
-  </script>
-  <script src="../js/login.js"></script>
+  </div>
+</body>
+<script>
+  AOS.init();
+</script>
+<script src="../js/login.js"></script>
+<script src="../js/loginFrontValidation.js"></script>
+
 </html>
