@@ -9,8 +9,6 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser')
 const localsMiddleware = require('./middlewares/localsMiddle');
 const recordameMiddleware = require('./middlewares/recordameMiddle');
-
-
 const app = express();
 
 
@@ -26,6 +24,8 @@ app.use(session({name: 'Cart', secret: "Secreto", resave: true, saveUninitialize
 app.use(cookieParser());
 app.use(recordameMiddleware)
 app.use(localsMiddleware);
+
+
 
 
 /* INDEX */

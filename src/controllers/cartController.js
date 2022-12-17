@@ -1,6 +1,8 @@
 const path = require("path");
 const db = require("../database/models");
 
+
+
 const Products = db.Product;
 
 async function dataPizzaElegida() {
@@ -75,7 +77,7 @@ async function dataBebidasPedidas() {
 
 async function dataBebidasAlcoholicasPedidas() {
   let dataBebidasPedidas;
-  const que = await Products.findAll({ where: { category_id: "6" } }).then(
+  await Products.findAll({ where: { category_id: "6" } }).then(
     (dataBebidas) => {
       dataBebidas.forEach(function (bebidas) {
         if (extrasPedidos[bebidas.name] != 0) {
@@ -91,18 +93,19 @@ async function dataBebidasAlcoholicasPedidas() {
 
 async function dataPostresPedidos() {
   let dataPostresPedidas;
-  const que = await Products.findAll({ where: { category_id: "7" } }).then(
+  let cantidad;
+   await Products.findAll({ where: { category_id: "7" } }).then(
     (dataPostres) => {
       dataPostres.forEach(function (postres) {
         if (extrasPedidos[postres.name] != 0) {
-          let cantidad = { cantidad: extrasPedidos[postres.name] };
+          cantidad = { cantidad: extrasPedidos[postres.name] };
           Object.assign(postres, cantidad);
         }
       });
       dataPostresPedidas = dataPostres.filter((x) => x.cantidad > 0);
     }
   );
-  return dataPostresPedidas;
+  return (dataPostresPedidas, cantidad);
 }
 
 function precioTotal(element) {
@@ -121,16 +124,26 @@ function precioTotal(element) {
 }
 
 const cartController = {
+
   cart: (req, res) => {
     res.render("cart.ejs");
   },
 
   addToCart: async (req, res) => {
+
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza;
 
+
     if (req.session.cart) {
       req.session.cart.push({
+        id: getRandomIntInclusive(0, 999),
         pizza: await dataPizzaElegida(),
         extras: {
           quesos: await dataQuesosPedidos(),
@@ -143,9 +156,11 @@ const cartController = {
         },
         postres: await dataPostresPedidos(),
       });
+      
     } else {
       req.session.cart = [
-        {
+        { 
+          id: getRandomIntInclusive(0, 999),
           pizza: await dataPizzaElegida(),
           extras: {
             quesos: await dataQuesosPedidos(),
@@ -159,11 +174,14 @@ const cartController = {
           postres: await dataPostresPedidos(),
         },
       ];
+      
     }
+    
     res.redirect("/cart");
   },
 
   removeItem: (req, res) => {
+   
     
     delete req.session.cart[req.params.index]
     const remove = req.session.cart.filter((element) => {
@@ -172,8 +190,9 @@ const cartController = {
 
     req.session.cart = remove
 
-    res.redirect("/cart");
+    res.render('cart.js', {item: item})
   },
 };
 
 module.exports = cartController;
+ 

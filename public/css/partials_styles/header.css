@@ -93,11 +93,58 @@ ul{
   opacity: 1;
 }
 
+.nav a#rocket::before,
+.nav a#rocket:after{
+  display: none;
+}
+
+.nav a#rocket{
+  transition: none;
+}
+
 .nav a:hover {
   color: #000000;
   -webkit-text-stroke: .1px rgb(255, 255, 255);
 }
 
+.button-badge {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  border-radius: .2rem;
+}
+
+
+.badge {
+  background-color: red;
+  width: 16px;
+  border-radius: 50%;
+  text-align: center;
+  color: wheat;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: .8em;
+}
+
+.fa {
+  color: white;
+}
+
+.material-symbols-outlined{
+  color: white;
+  font-size: xx-large;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined:hover{
+  -webkit-text-stroke: .1px rgb(0, 0, 0);
+  text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
+}
 
 .btn {
   position: relative;
@@ -322,9 +369,7 @@ span + span {
   .link#dropdown{
     font-size: small;
   }
-
-
-  
-
-  
 }
+  
+
+  
