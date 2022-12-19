@@ -1,5 +1,3 @@
-const path = require('path');
-const fs = require('fs');
 const { validationResult } = require('express-validator');
 const bcrypt = require("bcrypt");
 
@@ -99,7 +97,7 @@ const usersController = {
         User.findByPk(req.session.userLoggedIn.id)
         .then((user) => {
 
-            res.render('users/profile.ejs', {user: user, errors: errors.mapped()})
+            res.render('users/profile.ejs', {user: user, errors: errors.mapped(), req: req.query})
         })
 
     },
@@ -127,7 +125,7 @@ const usersController = {
             })
         })
             
-        res.redirect('/')
+        res.redirect(`/users/profile/${req.session.userLoggedIn.id}?update=profile`)
         
     }
 

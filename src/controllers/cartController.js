@@ -1,6 +1,8 @@
 const path = require("path");
 const db = require("../database/models");
 
+
+
 const Products = db.Product;
 
 async function dataPizzaElegida() {
@@ -84,7 +86,7 @@ async function cantidadBebidas() {
 
 async function dataBebidasAlcoholicasPedidas() {
   let dataBebidasPedidas;
-  const que = await Products.findAll({ where: { category_id: "6" } }).then(
+  await Products.findAll({ where: { category_id: "6" } }).then(
     (dataBebidas) => {
       dataBebidas.forEach(function (bebidas) {
         if (extrasPedidos[bebidas.name] != 0) {
@@ -108,28 +110,20 @@ async function cantidadAlcohol() {
 }
 
 async function dataPostresPedidos() {
-  let dataPostresPedidas;
-  const que = await Products.findAll({ where: { category_id: "7" } }).then(
-    (dataPostres) => {
-      dataPostres.forEach(function (postres) {
-        if (extrasPedidos[postres.name] != 0) {
-          let cantidad = { cantidad: extrasPedidos[postres.name] };
-          Object.assign(postres, cantidad);
-        }
-      });
-      dataPostresPedidas = dataPostres.filter((x) => x.cantidad > 0);
+ let data = []
+
+  const dataPostres = await Products.findAll({ where: { category_id: "7" } })
+  dataPostres.forEach(element => {
+    if(extrasPedidos[element.name] != 0){
+      data.push({
+        item: element,
+        qty: extrasPedidos[element.name]
+      })
     }
-  );
-  return dataPostresPedidas;
+  })
+  return (data);
 }
-async function cantidadPostres() {
-  let cantidadPostresPedidos = []
-  let postresPedidos = await dataPostresPedidos()
-  postresPedidos.forEach(element => {
-    cantidadPostresPedidos.push(element.cantidad)
-  });
-  return cantidadPostresPedidos
-}
+
 async function precioTotal() {
   let precio = 0
 
@@ -138,12 +132,13 @@ async function precioTotal() {
 
 const cartController = {
   cart: (req, res) => {
-    res.render("cart.ejs");
+    res.render("cart.ejs", { req: req.query });
   },
 
   addToCart: async (req, res) => {
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza;
+
 
     if (req.session.cart) {
       req.session.cart.push({
@@ -156,18 +151,15 @@ const cartController = {
         bebidas: {
           gaseosas: {
             bebidasPedidas: await dataBebidasPedidas(),
-            cantidadBebidasPedidas: await cantidadBebidas()
+            cantidadBebidasPedidas: await cantidadBebidas(),
           },
           cervezas: {
             alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
-            cantidadAlcoholPedidas: await cantidadAlcohol()
-          }
+            cantidadAlcoholPedidas: await cantidadAlcohol(),
+          },
         },
-        postres: {
-          postresPedidos: await dataPostresPedidos(),
-          cantidadPostresPedidos: await cantidadPostres()
-        },
-        precio: await precioTotal()
+        postres: await dataPostresPedidos(),
+        precio: await precioTotal(),
       });
     } else {
       req.session.cart = [
@@ -181,35 +173,34 @@ const cartController = {
           bebidas: {
             gaseosas: {
               bebidasPedidas: await dataBebidasPedidas(),
-              cantidadBebidasPedidas: await cantidadBebidas()
+              cantidadBebidasPedidas: await cantidadBebidas(),
             },
             cervezas: {
               alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
-              cantidadAlcoholPedidas: await cantidadAlcohol()
-            }
+              cantidadAlcoholPedidas: await cantidadAlcohol(),
+            },
           },
-          postres: {
-            postresPedidos: await dataPostresPedidos(),
-            cantidadPostresPedidos: await cantidadPostres()
-          },
-          precio: await precioTotal()
+          postres: await dataPostresPedidos(),
+          precio: await precioTotal(),
         },
       ];
     }
+
     res.redirect("/cart");
   },
 
   removeItem: (req, res) => {
-
-    delete req.session.cart[req.params.index]
+    delete req.session.cart[req.params.index];
     const remove = req.session.cart.filter((element) => {
-      return element != null
-    })
+      return element != null;
+    });
 
-    req.session.cart = remove
+    req.session.cart = remove;
+    const item = "remove";
 
-    res.redirect("/cart");
+    res.redirect("/cart?item=" + item);
   },
 };
 
 module.exports = cartController;
+ 

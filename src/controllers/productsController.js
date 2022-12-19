@@ -22,19 +22,24 @@ const productController = {
     
   },
 
-  product: (req, res) => {
-    
-    Products.findAll({include:['category']})
-      .then(function(products){
+  product: async (req, res) => {
+
+    const pizza = await Products.findAll({where: {name: req.params.value}})
+    const data = await Products.findAll({include:['category']})
+
+       if(pizza[0].category_id != 1){
+        return res.redirect('/product')
+       }
+
         const pizzaData = req.params.value;
         req.session.pizza = req.params.value;
-        res.render("./products/product_detail.ejs", {pizzaData: pizzaData, products: products})
-      })
-    
+      
+      res.render("./products/product_detail.ejs", {pizzaData: pizzaData, products: data})
+      
   },
 
   create: (req, res) => {
-    res.render('./products/product_create.ejs')
+    res.render('./products/product_create.ejs', {req: req.query})
   },
 
       
@@ -53,7 +58,8 @@ const productController = {
       status_id: 1,
       image: req?.file?.filename ? req.file.filename : 'placeholder.png' 
     }).then(()=>{
-      res.redirect("/product");
+
+      res.redirect("/product/create?product=success");
     })
     },
 

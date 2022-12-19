@@ -11,12 +11,16 @@
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css">
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
     <link rel="stylesheet" type="text/css" href="../css/products_styles/product_create.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials_styles/toast.css">
 
     <title>Crear Producto</title>
   </head>
 <body>
   <div class="main-container">
     <%- include('../partials/header') %> 
+      <% if (locals.req.product) { %>
+        <div id="toast" data-value="productCreate"></div>
+      <% } %> 
     <div class="form-container">
       <div data-aos="zoom-in" class="form-col">
         <form class="form-create" action="/product/create" method="POST" enctype="multipart/form-data">
@@ -94,4 +98,5 @@
   AOS.init();
 </script>
 <script src="../js/productCreateValidationFront.js"></script>
+<script src="../js/partials/toastr.js"></script>
 </html>

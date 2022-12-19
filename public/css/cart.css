@@ -105,7 +105,8 @@ body {
 
 .products {
   display: flex;
-  margin: 20px auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
   width: 100%;
   height: auto;
   background-color: rgba(37, 36, 36, 0.586);
@@ -129,6 +130,12 @@ body {
   justify-content: center;
   width: 70%;
   font-size: 11px;
+}
+
+.div-box{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }
 
 .check-box {
@@ -340,7 +347,9 @@ input {
   }
 
   .products {
+    margin: 20px auto;
     width: 95%;
+    border-bottom: none;
   }
 
   .product-img {

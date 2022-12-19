@@ -1,5 +1,6 @@
 
 const btn = document.getElementsByClassName('btn')
+const badge = document.querySelector('.badge')
 
 btn[0].addEventListener("click", () => {
   btn[0].classList.toggle("active");
@@ -12,6 +13,10 @@ btn[0].addEventListener("click", () => {
     document.getElementById("mySidebar").style.width = "0px";
   }
 });
+
+if(badge.textContent == '0'){
+  badge.style.display ='none'
+}
 
 
 
