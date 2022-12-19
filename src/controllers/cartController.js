@@ -75,6 +75,15 @@ async function dataBebidasPedidas() {
   return dataBebidasPedidas;
 }
 
+async function cantidadBebidas() {
+  let cantidadBebidasPedidas = []
+  let bebidasPedidas = await dataBebidasPedidas()
+  bebidasPedidas.forEach(element => {
+    cantidadBebidasPedidas.push(element.cantidad)
+  });
+  return cantidadBebidasPedidas
+}
+
 async function dataBebidasAlcoholicasPedidas() {
   let dataBebidasPedidas;
   await Products.findAll({ where: { category_id: "6" } }).then(
@@ -91,42 +100,39 @@ async function dataBebidasAlcoholicasPedidas() {
   return dataBebidasPedidas;
 }
 
-async function dataPostresPedidos() {
-  let dataPostresPedidas;
-  let cantidad;
-   await Products.findAll({ where: { category_id: "7" } }).then(
-    (dataPostres) => {
-      dataPostres.forEach(function (postres) {
-        if (extrasPedidos[postres.name] != 0) {
-          cantidad = { cantidad: extrasPedidos[postres.name] };
-          Object.assign(postres, cantidad);
-        }
-      });
-      dataPostresPedidas = dataPostres.filter((x) => x.cantidad > 0);
-    }
-  );
-  return (dataPostresPedidas, cantidad);
+async function cantidadAlcohol() {
+  let cantidadAlcoholPedidas = []
+  let alcoholPedidas = await dataBebidasAlcoholicasPedidas()
+  alcoholPedidas.forEach(element => {
+    cantidadAlcoholPedidas.push(element.cantidad)
+  });
+  return cantidadAlcoholPedidas
 }
 
-function precioTotal(element) {
-  let total = element[0]?.price;
-  for (let i = 1; i < element.length; i++) {
-    for (let j = 0; j < element[i].length; j++) {
-      if (i == 4 || i == 5 || i == 6) {
-        precioCantidad = element[i][j].price * element[i][j].cantidad;
-        total = total + precioCantidad;
-      } else {
-        total = total + element[i][j].price;
-      }
+async function dataPostresPedidos() {
+ let data = []
+
+  const dataPostres = await Products.findAll({ where: { category_id: "7" } })
+  dataPostres.forEach(element => {
+    if(extrasPedidos[element.name] != 0){
+      data.push({
+        item: element,
+        qty: extrasPedidos[element.name]
+      })
     }
-  }
-  return total;
+  })
+  return (data);
+}
+
+async function precioTotal() {
+  let precio = 0
+
+  return precio
 }
 
 const cartController = {
-
   cart: (req, res) => {
-    res.render("cart.ejs", {req: req.query});
+    res.render("cart.ejs", { req: req.query });
   },
 
   addToCart: async (req, res) => {
@@ -143,15 +149,21 @@ const cartController = {
           proteinas: await dataCarnesPedidas(),
         },
         bebidas: {
-          gaseosas: await dataBebidasPedidas(),
-          cervezas: await dataBebidasAlcoholicasPedidas(),
+          gaseosas: {
+            bebidasPedidas: await dataBebidasPedidas(),
+            cantidadBebidasPedidas: await cantidadBebidas(),
+          },
+          cervezas: {
+            alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
+            cantidadAlcoholPedidas: await cantidadAlcohol(),
+          },
         },
         postres: await dataPostresPedidos(),
+        precio: await precioTotal(),
       });
-      
     } else {
       req.session.cart = [
-        { 
+        {
           pizza: await dataPizzaElegida(),
           extras: {
             quesos: await dataQuesosPedidos(),
@@ -159,29 +171,34 @@ const cartController = {
             proteinas: await dataCarnesPedidas(),
           },
           bebidas: {
-            gaseosas: await dataBebidasPedidas(),
-            cervezas: await dataBebidasAlcoholicasPedidas(),
+            gaseosas: {
+              bebidasPedidas: await dataBebidasPedidas(),
+              cantidadBebidasPedidas: await cantidadBebidas(),
+            },
+            cervezas: {
+              alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
+              cantidadAlcoholPedidas: await cantidadAlcohol(),
+            },
           },
           postres: await dataPostresPedidos(),
+          precio: await precioTotal(),
         },
       ];
-      
     }
-    
+
     res.redirect("/cart");
   },
 
   removeItem: (req, res) => {
-   
-    delete req.session.cart[req.params.index]
+    delete req.session.cart[req.params.index];
     const remove = req.session.cart.filter((element) => {
-    return element != null
-    })
+      return element != null;
+    });
 
-    req.session.cart = remove
-    const item = 'remove'
+    req.session.cart = remove;
+    const item = "remove";
 
-    res.redirect('/cart?item=' + item)
+    res.redirect("/cart?item=" + item);
   },
 };
 
