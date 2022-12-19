@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/header.css">
   <link rel="stylesheet" type="text/css" href="../../css/partials_styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../../css/partials_styles/toast.css">
   <link rel="stylesheet" type="text/css" href="../../css/users_styles/profile.css">
   <title>Mi Perfil - Astro Pizza</title>
 </head>
@@ -19,7 +20,9 @@
   <div class="main-container">
 
     <%- include('../partials/header') %> 
-
+      <% if (locals.req.update) { %>
+        <div id="toast" data-value="profile"></div>
+      <% } %>
       <div class="container">
         <form class='form' action="/users/profile/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 
@@ -168,4 +171,5 @@
   AOS.init();
 </script>
 <script src="../../../js/profileValidation.js"></script>
+<script src="../../js/partials/toastr.js"></script>
 </html>

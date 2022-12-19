@@ -10,7 +10,7 @@ function localsMiddleware (req, res, next){
     if(req.session.cart){
         res.locals.cart = req.session.cart
     }
-    console.log(req.session.cart)
+   
     next()
 }
 

@@ -19,15 +19,18 @@
     
     <div class="main-container">
       <%- include('./partials/header') %> 
-      <div id="toast"></div>
+      
         <div class="cart-container">
           <div class="cart-board">
             <div class="resume">
+              <% if (locals.req.item) { %>
+                <div id="toast" data-value="cart"></div>
+              <% } %> 
               <% if (locals.cart && locals.cart.length > 0) { %>
                
                 <% locals.cart.forEach((element, index) => { %>
                     
-                  <div id='b<%= element.id %>' class="products">
+                  <div class="products">
                     <div class="product-img">
                       <img src="../img/pizzas/<%= element?.pizza?.image %>">
                     </div>
@@ -74,7 +77,7 @@
                                 <% if (element?.bebidas?.gaseosas?.length > 0) { %>
                                   <h5 class="extra-title">Gaseosas</h5>
                                     <% element.bebidas.gaseosas.forEach((gaseosa, index) => { %>
-                                      <% console.log(gaseosa) %> 
+                                      
                                       <span><%= gaseosa.cantidad %> x <%= gaseosa.name %></span>
                                     <% }) %>
                                 <% } %>
@@ -102,7 +105,7 @@
                                 <button class="min-plus" id="sum" onclick="totalPay()">+</button>
                               </div>
                               <div class="div-trash">
-                                <form id='b<%= element.id %>' action="/cart/<%= index %>?_method=DELETE" method="post">
+                                <form action="/cart/<%= index %>?_method=DELETE" method="post">
                                   <button type="submit" id="<%= index %>" class="btn-trash"><i class="fas fa-trash"></i></button>
                                 </form>
                               </div>

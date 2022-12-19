@@ -1,4 +1,4 @@
-const deleteItem = document.querySelectorAll('#deleteItem')
+
 
 function toast({ title = "", message = "", type = "info", duration = 3000 }) {
   const main = document.getElementById("toast");
@@ -55,21 +55,36 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
   }
 }
 
+const toastMessage = document.querySelector('#toast')
 
-for(let item of deleteItem){
 
-item.addEventListener('submit', (e) => {
 
-  localStorage.setItem('hola a todes', 'pvtas')
 
+if(toastMessage.dataset.value == 'cart')
   toast({
     title: "Exito!",
     message: "Producto eliminado de la nave.",
     type: "success",
     duration: 3000
   })
-})
-}
-  
 
+
+
+  if(toastMessage.dataset.value == 'profile'){
+  toast({
+    title: "Exito!",
+    message: "Perfil actualizado!",
+    type: "success",
+    duration: 3000
+  })
+}
+
+if(toastMessage.dataset.value == 'productCreate'){
+  toast({
+    title: "Exito!",
+    message: "Producto agregado correctamente!",
+    type: "success",
+    duration: 3000
+  })
+}
 

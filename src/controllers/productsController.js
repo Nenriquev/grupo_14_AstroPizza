@@ -39,7 +39,7 @@ const productController = {
   },
 
   create: (req, res) => {
-    res.render('./products/product_create.ejs')
+    res.render('./products/product_create.ejs', {req: req.query})
   },
 
       
@@ -58,7 +58,8 @@ const productController = {
       status_id: 1,
       image: req?.file?.filename ? req.file.filename : 'placeholder.png' 
     }).then(()=>{
-      res.redirect("/product");
+
+      res.redirect("/product/create?product=success");
     })
     },
 
