@@ -110,11 +110,11 @@ async function cantidadAlcohol() {
 }
 
 async function dataPostresPedidos() {
- let data = []
+  let data = []
 
   const dataPostres = await Products.findAll({ where: { category_id: "7" } })
   dataPostres.forEach(element => {
-    if(extrasPedidos[element.name] != 0){
+    if (extrasPedidos[element.name] != 0) {
       data.push({
         item: element,
         qty: extrasPedidos[element.name]
@@ -124,21 +124,49 @@ async function dataPostresPedidos() {
   return (data);
 }
 
-async function precioTotal() {
-  let precio = 0
 
-  return precio
+async function precioTotal(cart) {
+  let precioSumado = 0
+  cart.forEach((element) => {
+    precioSumado = precioSumado + element.pizza.price
+    if (element?.extras?.quesos?.length > 0) {
+      precioSumado = precioSumado + element?.extras?.quesos?.length * element?.extras?.quesos[0]?.price
+    }
+    if (element?.extras?.vegetales?.length > 0) {
+      precioSumado = precioSumado + element?.extras?.vegetales?.length * element?.extras?.vegetales[0]?.price
+    }
+    if (element?.extras?.proteinas?.length > 0) {
+      precioSumado = precioSumado + element?.extras?.proteinas?.length * element?.extras?.proteinas[0]?.price
+    }
+    if (element?.bebidas?.gaseosas?.bebidasPedidas.length > 0) {
+      (element?.bebidas?.gaseosas?.bebidasPedidas.forEach((bebida, index) => {
+        precioSumado = precioSumado + bebida?.price * element?.bebidas?.gaseosas?.cantidadBebidasPedidas[index]
+      }))
+    }
+    if (element?.bebidas?.cervezas?.alcoholPedidas.length > 0) {
+      (element?.bebidas?.cervezas?.alcoholPedidas.forEach((cerveza, index) => {
+        precioSumado = precioSumado + cerveza?.price * element?.bebidas?.cervezas?.cantidadAlcoholPedidas[index]
+      }))
+    }
+    if (element?.postres?.length > 0) {
+      (element?.postres?.forEach((postre, index) => {
+        precioSumado = precioSumado + element?.postres[index].item.price * element?.postres[index].qty
+      }))
+    }
+  })
+
+  return precioSumado
 }
 
 const cartController = {
-  cart: (req, res) => {
-    res.render("cart.ejs", { req: req.query });
+  cart: async (req, res) => {
+    let totalPrecio = await precioTotal(req.session.cart)
+    res.render("cart.ejs", { req: req.query, totalPrecio: totalPrecio });
   },
 
   addToCart: async (req, res) => {
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza;
-
 
     if (req.session.cart) {
       req.session.cart.push({
@@ -158,8 +186,7 @@ const cartController = {
             cantidadAlcoholPedidas: await cantidadAlcohol(),
           },
         },
-        postres: await dataPostresPedidos(),
-        precio: await precioTotal(),
+        postres: await dataPostresPedidos()
       });
     } else {
       req.session.cart = [
@@ -180,12 +207,10 @@ const cartController = {
               cantidadAlcoholPedidas: await cantidadAlcohol(),
             },
           },
-          postres: await dataPostresPedidos(),
-          precio: await precioTotal(),
+          postres: await dataPostresPedidos()
         },
       ];
     }
-
     res.redirect("/cart");
   },
 
@@ -203,4 +228,3 @@ const cartController = {
 };
 
 module.exports = cartController;
- 

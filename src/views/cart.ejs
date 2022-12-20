@@ -44,7 +44,7 @@
                               <div class="description">
                               
                                   <% if (element?.extras?.quesos?.length > 0) { %>
-                                    <h5 class="extra-title">Quesos $200</h5>
+                                    <h5 class="extra-title">Quesos $150</h5>
                                     <div class="div-box">
                                         <% element?.extras?.quesos.forEach(queso => { %>
                                           <span>1 x Extra <%= queso.name %></span>
@@ -139,32 +139,9 @@
               <div class="check-box">
                 <div class="bill">
                   <span>Subtotal:</span>
-                  <% let totalPrice = 0%>
-                  <% locals.cart.forEach((element, index) => { %>   
-                    <% totalPrice= totalPrice + element.pizza.price%>
-                    <% element?.extras?.quesos.forEach(queso => { %>       
-                      <% totalPrice= totalPrice + queso.price%>
-                    <% }) %>
-                    <% element.extras.vegetales.forEach(vegetal => { %>
-                      <% totalPrice= totalPrice + vegetal.price%>
-                    <% }) %>
-                    <% element?.extras?.proteinas?.forEach(proteina => { %>
-                      <% totalPrice= totalPrice + proteina.price%>
-                    <% }) %>
-                    <% element.bebidas.gaseosas.bebidasPedidas.forEach((gaseosa, i) => { %>
-                      <%let gaseosaCant = element.bebidas.gaseosas.cantidadBebidasPedidas[i] %>
-                      <% totalPrice= totalPrice + (gaseosa.price*gaseosaCant)%>
-                    <% }) %>
-                    <% element.bebidas.cervezas?.alcoholPedidas.forEach((cerveza, i) => { %>
-                      <%let cervezaCant = element.bebidas.cervezas.cantidadAlcoholPedidas[i] %>
-                      <% totalPrice= totalPrice + (cerveza.price*cervezaCant)%>
-                    <% }) %>
-                    <% element?.postres?.postresPedidos.forEach((postre, i) => { %>
-                      <%let postresCant = element.postres.cantidadPostresPedidos[i]  %>
-                      <% totalPrice= totalPrice + (postre.price*postresCant)%>
-                    <% }) %>
-                  <% })%>
-                  <span>$<%= totalPrice %></span>
+
+                  $<%= totalPrecio %>
+                  
                 </div>
                 <div class="bill">
                   <span>Delivery:</span>
@@ -175,7 +152,7 @@
                   <span>$0</span>
                 </div>
                 <div class="bill">
-                  <span class="total">Total:<span>$<%= totalPrice %></span></span>
+                  <span class="total">Total:<span>$<%=  totalPrecio %></span></span>
                   <span class="total" id="total" value=""></span>
                 </div>
               </div>
