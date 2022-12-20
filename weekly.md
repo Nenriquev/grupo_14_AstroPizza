@@ -88,3 +88,13 @@ DONE:
 WIP:
 - Suma de precios en el carrito.
 - Validaciones en el Front.
+- 
+**19/12**
+
+DONE: 
+- Validaciones en el Front de todas las vistas.
+- Distribucion de tareas del Sprint 8.
+
+WIP:
+- Suma de precios en el carrito.
+- Finalizar base de datos del carrito.
