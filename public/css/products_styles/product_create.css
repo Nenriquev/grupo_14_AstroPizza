@@ -223,8 +223,8 @@ input[type="file"] {
 }
 
 
-/* Check Validation Front*/
-/*.check-names,
+ Check Validation Front
+.check-names,
 .check-price,
 .check-img,
 .check-text{
@@ -236,7 +236,7 @@ input[type="file"] {
 }
 
 
-/*.check-text {
+.check-text {
   position: absolute;
   top: 14px;
   right: 45px;
@@ -244,12 +244,12 @@ input[type="file"] {
   text-shadow: 0px 0px 0, 1px 2px 6px #000000;
 }*/
 
-/*.hidden{
+.hidden{
   display: none;
 }
 
 /* Alert Circle Validation Front*/
-/*.alert-circle-names, 
+.alert-circle-names, 
 .alert-circle-price,
 .alert-circle-img{
   position: absolute;
@@ -265,7 +265,7 @@ input[type="file"] {
   right: 45px;
   color: rgb(255, 13, 13);
   text-shadow: 0px 0px 0, 1px 2px 6px #000000;
-}*/
+}
 
 
 @media (min-width: 1024px) {
