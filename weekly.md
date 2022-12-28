@@ -88,7 +88,8 @@ DONE:
 WIP:
 - Suma de precios en el carrito.
 - Validaciones en el Front.
-- 
+
+
 **19/12**
 
 DONE: 
@@ -98,3 +99,15 @@ DONE:
 WIP:
 - Suma de precios en el carrito.
 - Finalizar base de datos del carrito.
+
+**28/12**
+
+DONE:
+- Api de usuarios.
+- Creacion del Repo del Dashboard de React.
+- Suma de precios en el carrito.
+
+WIP:
+- Finalizar base de datos del carrito.
+- Api de productos.
+- Terminar Dashboard de React.
