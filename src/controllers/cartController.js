@@ -91,11 +91,11 @@ async function dataBebidasAlcoholicasPedidas() {
 }
 
 async function dataPostresPedidos() {
- let data = []
+  let data = []
 
   const dataPostres = await Products.findAll({ where: { category_id: "7" } })
   dataPostres.forEach(element => {
-    if(extrasPedidos[element.name] != 0){
+    if (extrasPedidos[element.name] != 0) {
       data.push({
         item: element,
         qty: Number(extrasPedidos[element.name]),
@@ -183,8 +183,9 @@ async function calculateItems(data) {
 }
 
 const cartController = {
-  cart: (req, res) => {
-    res.render("cart.ejs", { req: req.query });
+  cart: async (req, res) => {
+    let totalPrecio = await precioTotal(req.session.cart)
+    res.render("cart.ejs", { req: req.query, totalPrecio: totalPrecio });
   },
 
   addToCart: async (req, res) => {
@@ -345,4 +346,3 @@ const cartController = {
 };
 
 module.exports = cartController;
- 

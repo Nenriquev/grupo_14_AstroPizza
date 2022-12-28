@@ -11,6 +11,11 @@ const localsMiddleware = require('./middlewares/localsMiddle');
 const recordameMiddleware = require('./middlewares/recordameMiddle');
 const app = express();
 
+/* APIs */
+
+const apiUsersRoutes = require('./routers/api/usersRoutes');
+app.use('/api/users', apiUsersRoutes);
+
 
 /* CONFIGURACÍON */
 app.set('views', path.join(__dirname, '/views'));
