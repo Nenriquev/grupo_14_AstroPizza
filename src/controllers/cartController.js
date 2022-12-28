@@ -1,6 +1,7 @@
 const db = require("../database/models");
 
 const Products = db.Product;
+const Order = db.Order
 
 
 async function dataPizzaElegida() {
@@ -128,10 +129,9 @@ const totalCountExtras = (element) => {
 async function calculateItems(data) {
   let totalItems = 0
   let totalAmount = 0
-  let totalSub = []
   const sessionCart = await data
-  sessionCart.forEach(element =>{
-      let subtotal = 0
+   sessionCart.forEach(element => {
+    let subtotal = 0
       if(element.pizza){
         totalItems++
         subtotal = subtotal + element.pizza.price
@@ -177,10 +177,9 @@ async function calculateItems(data) {
         totalAmount = totalAmount + extra.totalAmount
       }
       
-      totalSub.push(subtotal)
-      
+      element.subtotal = subtotal 
 })
-  return({totalSub: totalSub, totalItems: totalItems, totalAmount: totalAmount})
+  return({totalItems: totalItems, totalAmount: totalAmount})
 }
 
 const cartController = {
@@ -205,7 +204,7 @@ const cartController = {
           cervezas: await dataBebidasAlcoholicasPedidas(),
         },
         postres: await dataPostresPedidos(),
-        total: null
+        subtotal: null
       });
     } else {
       req.session.cart = [
@@ -221,13 +220,12 @@ const cartController = {
             cervezas: await dataBebidasAlcoholicasPedidas(),
             },
           postres: await dataPostresPedidos(),
-          total: null
+          subtotal: null
         },
       ];
     }
      await calculateItems(req.session.cart)
-     console.log(req.session.cart)
-     
+
     res.redirect("/cart");
   },
 
@@ -249,7 +247,8 @@ const cartController = {
     const cart = req.session.cart
     const items = []
     const extras = []
-    const totalCount = calculateItems()
+    const totalCount = await calculateItems(cart)
+    
 
     cart.forEach((element) => {
      
@@ -324,8 +323,7 @@ const cartController = {
       }
     })
  
-  
-        /* await Order.create(
+          await Order.create(
         {
           user_id: res.locals.user.id,
           payMethod: "efectivo",
@@ -341,8 +339,8 @@ const cartController = {
             },
           ],
         }
-      );  */
-      
+      );   
+      res.redirect('/')
   }
 };
 
