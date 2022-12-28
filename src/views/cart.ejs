@@ -23,7 +23,7 @@
         <div class="cart-container">
           <div class="cart-board">
             <div class="resume">
-              <% if (locals.req.item) { %>
+              <% if (locals.param.item) { %>
                 <div id="toast" data-value="cart"></div>
               <% } %> 
               <% if (locals.cart && locals.cart.length > 0) { %>
@@ -139,9 +139,7 @@
               <div class="check-box">
                 <div class="bill">
                   <span>Subtotal:</span>
-
-                  $<%= totalPrecio %>
-                  
+                  $ 
                 </div>
                 <div class="bill">
                   <span>Delivery:</span>
@@ -158,7 +156,6 @@
               </div>
               <div class="payment">
                 <h4>informacion de Pago</h4>
-                  <form action="">
                   <h3 >Forma de Pago</h3>
                   <div>
                     <span>Efectivo</span>

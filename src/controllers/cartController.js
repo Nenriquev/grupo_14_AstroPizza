@@ -183,9 +183,8 @@ async function calculateItems(data) {
 }
 
 const cartController = {
-  cart: async (req, res) => {
-    let totalPrecio = await precioTotal(req.session.cart)
-    res.render("cart.ejs", { req: req.query, totalPrecio: totalPrecio });
+  cart: (req, res) => {
+    res.render("cart.ejs", { param: req.query });
   },
 
   addToCart: async (req, res) => {
