@@ -3,6 +3,9 @@
   src: url('../fonts/Console.ttf');
 }
 
+html{
+  overflow-x: hidden;
+}
 body{
   background: url('../img/backgrounds/background.jpg') no-repeat center center fixed;
   margin: 0;
@@ -13,6 +16,7 @@ body{
   background-size: cover;
   font-family: 'Console';
   height: 100vh;
+  overflow: hidden;
 }
 
 .container{
@@ -25,6 +29,718 @@ body{
 h1{
   color: rgba(255, 255, 255, 0.703);
   margin: 0;
-  font-size: 300px;
 }
 
+.ejected{
+  width: 30%;
+  position: relative;
+  animation: eject 10s normal forwards;
+}
+
+
+@keyframes eject {
+  0% {
+    transform: translate(-30vw);
+  }
+  100% {
+    transform: translate(100vw) rotate(800deg);
+  }
+}
+
+h1 {
+  position: absolute;
+  color: white;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+span {
+  display: inline-block;
+}
+span.w {
+  display: inline;
+}
+span:nth-child(1) {
+  -webkit-animation: type1 5s normal linear both;
+          animation: type1 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type1 {
+  0%, 21.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  22%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type1 {
+  0%, 21.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  22%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(2) {
+  -webkit-animation: type2 5s normal linear both;
+          animation: type2 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type2 {
+  0%, 23% {
+    width: 0px;
+    opacity: 0;
+  }
+  23.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type2 {
+  0%, 23% {
+    width: 0px;
+    opacity: 0;
+  }
+  23.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(3) {
+  -webkit-animation: type3 5s normal linear both;
+          animation: type3 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type3 {
+  0%, 24.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  25%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type3 {
+  0%, 24.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  25%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(4) {
+  -webkit-animation: type4 5s normal linear both;
+          animation: type4 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type4 {
+  0%, 26% {
+    width: 0px;
+    opacity: 0;
+  }
+  26.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type4 {
+  0%, 26% {
+    width: 0px;
+    opacity: 0;
+  }
+  26.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(5) {
+  -webkit-animation: type5 5s normal linear both;
+          animation: type5 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type5 {
+  0%, 27.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  28%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type5 {
+  0%, 27.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  28%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(6) {
+  -webkit-animation: type6 5s normal linear both;
+          animation: type6 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type6 {
+  0%, 29% {
+    width: 0px;
+    opacity: 0;
+  }
+  29.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type6 {
+  0%, 29% {
+    width: 0px;
+    opacity: 0;
+  }
+  29.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(7) {
+  -webkit-animation: type7 5s normal linear both;
+          animation: type7 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type7 {
+  0%, 30.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  31%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type7 {
+  0%, 30.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  31%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(8) {
+  -webkit-animation: type8 5s normal linear both;
+          animation: type8 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type8 {
+  0%, 32% {
+    width: 0px;
+    opacity: 0;
+  }
+  32.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type8 {
+  0%, 32% {
+    width: 0px;
+    opacity: 0;
+  }
+  32.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(9) {
+  -webkit-animation: type9 5s normal linear both;
+          animation: type9 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type9 {
+  0%, 33.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  34%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type9 {
+  0%, 33.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  34%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(10) {
+  -webkit-animation: type10 5s normal linear both;
+          animation: type10 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type10 {
+  0%, 35% {
+    width: 0px;
+    opacity: 0;
+  }
+  35.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type10 {
+  0%, 35% {
+    width: 0px;
+    opacity: 0;
+  }
+  35.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(11) {
+  -webkit-animation: type11 5s normal linear both;
+          animation: type11 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type11 {
+  0%, 36.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  37%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type11 {
+  0%, 36.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  37%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(12) {
+  -webkit-animation: type12 5s normal linear both;
+          animation: type12 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type12 {
+  0%, 38% {
+    width: 0px;
+    opacity: 0;
+  }
+  38.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type12 {
+  0%, 38% {
+    width: 0px;
+    opacity: 0;
+  }
+  38.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(13) {
+  -webkit-animation: type13 5s normal linear both;
+          animation: type13 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type13 {
+  0%, 39.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  40%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type13 {
+  0%, 39.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  40%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(14) {
+  -webkit-animation: type14 5s normal linear both;
+          animation: type14 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type14 {
+  0%, 41% {
+    width: 0px;
+    opacity: 0;
+  }
+  41.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type14 {
+  0%, 41% {
+    width: 0px;
+    opacity: 0;
+  }
+  41.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(15) {
+  -webkit-animation: type15 5s normal linear both;
+          animation: type15 5s normal linear both;
+          animation-delay: 1600ms;
+}
+@-webkit-keyframes type15 {
+  0%, 42.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  43%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type15 {
+  0%, 42.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  43%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(16) {
+  -webkit-animation: type16 5s normal linear both;
+          animation: type16 5s normal linear both;
+          animation-delay: 1800ms;
+}
+@-webkit-keyframes type16 {
+  0%, 44% {
+    width: 0px;
+    opacity: 0;
+  }
+  44.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type16 {
+  0%, 44% {
+    width: 0px;
+    opacity: 0;
+  }
+  44.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+span:nth-child(17) {
+  -webkit-animation: type17 5s normal linear both;
+          animation: type17 5s normal linear both;
+          animation-delay: 2000ms;
+}
+@-webkit-keyframes type17 {
+  0%, 45.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  46%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type17 {
+  0%, 45.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  46%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+
+  span:nth-child(18) {
+    -webkit-animation: type18 5s normal linear both;
+            animation: type18 5s normal linear both;
+            animation-delay: 2000ms;
+  }
+  @-webkit-keyframes type18 {
+    0%, 47% {
+      width: 0px;
+      opacity: 0;
+    }
+    47.5%, 90% {
+      width: auto;
+      opacity: 1;
+    }
+    95%, 100% {
+      opacity: 1;
+    }
+  }
+  @keyframes type18 {
+    0%, 47% {
+      width: 0px;
+      opacity: 0;
+    }
+    47.5%, 90% {
+      width: auto;
+      opacity: 1;
+    }
+    95%, 100% {
+      opacity: 1;
+    }
+}
+
+span:nth-child(19) {
+  -webkit-animation: type19 5s normal linear both;
+          animation: type19 5s normal linear both;
+          animation-delay: 2000ms;
+}
+@-webkit-keyframes type19 {
+  0%, 48.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  49%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type19 {
+  0%, 48.5% {
+    width: 0px;
+    opacity: 0;
+  }
+  49%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+
+span:nth-child(20) {
+  -webkit-animation: type20 5s normal linear both;
+          animation: type20 5s normal linear both;
+          animation-delay: 2000ms;
+}
+@-webkit-keyframes type20 {
+  0%, 50% {
+    width: 0px;
+    opacity: 0;
+  }
+  50.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes type20 {
+  0%, 50% {
+    width: 0px;
+    opacity: 0;
+  }
+  50.5%, 90% {
+    width: auto;
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 1;
+  }
+}
+
+.asteroid#a1{
+  position: absolute;
+  width: 12%;
+  bottom: 17%;
+  left: 8%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.asteroid#a2{
+  position: absolute;
+  width: 17%;
+  top: 3%;
+  left: 68%;
+  animation: asteroid 35s linear infinite;
+  animation-delay: 1s;
+  overflow: hidden;
+  z-index: -99;
+}
+
+@keyframes asteroid {
+  0% {
+    transform: translateY(0px) rotate(-360deg);
+  }
+   50% {
+    transform: translateY(30px);
+  }  
+
+   100% {
+    transform: translateY(0px) rotate(360deg);
+  } 
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 100px;
+  }
+}
+
+@media (min-width: 648px) and (max-width: 1024px) {
+  .ejected{
+    width: 50%;
+  }
+}
+
+@media (max-width: 648px) {
+
+  .ejected{
+    display: none;
+  }
+  
+}
