@@ -10,11 +10,13 @@ const cookieParser = require('cookie-parser')
 const localsMiddleware = require('./middlewares/localsMiddle');
 const recordameMiddleware = require('./middlewares/recordameMiddle');
 const app = express();
+const cors = require('cors')
 
 /* APIs */
 
 const apiUsersRoutes = require('./routers/api/usersRoutes');
 app.use('/api/users', apiUsersRoutes);
+app.use(cors())
 
 
 /* CONFIGURACÍON */
@@ -64,6 +66,6 @@ app.use(function(error, req, res, next) {
 
 
 /* SERVER */
-app.listen(3000, () =>{
-  console.log("Servidor corriendo en el puerto 3000")
+app.listen(3001, () =>{
+  console.log("Servidor corriendo en el puerto 3001")
 })
