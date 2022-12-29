@@ -5,6 +5,7 @@ const sequelize = db.sequelize;
 const Products = db.Product
 
 
+
 const indexController = {
   index: (req, res) => {
     Products.findAll(
