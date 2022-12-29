@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2022 a las 16:01:03
+-- Tiempo de generación: 29-12-2022 a las 00:30:23
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -51,6 +51,47 @@ INSERT INTO `category` (`id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `extras`
+--
+
+CREATE TABLE `extras` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `items`
+--
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `order_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `paymethod` varchar(25) NOT NULL,
+  `total_items` int(11) NOT NULL,
+  `total` float(10,0) NOT NULL,
+  `createdAt` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -77,10 +118,10 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`, `category
 (6, 'urano', 1350, 'La septima pizza del sistema solar, con 200 grs de muzzarella, queso parmesano, queso provolone y queso azul', 'urano.webp', 1, 1),
 (7, 'neptuno', 1350, 'Pizza de sentimientos fríos, con 200 grs de muzzarella, salchicha italiana y meatballs', 'neptuno.webp', 1, 1),
 (8, 'arma tu pizza', 1150, 'Arma tu propia pizza, sos dueno del universo pizza, creala como quieras', 'arma-tu-pizza.webp', 1, 1),
-(9, 'muzzarella', 150, 'Extra de queso muzarella', 'muzzarella.png', 2, 1),
-(10, 'provolone', 150, 'Extra de queso provolone', 'provolone.png', 2, 1),
-(11, 'parmesano', 150, 'Extra de queso parmesano', 'parmesano.png', 2, 1),
-(12, 'roquefort', 150, 'Extra de queso roquefort', 'roquefor.png', 2, 1),
+(9, 'muzzarella', 200, 'Extra de queso muzarella', 'muzzarella.png', 2, 1),
+(10, 'provolone', 200, 'Extra de queso provolone', 'provolone.png', 2, 1),
+(11, 'parmesano', 200, 'Extra de queso parmesano', 'parmesano.png', 2, 1),
+(12, 'roquefort', 200, 'Extra de queso roquefort', 'roquefor.png', 2, 1),
 (13, 'jamon', 250, 'Extra de Jamon', 'jamon.png', 4, 1),
 (14, 'panceta', 250, 'Extra de panceta', 'panceta.png', 4, 1),
 (15, 'pepperoni', 250, 'Extra de pepperoni', 'pepperoni.png', 4, 1),
@@ -118,19 +159,6 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`, `category
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `shop`
---
-
-CREATE TABLE `shop` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `status`
 --
 
@@ -159,6 +187,7 @@ CREATE TABLE `users` (
   `names` text NOT NULL,
   `email` text NOT NULL,
   `telephone` bigint(20) DEFAULT NULL,
+  `adress` text NOT NULL,
   `password` text NOT NULL,
   `profile_img` text DEFAULT NULL,
   `role_id` int(11) NOT NULL DEFAULT 1,
@@ -169,12 +198,12 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `names`, `email`, `telephone`, `password`, `profile_img`, `role_id`, `createdAt`) VALUES
-(1, 'Nerio Enrique', 'nerio@astropizza.com', 611435385, '$2b$10$4.QGSyCHR8gbMsgq.pURCumao6XHclrJflusYu63vhfHzSWzCgFBy', 'default_profile.png', 2, '2022-11-30'),
-(2, 'Matias Rene', 'matiasrene@astropizza.com', 0, '$2b$10$UudqLBjLd75PDC5UU0rPx.2iMfrl6oovFny3.3i.mEFwuJIWW2ZuW', 'default_profile.png', 2, '2022-11-30'),
-(3, 'Ramiro', 'ramiro@astropizza.com', 0, '$2b$10$X3zp/QVnvaf/nq6gRITJYusKdYPtsQ/ofxWkkhs8n9Q402SoCg5tG', 'default_profile.png', 2, '2022-11-30'),
-(4, 'Miguel', 'miguel@astropizza.com', 0, '$2b$10$NuxngeLejoMHfglYEjgY2OHSjqp5LvxmiV9Y4l7My3Ygzk6m2xnwO', 'default_profile.png', 2, '2022-11-30'),
-(5, 'common user', 'user@astropizza.com', 0, '$2b$10$.twmDidG2HTGg1NA3lMCxeTFpINVjb2DZsldtbAfT/G9PQMFCFS1K', 'default_profile.png', 1, '2022-11-30');
+INSERT INTO `users` (`id`, `names`, `email`, `telephone`, `adress`, `password`, `profile_img`, `role_id`, `createdAt`) VALUES
+(1, 'Nerio Enrique', 'nerio@astropizza.com', 611435385, '', '$2b$10$4.QGSyCHR8gbMsgq.pURCumao6XHclrJflusYu63vhfHzSWzCgFBy', 'default_profile.png', 2, '2022-11-30'),
+(2, 'Matias Rene', 'matiasrene@astropizza.com', 0, '', '$2b$10$UudqLBjLd75PDC5UU0rPx.2iMfrl6oovFny3.3i.mEFwuJIWW2ZuW', 'default_profile.png', 2, '2022-11-30'),
+(3, 'Ramiro', 'ramiro@astropizza.com', 0, '', '$2b$10$X3zp/QVnvaf/nq6gRITJYusKdYPtsQ/ofxWkkhs8n9Q402SoCg5tG', 'default_profile.png', 2, '2022-11-30'),
+(4, 'Miguel', 'miguel@astropizza.com', 0, '', '$2b$10$NuxngeLejoMHfglYEjgY2OHSjqp5LvxmiV9Y4l7My3Ygzk6m2xnwO', 'default_profile.png', 2, '2022-11-30'),
+(5, 'common user', 'user@astropizza.com', 0, '', '$2b$10$.twmDidG2HTGg1NA3lMCxeTFpINVjb2DZsldtbAfT/G9PQMFCFS1K', 'default_profile.png', 1, '2022-11-30');
 
 -- --------------------------------------------------------
 
@@ -206,20 +235,35 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `extras`
+--
+ALTER TABLE `extras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `item_id` (`item_id`);
+
+--
+-- Indices de la tabla `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`) USING BTREE,
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Indices de la tabla `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`),
   ADD KEY `status_id` (`status_id`);
-
---
--- Indices de la tabla `shop`
---
-ALTER TABLE `shop`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indices de la tabla `status`
@@ -253,16 +297,28 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT de la tabla `extras`
+--
+ALTER TABLE `extras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
-
---
--- AUTO_INCREMENT de la tabla `shop`
---
-ALTER TABLE `shop`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `status`
@@ -285,6 +341,26 @@ ALTER TABLE `user_role`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `extras`
+--
+ALTER TABLE `extras`
+  ADD CONSTRAINT `extras_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `product_idfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `products`

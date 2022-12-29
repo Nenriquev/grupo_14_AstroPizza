@@ -50,7 +50,13 @@ module.exports = (sequelize, dataTypes) => {
     Product.belongsTo(models.Status,{
       as: 'status',
       foreignKey: 'status_id'
-  })  
+    })  
+
+    Product.belongsToMany(models.Item, {
+      through: 'id',
+      as: 'item',
+      foreignKey: 'product_id'
+    }) 
   }
 
   return Product

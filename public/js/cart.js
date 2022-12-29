@@ -1,27 +1,32 @@
-
-const count = document.querySelector('#count')
-const sub = document.querySelector('#sub')
-const sum = document.querySelector('#sum')
+const count = document.querySelectorAll('.count')
+const sub = document.querySelector('[name="sub"]')
+const sum = document.querySelector('[name="sum"]')
 const total = document.querySelector('#total')
 const items = document.querySelectorAll('.products')
-const itemsTotal = []
 
 
 
-function totalPay(precio, id){
-  let primerPrecio = total.value
+    countPay = (e, op) => {
 
-  if(id == 'sum' && count.value < 10){
-    count.value++
-   }
+      count.forEach(element => {
+          if(element.id == `count${e}` && op == 'sum' && element.value < 10){
+            element.value++
+          }
+          if(element.id == `count${e}` && op == 'sub' && element.value > 1){
+            element.value--
+          }
+      });
+    }
 
-   if(id == 'sub' && count.value > 1){
-    count.value--
-   }
+    
+  
 
-   primerPrecio = precio * count.value
+
+
+   primerPrecio = 5 * count.value
    total.innerHTML = `$${primerPrecio}`
-}
+
+
 
 
 

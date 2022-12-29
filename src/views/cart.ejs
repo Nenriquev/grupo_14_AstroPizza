@@ -23,7 +23,7 @@
         <div class="cart-container">
           <div class="cart-board">
             <div class="resume">
-              <% if (locals.req.item) { %>
+              <% if (locals.param.item) { %>
                 <div id="toast" data-value="cart"></div>
               <% } %> 
               <% if (locals.cart && locals.cart.length > 0) { %>
@@ -36,7 +36,7 @@
                           <div class="name-amount">
                             <h4><%= element?.pizza?.name %></h4>
                               <div class="amount">
-                                <i class="fas fa-dollar-sign"></i><h4><%= element?.pizza?.price %></h4>
+                                <i class="fas fa-dollar-sign"></i><h4><%= element.subtotal %> </h4>
                               </div>
                           </div>
                           <div class="description-box">
@@ -76,20 +76,20 @@
     
                               </div>
                               <div class="description">
-                                <% if (element?.bebidas?.gaseosas?.bebidasPedidas.length > 0) { %>
+                                <% if (element?.bebidas?.gaseosas?.length > 0) { %>
                                   <div class="div-box">
                                   <h5 class="extra-title">Gaseosas</h5>
-                                    <% element.bebidas.gaseosas.bebidasPedidas.forEach((gaseosa, i) => { %>
-                                      <span><%= element.bebidas.gaseosas.cantidadBebidasPedidas[i] %> x <%= gaseosa.name %> </span>
+                                    <% element.bebidas.gaseosas.forEach(gaseosa => { %>
+                                      <span><%= gaseosa.qty %> x <%= gaseosa.item.name %> </span>
                                     <% }) %>
                                   </div>
                                 <% } %>
 
-                                <% if (element?.bebidas?.cervezas?.alcoholPedidas?.length > 0) { %>
+                                <% if (element?.bebidas?.cervezas?.length > 0) { %>
                                   <div class="div-box">
                                   <h5 class="extra-title">Cervezas</h5>
-                                    <% element.bebidas.cervezas?.alcoholPedidas.forEach((cerveza, i) => { %>
-                                      <span><%= element.bebidas.cervezas.cantidadAlcoholPedidas[i] %> x <%= cerveza.name %></span>
+                                    <% element.bebidas.cervezas?.forEach(cerveza => { %>
+                                      <span><%= cerveza.qty %> x <%= cerveza.item.name %></span>
                                     <% }) %>
                                   </div>
                                 <% } %>
@@ -104,12 +104,12 @@
                                 <% } %>
                               </div>
                             </div>
-                        
+                         
                             <div class="div-qty">
                               <div class="qty">
-                                <button class="min-plus" id="sub" onclick="totalPay()">-</button>
-                                  <input type="number" class="count" id="count" value="1" readonly>
-                                <button class="min-plus" id="sum" onclick="totalPay()">+</button>
+                                <button class="min-plus" onclick="countPay('<%= index %>','sub')">-</button>
+                                  <input type="number" class="count" id="count<%= index %>" value="1" readonly>
+                                <button class="min-plus" onclick="countPay('<%= index %>','sum')">+</button>
                               </div>
                               <div class="div-trash">
                                 <form action="/cart/<%= index %>?_method=DELETE" method="post">
@@ -125,9 +125,9 @@
                   <% }) %>
 
                   <% } else { %>
-
-                   <h1 class="vacio">El carrito esta vacio</h1>
-
+                    <div class="empty-box">
+                      <h1 class="empty">La nave esta vacia</h1>
+                    </div>
               <% } %>
     
             </div>
@@ -139,26 +139,23 @@
               <div class="check-box">
                 <div class="bill">
                   <span>Subtotal:</span>
-
-                  $<%= totalPrecio %>
-                  
+                  $ 
                 </div>
                 <div class="bill">
                   <span>Delivery:</span>
-                  <span>$0</span>
+                  <span>$120</span>
                 </div>
                 <div class="bill">
                   <span>Descuentos:</span>
                   <span>$0</span>
                 </div>
                 <div class="bill">
-                  <span class="total">Total:<span>$<%=  totalPrecio %></span></span>
-                  <span class="total" id="total" value=""></span>
+                  <span class="total">Total:</span>
+                  <span class="total" id="total" value="1">$</span>
                 </div>
               </div>
               <div class="payment">
                 <h4>informacion de Pago</h4>
-                  <form action="">
                   <h3 >Forma de Pago</h3>
                   <div>
                     <span>Efectivo</span>
@@ -190,12 +187,11 @@
                     </label>
                   </div>
 
-                    <div class="pay-button">
-                      <a href="#" class="bttn-dark">Pagar 🚀</a>
-                    </div>
-                  </form>
+              <div class="pay-button">
+                <form action="/cart" method="post">
+                  <button type='submit' class="bttn-dark">Pagar 🚀</button>
+                </form>
               </div>
-              
             </div>
           </div>   
     </div>
