@@ -15,7 +15,7 @@ const apiUsersController = {
             id: element.dataValues.id,
             names: element.dataValues.names,
             email: element.dataValues.email,
-            detail: `http://localhost:3000/api/users/${element.dataValues.id}`
+            detail: `http://localhost:3001/api/users/${element.dataValues.id}`
 
           });
         });
@@ -39,7 +39,7 @@ const apiUsersController = {
           id: { id: user.dataValues.id },
           names: { names: user.dataValues.names },
           email: { email: user.dataValues.email },
-          img: {url: `http://localhost:3000/img/profile/${user.dataValues.profile_img}`}
+          img: {url: `http://localhost:3001/img/profile/${user.dataValues.profile_img}`}
 
         };
 

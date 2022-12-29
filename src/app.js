@@ -15,7 +15,8 @@ const app = express();
 
 const apiUsersRoutes = require('./routers/api/usersRoutes');
 app.use('/api/users', apiUsersRoutes);
-
+const apiProductsRoutes = require('./routers/api/productsRoutes');
+app.use('/api/products', apiProductsRoutes);
 
 /* CONFIGURACÍON */
 app.set('views', path.join(__dirname, '/views'));
@@ -64,6 +65,6 @@ app.use(function(error, req, res, next) {
 
 
 /* SERVER */
-app.listen(3000, () =>{
-  console.log("Servidor corriendo en el puerto 3000")
+app.listen(3001, () =>{
+  console.log("Servidor corriendo en el puerto 3001")
 })

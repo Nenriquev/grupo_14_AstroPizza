@@ -1,9 +1,8 @@
-const path = require("path");
 const db = require("../database/models");
 
-
-
 const Products = db.Product;
+const Order = db.Order
+
 
 async function dataPizzaElegida() {
   let pizzaElegida;
@@ -19,7 +18,7 @@ async function dataPizzaElegida() {
 
 async function dataQuesosPedidos() {
   let quesitos = [];
-  const que = await Products.findAll({ where: { category_id: "2" } }).then(
+  await Products.findAll({ where: { category_id: "2" } }).then(
     (queso) => {
       for (let i = 0; i < queso.length; i++) {
         if (extrasPedidos[queso[i].name] == "on") {
@@ -33,7 +32,7 @@ async function dataQuesosPedidos() {
 
 async function dataVegetalesPedidos() {
   let vegetalesElegidos = [];
-  const que = await Products.findAll({ where: { category_id: "3" } }).then(
+  await Products.findAll({ where: { category_id: "3" } }).then(
     (vegetal) => {
       for (let i = 0; i < vegetal.length; i++) {
         if (extrasPedidos[vegetal[i].name] == "on") {
@@ -47,7 +46,7 @@ async function dataVegetalesPedidos() {
 
 async function dataCarnesPedidas() {
   let carneElegida = [];
-  const que = await Products.findAll({ where: { category_id: "4" } }).then(
+  await Products.findAll({ where: { category_id: "4" } }).then(
     (carne) => {
       for (let i = 0; i < carne.length; i++) {
         if (extrasPedidos[carne[i].name] == "on") {
@@ -60,53 +59,35 @@ async function dataCarnesPedidas() {
 }
 
 async function dataBebidasPedidas() {
-  let dataBebidasPedidas;
-  const que = await Products.findAll({ where: { category_id: "5" } }).then(
-    (dataBebidas) => {
-      dataBebidas.forEach(function (bebidas) {
-        if (extrasPedidos[bebidas.name] != 0) {
-          let cantidad = { cantidad: extrasPedidos[bebidas.name] };
-          Object.assign(bebidas, cantidad);
-        }
-      });
-      dataBebidasPedidas = dataBebidas.filter((x) => x.cantidad > 0);
-    }
-  );
-  return dataBebidasPedidas;
-}
+  let data = []
 
-async function cantidadBebidas() {
-  let cantidadBebidasPedidas = []
-  let bebidasPedidas = await dataBebidasPedidas()
-  bebidasPedidas.forEach(element => {
-    cantidadBebidasPedidas.push(element.cantidad)
-  });
-  return cantidadBebidasPedidas
+  const dataGaseosas = await Products.findAll({ where: { category_id: "5" } })
+  dataGaseosas.forEach(element => {
+    if(extrasPedidos[element.name] != 0){
+      data.push({
+        item: element,
+        qty: Number(extrasPedidos[element.name]),
+      })
+    }
+  })
+  
+  return (data);
 }
 
 async function dataBebidasAlcoholicasPedidas() {
-  let dataBebidasPedidas;
-  await Products.findAll({ where: { category_id: "6" } }).then(
-    (dataBebidas) => {
-      dataBebidas.forEach(function (bebidas) {
-        if (extrasPedidos[bebidas.name] != 0) {
-          let cantidad = { cantidad: extrasPedidos[bebidas.name] };
-          Object.assign(bebidas, cantidad);
-        }
-      });
-      dataBebidasPedidas = dataBebidas.filter((x) => x.cantidad > 0);
-    }
-  );
-  return dataBebidasPedidas;
-}
+  let data = []
 
-async function cantidadAlcohol() {
-  let cantidadAlcoholPedidas = []
-  let alcoholPedidas = await dataBebidasAlcoholicasPedidas()
-  alcoholPedidas.forEach(element => {
-    cantidadAlcoholPedidas.push(element.cantidad)
-  });
-  return cantidadAlcoholPedidas
+  const dataCervezas = await Products.findAll({ where: { category_id: "6" } })
+  dataCervezas.forEach(element => {
+    if(extrasPedidos[element.name] != 0){
+      data.push({
+        item: element,
+        qty: Number(extrasPedidos[element.name]),
+      })
+    }
+  })
+  
+  return (data);
 }
 
 async function dataPostresPedidos() {
@@ -117,51 +98,93 @@ async function dataPostresPedidos() {
     if (extrasPedidos[element.name] != 0) {
       data.push({
         item: element,
-        qty: extrasPedidos[element.name]
+        qty: Number(extrasPedidos[element.name]),
       })
     }
   })
+  
   return (data);
 }
 
-
-async function precioTotal(cart) {
-  let precioSumado = 0
-  cart.forEach((element) => {
-    precioSumado = precioSumado + element.pizza.price
-    if (element?.extras?.quesos?.length > 0) {
-      precioSumado = precioSumado + element?.extras?.quesos?.length * element?.extras?.quesos[0]?.price
-    }
-    if (element?.extras?.vegetales?.length > 0) {
-      precioSumado = precioSumado + element?.extras?.vegetales?.length * element?.extras?.vegetales[0]?.price
-    }
-    if (element?.extras?.proteinas?.length > 0) {
-      precioSumado = precioSumado + element?.extras?.proteinas?.length * element?.extras?.proteinas[0]?.price
-    }
-    if (element?.bebidas?.gaseosas?.bebidasPedidas.length > 0) {
-      (element?.bebidas?.gaseosas?.bebidasPedidas.forEach((bebida, index) => {
-        precioSumado = precioSumado + bebida?.price * element?.bebidas?.gaseosas?.cantidadBebidasPedidas[index]
-      }))
-    }
-    if (element?.bebidas?.cervezas?.alcoholPedidas.length > 0) {
-      (element?.bebidas?.cervezas?.alcoholPedidas.forEach((cerveza, index) => {
-        precioSumado = precioSumado + cerveza?.price * element?.bebidas?.cervezas?.cantidadAlcoholPedidas[index]
-      }))
-    }
-    if (element?.postres?.length > 0) {
-      (element?.postres?.forEach((postre, index) => {
-        precioSumado = precioSumado + element?.postres[index].item.price * element?.postres[index].qty
-      }))
-    }
+const totalCountItems = (element) => {
+  let count = 0
+  let total = 0
+  element.forEach(item => {
+    count = count + item.qty
+    total = total + item.item.price
   })
+  return({items: count, totalAmount: total})
+}
 
-  return precioSumado
+const totalCountExtras = (element) => {
+  let count = 0
+  let total = 0
+  element.forEach(item => {
+    count++
+    total = total + item.price
+  })
+  return({items: count, totalAmount: total})
+}
+
+async function calculateItems(data) {
+  let totalItems = 0
+  let totalAmount = 0
+  const sessionCart = await data
+   sessionCart.forEach(element => {
+    let subtotal = 0
+      if(element.pizza){
+        totalItems++
+        subtotal = subtotal + element.pizza.price
+        totalAmount = totalAmount + element.pizza.price
+      }
+      if(element.extras.quesos.length > 0){
+        let extra = totalCountExtras(element.extras.quesos)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+      if(element.extras.vegetales.length > 0){
+        let extra = totalCountExtras(element.extras.vegetales)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+      if(element.extras.proteinas.length > 0){
+        let extra = totalCountExtras(element.extras.proteinas)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+
+      if(element.bebidas.gaseosas.length > 0){
+        let extra = totalCountItems(element.bebidas.gaseosas)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+
+      if(element.bebidas.cervezas.length > 0){
+        let extra = totalCountItems(element.bebidas.cervezas)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+
+      if(element.postres.length > 0){
+        let extra = totalCountItems(element.postres)
+        totalItems = totalItems + extra.items
+        subtotal = subtotal + extra.totalAmount
+        totalAmount = totalAmount + extra.totalAmount
+      }
+      
+      element.subtotal = subtotal 
+})
+  return({totalItems: totalItems, totalAmount: totalAmount})
 }
 
 const cartController = {
-  cart: async (req, res) => {
-    let totalPrecio = await precioTotal(req.session.cart)
-    res.render("cart.ejs", { req: req.query, totalPrecio: totalPrecio });
+  cart: (req, res) => {
+    res.render("cart.ejs", { param: req.query });
   },
 
   addToCart: async (req, res) => {
@@ -177,16 +200,11 @@ const cartController = {
           proteinas: await dataCarnesPedidas(),
         },
         bebidas: {
-          gaseosas: {
-            bebidasPedidas: await dataBebidasPedidas(),
-            cantidadBebidasPedidas: await cantidadBebidas(),
-          },
-          cervezas: {
-            alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
-            cantidadAlcoholPedidas: await cantidadAlcohol(),
-          },
+          gaseosas: await dataBebidasPedidas(),
+          cervezas: await dataBebidasAlcoholicasPedidas(),
         },
-        postres: await dataPostresPedidos()
+        postres: await dataPostresPedidos(),
+        subtotal: null
       });
     } else {
       req.session.cart = [
@@ -198,19 +216,16 @@ const cartController = {
             proteinas: await dataCarnesPedidas(),
           },
           bebidas: {
-            gaseosas: {
-              bebidasPedidas: await dataBebidasPedidas(),
-              cantidadBebidasPedidas: await cantidadBebidas(),
+            gaseosas: await dataBebidasPedidas(),
+            cervezas: await dataBebidasAlcoholicasPedidas(),
             },
-            cervezas: {
-              alcoholPedidas: await dataBebidasAlcoholicasPedidas(),
-              cantidadAlcoholPedidas: await cantidadAlcohol(),
-            },
-          },
-          postres: await dataPostresPedidos()
+          postres: await dataPostresPedidos(),
+          subtotal: null
         },
       ];
     }
+     await calculateItems(req.session.cart)
+
     res.redirect("/cart");
   },
 
@@ -222,9 +237,111 @@ const cartController = {
 
     req.session.cart = remove;
     const item = "remove";
+    calculateItems(req.session.cart)
 
     res.redirect("/cart?item=" + item);
   },
+
+  storeCart: async (req, res) => {
+
+    const cart = req.session.cart
+    const items = []
+    const extras = []
+    const totalCount = await calculateItems(cart)
+    
+
+    cart.forEach((element) => {
+     
+      if(element.pizza){
+        if(element.extras.quesos.length > 0){
+            const quesos = element.extras.quesos;
+            quesos.forEach(queso => {
+                extras.push({
+                  product_id: queso.id
+                })
+            })
+        }
+
+        if(element.extras.vegetales.length > 0){
+          const vegetales = element.extras.vegetales;
+          vegetales.forEach(vegetal => {
+              extras.push({
+                product_id: vegetal.id
+              })
+          })
+        }
+
+        if(element.extras.proteinas.length > 0){
+          const proteinas = element.extras.proteinas;
+          proteinas.forEach(proteina => {
+              extras.push({
+                product_id: proteina.id
+              })
+          })
+        }
+        items.push({
+          product_id: element.pizza.id,
+          quantity: 1,
+          price: element.pizza.price,
+          Extra: extras,
+        })
+      }
+
+      if(element.bebidas.gaseosas.length > 0){
+        const gaseosas = element.bebidas.gaseosas;
+        gaseosas.forEach(gaseosa => {
+          items.push({
+            product_id: gaseosa.item.id,
+            quantity: gaseosa.qty,
+            price: gaseosa.item.price,
+          })
+        })
+      }
+
+      if(element.bebidas.cervezas.length > 0){
+        const cervezas = element.bebidas.cervezas
+        cervezas.forEach(cerveza => {
+          items.push({
+            product_id: cerveza.item.id,
+            quantity: cerveza.qty,
+            price: cerveza.item.price,
+          }) 
+        })
+        
+      }
+
+      if(element.postres.length > 0){
+        const postres = element.postres;
+        postres.forEach(postre => {
+          items.push({
+            product_id: postre.item.id,
+            quantity: postre.qty,
+            price: postre.item.price,
+          }) 
+        })
+        
+      }
+    })
+ 
+          await Order.create(
+        {
+          user_id: res.locals.user.id,
+          payMethod: "efectivo",
+          total_items: totalCount.totalItems,
+          total: totalCount.totalAmount,
+          Item: items,
+        },
+        {
+          include: [
+            {
+              association: "Item",
+              include: ["Extra"],
+            },
+          ],
+        }
+      );   
+      res.redirect('/')
+  }
 };
 
 module.exports = cartController;
