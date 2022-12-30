@@ -1,4 +1,3 @@
-
 var modal = document.getElementById("ventanaModal");
 var boton = document.getElementById("abrirModal");
 var span = document.getElementsByClassName("cerrar")[0];

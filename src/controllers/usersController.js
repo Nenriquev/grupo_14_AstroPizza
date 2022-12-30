@@ -127,8 +127,12 @@ const usersController = {
             
         res.redirect(`/users/profile/${req.session.userLoggedIn.id}?update=profile`)
         
-    }
+    },
 
+    orderResume: async = (req, res) =>{    
+        res.render('orderResume.ejs')
+  }
+    
 }
 
 module.exports = usersController;

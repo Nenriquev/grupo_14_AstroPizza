@@ -50,5 +50,7 @@ routerUsers.post('/register', uploadFile.single('profileImg'), registerValidatio
 routerUsers.get('/profile/:id', authMiddleware.isLoggedOut, usersController.profile)
 routerUsers.put('/profile/:id', uploadFile.single('profileImg'), profileUpdateValidation, usersController.updateProfile);
 
+/*Orders*/
+routerUsers.get('/resume/:id', usersController.orderResume)
 
 module.exports = routerUsers;

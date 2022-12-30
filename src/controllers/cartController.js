@@ -190,7 +190,7 @@ const cartController = {
   addToCart: async (req, res) => {
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza;
-
+    
     if (req.session.cart) {
       req.session.cart.push({
         pizza: await dataPizzaElegida(),
@@ -248,8 +248,7 @@ const cartController = {
     const items = []
     const extras = []
     const totalCount = await calculateItems(cart)
-    
-
+  
     cart.forEach((element) => {
      
       if(element.pizza){
@@ -326,7 +325,7 @@ const cartController = {
           await Order.create(
         {
           user_id: res.locals.user.id,
-          payMethod: "efectivo",
+          payMethod: req.body.payment_mode ? 'tarjeta' : 'efectivo',
           total_items: totalCount.totalItems,
           total: totalCount.totalAmount,
           Item: items,
@@ -339,9 +338,12 @@ const cartController = {
             },
           ],
         }
-      );   
+      );    
+
+      delete req.session.cart
       res.redirect('/')
-  }
+  },
+
 };
 
 module.exports = cartController;
