@@ -119,6 +119,16 @@ const apiProductsController = {
       })
       .catch((error) => res.send(error));
   },
+  totalList: (req, res) => {
+    db.Product.findAll()
+      .then((products) => {
+        let response = {
+          products: products,
+        };
+        res.json(response);
+      })
+      .catch((error) => res.send(error));
+  }
 };
 
 module.exports = apiProductsController;
