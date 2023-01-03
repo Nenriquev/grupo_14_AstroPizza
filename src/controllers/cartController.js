@@ -106,15 +106,6 @@ async function dataPostresPedidos() {
   return (data);
 }
 
-const totalCountItems = (element) => {
-  let count = 0
-  let total = 0
-  element.forEach(item => {
-    count = count + item.qty
-    total = total + item.item.price
-  })
-  return({items: count, totalAmount: total})
-}
 
 const totalCountExtras = (element) => {
   let count = 0
@@ -129,71 +120,83 @@ const totalCountExtras = (element) => {
 async function calculateItems(data) {
   let totalItems = 0
   let totalAmount = 0
+
+  if(data){
   const sessionCart = await data
    sessionCart.forEach(element => {
     let subtotal = 0
       if(element.pizza){
         totalItems++
         subtotal = subtotal + element.pizza.price
-        totalAmount = totalAmount + element.pizza.price
       }
       if(element.extras.quesos.length > 0){
         let extra = totalCountExtras(element.extras.quesos)
         totalItems = totalItems + extra.items
         subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
       }
       if(element.extras.vegetales.length > 0){
         let extra = totalCountExtras(element.extras.vegetales)
         totalItems = totalItems + extra.items
         subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
       }
       if(element.extras.proteinas.length > 0){
         let extra = totalCountExtras(element.extras.proteinas)
         totalItems = totalItems + extra.items
         subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
       }
 
       if(element.bebidas.gaseosas.length > 0){
-        let extra = totalCountItems(element.bebidas.gaseosas)
-        totalItems = totalItems + extra.items
-        subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
+        const gaseosas = element.bebidas.gaseosas
+        gaseosas.forEach(gaseosa => {
+          totalItems = totalItems + gaseosa.qty
+          subtotal = subtotal + (gaseosa.qty * gaseosa.item.price)
+        })
       }
 
       if(element.bebidas.cervezas.length > 0){
-        let extra = totalCountItems(element.bebidas.cervezas)
-        totalItems = totalItems + extra.items
-        subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
+        const cervezas = element.bebidas.cervezas
+        cervezas.forEach(cerveza => {
+          totalItems = totalItems + cerveza.qty
+          subtotal = subtotal + (cerveza.qty * cerveza.item.price)
+        })
       }
 
       if(element.postres.length > 0){
-        let extra = totalCountItems(element.postres)
-        totalItems = totalItems + extra.items
-        subtotal = subtotal + extra.totalAmount
-        totalAmount = totalAmount + extra.totalAmount
+        const postres = element.postres
+        postres.forEach(postre => {
+          totalItems = totalItems + postre.qty
+          subtotal = subtotal + (postre.qty * postre.item.price)
+        })
       }
-      
-      element.subtotal = subtotal 
+  
+      element.subtotal = (subtotal * Number(element.qty))
+      totalAmount = totalAmount + (subtotal * Number(element.qty))
 })
+
   return({totalItems: totalItems, totalAmount: totalAmount})
-}
+}}
 
 const cartController = {
-  cart: (req, res) => {
-    res.render("cart.ejs", { param: req.query });
+  cart: async (req, res) => {
+
+    let total = 0
+    if(req.session.cart){
+      const cart = req.session.cart
+      total = await calculateItems(cart)
+      console.log(total)
+    }
+    res.render("cart.ejs", {param: req.query, total: total});
   },
 
   addToCart: async (req, res) => {
     extrasPedidos = req.body;
     pizzaPedida = req.session.pizza;
+
     
-    if (req.session.cart) {
+    if(req.session.cart) {
       req.session.cart.push({
         pizza: await dataPizzaElegida(),
+        qty: extrasPedidos.quantity,
         extras: {
           quesos: await dataQuesosPedidos(),
           vegetales: await dataVegetalesPedidos(),
@@ -210,6 +213,7 @@ const cartController = {
       req.session.cart = [
         {
           pizza: await dataPizzaElegida(),
+          qty: extrasPedidos.quantity,
           extras: {
             quesos: await dataQuesosPedidos(),
             vegetales: await dataVegetalesPedidos(),
@@ -248,7 +252,10 @@ const cartController = {
     const items = []
     const extras = []
     const totalCount = await calculateItems(cart)
-  
+
+
+    if(req.session.cart && req?.session?.cart?.length > 0){
+
     cart.forEach((element) => {
      
       if(element.pizza){
@@ -280,7 +287,7 @@ const cartController = {
         }
         items.push({
           product_id: element.pizza.id,
-          quantity: 1,
+          quantity: element.qty,
           price: element.pizza.price,
           Extra: extras,
         })
@@ -322,12 +329,12 @@ const cartController = {
       }
     })
  
-          await Order.create(
+          const order = await Order.create(
         {
           user_id: res.locals.user.id,
           payMethod: req.body.payment_mode ? 'tarjeta' : 'efectivo',
           total_items: totalCount.totalItems,
-          total: totalCount.totalAmount,
+          total: totalCount.totalAmount + 120,
           Item: items,
         },
         {
@@ -341,7 +348,11 @@ const cartController = {
       );    
 
       delete req.session.cart
-      res.redirect('/')
+      res.redirect(`/users/orders/${order.id}`)   
+    }
+    else{
+      res.redirect('/product')
+    }
   },
 
 };

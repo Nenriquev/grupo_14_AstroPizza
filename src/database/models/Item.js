@@ -32,9 +32,9 @@ module.exports = (sequelize, dataTypes) => {
 
     Item.associate = (models) =>{
 
-      Item.hasMany(models.Product, {
+      Item.belongsTo(models.Product, {
           as: 'Product',
-          foreignKey: 'id'
+          foreignKey: 'product_id'
       })
 
       Item.belongsTo(models.Order, {

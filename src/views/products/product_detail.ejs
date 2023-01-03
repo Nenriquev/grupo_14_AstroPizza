@@ -95,12 +95,21 @@
         </div>
     </div>
           
-      <div>
-        <% products.filter(pizza => { %>
+      <div class="header-box">
+        <% products.filter((pizza, index) => { %>
           <% if(pizza.name == pizzaData){%>
-            <img class='product_detail_pizza' src="../../img/pizzas/<%= pizza.image %>"/>
+            <div>
+              <img class='product_detail_pizza' src="../../img/pizzas/<%= pizza.image %>"/>
+            </div>
             <span class="nombre_pizza"><%= pizza.name %></span>
             <span class="precio_pizza"><i class="fas fa-dollar-sign" aria-hidden="true"></i><%= pizza.price %></span>
+            <div class="qty-box">
+              <div class="qty">
+                <button type="button" class="min-plus" onclick="countPay('<%= index %>','sub')">-</button>
+                  <input type="number" name='quantity' class="count input-count" id="count<%= index %>" value="1" readonly>
+                <button type="button" class="min-plus" onclick="countPay('<%= index %>','sum')">+</button>
+              </div>
+          </div>
         <% }}); %>
       </div>
 
@@ -112,11 +121,14 @@
 
           <% products.filter(bebidas => { %>
             <% if(bebidas.category_id == 5 && bebidas.status_id == 1){%>
-              <p>
-                <label class="product_detail_cuadro_bebidas"><%= bebidas.name %>
-                  <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= bebidas.name %>">
-                </label>
-              </p>
+              <div class="box">
+                <label class="product_detail_cuadro_bebidas"><%= bebidas.name %></label>
+                <div class="qty">
+                  <button type="button" class="min-plus" onclick="countPay('<%= bebidas.id %>','sub')">-</button>
+                    <input type="number" name="<%= bebidas.name %>" class="count input-count" id="count<%= bebidas.id %>" value="0" min="0" max="10" readonly>
+                  <button type="button" class="min-plus" onclick="countPay('<%= bebidas.id %>','sum')">+</button>
+                </div>
+              </div>
           <% }}); %>
 
         </div>
@@ -124,11 +136,14 @@
         <div>
           <% products.filter(alcohol => { %>
             <% if(alcohol.category_id == 6 && alcohol.status_id == 1){%>
-            <p>
-              <label class="product_detail_cuadro_bebidas"><%= alcohol.name %>
-                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= alcohol.name %>">
-              </label>
-            </p>
+              <div class="box">
+                <label class="product_detail_cuadro_bebidas"><%= alcohol.name %></label>
+                <div class="qty">
+                  <button type="button" class="min-plus" onclick="countPay('<%= alcohol.id %>','sub')">-</button>
+                    <input type="number" name="<%= alcohol.name %>" class="count input-count" id="count<%= alcohol.id %>" value="0" min="0" max="10" readonly>
+                  <button type="button" class="min-plus" onclick="countPay('<%= alcohol.id %>','sum')">+</button>
+                </div>
+              </div>
           <% }}); %>
           
         </div>
@@ -137,11 +152,14 @@
         <div>
           <% products.filter(postre => { %>
             <% if(postre.category_id == 7 && postre.status_id == 1){%>
-            <p>
-              <label class="product_detail_cuadro_bebidas"><%= postre.name %>
-                <input class="contarBebidas" type="number" value="0" min="0" max="10" name="<%= postre.name %>">
-              </label>
-            </p>
+              <div class="box">
+              <label class="product_detail_cuadro_bebidas"><%= postre.name %></label>
+              <div class="qty">
+                <button type="button" class="min-plus" onclick="countPay('<%= postre.id %>','sub')">-</button>
+                  <input type="number" name="<%= postre.name %>" class="count input-count" id="count<%= postre.id %>" value="0" min="0" max="10" readonly>
+                <button type="button" class="min-plus" onclick="countPay('<%= postre.id %>','sum')">+</button>
+              </div>
+            </div>
           <% }}); %>
         </div>
     </div>
@@ -156,5 +174,5 @@
 
 <%- include('../partials/footer') %>
 </body>
-
+  <script src="../../js/product_detail.js"></script>
 </html>

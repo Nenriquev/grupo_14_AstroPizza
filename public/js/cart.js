@@ -1,6 +1,3 @@
-const count = document.querySelectorAll('.count')
-const sub = document.querySelector('[name="sub"]')
-const sum = document.querySelector('[name="sum"]')
 const total = document.querySelector('#total')
 const items = document.querySelectorAll('.products')
 const checkbox = document.querySelector('#payment_mode')
@@ -17,20 +14,11 @@ const ccvCode = document.querySelector('#card-ccv')
 const cardNumber = document.querySelectorAll('.input-cart-number')
 
 
+
 moneyIcon.classList.add('icon-selected')
 cardIcon.classList.add('icon-nonselected')
 
-    countPay = (e, op) => {
 
-      count.forEach(element => {
-          if(element.id == `count${e}` && op == 'sum' && element.value < 10){
-            element.value++
-          }
-          if(element.id == `count${e}` && op == 'sub' && element.value > 1){
-            element.value--
-          }
-      });
-    }
 
     
  checkbox.addEventListener('change', () =>{

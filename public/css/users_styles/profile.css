@@ -3,6 +3,27 @@
   src: url('../../fonts/Console.ttf');
 }
 
+/* Scrollbar CSS */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #5a585a #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0000002d;
+  border-radius: 4px;
+
+}
+
 body{
   background: url('../../img/backgrounds/background.jpg') no-repeat center center fixed;
   margin: 0;
@@ -12,12 +33,29 @@ body{
   font-family: 'Console';
 }
 
-
 .main-container{
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
+  height: auto;
+}
+
+.cart-container{
+  height: auto;
+}
+
+.cart-board{
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
+  height: auto;
+  width: 100%;
+}
+
+.resume-col{
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background: none;
 }
 
 .profile-card{
@@ -27,7 +65,6 @@ body{
   border: 3px solid #5e1b88;
   border-radius: 10px;
   height: auto;
-  box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
 }
 
 .profilepic {
@@ -118,31 +155,6 @@ body{
   margin: 20px 0 10px 0;
 }
 
-.field-group input:focus + .fg-label,
-.field-group input:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
-
-
-textarea{
-  resize: none;
-  font-family: 'Arial';
-  width: 90%;
-}
-
-.field-group textarea:focus + .fg-label,
-.field-group textarea:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
-
 .field-group .fg-field {
   background-color: rgba(255, 255, 255, 0.433);
   border: 1px solid rgb(0, 0, 0);
@@ -150,10 +162,6 @@ textarea{
   border-radius: 4px;
   font-size: 20px;
   outline: none;
-}
-
-.field-group .fg-field:focus {
-  box-shadow: 0px 0px 4px 5px #5e1b88;
 }
 
 .field-group .fg-label {
@@ -164,7 +172,24 @@ textarea{
   pointer-events: none;
   transition: 0.3s ease all;
   color: rgb(255, 251, 251);
+  text-shadow: none;
 }
+
+.fg-label-valid{
+  position: absolute;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  top: -18px;
+  left: 4px;
+  font-size: 14px;
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+.field-group .fg-field:focus {
+  box-shadow: 0px 0px 4px 5px #5e1b88;
+}
+
 
 .title{
   display: flex;
@@ -176,12 +201,81 @@ textarea{
   text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
-
 .btn-submit{
   display: flex;
   justify-content: center;
-  margin: 15px auto;
+  margin-bottom: 20px;
 }
+
+.resume{
+  width: 90%;
+  height: 300px;
+  border-radius: 10px;
+  background-color: rgb(37, 36, 36);
+  margin-bottom: 30px;
+}
+
+.description{
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.details{
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.668);
+}
+
+.details:hover{
+  color: white;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+}
+
+.header-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.description span {
+   margin-left: 0; 
+}
+
+.fa-check{
+  color: green;
+}
+
+.name-amount{
+  height: 100%;
+}
+
+.amount{
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30%;
+}
+
+.total-amount{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+}
+
+.total-amount > h4{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.fa-dollar-sign{
+  font-size: 13px;
+  margin: 0 0;
+}
+
+
 
 /* Front Validation */
 .errores-v{
@@ -193,8 +287,6 @@ textarea{
   display: list-item;
   font-size: small;
 }
-
-
 
 
 .errors{
@@ -241,7 +333,20 @@ textarea{
     align-items: center;
     width: 50%;
   }
-  
+
+  .title-mb{
+    display: none;
+  }
+
+  .total-amount{
+    justify-content: center;
+  }
+
+  .fa-dollar-sign{
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
 }
 
 
@@ -258,25 +363,35 @@ textarea{
     flex-direction: column;
   }
 
-  .form{
-    margin-top: 50px;
-    margin-bottom: 50px;
+  .cart-board{
+    width: auto;
   }
 
+  .form{
+    margin-top: 50px;
+  }
 
   .profile-card{
     width: 40rem;
-    background-color: rgb(37, 36, 36);
-    border: 3px solid #5e1b88;
     border-radius: 10px;
     height: auto;
-    box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
   }
-
 
   .form-container{
     display: flex;
     flex-direction: row;
+  }
+
+  .resume-col{
+    width: 40rem;
+  }
+
+  .resume{
+    width: 40rem;
+  }
+
+  .products{
+    max-height: 40%;
   }
 
   .form-col{
@@ -293,11 +408,20 @@ textarea{
     justify-content: space-around;
   }
 
+  .total-amount{
+    justify-content: center;
+  }
+
   .title-mb{
     display: none;
   }
 
- 
+  .fa-dollar-sign{
+    font-size: initial;
+    margin: 0 10px;
+  }
   
+
+
 }
 
