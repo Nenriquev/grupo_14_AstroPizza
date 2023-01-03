@@ -148,16 +148,16 @@ const apiProductsController = {
       db.Item.findAll()
       .then(items => {
         
-        let productsSales = items
+        let products = {}
 
-        items.forEach(element => {
-            console.log(element.dataValues.product_id)
+        items.forEach((element, index) => {
+          if (element.dataValues.product_id == index ) {
+              console.log(element.dataValues.product_id)
+            }
         });
       
         let response = {
-          totalSales: countOrders,
-          totalProductsSales: productsSales
-  
+          totalSales: countOrders,  
         }
   
   
