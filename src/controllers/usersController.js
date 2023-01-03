@@ -2,9 +2,10 @@ const { validationResult } = require('express-validator');
 const bcrypt = require("bcrypt");
 
 const db = require('../database/models');
-const Product = require('../database/models/Product');
+
 const User = db.User;
 const Op =  db.Sequelize.Op;
+const Orders = db.Order;
 
 
 const usersController = {
@@ -91,18 +92,41 @@ const usersController = {
         res.redirect("/")
     },
 
-    profile: (req, res) => {
+    profile: async (req, res) => {
         const errors = validationResult(req);
-
-        User.findByPk(req.session.userLoggedIn.id)
-        .then((user) => {
-
-            res.render('users/profile.ejs', {user: user, errors: errors.mapped(), req: req.query})
+        const orders = await Orders.findAll({
+            where: {
+              user_id: res.locals.user.id,
+            },
+            include: [{
+                association: "Item",
+                include: ["Product", {
+                    association: "Extra",
+                        include: ["Product"]
+                }], 
+                
+            }]
+        
         })
+
+        const date = async (order) => {
+          const dates = [];
+          order.forEach((item) => {
+            let date = new Date(item.createdAt);
+            dates.push(date.toLocaleDateString("es-ES"));
+          });
+
+          return dates;
+        };
+
+        const user = await User.findByPk(req.session.userLoggedIn.id)
+
+         res.render('users/profile.ejs', {user: user, errors: errors.mapped(), orders: orders, date: await date(orders), req: req.query})
+        
 
     },
 
-    updateProfile: (req, res) =>{
+    updateProfile: (req, res) => {
         const errors = validationResult(req);
 
         if(!errors.isEmpty()){
@@ -129,8 +153,55 @@ const usersController = {
         
     },
 
-    orderResume: async = (req, res) =>{    
-        res.render('orderResume.ejs')
+    orderResume: async (req, res) =>{ 
+        
+       const order = await Orders.findOne({
+            where: {
+              id: req.params.id,
+              user_id: res.locals.user.id,
+            },
+            include: [{
+                association: "Item",
+                include: ["Product", {
+                    association: "Extra",
+                        include: ["Product"]
+                }], 
+                
+            }]
+        
+        })
+
+        const subtotal = async (order) => {
+            let subtotal = []
+            order.Item.forEach(element => {
+                    let counter = 0;
+                    counter = counter + (element.price * element.quantity)
+                element.Extra.forEach(extra => {
+                    counter = counter + (extra.Product.price * element.quantity)
+                })
+                subtotal.push(counter)
+            }); 
+            
+            return subtotal
+        }
+
+        const date = async (order) => {
+            const date = new Date(order.createdAt)
+            const options = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              };
+            return date.toLocaleDateString('es-ES', options)
+        }
+
+        if(order){
+        res.render('orderResume.ejs', {order: order, subtotal: await subtotal(order), date: await date(order)})
+        }
+        else{
+            res.redirect(`/users/profile/${res.locals.user.id}`)
+        }
   }
     
 }

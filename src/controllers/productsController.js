@@ -33,6 +33,7 @@ const productController = {
 
         const pizzaData = req.params.value;
         req.session.pizza = req.params.value;
+   
       
       res.render("./products/product_detail.ejs", {pizzaData: pizzaData, products: data})
       

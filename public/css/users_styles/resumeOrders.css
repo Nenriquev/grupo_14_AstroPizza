@@ -1,0 +1,102 @@
+
+.cart-container{
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.resume{
+  height: 80%;
+  width: 90%;
+}
+
+h1{
+  font-weight: normal;
+  text-align: center;
+}
+
+.resume > .title-resume{
+  width: 100%;
+  font-family: 'Star jedi';
+  color: #000;
+  text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgb(255 255 255 / 0%);
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.quantity{
+  font-size: 11px;
+  font-weight: 900;
+  text-shadow: 0px 0px 0 #ffffff, 0px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px, 21px 0px 0px rgb(255 255 255 / 0%);
+}
+
+.total-box{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border-radius: 10px;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+}
+
+.total-box-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 8px;
+  text-transform: capitalize;
+}
+
+.total-box-col1{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 6px;
+}
+
+.total-amount{
+  margin-block-start: 0px;
+  margin-block-end: 3px;
+  text-align: end;
+}
+
+.subtitle{
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
+  text-transform: uppercase;
+}
+
+
+@media (min-width: 1024px) {
+  .resume{
+    height: 80%;
+    width: 40%;
+  }
+
+  .total-box{
+    width: 40%;
+    height: 15%;
+    flex-direction: row;
+  }
+
+  .total-box-col{
+    width: 70%;
+    margin-left: 20px;
+    margin-top: 0;
+  }
+
+  .total-box-col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 30%;
+  }
+
+  .total-amount{
+    text-align: start;
+  }
+
+}

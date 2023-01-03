@@ -52,11 +52,15 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: 'status_id'
     })  
 
-    Product.belongsToMany(models.Item, {
-      through: 'id',
-      as: 'item',
+    Product.hasMany(models.Item, {
+      as: 'Item',
       foreignKey: 'product_id'
     }) 
+
+    Product.hasMany(models.Extra, {
+      as: 'Extra',
+      foreignKey: 'product_id'
+    })
   }
 
   return Product

@@ -31,23 +31,33 @@ body{
 
 form{
 display: flex;
+width: 90%;
+justify-content: space-between;
 }
 
 .product_detail_center{
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 55px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.header-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Pizza */
 
 .product_detail_pizza{
+  position: relative;
   margin-top: 70px;
-  width: 50vw;
+  width: 40vw;
   animation: product_detail_pizza_anim 300s linear infinite;
   animation-delay: 500ms;
+  z-index: -3;
 }
 
 .nombre_pizza{
@@ -224,6 +234,61 @@ display: flex;
   text-shadow: 0px 0px 0, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88;
 }
 
+.box{
+  display: flex;
+  width: 84%;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.qty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 76px;
+}
+
+.min-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+  color: #000;
+  background-color: #5a585a;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.60);
+  text-align: center;
+  border-radius: 50%;
+}
+
+.min-plus:hover {
+  background-color: #5e1b88;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+  appearance: none;
+
+}
+
+.input-count {
+  border: 0;
+  border-radius: 5px;
+  width: 2%;
+}
+
+.count {
+  color: #000;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 3px auto;
+  min-width: 31px;
+  text-align: center;
+}
+
 /* Mobile */
 @media (max-width:768px) {
 
@@ -239,7 +304,7 @@ display: flex;
     width: 70vw;
     order: 1;
     margin: 0;
-    top: 100%;
+    z-index: -2;
   }
 
   .product_detail_center{
@@ -277,6 +342,12 @@ display: flex;
 
   .cuadro_extras div p{
     width: 50%;
+  }
+
+  .qty-box{
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 
   /* Cuadro Bebidas */ 
