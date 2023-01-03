@@ -145,25 +145,62 @@ const apiProductsController = {
 
       // Products Sales
 
-      db.Item.findAll()
-      .then(items => {
-        
-        let products = {}
+      db.Item.findAll().then((items) => {
+        db.Extra.findAll().then((extras) => {
+          db.Product.findAll().then((products) => {
+            let totalProducts = [];
+            let finalProducts = [];
+            let topFive = [];
 
-        items.forEach((element, index) => {
-          if (element.dataValues.product_id == index ) {
-              console.log(element.dataValues.product_id)
-            }
+            extras.forEach((element) => {
+              totalProducts.push(element.dataValues.product_id);
+            });
+
+            items.forEach((element) => {
+              totalProducts.push(element.dataValues.product_id);
+            });
+
+            const resultado = totalProducts.reduce(
+              (prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev),
+              {}
+            );
+            products.forEach((element) => {
+              for (let key in resultado) {
+                if (element.dataValues.id == key) {
+                  finalProducts.push({
+                    name: element.dataValues.name,
+                    value: resultado[key],
+                  });
+                  topFive.push({
+                    name: element.dataValues.name,
+                    value: resultado[key],
+                  })
+                }
+              }
+            });
+
+            topFive.sort(function (a, b) {
+              if (a.value > b.value) {
+                return -1;
+              }
+              if (a.value < b.value) {
+                return 1;
+              }
+              return 0;
+            });
+            
+            topFive.splice(5)
+
+            let response = {
+              totalSales: countOrders,
+              totalProducts: finalProducts,
+              top5Products: topFive,
+            };
+
+            res.json(response);
+          });
         });
-      
-        let response = {
-          totalSales: countOrders,  
-        }
-  
-  
-        res.json(response)
-      })
-      
+      });
     });
   },
 };
