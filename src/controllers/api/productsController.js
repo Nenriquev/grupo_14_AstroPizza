@@ -26,8 +26,7 @@ const apiProductsController = {
             detail: `http://localhost:3001/api/products/${element.dataValues.id}`,
           });
         });
-        db.Product.findAll()
-        .then((allProducts) => {
+        db.Product.findAll().then((allProducts) => {
           let pizza = 0;
           let queso = 0;
           let vegetal = 0;
@@ -71,15 +70,25 @@ const apiProductsController = {
           };
           if (params == 1 && allProducts.length > 10) {
             links = {
-              next: `http://localhost:3001/api/products/page/${Number(params) + Number(1)}`};
+              next: `http://localhost:3001/api/products/page/${
+                Number(params) + Number(1)
+              }`,
+            };
           } else if (allProducts.length / 10 > params) {
             links = {
-              next: `http://localhost:3001/api/products/page/${Number(params) + Number(1)}`,
-              previous: `http://localhost:3001/api/products/page/${Number(params) - Number(1)}`,
+              next: `http://localhost:3001/api/products/page/${
+                Number(params) + Number(1)
+              }`,
+              previous: `http://localhost:3001/api/products/page/${
+                Number(params) - Number(1)
+              }`,
             };
           } else if (allProducts.length > 10) {
             links = {
-              previous: `http://localhost:3001/api/products/page/${Number(params) - Number(1)}`};
+              previous: `http://localhost:3001/api/products/page/${
+                Number(params) - Number(1)
+              }`,
+            };
           }
 
           let response = {
@@ -128,7 +137,35 @@ const apiProductsController = {
         res.json(response);
       })
       .catch((error) => res.send(error));
-  }
+  },
+  sales: (req, res) => {
+    db.Order.findAll().then((orders) => {
+      // Total Ventas
+      let countOrders = orders.length;
+
+      // Products Sales
+
+      db.Item.findAll()
+      .then(items => {
+        
+        let productsSales = items
+
+        items.forEach(element => {
+            console.log(element.dataValues.product_id)
+        });
+      
+        let response = {
+          totalSales: countOrders,
+          totalProductsSales: productsSales
+  
+        }
+  
+  
+        res.json(response)
+      })
+      
+    });
+  },
 };
 
 module.exports = apiProductsController;
