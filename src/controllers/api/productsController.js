@@ -152,19 +152,26 @@ const apiProductsController = {
             let finalProducts = [];
             let topFive = [];
 
+            //Guarda los id de la base de datos en arrays
             extras.forEach((element) => {
               totalProducts.push(element.dataValues.product_id);
             });
 
+            //Agrega los items y su cantidad si es que tienen mas de una en las misma orden
             items.forEach((element) => {
-              totalProducts.push(element.dataValues.product_id);
+              if (element.dataValues.quantity > 1) {
+                for (let index = 0; index < element.dataValues.quantity; index++) {
+                  totalProducts.push(element.dataValues.product_id);
+                }
+              } else {
+                totalProducts.push(element.dataValues.product_id);
+              }
             });
-
+            // Suma la cantidad de veces que aparece en el array totalProducts
             const resultado = totalProducts.reduce(
               (prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev),
               {}
             );
-
             products.forEach((element) => {
               for (let key in resultado) {
                 if (element.dataValues.id == key) {
@@ -182,7 +189,7 @@ const apiProductsController = {
                     image: element.dataValues.image,
                     category: element.dataValues.category_id,
                     value: resultado[key],
-                  })
+                  });
                 }
               }
             });
@@ -196,8 +203,8 @@ const apiProductsController = {
               }
               return 0;
             });
-            
-            topFive.splice(5)
+
+            topFive.splice(5);
 
             let response = {
               totalSales: countOrders,
