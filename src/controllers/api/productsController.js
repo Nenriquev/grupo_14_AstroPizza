@@ -26,8 +26,7 @@ const apiProductsController = {
             detail: `http://localhost:3001/api/products/${element.dataValues.id}`,
           });
         });
-        db.Product.findAll()
-        .then((allProducts) => {
+        db.Product.findAll().then((allProducts) => {
           let pizza = 0;
           let queso = 0;
           let vegetal = 0;
@@ -71,15 +70,25 @@ const apiProductsController = {
           };
           if (params == 1 && allProducts.length > 10) {
             links = {
-              next: `http://localhost:3001/api/products/page/${Number(params) + Number(1)}`};
+              next: `http://localhost:3001/api/products/page/${
+                Number(params) + Number(1)
+              }`,
+            };
           } else if (allProducts.length / 10 > params) {
             links = {
-              next: `http://localhost:3001/api/products/page/${Number(params) + Number(1)}`,
-              previous: `http://localhost:3001/api/products/page/${Number(params) - Number(1)}`,
+              next: `http://localhost:3001/api/products/page/${
+                Number(params) + Number(1)
+              }`,
+              previous: `http://localhost:3001/api/products/page/${
+                Number(params) - Number(1)
+              }`,
             };
           } else if (allProducts.length > 10) {
             links = {
-              previous: `http://localhost:3001/api/products/page/${Number(params) - Number(1)}`};
+              previous: `http://localhost:3001/api/products/page/${
+                Number(params) - Number(1)
+              }`,
+            };
           }
 
           let response = {
@@ -128,7 +137,87 @@ const apiProductsController = {
         res.json(response);
       })
       .catch((error) => res.send(error));
-  }
+  },
+  sales: (req, res) => {
+    db.Order.findAll().then((orders) => {
+      // Total Ventas
+      let countOrders = orders.length;
+
+      // Products Sales
+
+      db.Item.findAll().then((items) => {
+        db.Extra.findAll().then((extras) => {
+          db.Product.findAll().then((products) => {
+            let totalProducts = [];
+            let finalProducts = [];
+            let topFive = [];
+
+            //Guarda los id de la base de datos en arrays
+            extras.forEach((element) => {
+              totalProducts.push(element.dataValues.product_id);
+            });
+
+            //Agrega los items y su cantidad si es que tienen mas de una en las misma orden
+            items.forEach((element) => {
+              if (element.dataValues.quantity > 1) {
+                for (let index = 0; index < element.dataValues.quantity; index++) {
+                  totalProducts.push(element.dataValues.product_id);
+                }
+              } else {
+                totalProducts.push(element.dataValues.product_id);
+              }
+            });
+            // Suma la cantidad de veces que aparece en el array totalProducts
+            const resultado = totalProducts.reduce(
+              (prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev),
+              {}
+            );
+            products.forEach((element) => {
+              for (let key in resultado) {
+                if (element.dataValues.id == key) {
+                  finalProducts.push({
+                    id: element.dataValues.id,
+                    name: element.dataValues.name,
+                    image: element.dataValues.image,
+                    price: element.dataValues.price,
+                    category: element.dataValues.category_id,
+                    status: element.dataValues.status_id,
+                    value: resultado[key],
+                  });
+                  topFive.push({
+                    name: element.dataValues.name,
+                    image: element.dataValues.image,
+                    category: element.dataValues.category_id,
+                    value: resultado[key],
+                  });
+                }
+              }
+            });
+
+            topFive.sort(function (a, b) {
+              if (a.value > b.value) {
+                return -1;
+              }
+              if (a.value < b.value) {
+                return 1;
+              }
+              return 0;
+            });
+
+            topFive.splice(5);
+
+            let response = {
+              totalSales: countOrders,
+              totalProducts: finalProducts,
+              top5Products: topFive,
+            };
+
+            res.json(response);
+          });
+        });
+      });
+    });
+  },
 };
 
 module.exports = apiProductsController;

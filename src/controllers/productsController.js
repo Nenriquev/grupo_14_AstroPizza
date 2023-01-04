@@ -114,7 +114,7 @@ const productController = {
         res.redirect('/product?product=delete')
       })
       
-    },
+    }
 }
 
 module.exports = productController;
