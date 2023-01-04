@@ -51,48 +51,7 @@ form{
   margin: 20px auto;
 }
 
-.field-group {
-  position: relative;
-  margin: 20px 0 11px 0;
-}
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
-.field-group .fg-field {
-  background-color: rgba(255, 255, 255, 0.433);
-  border: 1px solid rgb(0, 0, 0);
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 20px;
-  outline: none;
-}
-
-.field-group .fg-field:focus {
-  box-shadow: 0px 0px 4px 5px #5e1b88;
-}
-
-.field-group .fg-label {
-  position: absolute;
-  top: 16px;
-  left: 15px;
-  font-size: 15px;
-  pointer-events: none;
-  transition: 0.3s ease all;
-  color: rgb(255, 251, 251);
-}
-
-.field-group input:focus + .fg-label,
-.field-group input:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
 
 textarea{
   resize: none;
@@ -100,14 +59,7 @@ textarea{
   width: 244px;
 }
 
-.field-group textarea:focus + .fg-label,
-.field-group textarea:not(:focus):valid + .fg-label {
-  top: -18px;
-  left: 4px;
-  font-size: 14px;
-  color: white;
-  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
-}
+
 
 select{
   font-family: 'Console';
@@ -168,7 +120,6 @@ input[type="file"] {
 }
 
 
-
 .custom-file-upload {
   margin: 15px;
   display: inline-block;
@@ -199,28 +150,50 @@ input[type="file"] {
 }
 
 .errors{
+  text-align: center;
   color: red;
 }
 
-
-/*.fg-field-invalid{
-  box-shadow: 0px 0px 2px 3px #ce0e0e;
+.field-group {
+  position: relative;
+  margin: 20px 0 10px 0;
 }
 
-.fg-field-valid{
-  box-shadow: 0px 0px 2px 3px #20ed09;
+.field-group .fg-field {
+  background-color: rgba(255, 255, 255, 0.433);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  outline: none;
+}
 
-}*/
+.field-group .fg-label {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  font-size: 15px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  color: rgb(255, 251, 251);
+  text-shadow: none;
+}
 
-.errores-v{
+.fg-label-valid{
+  position: absolute;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  top: -18px;
+  left: 4px;
+  font-size: 14px;
   color: white;
-  width: 80%;
+  text-shadow: 0px 0px 0, 1px 2px 2px #5e1b88;
 }
 
-.errores-v li{
-  display: list-item;
-  font-size: small;
+.field-group .fg-field:focus {
+  box-shadow: 0px 0px 4px 5px #5e1b88;
 }
+
 
 
  Check Validation Front

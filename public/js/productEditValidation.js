@@ -15,30 +15,34 @@ window.onload = () => {
 
 
         if (productName.value == "") {
-            errors.push('Nombre Del Producto no puede estar vacio.');
+          errors.push({id:'#producName-error', msg: 'Debe dar un nombre al producto'})
+        }
+        else{
+          document.querySelector('#productName-error').innerHTML = ''
         }
 
         if (productPrice.value == "") {
-            errors.push('Precio no puede estar vacio.');
+					errors.push({id:'#price-error', msg: 'Debe dar un precio al producto'})
+        }
+        else{
+          document.querySelector('#price-error').innerHTML = ''
         }
 
         if (productDescription.value == "") {
-            errors.push('Descripcion no puede estar vacio.');
-        } else if (productDescription.value.length < 20 ){
-            errors.push('Descripcion debe tener mas de 20 caracteres.')
+					errors.push({id:'#description-error', msg: 'Debe dar una breve descripcion del producto'})
+        }
+        else{
+          document.querySelector('#description-error').innerHTML = ''
         }
 
 
         if (errors.length > 0) {
-            e.preventDefault();
+            e.preventDefault()
+            errors.forEach((error) =>{
+                let errorTag = document.querySelector(`${error.id}`)
+                errorTag.innerHTML = `<span>${error.msg}<span>`
+            })
 
-            let ulErrors = document.querySelector(".errores-v")
-            ulErrors.innerHTML = " "
-
-            for (let i = 0; i < errors.length; i++) {
-                ulErrors.innerHTML += "<li>" + errors[i] +"</li>"
-                
-            }
         }
     })
     

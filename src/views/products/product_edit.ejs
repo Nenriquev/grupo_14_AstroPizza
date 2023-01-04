@@ -28,7 +28,9 @@
                     </div>
                     <% if (locals.validationErrors) { %>
                       <span class="errors"><%= validationErrors?.product_name?.msg %> </span>
-                    <% } %>
+                      <% } else { %>
+                        <div class="errors" id="productName-error"></div>
+                        <% } %>
 
                     <div class="field-group">
                       <input class="fg-field" type="number" name="price" id="product-price" value="<%=product.price%>">
@@ -36,7 +38,9 @@
                     </div>
                     <% if (locals.validationErrors) { %>
                       <span class="errors"><%= validationErrors?.price?.msg %> </span>
-                    <% } %>
+                      <% } else { %>
+                        <div class="errors" id="price-error"></div>
+                        <% } %>
 
                     <div>
                     <label class="select-label">Categoria:</label>
@@ -57,8 +61,6 @@
                         <% }) %>
                       </select>
                     </div>
-
-                    <ul class="errores-v"></ul>
 
                 
               </div>

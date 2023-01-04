@@ -44,7 +44,9 @@
                             <div class="errors">
                               <span><%= errors?.names?.msg %> </span>
                             </div>
-                          <% } %>
+                            <% } else { %>
+                              <div class="errors" id="name-error"></div>
+                              <% } %>
 
                           <div class="field-group">
                             <input type="email" name="email" id="email-v" class="fg-field" value="<%= locals.old?.email ? old.email : null %>" >
@@ -57,7 +59,10 @@
                             <div class="errors">
                               <span><%= errors?.email?.msg %> </span>
                             </div>
-                          <% } %>
+                          <% } else { %>
+                            <div class="errors" id="email-error"></div>
+                            <% } %>
+                           
 
                         <div class="field-group">
                             <input type="text" name="telefono" id="telefono-v" class="fg-field" value="<%= locals.old?.telefono ? old.telefono : null %>">
@@ -69,7 +74,7 @@
                         </div>  
                         
                         <div class="field-group">
-                            <input type="password" name="password" id="password-v" class="fg-field" id="pass">
+                            <input type="password" name="password" class="fg-field" id="pass">
                             <div class="eye"><i class="fas fa-eye" id="ePass"></i></div>
                             <div>
                               <i class="fa-solid fa-circle-check check-pass hidden"></i>
@@ -82,10 +87,12 @@
                             <div class="errors">
                               <span><%= errors?.password?.msg %> </span>
                             </div>
-                          <% } %>
+                            <% } else { %>
+                              <div class="errors" id="password-error"></div>
+                              <% } %>
                         
                         <div class="field-group">
-                            <input type="password" name="passwordRepeat" id="passwordRepeat-v" class="fg-field" id="rPass">
+                            <input type="password" name="passwordRepeat" class="fg-field" id="rPass">
                             <div class="eye"><i class="fas fa-eye" id="rePass"></i></div>
                             <div>
                               <i class="fa-solid fa-circle-check check-passr hidden"></i>
@@ -98,7 +105,9 @@
                             <div class="errors">
                               <span><%= errors?.passwordRepeat?.msg %> </span>
                             </div>
-                          <% } %>
+                            <% } else { %>
+                              <div class="errors" id="rPassword-error"></div>
+                              <% } %>
 
                         <br>
 
@@ -116,7 +125,9 @@
                             <div class="errors">
                               <span><%= errors?.profileImg?.msg %> </span>
                             </div>
-                          <% } %>
+                            <% } else { %>
+                              <div class="errors" id="image-error"></div>
+                              <% } %>
 
                           <div>
                             <div class="cntr">
@@ -137,7 +148,9 @@
                             <div class="errors">
                               <span><%= errors?.tyc?.msg %> </span>
                             </div>
-                          <% } %>
+                            <% } else { %>
+                              <div class="errors" id="tyc-error"></div>
+                              <% } %>
                         
                         <div class="register-u">
                             <div class="field-group">

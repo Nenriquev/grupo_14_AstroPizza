@@ -11,7 +11,7 @@ const Orders = db.Order;
 const usersController = {
 
     login: (req, res) => {
-        res.render('users/login.ejs')
+        res.render('users/login.ejs', {req: req.query})
       },
 
     loginProcess: (req , res) => {
@@ -81,7 +81,7 @@ const usersController = {
 
             })
             .then((user)=>{
-                res.redirect('/users/login')
+                res.redirect("/users/login?newUser=success")
             })
 
         }
@@ -197,7 +197,7 @@ const usersController = {
         }
 
         if(order){
-        res.render('orderResume.ejs', {order: order, subtotal: await subtotal(order), date: await date(order)})
+        res.render('orderResume.ejs', {order: order, subtotal: await subtotal(order), date: await date(order), req: req.query})
         }
         else{
             res.redirect(`/users/profile/${res.locals.user.id}`)

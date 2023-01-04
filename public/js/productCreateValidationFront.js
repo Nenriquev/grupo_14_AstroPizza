@@ -4,60 +4,57 @@ window.onload = function(){
 
     form.product_name.focus()
 
-    let names = document.getElementById('names-product');
-    let price = document.getElementById('price-product');
-    let description = document.getElementById('description-product');
-    let category = document.getElementById('category-product');
-    /*let image = document.getElementById('');*/
+    let names = document.querySelector('[name=product_name]');
+    let price = document.querySelector('[name=price]');
+    let category = document.querySelector('[name=category]');
+    let description = document.querySelector('[name=description]');
 
-    /*let checkNames = document.querySelector('.check-names');
-    let checkPrice = document.querySelector('.check-price');
-    let checkImg = document.querySelector('.check-img');
-    let checkDescription = document.querySelector('.check-text');*/
- 
-
-   /* let alertNames = document.querySelector('.alert-circle-names');
-    let alertPrice = document.querySelector('.alert-circle-price');
-    let alertImg = document.querySelector('.alert-circle-img');
-    let alertDescription = document.querySelector('.alert-circle-text');*/
     
     form.addEventListener('submit', (e) =>{
+        
 
         let errors = [];
+        
 
         if(names.value === ""){
-            errors.push('Nombre del producto no puede estar vacio.');
-        } else if (names.value.length < 5){
-            errors.push('Nombre del producto debe tener al menos 5 caracteres.')
+            errors.push({id:'#productName-error', msg: 'Nombre de producto requerido'});
+        } else if (names.value.length < 3){
+            errors.push({id:'#productName-error', msg: 'El nombre del producto debe tener al menos 3 caracteres'})
+        }
+        else{
+            document.querySelector('#productName-error').innerHTML = ''
         }
 
         if(price.value === ""){
-            errors.push('El precio no puede estar vacio.')
-        
+            errors.push({id:'#price-error', msg: 'Debe dar un precio'})
+        }
+        else{
+            document.querySelector('#price-error').innerHTML = ''
         }
 
-       
-
+    
         if (description.value === ""){
-            errors.push('Descripcion no puede estar vacio.')
-          
-        } else if (description.value.length < 20){
-            errors.push(' Descripcion debe tener al menos 20 caracteres.')
-         
-        } 
+            errors.push({id:'#description-error', msg: 'Debe dar una descripcion al producto'})
+        }
+        else{
+            document.querySelector('#description-error').innerHTML = ''
+        }
 
-       
+        if (category.value === ""){
+            errors.push({id:'#category-error', msg: 'Debe elegir una categoria'})
+        }
+        else{
+            document.querySelector('#category-error').innerHTML = ''
+        }
+
 
         if (errors.length > 0) {
-            e.preventDefault();
+            e.preventDefault()
+            errors.forEach((error) =>{
+                let errorTag = document.querySelector(`${error.id}`)
+                errorTag.innerHTML = `<span>${error.msg}<span>`
+            })
 
-            let ulErrors = document.querySelector(".errores-v")
-            ulErrors.innerHTML = " "
-
-            for (let i = 0; i < errors.length; i++) {
-                ulErrors.innerHTML += "<li>" + errors[i] +"</li>"
-                
-            }
         }
     })
     

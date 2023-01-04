@@ -58,8 +58,6 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 const toastMessage = document.querySelector('#toast')
 
 
-
-
 if(toastMessage.dataset.value == 'cart')
   toast({
     title: "Exito!",
@@ -67,8 +65,6 @@ if(toastMessage.dataset.value == 'cart')
     type: "success",
     duration: 3000
   })
-
-
 
   if(toastMessage.dataset.value == 'profile'){
   toast({
@@ -86,5 +82,43 @@ if(toastMessage.dataset.value == 'productCreate'){
     type: "success",
     duration: 3000
   })
+  }
+
+  if(toastMessage.dataset.value == 'newUser'){
+    toast({
+      title: "Exito!",
+      message: "Te has registrado exitosamente!",
+      type: "success",
+      duration: 3000
+    })
+  }
+
+  if(toastMessage.dataset.value == 'orderSuccess'){
+    toast({
+      title: "Has creado una orden!",
+      message: "La orden ha sido creada con exito!",
+      type: "success",
+      duration: 3000
+    })
+  }
+
+    if(toastMessage.dataset.value == 'productEdit'){
+      toast({
+        title: "Exito!",
+        message: "Producto actualizado!",
+        type: "success",
+        duration: 3000
+      })
+  }
+
+  if(toastMessage.dataset.value == 'productDelete'){
+    toast({
+      title: "Exito!",
+      message: "El producto ha sido eliminado con exito!",
+      type: "success",
+      duration: 3000
+    })
 }
+
+
 

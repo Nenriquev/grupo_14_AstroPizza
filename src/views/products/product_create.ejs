@@ -18,47 +18,47 @@
 <body>
   <div class="main-container">
     <%- include('../partials/header') %> 
-      <% if (locals.req.product) { %>
+      <% if (locals?.req?.product) { %>
         <div id="toast" data-value="productCreate"></div>
       <% } %> 
     <div class="form-container">
       <div data-aos="zoom-in" class="form-col">
         <form class="form-create" action="/product/create" method="POST" enctype="multipart/form-data">
 
-          <ul class="errores-v"></ul>
-
           <div class="field-group">
-            <input id="names-product" class="fg-field" type="text" name="product_name" value="<%= locals.old?.product_name ? old.product_name : null %>">
-            <div>
-              <i class="fa-solid fa-circle-check check-names hidden"></i>
-              <i class="fa-sharp fa-solid fa-circle-exclamation alert-circle-names hidden"></i>
-            </div>
-            <label class="fg-label">Nombre del Producto</label>
+            <input class="fg-field" type="text" name="product_name" value="<%= locals.old?.product_name ? old.product_name : null %>">
+            <label id="product_name" class="fg-label">Nombre del Producto</label>
           </div>
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.product_name?.msg %> </span>
-          <% } %>
+            <% } else { %>
+              <div class="errors" id="productName-error"></div>
+              <% } %>
 
           <div class="field-group">
-            <input id="price-product" class="fg-field" type="number" name="price" value="<%= locals.old?.price ? old.price : null %>">
-            <label class="fg-label">Precio</label>
+            <input class="fg-field" type="number" name="price" value="<%= locals.old?.price ? old.price : null %>">
+            <label class="fg-label" id="price">Precio</label>
           </div>
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.price?.msg %> </span>
-          <% } %>
+            <% } else { %>
+              <div class="errors" id="price-error"></div>
+              <% } %>
 
           <div class="field-group">
-            <textarea  id="description-product" class="fg-field" name="description"><%= locals.old?.description ? old.description : null %></textarea>
-            <label class="fg-label">Descripcion</label>
+            <textarea class="fg-field" name="description"><%= locals.old?.description ? old.description : null %></textarea>
+            <label id='description' class="fg-label">Descripcion</label>
           </div>
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.description?.msg %> </span>
-          <% } %>
+            <% } else { %>
+              <div class="errors" id="description-error"></div>
+              <% } %>
 
           <div class="select">
             
             <select id="category-product" name="category">
-              <option selected disabled>Categoria</option>
+              <option selected disabled value="">Categoria</option>
               <option value = '1'>Pizzas</option>
               <option value = '2'>Quesos</option>
               <option value = '3'>Vegetales</option>
@@ -66,13 +66,14 @@
               <option value = '5'>Bebidas</option>
               <option value = '6'>Cervezas</option>
               <option value = '7'>Postres</option>
-              <option value = '8'>Aderezos</option>
             </select>
           </div>
 
           <% if (locals.errors) { %>
             <span class="errors"><%= errors?.category?.msg %> </span>
-          <% } %>
+          <% } else { %>
+            <div class="errors" id="category-error"></div>
+            <% } %>
 
           
           <div class="img-input">

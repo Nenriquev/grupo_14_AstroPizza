@@ -13,12 +13,20 @@
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
   <link rel="stylesheet" type="text/css" href="../css/products_styles/product_list.css">
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/toast.css">
   <title>Lista de Productos</title>
 </head>
 
 <body>
   <div class="main-container">
     <%- include('../partials/header') %>
+    <% console.log(req.product) %> 
+    <% if (locals?.req?.product == 'update') { %>
+      <div id="toast" data-value="productEdit"></div>
+    <% } %> 
+    <% if (locals?.req?.product == 'delete') { %>
+      <div id="toast" data-value="productDelete"></div>
+    <% } %> 
       <div class="menu-container">
         <div class="side-bar">
           <div class="bar">
@@ -46,7 +54,7 @@
                   <li id=<%=element.category.category %> class="card">
                     <div class="product_name">
                       <span>
-                        <%= element.category_id==1 ? `Pizza ${element.name}` : element.name %>
+                        <%= element.category_id == 1 ? `Pizza ${element.name}` : element.name %>
                       </span>
                     </div>
                     <div class="img-product">
@@ -94,5 +102,5 @@
   </div>
 </body>
 <script src="../js/product_list.js"></script>
-
+<script src="../js/partials/toastr.js"></script>
 </html>

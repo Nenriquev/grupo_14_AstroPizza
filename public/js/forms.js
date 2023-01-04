@@ -28,16 +28,6 @@ for(let input of inputs){
       input.style.boxShadow = ''
   })
 
-  input.addEventListener('keyup', (e) => {
-
-    if(e.target.value.length <= 3){
-      input.style.boxShadow = '0px 0px 4px 5px #ce0e0e'
-    }
-    else{
-      input.style.boxShadow = ''
-    }
-    
-  })
 }
 
 if(textarea.value != ''){

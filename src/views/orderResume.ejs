@@ -9,18 +9,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"/>
     <link rel="stylesheet" type="text/css" href="../../css/partials_styles/footer.css">
     <link rel="stylesheet" type="text/css" href="../../css/partials_styles/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css">
     <link rel="stylesheet" type="text/css" href="../css/partials_styles/toast.css">
     <link rel="stylesheet" type="text/css" href="../../css/cart.css">
     <link rel="stylesheet" type="text/css" href="../../css/users_styles/resumeOrders.css">
+    <link rel="stylesheet" type="text/css" href="../../css/partials_styles/toast.css">
     <title>Mi orden <%= order.id %>  - Astro Pizza 🍕</title>
 </head>
 <body>
   <div class="main-container">
     <%- include('./partials/header') %>
+    <% if (locals?.req?.order == 'success') { %>
+      <div id="toast" data-value='orderSuccess'></div>
+    <% } %>
       <div class="cart-container">
+        <div class="box-container">
+        <div class="title-resume"><h1>Resumen de la orden nro. <%= order.id %></h1></div>
         <div class="resume">
-          <div class="title-resume"><h1 class="">Resumen de la orden nro. <%= order.id %></h1></div>
           <% order.Item.forEach((item, index) => { %>
           <div class="products">
               <div class="product-img">
@@ -56,6 +60,7 @@
           </div>
         <% }) %>
       </div>
+    </div>
       <div class="total-box">
         <div class="total-box-col">
           <span><span class="subtitle">Fecha:</span> <%= date %> </span>
@@ -69,5 +74,5 @@
       </div>
   </div>
 </body>
-
+<script src="../../js/partials/toastr.js"></script>
 </html>

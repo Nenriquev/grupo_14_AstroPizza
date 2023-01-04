@@ -348,7 +348,7 @@ const cartController = {
       );    
 
       delete req.session.cart
-      res.redirect(`/users/orders/${order.id}`)   
+      res.redirect(`/users/orders/${order.id}?order=success`)   
     }
     else{
       res.redirect('/product')

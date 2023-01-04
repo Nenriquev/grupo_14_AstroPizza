@@ -1,12 +1,44 @@
+/* Scrollbar CSS */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #5a585a #ffffff00;
+}
 
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0000002d;
+  border-radius: 4px;
+
+}
 .cart-container{
   flex-direction: column;
-  margin-bottom: 20px;
+}
+
+.box-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  background-color: rgb(37, 36, 36);
+  border: 3px solid #5e1b88;
+  border-radius: 10px;
 }
 
 .resume{
   height: 80%;
-  width: 90%;
+  width: 100%;
+  border-radius: none;
+  background-color: transparent;
+  border: none;
 }
 
 h1{
@@ -14,12 +46,19 @@ h1{
   text-align: center;
 }
 
-.resume > .title-resume{
+.title-resume{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 0px 5px 10px 0px #000000b8;
+}
+
+.title-resume > h1{
   width: 100%;
   font-family: 'Star jedi';
   color: #000;
   text-shadow: 1px 1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -1px -1px 0 #ffffff, 0px 9px 11px #5e1b88, 0px 2px 0 #5e1b88, -2px 0px 0 #5e1b88, 0px -2px 0 #5e1b88, 21px 0px 0px rgb(255 255 255 / 0%);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: normal;
 }
 
@@ -72,8 +111,13 @@ h1{
 
 @media (min-width: 1024px) {
   .resume{
-    height: 80%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .box-container{
     width: 40%;
+    height: 80%;
   }
 
   .total-box{
@@ -93,6 +137,10 @@ h1{
     flex-direction: column;
     justify-content: space-evenly;
     width: 30%;
+  }
+
+  .title-resume > h1{
+    font-size: 20px;
   }
 
   .total-amount{

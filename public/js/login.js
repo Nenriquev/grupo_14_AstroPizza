@@ -5,7 +5,23 @@ const rePassword = document.querySelector('#rPass');
 
 for(let eye of eyePass){
 
-  eye.addEventListener('click', (e) =>{
+  eye.addEventListener('mousedown', (e) =>{
+
+    if(e.target.id == 'ePass'){
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    }
+
+    if(e.target.id == 'rePass'){
+      const rType = rePassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      rePassword.setAttribute('type', rType);
+      }
+
+    eye.classList.toggle('fa-eye-slash')
+
+  })
+
+  eye.addEventListener('mouseup', (e) =>{
 
     if(e.target.id == 'ePass'){
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';

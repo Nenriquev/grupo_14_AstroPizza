@@ -17,7 +17,7 @@ const productController = {
 
     Promise.all([products, user])
             .then(([products, user]) => {
-              res.render('./products/product_list.ejs', {products: products, user: user})
+              res.render('./products/product_list.ejs', {products: products, user: user, req: req.query})
             });
     
   },
@@ -102,7 +102,7 @@ const productController = {
           where: { id: req.params.id },
         }
       ).then(() => {
-        res.redirect("/product");
+        res.redirect("/product?product=update");
       });
       
     },
@@ -111,7 +111,7 @@ const productController = {
       Products.destroy({
         where: {id:req.params.id}
       }).then(() => {
-        res.redirect('/product')
+        res.redirect('/product?product=delete')
       })
       
     },

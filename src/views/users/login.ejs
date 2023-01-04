@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,13 +12,16 @@
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/header.css" />
   <link rel="stylesheet" type="text/css" href="../css/users_styles/login.css" />
   <link rel="stylesheet" type="text/css" href="../css/partials_styles/button.css" />
+  <link rel="stylesheet" type="text/css" href="../css/partials_styles/toast.css">
   <title>Ingresá - Astro Pizza</title>
 </head>
 
 <body>
   <div class="main-container">
     <%- include('../partials/header') %>
-
+    <% if (locals?.req?.newUser) { %>
+      <div id="toast" data-value='newUser'></div>
+    <% } %>
       <div class="form-container">
         <div class="form-col">
           <img src="../img/71.png" />
@@ -65,7 +67,9 @@
                 <span class="errors" style="margin-top: 20px" ;>
                   <%= errorLogin %>
                 </span>
-                <% } %>
+                <% } else { %>
+                  <div class="errors" id="login-error"></div>
+                  <% } %>
 
                   <div class="register-u">
                     <div class="field-group">
@@ -89,7 +93,6 @@
 <script>
   AOS.init();
 </script>
+<script src="../js/partials/toastr.js"></script>
 <script src="../js/login.js"></script>
-<script src="../js/loginFrontValidation.js"></script>
-
 </html>

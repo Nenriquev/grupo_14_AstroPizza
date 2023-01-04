@@ -45,7 +45,7 @@ productRouter.get('/create', authMiddleware.isAdmin, productsController.create)
 productRouter.post('/create', uploadFile.single('image'), productValidation.createProduct, productsController.store)
 
 /*Update*/
-productRouter.get('/edit/:id',authMiddleware.isAdmin, productsController.edit)
+productRouter.get('/edit/:id'/* ,authMiddleware.isAdmin */, productsController.edit)
 productRouter.put('/edit/:id', uploadFile.single('image'), productValidation.updateProduct, productsController.update)
 productRouter.delete('/edit/:id', productsController.delete)
 
