@@ -164,15 +164,23 @@ const apiProductsController = {
               (prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev),
               {}
             );
+
             products.forEach((element) => {
               for (let key in resultado) {
                 if (element.dataValues.id == key) {
                   finalProducts.push({
+                    id: element.dataValues.id,
                     name: element.dataValues.name,
+                    image: element.dataValues.image,
+                    price: element.dataValues.price,
+                    category: element.dataValues.category_id,
+                    status: element.dataValues.status_id,
                     value: resultado[key],
                   });
                   topFive.push({
                     name: element.dataValues.name,
+                    image: element.dataValues.image,
+                    category: element.dataValues.category_id,
                     value: resultado[key],
                   })
                 }
