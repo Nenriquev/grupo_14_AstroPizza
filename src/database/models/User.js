@@ -36,6 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
+        tableName: 'users',
+        freezeTableName: true,
         timestamps: true,
         createdAt: true,
         updatedAt: false,

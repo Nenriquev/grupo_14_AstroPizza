@@ -34,6 +34,8 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   let config = {
+      tableName: 'products',
+      freezeTableName: true,
       timestamps: false,
       deletedAt: false
   }

@@ -23,7 +23,7 @@
   <div class="main-container">
 
     <%- include('../partials/header') %>
-      <% if (locals.req.update) { %>
+      <% if (locals?.req?.update) { %>
         <div id="toast" data-value="profile"></div>
         <% } %>
         <div class="cart-container">

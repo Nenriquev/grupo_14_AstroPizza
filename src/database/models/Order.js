@@ -27,6 +27,8 @@ module.exports = (sequelize, dataTypes) => {
     
   };
   let config = {
+      tableName: 'orders',
+      freezeTableName: true,
       timestamps: true,
       deleteAt: false,
       createdAt: true,

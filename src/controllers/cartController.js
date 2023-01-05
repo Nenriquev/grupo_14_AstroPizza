@@ -183,7 +183,6 @@ const cartController = {
     if(req.session.cart){
       const cart = req.session.cart
       total = await calculateItems(cart)
-      console.log(total)
     }
     res.render("cart.ejs", {param: req.query, total: total});
   },
