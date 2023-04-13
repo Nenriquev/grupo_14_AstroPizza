@@ -1,14 +1,23 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./src/app.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "/(.*)", "dest": "./src/app.js" }
+  "builds": [
+    { "src": "src/app.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "src/app.js" }
+  ],
+  "build": {
+    "buildCommand": "npm run build",
+    "outputDirectory": "public"  // <- Directorio de salida
+  },
+  "dev": {
+    "startCommand": "node ./src/app.js",
+    "port": 3000
+  },
+  "install": {
+    "include": [
+      "package.json",
+      "package-lock.json",
+      "src/**"
     ]
   }
-  
+}
